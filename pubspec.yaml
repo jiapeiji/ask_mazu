@@ -1,0 +1,88 @@
+name: ask_mazu
+description: "问妈祖 / Ask Mazu - 海外华人的日常仪式。投掷杯筊，问事求签。"
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # 状态管理
+  flutter_riverpod: ^2.4.9
+
+  # 路由
+  go_router: ^12.1.1
+
+  # 本地存储
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.1
+  shared_preferences: ^2.2.2
+
+  # 动画
+  lottie: ^2.7.0
+
+  # 音效
+  audioplayers: ^5.2.1
+
+  # 农历
+  lunar: ^1.7.7
+
+  # 订阅
+  in_app_purchase: ^3.1.11
+
+  # 国际化
+  intl: ^0.20.0
+
+  # UI 工具
+  cached_network_image: ^3.3.0
+
+  # 工具
+  uuid: ^4.2.1
+  collection: ^1.18.0
+
+  # 社交分享
+  share_plus: ^7.2.1
+  gal: ^2.2.0   # 保存图片到相册（iOS/Android）
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/
+    - assets/images/home/
+    - assets/images/result/
+    - assets/images/result_new/
+
+  # 字体：寒蝉锦书宋（ChillJinshuSong）—— 中文宋体
+  # 共 7 个字重总 ~106MB，建议后续做子集化（常用字+繁体常用字）
+  fonts:
+    - family: ChillJinshuSong
+      fonts:
+        - asset: assets/fonts/ChillJinshuSong-Light.otf
+          weight: 300
+        - asset: assets/fonts/ChillJinshuSong-Regular.otf
+          weight: 400
+        - asset: assets/fonts/ChillJinshuSong-Medium.otf
+          weight: 500
+        - asset: assets/fonts/ChillJinshuSong-Bold.otf
+          weight: 700
+        - asset: assets/fonts/ChillJinshuSong-Heavy.otf
+          weight: 800
+    - family: ChillJinshuSongText
+      fonts:
+        - asset: assets/fonts/ChillJinshuSong-TextRegular.otf
+          weight: 400
+        - asset: assets/fonts/ChillJinshuSong-TextMedium.otf
+          weight: 500
