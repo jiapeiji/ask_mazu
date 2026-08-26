@@ -1,0 +1,270 @@
+{
+  "@@locale": "zh",
+
+  "appTitle": "问妈祖",
+
+  "commonCancel": "取消",
+  "commonSave": "保存",
+  "commonClose": "关闭",
+  "commonConfirm": "确定",
+
+  "homeDiscipleSuffix": "弟子",
+  "homeCityPrefix": "现居 ",
+  "homeAskTitle": "今日欲问何事？",
+  "homeCatDaily": "今日运势",
+  "homeCatCareer": "事业",
+  "homeCatLove": "感情",
+  "homeCatFamily": "家庭",
+  "homeCatHealth": "健康",
+  "homeCatWealth": "财运",
+  "homeCatCustom": "自定义",
+  "homeThrowBtn": "投 掷 杯 筊",
+  "homeCustomPlaceholder": "想问点什么？",
+  "homeRemaining": "今日剩余 {count} 次",
+  "@homeRemaining": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "homeUnlimited": "今日无限次",
+  "homeUpgradeLink": "升级无限 →",
+  "homeLimitTitle": "今日次数已用完",
+  "homeLimitBody": "免费版每天可投掷 3 次\n订阅无限次数 + 完整签文库",
+  "homeLimitSub": "查看订阅",
+  "homeCustomTitle": "自定义问题",
+  "homeCustomHint": "请输入您想问的事~",
+
+  "onbMazu": "妈祖",
+  "onbTagline": "海外华人之日常仪式",
+  "onbNameLabel": "弟子如何称呼？",
+  "onbNameHint": "请输入您的名字",
+  "onbNameErrorEmpty": "请输入名字",
+  "onbNameErrorShort": "名字至少 2 个字",
+  "onbCityLabel": "现居何处？",
+  "onbCityHint": "请输入城市",
+  "onbCityErrorEmpty": "请输入城市",
+  "onbCityErrorShort": "城市至少 2 个字",
+  "onbSubmit": "入 殿 问 事",
+  "onbFootnote": "名字与城市仅用于结果中称呼，可在设置中修改",
+
+  "settingsTitle": "设 置",
+  "settingsSectionProfile": "报 家 门",
+  "settingsSectionLanguage": "语 言",
+  "settingsSectionSound": "声 音",
+  "settingsSectionSubscription": "订 阅",
+  "settingsSectionView": "查 看",
+  "settingsSectionAbout": "关 于",
+  "settingsSectionDebug": "调 试",
+
+  "settingsProfileUnset": "未设置",
+  "settingsEditProfileTitle": "修改报家门",
+  "settingsEditProfileName": "名字",
+  "settingsEditProfileCity": "城市",
+
+  "settingsLanguageZhCn": "简体中文",
+  "settingsLanguageZhTw": "繁體中文",
+  "settingsLanguageEn": "English",
+  "settingsLanguageChanged": "语言已切换",
+
+  "settingsSoundBlockTitle": "木块落地音",
+  "settingsSoundBlockDesc": "投掷时木块落地的回响",
+  "settingsSoundAmbientTitle": "庙宇环境音",
+  "settingsSoundAmbientActive": "在结果页循环播放",
+  "settingsSoundAmbientLocked": "订阅后可用",
+  "settingsSoundHapticTitle": "震动反馈",
+  "settingsSoundHapticDesc": "投掷完成时轻微震动",
+  "settingsSoundBadge": "订阅",
+
+  "settingsSubActive": "已订阅",
+  "settingsSubInactive": "升级无限次数",
+  "settingsSubActiveDesc": "感谢支持！",
+  "settingsSubInactiveDesc": "月卡 $4.99 / 年卡 $29.99",
+
+  "settingsViewHistory": "问事记录",
+  "settingsAboutMazu": "关于妈祖",
+  "settingsPrivacy": "隐私政策",
+  "settingsTerms": "用户协议",
+  "settingsAboutApp": "关于此 App",
+
+  "settingsDebugMockSub": "模拟订阅",
+  "settingsDebugMockSubDesc": "开启后所有订阅功能可用（无限次数 + 完整签文库）",
+  "settingsDebugResetToday": "重置今日使用次数",
+  "settingsDebugResetTodayDesc": "清空今日已投掷次数",
+  "settingsDebugResetDone": "已重置今日使用次数",
+
+  "settingsUpgradeTitle": "升 级 订 阅",
+  "settingsUpgradeFeatures": "· 每日无限次投掷\n· 完整 60 支签文\n· 历史记录云同步\n· 庙宇环境音\n· 节日特别签",
+  "settingsUpgradePrice": "月卡 $4.99\n年卡 $29.99（首月免费）",
+  "settingsUpgradeNote": "注：V0.1 暂未对接 App Store，订阅功能在 V1 启用。",
+
+  "historyTitle": "问 事 记 录",
+  "historyEmpty": "暂无问事记录",
+  "historyLoadError": "加载失败: {error}",
+  "@historyLoadError": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
+  "historyResultSaint": "圣杯",
+  "historyResultLaugh": "笑杯",
+  "historyResultYin": "阴杯",
+  "historyNoSign": "未得签文",
+  "historyAsk": "问：{question}",
+  "@historyAsk": {
+    "placeholders": {
+      "question": {"type": "String"}
+    }
+  },
+  "historySignTitle": "{level}签 · 第 {id} 签「{title}」",
+  "@historySignTitle": {
+    "placeholders": {
+      "level": {"type": "String"},
+      "id": {"type": "String"},
+      "title": {"type": "String"}
+    }
+  },
+
+  "signsTitle": "签 文 库",
+  "signsLoadError": "加载失败: {error}",
+  "@signsLoadError": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
+  "signsDetailTitle": "第 {id} 签",
+  "@signsDetailTitle": {
+    "placeholders": {
+      "id": {"type": "String"}
+    }
+  },
+  "signsDetailInterpretation": "解 曰",
+  "signsDetailAllusion": "典 故",
+  "signsDetailModern": "现代解读",
+
+  "throwHint": "叩 · 叩",
+
+  "saintTemplate1": "{name} 弟子，妈祖允你所问，此签为【{signTitle}】。",
+  "@saintTemplate1": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate2": "{name} 居士，慈航显应，所示如签。",
+  "@saintTemplate2": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "saintTemplate3": "{name} 弟子，妈祖慈怀允示。签曰【{signTitle}】，望善体天心。",
+  "@saintTemplate3": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate4": "{name} 居士，慈帆已张，顺风可期。签中所示，请细参详。",
+  "@saintTemplate4": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "saintTemplate5": "{name} 居士，慈母允儿所请。签曰【{signTitle}】，愿你此去顺遂。",
+  "@saintTemplate5": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate6": "{name} 弟子，圣杯一掷已明。签中所示，顺势而进可也。",
+  "@saintTemplate6": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "saintTemplate7": "{name} 弟子，慈帆高挂，顺风正起。签曰【{signTitle}】，当进则进。",
+  "@saintTemplate7": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate8": "{name} 弟子，妈祖含笑点头，所示如签。心定则事成。",
+  "@saintTemplate8": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+
+  "laughTemplate1": "{name} 弟子，问事心要诚，妈祖未允。请闭目静思片刻再请示。",
+  "@laughTemplate1": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate2": "{name} 弟子，妈祖含笑不语。此问尚有未明之处，请细思后重新请示。",
+  "@laughTemplate2": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate3": "{name} 弟子，妈祖含笑。此问或太急、或太泛，请缓一缓再问。",
+  "@laughTemplate3": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate4": "{name} 居士，香火未透，妈祖示以笑杯。静心三息，再来。",
+  "@laughTemplate4": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate5": "{name} 弟子，问事如磨刀，太急则钝。妈祖笑你急了些，请从容再来。",
+  "@laughTemplate5": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate6": "{name} 弟子，妈祖摇头笑曰：此问时机未到。请择日再请示。",
+  "@laughTemplate6": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate7": "{name} 弟子，妈祖笑而不答，必有缘由。静心自省，答案或在心中。",
+  "@laughTemplate7": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate8": "{name} 居士，妈祖笑杯示以未允。心未定时，再请示亦难应。",
+  "@laughTemplate8": {"placeholders": {"name": {"type": "String"}}},
+
+  "yinTemplate1": "{name} 弟子，妈祖示意此事不宜，宜缓行。",
+  "@yinTemplate1": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate2": "{name} 弟子，此事有违天时。妈祖示意退一步，海阔天空。",
+  "@yinTemplate2": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate3": "{name} 居士，心急则不达。妈祖示意缓行，待时来运转。",
+  "@yinTemplate3": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate4": "{name} 居士，妈祖明示此事不妥。强为之，必有后患。",
+  "@yinTemplate4": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate5": "{name} 弟子，妈祖不允，必有深意。切莫逆天行事，宜守不宜攻。",
+  "@yinTemplate5": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate6": "{name} 弟子，妈祖垂怜，示以阴杯，是为你好。暂避锋芒，谋定后动。",
+  "@yinTemplate6": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate7": "{name} 居士，妈祖摇头示警。眼前路不通，请耐心等候天时。",
+  "@yinTemplate7": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate8": "{name} 弟子，阴杯示凶，非绝路。妈祖点你：转个弯，路在前方。",
+  "@yinTemplate8": {"placeholders": {"name": {"type": "String"}}},
+
+  "resultSaint": "圣杯",
+  "resultLaugh": "笑杯",
+  "resultYin": "阴杯",
+  "resultShareBtn": "分享",
+  "resultRetrySaint": "再问一次",
+  "resultRetryLaugh": "重新组织问题",
+  "resultRetryYin": "改日再问",
+
+  "shareTitle": "分享妈祖所示",
+  "shareWechat": "微信",
+  "shareMoments": "朋友圈",
+  "shareCopy": "复制",
+  "shareSave": "存图",
+  "shareCopied": "文案已复制到剪贴板",
+  "shareSavedToAlbum": "已保存到相册\"AskMazu\"文件夹",
+  "shareImageGenFail": "生成图片失败，请重试",
+  "shareOpFail": "操作失败: {error}",
+  "@shareOpFail": {
+    "placeholders": {
+      "error": {"type": "String"}
+    }
+  },
+  "shareAlbumPermFail": "没有相册权限，请到设置中开启",
+  "shareSubject": "妈祖所示",
+  "shareSignPrefix": "🙏 妈祖所示 · ",
+  "shareFooter": "—— 来自「问妈祖 Ask Mazu」",
+  "shareMomentsHint": "（请在分享面板选\"朋友圈\"）",
+
+  "aboutMazuTitle": "关于妈祖",
+  "privacyTitle": "隐私政策",
+  "tosTitle": "用户协议",
+  "aboutAppVersion": "版本",
+  "aboutAppBuildTime": "构建时间",
+  "aboutAppPlatform": "平台",
+  "aboutAppFooter": "用 ❤️ 与 🙏 制作",
+  "aboutCopy": "复制全文",
+  "aboutCopied": "已复制全文"
+}

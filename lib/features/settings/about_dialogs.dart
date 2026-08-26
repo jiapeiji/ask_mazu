@@ -1,22 +1,25 @@
 // lib/features/settings/about_dialogs.dart
 // 关于 / 隐私 / 用户协议 / 关于此 App 对话框
+// （标题用 i18n；正文保留中文——法律/文化长文一期不译）
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/constants/app_constants.dart';
+import '../../l10n/generated/app_localizations.dart';
 
 class AboutDialogs {
   AboutDialogs._();
 
   /// 关于妈祖
   static void showAboutMazu(BuildContext context) {
+    final l = AppLocalizations.of(context);
     showDialog(
       context: context,
       builder: (ctx) => _buildScrollableDialog(
         context: ctx,
-        title: '关于妈祖',
+        title: l.aboutMazuTitle,
         content: '''妈祖，原名林默，公元 960 年生于福建莆田湄洲岛。
 
 相传她熟谙水性、洞晓天象，常于惊涛骇浪中救助遇险船隻。雍熙四年（公元 987 年），林默在一次海难中捨身救人，民众感其恩德，于湄洲岛立庙奉祀，尊称为「妈祖」。
@@ -32,11 +35,12 @@ class AboutDialogs {
 
   /// 隐私政策
   static void showPrivacyPolicy(BuildContext context) {
+    final l = AppLocalizations.of(context);
     showDialog(
       context: context,
       builder: (ctx) => _buildScrollableDialog(
         context: ctx,
-        title: '隐私政策',
+        title: l.privacyTitle,
         content: '''最后更新：2026 年 8 月
 
 【我们收集什么】
@@ -65,11 +69,12 @@ class AboutDialogs {
 
   /// 用户协议
   static void showTermsOfService(BuildContext context) {
+    final l = AppLocalizations.of(context);
     showDialog(
       context: context,
       builder: (ctx) => _buildScrollableDialog(
         context: ctx,
-        title: '用户协议',
+        title: l.tosTitle,
         content: '''最后更新：2026 年 8 月
 
 【服务说明】
@@ -99,6 +104,7 @@ class AboutDialogs {
 
   /// 关于此 App
   static void showAboutApp(BuildContext context) {
+    final l = AppLocalizations.of(context);
     showDialog(
       context: context,
       builder: (ctx) => Dialog(
@@ -117,7 +123,7 @@ class AboutDialogs {
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.mazuRed.withOpacity(0.3),
+                      color: AppColors.mazuRed.withValues(alpha: 0.3),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -142,20 +148,20 @@ class AboutDialogs {
                 style: TextStyle(fontSize: 13, color: AppColors.gray),
               ),
               const SizedBox(height: 24),
-              _buildInfoRow('版本', 'v${AppConstants.version}'),
-              _buildInfoRow('构建时间', '2026-08'),
-              _buildInfoRow('平台', 'iOS / Android'),
+              _buildInfoRow(l.aboutAppVersion, 'v${AppConstants.version}'),
+              _buildInfoRow(l.aboutAppBuildTime, '2026-08'),
+              _buildInfoRow(l.aboutAppPlatform, 'iOS / Android'),
               const SizedBox(height: 20),
-              const Text(
-                '用 ❤️ 与 🙏 制作',
-                style: TextStyle(fontSize: 12, color: AppColors.gray),
+              Text(
+                l.aboutAppFooter,
+                style: const TextStyle(fontSize: 12, color: AppColors.gray),
               ),
               const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () => Navigator.pop(ctx),
-                  child: const Text('关闭'),
+                  child: Text(l.commonClose),
                 ),
               ),
             ],
@@ -184,6 +190,7 @@ class AboutDialogs {
     required String title,
     required String content,
   }) {
+    final l = AppLocalizations.of(context);
     return Dialog(
       backgroundColor: AppColors.riceWhite,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -250,17 +257,17 @@ class AboutDialogs {
                       await Clipboard.setData(ClipboardData(text: content));
                       if (context.mounted) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('已复制全文')),
+                          SnackBar(content: Text(l.aboutCopied)),
                         );
                       }
                     },
                     icon: const Icon(Icons.copy, size: 16),
-                    label: const Text('复制全文'),
+                    label: Text(l.aboutCopy),
                   ),
                   const SizedBox(width: 8),
                   TextButton(
                     onPressed: () => Navigator.pop(context),
-                    child: const Text('关闭'),
+                    child: Text(l.commonClose),
                   ),
                 ],
               ),

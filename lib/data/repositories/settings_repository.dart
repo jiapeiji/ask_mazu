@@ -24,6 +24,9 @@ class SettingsRepository {
   // ====== 首启 ======
   static const String _kFirstRunDone = 'first_run_done';       // 是否看过首启引导
 
+  // ====== 语言 ======
+  static const String _kLocaleCode = 'locale_code';            // 'zh_CN' / 'zh_TW' / 'en'
+
   // ====== 声音 ======
   Future<bool> getSoundEnabled() async => (await _ensureBox()).get(_kSoundEnabled, defaultValue: true) as bool;
   Future<void> setSoundEnabled(bool v) async => (await _ensureBox()).put(_kSoundEnabled, v);
@@ -41,4 +44,11 @@ class SettingsRepository {
   // ====== 首启 ======
   Future<bool> getFirstRunDone() async => (await _ensureBox()).get(_kFirstRunDone, defaultValue: false) as bool;
   Future<void> setFirstRunDone(bool v) async => (await _ensureBox()).put(_kFirstRunDone, v);
+
+  // ====== 语言 ======
+  /// 返回 'zh_CN' / 'zh_TW' / 'en'，未设置时默认简中。
+  Future<String> getLocaleCode() async =>
+      (await _ensureBox()).get(_kLocaleCode, defaultValue: 'zh_CN') as String;
+  Future<void> setLocaleCode(String code) async =>
+      (await _ensureBox()).put(_kLocaleCode, code);
 }

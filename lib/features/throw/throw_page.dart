@@ -12,6 +12,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/utils/result_templates.dart';
 import '../../data/models/fortune_sign.dart';
 import '../../data/models/question_record.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import '../result/result_page.dart';
 import '../../services/physics/block_physics.dart';
@@ -154,6 +155,7 @@ class _ThrowPageState extends ConsumerState<ThrowPage>
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
       body: Stack(
@@ -184,7 +186,7 @@ class _ThrowPageState extends ConsumerState<ThrowPage>
             right: 0,
             child: Center(
               child: Text(
-                _isDone ? '' : '叩 · 叩',
+                _isDone ? '' : l.throwHint,
                 style: const TextStyle(
                   fontSize: 24,
                   color: AppColors.gray,

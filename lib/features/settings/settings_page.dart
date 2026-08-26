@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import 'about_dialogs.dart';
 
@@ -15,6 +16,7 @@ class SettingsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
     final user = ref.watch(currentUserProvider).valueOrNull;
     final isSubscribed = ref.watch(isSubscribedProvider);
     final settings = ref.watch(settingsProvider);
@@ -23,7 +25,7 @@ class SettingsPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
       appBar: AppBar(
-        title: const Text('设 置'),
+        title: Text(l.settingsTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
@@ -35,26 +37,54 @@ class SettingsPage extends ConsumerWidget {
           // 报家门信息
           _buildSection(
             context: context,
-            title: '报 家 门',
+            title: l.settingsSectionProfile,
             children: [
               ListTile(
                 leading: const Icon(Icons.person_outline, color: AppColors.mazuRed),
-                title: Text(user?.name ?? '未设置'),
+                title: Text(user?.name ?? l.settingsProfileUnset),
                 subtitle: Text(user?.city ?? ''),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
                 onTap: () => _showEditProfileDialog(context, ref),
               ),
             ],
           ),
+          // 语言
+          _buildSection(
+            context: context,
+            title: l.settingsSectionLanguage,
+            children: [
+              _buildLanguageTile(
+                context: context,
+                ref: ref,
+                code: 'zh_CN',
+                label: l.settingsLanguageZhCn,
+                groupValue: settings.localeCode,
+              ),
+              _buildLanguageTile(
+                context: context,
+                ref: ref,
+                code: 'zh_TW',
+                label: l.settingsLanguageZhTw,
+                groupValue: settings.localeCode,
+              ),
+              _buildLanguageTile(
+                context: context,
+                ref: ref,
+                code: 'en',
+                label: l.settingsLanguageEn,
+                groupValue: settings.localeCode,
+              ),
+            ],
+          ),
           // 声音
           _buildSection(
             context: context,
-            title: '声 音',
+            title: l.settingsSectionSound,
             children: [
               SwitchListTile(
                 secondary: const Icon(Icons.volume_up, color: AppColors.mazuRed),
-                title: const Text('木块落地音'),
-                subtitle: const Text('投掷时木块落地的回响', style: TextStyle(fontSize: 12)),
+                title: Text(l.settingsSoundBlockTitle),
+                subtitle: Text(l.settingsSoundBlockDesc, style: const TextStyle(fontSize: 12)),
                 value: settings.soundEnabled,
                 onChanged: (v) => notifier.setSoundEnabled(v),
               ),
@@ -65,7 +95,7 @@ class SettingsPage extends ConsumerWidget {
                 ),
                 title: Row(
                   children: [
-                    const Text('庙宇环境音'),
+                    Text(l.settingsSoundAmbientTitle),
                     if (!isSubscribed) ...[
                       const SizedBox(width: 8),
                       Container(
@@ -74,9 +104,9 @@ class SettingsPage extends ConsumerWidget {
                           color: AppColors.goldYellow,
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: const Text(
-                          '订阅',
-                          style: TextStyle(fontSize: 10, color: Colors.white),
+                        child: Text(
+                          l.settingsSoundBadge,
+                          style: const TextStyle(fontSize: 10, color: Colors.white),
                         ),
                       ),
                     ],
@@ -84,8 +114,8 @@ class SettingsPage extends ConsumerWidget {
                 ),
                 subtitle: Text(
                   isSubscribed
-                      ? '在结果页循环播放'
-                      : '订阅后可用',
+                      ? l.settingsSoundAmbientActive
+                      : l.settingsSoundAmbientLocked,
                   style: const TextStyle(fontSize: 12),
                 ),
                 value: isSubscribed ? settings.ambientEnabled : false,
@@ -95,135 +125,75 @@ class SettingsPage extends ConsumerWidget {
               ),
               SwitchListTile(
                 secondary: const Icon(Icons.vibration, color: AppColors.mazuRed),
-                title: const Text('震动反馈'),
-                subtitle: const Text('投掷完成时轻微震动', style: TextStyle(fontSize: 12)),
+                title: Text(l.settingsSoundHapticTitle),
+                subtitle: Text(l.settingsSoundHapticDesc, style: const TextStyle(fontSize: 12)),
                 value: settings.hapticEnabled,
                 onChanged: (v) => notifier.setHapticEnabled(v),
-              ),
-            ],
-          ),
-          // 主题
-          _buildSection(
-            context: context,
-            title: '主 题',
-            children: [
-              RadioListTile<ThemeMode>(
-                value: ThemeMode.light,
-                groupValue: settings.themeMode,
-                onChanged: (m) {
-                  if (m != null) notifier.setThemeMode(m);
-                },
-                title: const Text('妈祖红（默认）'),
-                subtitle: const Text('米白底 + 朱红点缀', style: TextStyle(fontSize: 12)),
-                secondary: Container(
-                  width: 28,
-                  height: 28,
-                  decoration: const BoxDecoration(
-                    color: AppColors.mazuRed,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-              RadioListTile<ThemeMode>(
-                value: ThemeMode.dark,
-                groupValue: settings.themeMode,
-                onChanged: (m) {
-                  if (m != null) notifier.setThemeMode(m);
-                },
-                title: const Text('玄夜黑'),
-                subtitle: const Text('深棕底 + 金色点缀（夜间护眼）', style: TextStyle(fontSize: 12)),
-                secondary: Container(
-                  width: 28,
-                  height: 28,
-                  decoration: const BoxDecoration(
-                    color: AppColors.darkBg,
-                    shape: BoxShape.circle,
-                    border: Border.fromBorderSide(
-                      BorderSide(color: AppColors.goldYellow, width: 1.5),
-                    ),
-                  ),
-                ),
-              ),
-              RadioListTile<ThemeMode>(
-                value: ThemeMode.system,
-                groupValue: settings.themeMode,
-                onChanged: (m) {
-                  if (m != null) notifier.setThemeMode(m);
-                },
-                title: const Text('跟随系统'),
-                secondary: const Icon(Icons.brightness_auto, color: AppColors.gray),
               ),
             ],
           ),
           // 订阅
           _buildSection(
             context: context,
-            title: '订 阅',
+            title: l.settingsSectionSubscription,
             children: [
               ListTile(
                 leading: Icon(
                   isSubscribed ? Icons.workspace_premium : Icons.workspace_premium_outlined,
                   color: isSubscribed ? AppColors.goldYellow : AppColors.gray,
                 ),
-                title: Text(isSubscribed ? '已订阅' : '升级无限次数'),
+                title: Text(isSubscribed ? l.settingsSubActive : l.settingsSubInactive),
                 subtitle: Text(
                   isSubscribed
-                      ? '感谢支持！'
-                      : '月卡 \$4.99 / 年卡 \$29.99',
+                      ? l.settingsSubActiveDesc
+                      : l.settingsSubInactiveDesc,
                 ),
                 trailing: isSubscribed ? null : const Icon(Icons.chevron_right),
                 onTap: isSubscribed
                     ? null
-                    : () => _showSubscriptionDialog(context),
+                    : () => _showSubscriptionDialog(context, l),
               ),
             ],
           ),
           // 签文库 + 历史
           _buildSection(
             context: context,
-            title: '查 看',
+            title: l.settingsSectionView,
             children: [
               ListTile(
                 leading: const Icon(Icons.history, color: AppColors.mazuRed),
-                title: const Text('问事记录'),
+                title: Text(l.settingsViewHistory),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
                 onTap: () => context.push('/history'),
-              ),
-              ListTile(
-                leading: const Icon(Icons.menu_book_outlined, color: AppColors.mazuRed),
-                title: const Text('妈祖签文库'),
-                subtitle: const Text('查看所有 60 支签文', style: TextStyle(fontSize: 12)),
-                trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
-                onTap: () => context.push('/signs'),
               ),
             ],
           ),
           // 关于
           _buildSection(
             context: context,
-            title: '关 于',
+            title: l.settingsSectionAbout,
             children: [
               ListTile(
                 leading: const Icon(Icons.info_outline, color: AppColors.gray),
-                title: const Text('关于妈祖'),
+                title: Text(l.settingsAboutMazu),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
                 onTap: () => AboutDialogs.showAboutMazu(context),
               ),
               ListTile(
                 leading: const Icon(Icons.privacy_tip_outlined, color: AppColors.gray),
-                title: const Text('隐私政策'),
+                title: Text(l.settingsPrivacy),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
                 onTap: () => AboutDialogs.showPrivacyPolicy(context),
               ),
               ListTile(
                 leading: const Icon(Icons.description_outlined, color: AppColors.gray),
-                title: const Text('用户协议'),
+                title: Text(l.settingsTerms),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
                 onTap: () => AboutDialogs.showTermsOfService(context),
               ),
               ListTile(
                 leading: const Icon(Icons.app_settings_alt, color: AppColors.gray),
-                title: const Text('关于此 App'),
+                title: Text(l.settingsAboutApp),
                 subtitle: const Text('v0.1.0 · 2026-08'),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
                 onTap: () => AboutDialogs.showAboutApp(context),
@@ -234,12 +204,12 @@ class SettingsPage extends ConsumerWidget {
           if (kDebugMode)
             _buildSection(
               context: context,
-              title: '调 试',
+              title: l.settingsSectionDebug,
               children: [
                 SwitchListTile(
                   secondary: const Icon(Icons.bug_report, color: AppColors.warningRed),
-                  title: const Text('模拟订阅'),
-                  subtitle: const Text('开启后所有订阅功能可用（无限次数 + 完整签文库）'),
+                  title: Text(l.settingsDebugMockSub),
+                  subtitle: Text(l.settingsDebugMockSubDesc),
                   value: isSubscribed,
                   onChanged: (v) {
                     ref.read(isSubscribedProvider.notifier).state = v;
@@ -247,13 +217,13 @@ class SettingsPage extends ConsumerWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.refresh, color: AppColors.gray),
-                  title: const Text('重置今日使用次数'),
-                  subtitle: const Text('清空今日已投掷次数'),
+                  title: Text(l.settingsDebugResetToday),
+                  subtitle: Text(l.settingsDebugResetTodayDesc),
                   onTap: () async {
                     await ref.read(remainingProvider.notifier).reset();
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('已重置今日使用次数')),
+                        SnackBar(content: Text(l.settingsDebugResetDone)),
                       );
                     }
                   },
@@ -263,6 +233,42 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 32),
         ],
       ),
+    );
+  }
+
+  Widget _buildLanguageTile({
+    required BuildContext context,
+    required WidgetRef ref,
+    required String code,
+    required String label,
+    required String groupValue,
+  }) {
+    final selected = code == groupValue;
+    return ListTile(
+      leading: Icon(
+        Icons.language,
+        color: selected ? AppColors.mazuRed : AppColors.gray,
+      ),
+      title: Text(
+        label,
+        style: TextStyle(
+          color: selected ? AppColors.mazuRed : AppColors.inkBlack,
+          fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+        ),
+      ),
+      trailing: selected
+          ? const Icon(Icons.check, color: AppColors.mazuRed)
+          : null,
+      onTap: () async {
+        if (selected) return;
+        await ref.read(settingsProvider.notifier).setLocaleCode(code);
+        if (context.mounted) {
+          final l = AppLocalizations.of(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(l.settingsLanguageChanged)),
+          );
+        }
+      },
     );
   }
 
@@ -292,6 +298,7 @@ class SettingsPage extends ConsumerWidget {
   }
 
   void _showEditProfileDialog(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
     final user = ref.read(currentUserProvider).valueOrNull;
     final nameController = TextEditingController(text: user?.name ?? '');
     final cityController = TextEditingController(text: user?.city ?? '');
@@ -300,18 +307,18 @@ class SettingsPage extends ConsumerWidget {
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.riceWhite,
-        title: const Text('修改报家门'),
+        title: Text(l.settingsEditProfileTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(labelText: '名字'),
+              decoration: InputDecoration(labelText: l.settingsEditProfileName),
               maxLength: 10,
             ),
             TextField(
               controller: cityController,
-              decoration: const InputDecoration(labelText: '城市'),
+              decoration: InputDecoration(labelText: l.settingsEditProfileCity),
               maxLength: 30,
             ),
           ],
@@ -319,7 +326,7 @@ class SettingsPage extends ConsumerWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
+            child: Text(l.commonCancel),
           ),
           TextButton(
             onPressed: () async {
@@ -329,48 +336,44 @@ class SettingsPage extends ConsumerWidget {
                   );
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('保存', style: TextStyle(color: AppColors.mazuRed)),
+            child: Text(l.commonSave, style: const TextStyle(color: AppColors.mazuRed)),
           ),
         ],
       ),
     );
   }
 
-  void _showSubscriptionDialog(BuildContext context) {
+  void _showSubscriptionDialog(BuildContext context, AppLocalizations l) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: AppColors.riceWhite,
-        title: const Text('升 级 订 阅'),
-        content: const Column(
+        title: Text(l.settingsUpgradeTitle),
+        content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('· 每日无限次投掷'),
-            Text('· 完整 60 支签文'),
-            Text('· 历史记录云同步'),
-            Text('· 庙宇环境音'),
-            Text('· 节日特别签'),
-            SizedBox(height: 16),
+            Text(l.settingsUpgradeFeatures),
+            const SizedBox(height: 16),
             Text(
-              '月卡 \$4.99\n年卡 \$29.99（首月免费）',
-              style: TextStyle(
+              l.settingsUpgradePrice,
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
                 color: AppColors.mazuRed,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
-              '注：V0.1 暂未对接 App Store，订阅功能在 V1 启用。',
-              style: TextStyle(fontSize: 12, color: AppColors.gray),
+              l.settingsUpgradeNote,
+              style: const TextStyle(fontSize: 12, color: AppColors.gray),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('关闭'),
+            child: Text(l.commonClose),
           ),
         ],
       ),

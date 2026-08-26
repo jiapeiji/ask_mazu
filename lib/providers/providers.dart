@@ -57,12 +57,13 @@ final currentUserProvider = StateNotifierProvider<CurrentUserNotifier, AsyncValu
 
 class CurrentUserNotifier extends StateNotifier<AsyncValue<UserProfile?>> {
   final UserRepository _repo;
-  CurrentUserNotifier(this._repo) : super(const AsyncValue.loading()) {
-    _load();
-  }
+  /// 初始 user（main.dart 预热 Hive 后从 box 直接读出来，绕过 loading 状态）
+  /// null 表示无 user（首次安装），非 null 表示已报家门
+  CurrentUserNotifier(this._repo, {UserProfile? initialUser})
+      : super(AsyncValue.data(initialUser));
 
+  /// 重新从 Hive 加载（用于 update 后刷新 state；首次启动不需要，主入口已预热）
   Future<void> _load() async {
-    state = const AsyncValue.loading();
     try {
       final user = await _repo.get();
       state = AsyncValue.data(user);
@@ -182,6 +183,7 @@ class AppSettings {
   final bool ambientEnabled;
   final bool hapticEnabled;
   final bool firstRunDone;
+  final String localeCode; // 'zh_CN' / 'zh_TW' / 'en'
 
   const AppSettings({
     required this.themeMode,
@@ -189,6 +191,7 @@ class AppSettings {
     required this.ambientEnabled,
     required this.hapticEnabled,
     required this.firstRunDone,
+    required this.localeCode,
   });
 
   AppSettings copyWith({
@@ -197,6 +200,7 @@ class AppSettings {
     bool? ambientEnabled,
     bool? hapticEnabled,
     bool? firstRunDone,
+    String? localeCode,
   }) {
     return AppSettings(
       themeMode: themeMode ?? this.themeMode,
@@ -204,6 +208,7 @@ class AppSettings {
       ambientEnabled: ambientEnabled ?? this.ambientEnabled,
       hapticEnabled: hapticEnabled ?? this.hapticEnabled,
       firstRunDone: firstRunDone ?? this.firstRunDone,
+      localeCode: localeCode ?? this.localeCode,
     );
   }
 }
@@ -239,6 +244,7 @@ class SettingsNotifier extends StateNotifier<AppSettings> {
           ambientEnabled: false,
           hapticEnabled: true,
           firstRunDone: false,
+          localeCode: 'zh_CN',
         )) {
     _load();
   }
@@ -250,6 +256,7 @@ class SettingsNotifier extends StateNotifier<AppSettings> {
       ambientEnabled: await _repo.getAmbientEnabled(),
       hapticEnabled: await _repo.getHapticEnabled(),
       firstRunDone: await _repo.getFirstRunDone(),
+      localeCode: await _repo.getLocaleCode(),
     );
   }
 
@@ -278,6 +285,11 @@ class SettingsNotifier extends StateNotifier<AppSettings> {
   Future<void> markFirstRunDone() async {
     state = state.copyWith(firstRunDone: true);
     await _repo.setFirstRunDone(true);
+  }
+
+  Future<void> setLocaleCode(String code) async {
+    state = state.copyWith(localeCode: code);
+    await _repo.setLocaleCode(code);
   }
 }
 

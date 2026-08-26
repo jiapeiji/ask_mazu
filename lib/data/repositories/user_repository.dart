@@ -14,16 +14,16 @@ class UserRepository {
     return _box!;
   }
 
-  static const String _key = 'current_user';
+  static const String userKey = 'current_user';
 
   Future<UserProfile?> get() async {
     final box = await _ensureBox();
-    return box.get(_key);
+    return box.get(userKey);
   }
 
   Future<void> save(UserProfile profile) async {
     final box = await _ensureBox();
-    await box.put(_key, profile);
+    await box.put(userKey, profile);
   }
 
   Future<void> update({String? name, String? city}) async {
@@ -34,7 +34,7 @@ class UserRepository {
 
   Future<void> clear() async {
     final box = await _ensureBox();
-    await box.delete(_key);
+    await box.delete(userKey);
   }
 
   /// 是否已完成报家门

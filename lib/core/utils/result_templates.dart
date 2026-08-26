@@ -1,7 +1,11 @@
 // lib/core/utils/result_templates.dart
-// 名字呼出文案模板
+// 妈祖开场白：按当前 locale 选 8 套模板之一（圣/笑/阴杯各 8 套）
+//
+// 模板来自 ARB（i18n），由 [getMessage] 在调用方传入 AppLocalizations 选取。
 
 import 'dart:math';
+
+import '../../l10n/generated/app_localizations.dart';
 
 enum ThrowResultType { saint, laugh, yin }
 
@@ -10,61 +14,63 @@ class ResultTemplates {
 
   static final _random = Random();
 
-  // 圣杯文案（8 套）
-  static const List<String> _saintTemplates = [
-    '{name} 弟子，妈祖允你所问，此签为【{signTitle}】。',
-    '{name} 居士，慈航显应，所示如签。',
-    '{name} 弟子，妈祖慈怀允示。签曰【{signTitle}】，望善体天心。',
-    '{name} 居士，慈帆已张，顺风可期。签中所示，请细参详。',
-    '{name} 居士，慈母允儿所请。签曰【{signTitle}】，愿你此去顺遂。',
-    '{name} 弟子，圣杯一掷已明。签中所示，顺势而进可也。',
-    '{name} 弟子，慈帆高挂，顺风正起。签曰【{signTitle}】，当进则进。',
-    '{name} 子，妈祖含笑点头，所示如签。心定则事成。',
-  ];
-
-  // 笑杯文案（8 套）
-  static const List<String> _laughTemplates = [
-    '{name} 弟子，问事心要诚，妈祖未允。请闭目静思片刻再请示。',
-    '{name} 弟子，妈祖含笑不语。此问尚有未明之处，请细思后重新请示。',
-    '{name} 弟子，妈祖含笑。此问或太急、或太泛，请缓一缓再问。',
-    '{name} 居士，香火未透，妈祖示以笑杯。静心三息，再来。',
-    '{name} 子，问事如磨刀，太急则钝。妈祖笑你急了些，请从容再来。',
-    '{name} 弟子，妈祖摇头笑曰：此问时机未到。请择日再请示。',
-    '{name} 弟子，妈祖笑而不答，必有缘由。静心自省，答案或在心中。',
-    '{name} 居士，妈祖笑杯示以未允。心未定时，再请示亦难应。',
-  ];
-
-  // 阴杯文案（8 套）
-  static const List<String> _yinTemplates = [
-    '{name} 弟子，妈祖示意此事不宜，宜缓行。',
-    '{name} 弟子，此事有违天时。妈祖示意退一步，海阔天空。',
-    '{name} 居士，心急则不达。妈祖示意缓行，待时来运转。',
-    '{name} 居士，妈祖明示此事不妥。强行为之，必有后患。',
-    '{name} 弟子，妈祖不允，必有深意。切莫逆天行事，宜守不宜攻。',
-    '{name} 弟子，妈祖垂怜，示以阴杯，是为你好。暂避锋芒，谋定后动。',
-    '{name} 居士，妈祖摇头示警。眼前路不通，请耐心等候天时。',
-    '{name} 子，阴杯示凶，非绝路。妈祖点你：转个弯，路在前方。',
-  ];
-
-  /// 根据结果类型获取文案
+  /// 根据结果类型与当前语言，从 ARB 取 8 套模板之一，替换 {name} / {signTitle}。
   static String getMessage({
+    required AppLocalizations l,
     required ThrowResultType type,
     required String name,
     String? signTitle,
   }) {
-    final templates = switch (type) {
-      ThrowResultType.saint => _saintTemplates,
-      ThrowResultType.laugh => _laughTemplates,
-      ThrowResultType.yin => _yinTemplates,
+    // 随机选一个 index，按当前 locale + 类型选模板并替换占位符
+    final i = _random.nextInt(8);
+    final signTitleArg = signTitle ?? '';
+    return switch (type) {
+      ThrowResultType.saint => _pickSaint(l, i, name, signTitleArg),
+      ThrowResultType.laugh => _pickLaugh(l, i, name),
+      ThrowResultType.yin   => _pickYin(l, i, name),
     };
-
-    final template = templates[_random.nextInt(templates.length)];
-    return template
-        .replaceAll('{name}', name)
-        .replaceAll('{signTitle}', signTitle ?? '');
   }
 
-  /// 重问按钮文案
+  static String _pickSaint(AppLocalizations l, int i, String name, String signTitle) {
+    return switch (i) {
+      0 => l.saintTemplate1(name, signTitle),
+      1 => l.saintTemplate2(name),
+      2 => l.saintTemplate3(name, signTitle),
+      3 => l.saintTemplate4(name),
+      4 => l.saintTemplate5(name, signTitle),
+      5 => l.saintTemplate6(name),
+      6 => l.saintTemplate7(name, signTitle),
+      _ => l.saintTemplate8(name),
+    };
+  }
+
+  static String _pickLaugh(AppLocalizations l, int i, String name) {
+    return switch (i) {
+      0 => l.laughTemplate1(name),
+      1 => l.laughTemplate2(name),
+      2 => l.laughTemplate3(name),
+      3 => l.laughTemplate4(name),
+      4 => l.laughTemplate5(name),
+      5 => l.laughTemplate6(name),
+      6 => l.laughTemplate7(name),
+      _ => l.laughTemplate8(name),
+    };
+  }
+
+  static String _pickYin(AppLocalizations l, int i, String name) {
+    return switch (i) {
+      0 => l.yinTemplate1(name),
+      1 => l.yinTemplate2(name),
+      2 => l.yinTemplate3(name),
+      3 => l.yinTemplate4(name),
+      4 => l.yinTemplate5(name),
+      5 => l.yinTemplate6(name),
+      6 => l.yinTemplate7(name),
+      _ => l.yinTemplate8(name),
+    };
+  }
+
+  /// 重问按钮文案（保留兼容，新代码用 AppLocalizations.resultRetry*）
   static String getRetryButtonText(ThrowResultType type) {
     return switch (type) {
       ThrowResultType.laugh => '重新组织问题',

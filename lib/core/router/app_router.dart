@@ -13,16 +13,28 @@ import '../../features/signs/signs_library_page.dart';
 import '../../features/history/history_page.dart';
 import '../../features/settings/settings_page.dart';
 import '../../data/models/fortune_sign.dart';
+import '../../data/models/user_profile.dart';
 import '../../core/utils/result_templates.dart';
 import '../../providers/providers.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
+  // user 状态变化时让 GoRouter 重新跑 redirect
+  // 场景：app 冷启动 → currentUserProvider 还在 loading → redirect 第一次跑时 return null →
+  //   user 加载完触发 refresh → redirect 再跑 → 跳 /onboarding
+  // 没这个 refresh 的话，loading 时放过路由 + user 加载完 router 不重跑 = 永远卡首页
+  final refreshListenable = ValueNotifier<int>(0);
+  ref.listen<AsyncValue<UserProfile?>>(
+    currentUserProvider,
+    (_, __) => refreshListenable.value++,
+  );
+
   return GoRouter(
     initialLocation: '/',
+    refreshListenable: refreshListenable,
     redirect: (context, state) {
       final user = ref.read(currentUserProvider).valueOrNull;
       final userLoading = ref.read(currentUserProvider).isLoading;
-      if (userLoading) return null;
+      if (userLoading) return null;  // 还在加载中先放过，user 加载完 refresh 会再跑
       final isOnboarding = state.matchedLocation == '/onboarding';
       if (user == null && !isOnboarding) return '/onboarding';
       if (user != null && isOnboarding) return '/home';

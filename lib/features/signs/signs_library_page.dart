@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/models/fortune_sign.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 
 class SignsLibraryPage extends ConsumerWidget {
@@ -15,13 +16,15 @@ class SignsLibraryPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
+    final code = ref.watch(settingsProvider).localeCode;
     final signsAsync = ref.watch(signsProvider);
     final isSubscribed = ref.watch(isSubscribedProvider);
 
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
       appBar: AppBar(
-        title: const Text('签 文 库'),
+        title: Text(l.signsTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
@@ -29,9 +32,8 @@ class SignsLibraryPage extends ConsumerWidget {
       ),
       body: signsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('加载失败: $e')),
+        error: (e, _) => Center(child: Text(l.signsLoadError(e.toString()))),
         data: (allSigns) {
-          // 按等级分组
           final grouped = <FortuneLevel, List<FortuneSign>>{};
           for (final s in allSigns) {
             grouped.putIfAbsent(s.level, () => []).add(s);
@@ -61,7 +63,8 @@ class SignsLibraryPage extends ConsumerWidget {
                 level: level,
                 signs: signs,
                 isSubscribed: isSubscribed,
-                allSigns: allSigns,
+                l: l,
+                code: code,
               );
             },
           );
@@ -75,7 +78,8 @@ class SignsLibraryPage extends ConsumerWidget {
     required FortuneLevel level,
     required List<FortuneSign> signs,
     required bool isSubscribed,
-    required List<FortuneSign> allSigns,
+    required AppLocalizations l,
+    required String code,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +87,7 @@ class SignsLibraryPage extends ConsumerWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(8, 16, 8, 12),
           child: Text(
-            '━━━ ${level.label} ━━━',
+            '━━━ ${level.label}签 ━━━',
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
@@ -105,20 +109,20 @@ class SignsLibraryPage extends ConsumerWidget {
           itemBuilder: (context, i) {
             final sign = signs[i];
             final isLocked = !isSubscribed && sign.id > AppConstants.freeSignsLimit;
-            return _buildSignCard(context, sign, isLocked);
+            return _buildSignCard(context, sign, isLocked, code);
           },
         ),
       ],
     );
   }
 
-  Widget _buildSignCard(BuildContext context, FortuneSign sign, bool isLocked) {
+  Widget _buildSignCard(BuildContext context, FortuneSign sign, bool isLocked, String code) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => _SignDetailPage(sign: sign),
+            builder: (_) => _SignDetailPage(sign: sign, localeCode: code),
           ),
         );
       },
@@ -138,7 +142,7 @@ class SignsLibraryPage extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
-                    color: AppColors.goldYellow.withOpacity(0.15),
+                    color: AppColors.goldYellow.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
@@ -157,7 +161,7 @@ class SignsLibraryPage extends ConsumerWidget {
               ],
             ),
             Text(
-              '「${sign.title}」',
+              '「${sign.getTitle(code)}」',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -173,14 +177,16 @@ class SignsLibraryPage extends ConsumerWidget {
 
 class _SignDetailPage extends StatelessWidget {
   final FortuneSign sign;
-  const _SignDetailPage({required this.sign});
+  final String localeCode;
+  const _SignDetailPage({required this.sign, required this.localeCode});
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
       appBar: AppBar(
-        title: Text('第 ${sign.id} 签'),
+        title: Text(l.signsDetailTitle(sign.id.toString())),
         backgroundColor: AppColors.riceWhite,
         elevation: 0,
       ),
@@ -215,7 +221,7 @@ class _SignDetailPage extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    '「${sign.title}」',
+                    '「${sign.getTitle(localeCode)}」',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -226,7 +232,7 @@ class _SignDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                sign.poem,
+                sign.getPoem(localeCode),
                 style: const TextStyle(
                   fontSize: 16,
                   color: AppColors.inkBlack,
@@ -236,9 +242,9 @@ class _SignDetailPage extends StatelessWidget {
               const SizedBox(height: 20),
               const Divider(),
               const SizedBox(height: 12),
-              const Text(
-                '解 曰',
-                style: TextStyle(
+              Text(
+                l.signsDetailInterpretation,
+                style: const TextStyle(
                   fontSize: 13,
                   color: AppColors.gray,
                   fontWeight: FontWeight.w600,
@@ -246,15 +252,15 @@ class _SignDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                sign.interpretation,
+                sign.getInterpretation(localeCode),
                 style: const TextStyle(fontSize: 14, height: 1.6),
               ),
               const SizedBox(height: 20),
               const Divider(),
               const SizedBox(height: 12),
-              const Text(
-                '典 故',
-                style: TextStyle(
+              Text(
+                l.signsDetailAllusion,
+                style: const TextStyle(
                   fontSize: 13,
                   color: AppColors.gray,
                   fontWeight: FontWeight.w600,
@@ -262,22 +268,22 @@ class _SignDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                sign.allusion,
+                sign.getAllusion(localeCode),
                 style: const TextStyle(fontSize: 14, height: 1.6),
               ),
               const SizedBox(height: 20),
               const Divider(),
               const SizedBox(height: 12),
-              const Text(
-                '现代解读',
-                style: TextStyle(
+              Text(
+                l.signsDetailModern,
+                style: const TextStyle(
                   fontSize: 13,
                   color: AppColors.gray,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 8),
-              ...sign.modernNotes.map(
+              ...sign.getModernNotes(localeCode).map(
                 (note) => Padding(
                   padding: const EdgeInsets.only(bottom: 4),
                   child: Text(

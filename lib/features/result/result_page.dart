@@ -36,7 +36,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/result_templates.dart';
+import '../../core/i18n/locale_aware_style.dart';
 import '../../data/models/fortune_sign.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import 'share_sheet.dart';
 
@@ -91,21 +93,32 @@ class ResultPage extends ConsumerWidget {
         ThrowResultType.yin   => R.cupYinBg,
       };
 
-  String get _cupName => switch (result) {
-        ThrowResultType.saint => '圣杯',
-        ThrowResultType.laugh => '笑杯',
-        ThrowResultType.yin   => '阴杯',
+  // NOTE: _cupNameBadgeAsset 保留以备未来恢复切图徽章样式（中文版）。
+  // 当前用纯文字徽章，不引用切图（避免和英文/繁体文字重叠）。
+
+  String _cupName(AppLocalizations l) => switch (result) {
+        ThrowResultType.saint => l.resultSaint,
+        ThrowResultType.laugh => l.resultLaugh,
+        ThrowResultType.yin   => l.resultYin,
       };
 
-  String get _retryText => ResultTemplates.getRetryButtonText(result);
+  String _retryText(AppLocalizations l) => switch (result) {
+        ThrowResultType.saint => l.resultRetrySaint,
+        ThrowResultType.laugh => l.resultRetryLaugh,
+        ThrowResultType.yin   => l.resultRetryYin,
+      };
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
+    final locale = Localizations.localeOf(context);
+    final code = ref.watch(settingsProvider).localeCode;
     final user    = ref.watch(currentUserProvider).valueOrNull;
     final name    = user?.name ?? '弟子';
     final city    = user?.city ?? '';
     final message = ResultTemplates.getMessage(
-      type: result, name: name, signTitle: sign?.title,
+      l: l,
+      type: result, name: name, signTitle: sign?.getTitle(code),
     );
     final screenW = MediaQuery.of(context).size.width;
     final scale   = screenW / _kDesignW;
@@ -113,43 +126,39 @@ class ResultPage extends ConsumerWidget {
     final statusBar = MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      // 不用 transparent：transparent 时 Scaffold 不会画底色，Stack 收缩
+      // 露出屏幕原生背景（黑色）。改用米白色兜底，Stack 也会用 StackFit.expand
+      // 撑满整屏（避免底部出现黑条）。
+      backgroundColor: AppColors.riceWhite,
       body: Stack(
+        fit: StackFit.expand,
         children: [
           // ═══ [层 1] 全幅背景（米白底 + 右上墨竹 + 妈祖印章）═══
           Positioned.fill(
             child: Image.asset(R.pageBg, fit: BoxFit.cover),
           ),
 
-          // ═══ [层 2] 返回按钮（浮左上角，绕过 AppBar 让签杯图紧贴状态栏）═══
-          Positioned(
-            top: 0,
-            left: 0,
-            child: SafeArea(
-              bottom: false,
-              child: Padding(
-                padding: const EdgeInsets.all(4),
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: AppColors.inkBlack),
-                  onPressed: () => Navigator.of(context).maybePop(),
-                ),
-              ),
-            ),
-          ),
-
           // ═══ [层 3] 主内容（Column 顺序：状态栏 → ①签杯 → ②徽章 → ③开场白 → ④解析卡 → ⑤按钮）═══
+          // 包 SingleChildScrollView：小屏幕时整个页面可上下滚动，修复 bottom overflowed
+          // 嵌套关系：外层（页面滚动）→ 解析卡内层（卡内容滚动），两层独立
           SafeArea(
             top: false,
-            child: Column(
-              children: [
-                SizedBox(height: 1.8 * statusBar), // 顶部让出（状态栏 + 一点点 buffer，让签杯图不贴顶）
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),  // 大屏 max=0 不能滚，小屏 max>0 可滚
+              child: Column(
+                children: [
+                  SizedBox(height: 1.8 * statusBar), // 顶部让出（状态栏 + 一点点 buffer，让签杯图不贴顶）
 
                 // ① 签杯图
                 _CupImage(cupAsset: _cupAsset, scale: scale),
                 SizedBox(height: 30 * scale),
 
                 // ② 杯名徽章
-                _CupNameBadge(name: _cupName, badgeAsset: _cupNameBadgeAsset, scale: scale),
+                _CupNameBadge(
+                  name: _cupName(l),
+                  badgeAsset: _cupNameBadgeAsset,
+                  scale: scale,
+                ),
                 SizedBox(height: 30 * scale),
 
                 // ③ 开场白（妈祖签语）
@@ -170,7 +179,7 @@ class ResultPage extends ConsumerWidget {
                     height : 694*scale,    // ← 调这里改卡高
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40 * scale),  // ← 调这里改卡到屏幕边的距离
-                      child: _InterpretationCard(sign: sign, scale: scale),
+                      child: _InterpretationCard(sign: sign, scale: scale, localeCode: code),
                     ),
                   ),
 
@@ -190,10 +199,34 @@ class ResultPage extends ConsumerWidget {
                     // 改日再问 = 回到首页（首页就是 isFirst）
                     Navigator.of(context).popUntil((route) => route.isFirst);
                   },
-                  retryText: _retryText,
+                  retryText: _retryText(l),
                 ),
                 SizedBox(height: 20 * scale),
-              ],
+                ],
+              ),
+            ),
+          ),
+
+          // ═══ [层 2] 返回按钮（浮在左上角，z-order 最高）═══
+          // 必须放在 [层 3] 主内容之后，Stack children 的 paint 顺序保证不被覆盖
+          Positioned(
+            top: 0,
+            left: 0,
+            child: SafeArea(
+              bottom: false,
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back, color: Color(0xFF35241B)),
+                  iconSize: 28,
+                  splashRadius: 22,
+                  onPressed: () {
+                    if (Navigator.of(context).canPop()) {
+                      Navigator.of(context).pop();
+                    }
+                  },
+                ),
+              ),
             ),
           ),
         ],
@@ -279,7 +312,7 @@ class _CupImage extends StatelessWidget {
   }
 }
 
-// ─── ② 杯名徽章（米色描边切图底 + 红色字）──────────────────
+// ─── ② 杯名徽章（切图底 + 红色字）──────────────────────────
 class _CupNameBadge extends StatelessWidget {
   final String name;
   final String badgeAsset;
@@ -292,6 +325,7 @@ class _CupNameBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     // 切图 200:72 = 2.78 比例，按 200x72 设计稿尺寸显示
     final w = 200 * scale;
     final h = w * (72 / 200);
@@ -301,6 +335,7 @@ class _CupNameBadge extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
+          // 切图底（圣杯-bg / 笑杯-bg / 阴杯-bg）—— 切图本身印着"圣杯"中文
           Image.asset(badgeAsset, fit: BoxFit.fill),
           Center(
             child: Text(
@@ -310,7 +345,8 @@ class _CupNameBadge extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 color: AppColors.mazuRed,
                 fontFamily: 'ChillJinshuSong',
-                letterSpacing: 5 * scale,
+                // 任务 2：英文 letterSpacing 艺术性 >= 2.0 归零
+                letterSpacing: letterSpacingFor(locale, 5 * scale),
               ),
             ),
           ),
@@ -328,6 +364,7 @@ class _OpeningMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 120 * scale),
       child: Text(
@@ -335,10 +372,12 @@ class _OpeningMessage extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 28 * scale,
-          height: 1.7,
+          // 任务 4：英文行高比中文紧凑
+          height: heightFor(locale, 1.7),
           color: Color(0xFF35241B),
           fontFamily: 'ChillJinshuSong',
-          letterSpacing: 1.5 * scale,
+          // 任务 2：英文 letterSpacing < 2 保留 30%
+          letterSpacing: letterSpacingFor(locale, 1.5 * scale),
         ),
       ),
     );
@@ -349,7 +388,8 @@ class _OpeningMessage extends StatelessWidget {
 class _InterpretationCard extends StatelessWidget {
   final FortuneSign? sign;
   final double scale;
-  const _InterpretationCard({required this.sign, required this.scale});
+  final String localeCode;
+  const _InterpretationCard({required this.sign, required this.scale, required this.localeCode});
 
   @override
   Widget build(BuildContext context) {
@@ -400,7 +440,7 @@ class _InterpretationCard extends StatelessWidget {
                     clipBehavior: Clip.none,                            // ✦ 仍能水平浮出（不被 ShaderMask 裁）
                     child: sign0 == null
                         ? const SizedBox.shrink()
-                        : _CardContent(sign: sign0, scale: scale),
+                        : _CardContent(sign: sign0, scale: scale, localeCode: localeCode),
                   ),
                   ),
                 ),
@@ -424,10 +464,12 @@ class _InterpretationCard extends StatelessWidget {
 class _CardContent extends StatelessWidget {
   final FortuneSign sign;
   final double scale;
-  const _CardContent({required this.sign, required this.scale});
+  final String localeCode;
+  const _CardContent({required this.sign, required this.scale, required this.localeCode});
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -444,25 +486,36 @@ class _CardContent extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _verticalBar(scale),
-                SizedBox(width: 10 * scale),
-                Text(
-                  sign.title,
-                  style: TextStyle(
-                    fontSize: 32 * scale,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.mazuRed,
-                    fontFamily: 'ChillJinshuSong',
-                    letterSpacing: 3 * scale,
-                  ),
+            // Flexible + FittedBox：英文长 title（如 "A Rooster's Flight of
+            // Ten Thousand Miles"）会自动缩小保持完整，不溢出卡片。
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerRight,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    _verticalBar(scale),
+                    SizedBox(width: 10 * scale),
+                    Text(
+                      sign.getTitle(localeCode),
+                      maxLines: 1,
+                      softWrap: false,
+                      style: TextStyle(
+                        fontSize: 32 * scale,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.mazuRed,
+                        fontFamily: 'ChillJinshuSong',
+                        // 任务 2：英文艺术性 letterSpacing 归零
+                        letterSpacing: letterSpacingFor(locale, 3 * scale),
+                      ),
+                    ),
+                    SizedBox(width: 10 * scale),
+                    _verticalBar(scale),
+                  ],
                 ),
-                SizedBox(width: 10 * scale),
-                _verticalBar(scale),
-              ],
+              ),
             ),
           ],
         ),
@@ -470,7 +523,7 @@ class _CardContent extends StatelessWidget {
         SizedBox(height: 30 * scale),
 
         // ─── 诗句（两行，_PoemBlock 自动按 7 字一行拆）───
-        _PoemBlock(poem: sign.poem, scale: scale),
+        _PoemBlock(poem: sign.getPoem(localeCode), scale: scale),
 
         SizedBox(height: 22 * scale),
 
@@ -486,7 +539,7 @@ class _CardContent extends StatelessWidget {
           titleColor: AppColors.inkBlack,
           titleSize: 28 * scale,
           titleWeight: FontWeight.w700,
-          body: sign.interpretation,
+          body: sign.getInterpretation(localeCode),
           bodySize: 24 * scale,
           bodyColor: AppColors.inkBlack,
           scale: scale,
@@ -501,7 +554,7 @@ class _CardContent extends StatelessWidget {
 
         // ─── "现代解读" 段落（标题 + bullet 列表，bullet icon 浮外侧）───
         _ModernNotesSection(
-          notes: sign.modernNotes,
+          notes: sign.getModernNotes(localeCode),
           scale: scale,
         ),
       ],
@@ -524,6 +577,7 @@ class _PoemBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     final lines = _splitPoem(poem);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -534,10 +588,12 @@ class _PoemBlock extends StatelessWidget {
             textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 24 * scale,
-              height: 1.6,
+              // 任务 4：英文行高比中文紧凑
+              height: heightFor(locale, 1.6),
               color: AppColors.inkBlack,
               fontFamily: 'ChillJinshuSong',
-              letterSpacing: 3 * scale,
+              // 任务 2：英文 letterSpacing 艺术性 >= 2 归零
+              letterSpacing: letterSpacingFor(locale, 3 * scale),
             ),
           ),
           if (i != lines.length - 1) SizedBox(height: 2 * scale),
@@ -609,6 +665,7 @@ class _Section extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     // 用 Stack + Positioned：✦ 浮到外侧更左，标题和正文都在 Column 起点（完美同 X）
     return Stack(
       clipBehavior: Clip.none,
@@ -625,7 +682,8 @@ class _Section extends StatelessWidget {
                 fontWeight: titleWeight,
                 color: titleColor,
                 fontFamily: 'ChillJinshuSong',
-                letterSpacing: 0.6 * scale,
+                // 任务 2：英文 letterSpacing < 2 保留 30%
+                letterSpacing: letterSpacingFor(locale, 0.6 * scale),
               ),
             ),
             SizedBox(height: 16 * scale),
@@ -633,10 +691,11 @@ class _Section extends StatelessWidget {
               body,
               style: TextStyle(
                 fontSize: bodySize,
-                height: 1.7,
+                // 任务 4：英文行高比中文紧凑
+                height: heightFor(locale, 1.7),
                 color: bodyColor,
                 fontFamily: 'ChillJinshuSong',
-                letterSpacing: 0.6 * scale,
+                letterSpacing: letterSpacingFor(locale, 0.6 * scale),
               ),
             ),
           ],
@@ -665,6 +724,7 @@ class _ModernNotesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     // 结构与 _Section 完全一致：Stack + Column(标题 + SizedBox + 内容) + Positioned ✦
     return Stack(
       clipBehavior: Clip.none,
@@ -683,7 +743,7 @@ class _ModernNotesSection extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF35241B),
                 fontFamily: 'ChillJinshuSong',
-                letterSpacing: 0.6 * scale,
+                letterSpacing: letterSpacingFor(locale, 0.6 * scale),
               ),
             ),
             // 标题后间距（与 _Section 一致）
@@ -752,7 +812,7 @@ class _SideLevelTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final label = level?.label ?? '签';
+    final label = level == null ? '签' : '${level!.label}签';
     // 木牌 52:166 比例，按设计稿高 200 显示 → 宽 = 200/166*52 = 62.6
     final h = 200 * scale;
     final w = h * (52 / 166);
@@ -768,7 +828,7 @@ class _SideLevelTag extends StatelessWidget {
           Center(
             child: Padding(
               // 顶部让出绳子+圆孔
-              padding: EdgeInsets.only(top: 30 * scale, bottom: 10 * scale),
+              padding: EdgeInsets.only(top: 60 * scale, bottom: 10 * scale),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -840,6 +900,7 @@ class _ShareButtonState extends State<_ShareButton> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     return GestureDetector(
       onTapDown: (_) => setState(() => _down = true),
       onTapUp:   (_) { setState(() => _down = false); widget.onPressed(); },
@@ -869,7 +930,7 @@ class _ShareButtonState extends State<_ShareButton> {
                   ),
                   SizedBox(width: 10 * widget.scale),
                   Text(
-                    '分享',
+                    l.resultShareBtn,
                     style: TextStyle(
                       fontSize: 32 * widget.scale,
                       fontWeight: FontWeight.w600,
@@ -908,6 +969,7 @@ class _RetryButtonState extends State<_RetryButton> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
     return GestureDetector(
       onTapDown: (_) => setState(() => _down = true),
       onTapUp:   (_) { setState(() => _down = false); widget.onPressed(); },
@@ -930,7 +992,8 @@ class _RetryButtonState extends State<_RetryButton> {
                   fontWeight: FontWeight.w600,
                   color: AppColors.riceWhite,
                   fontFamily: 'ChillJinshuSong',
-                  letterSpacing: 3 * widget.scale,
+                  // 任务 2：英文艺术性 letterSpacing 归零
+                  letterSpacing: letterSpacingFor(locale, 3 * widget.scale),
                 ),
               ),
             ),

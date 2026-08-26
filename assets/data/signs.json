@@ -6,14 +6,45 @@
     "poem": "盈眸海水接天涯，慈航普渡佑千家。顺风相送舟行稳，一片祥云覆自家。",
     "interpretation": "凡事大吉，可进可求。百事顺遂，贵人相助。问财得财，问谋得谋。婚姻美满，病者安康。出行平安，居家纳福。",
     "allusion": "妈祖 28 岁升天之后，常显灵海上，护佑渔民渔船化险为夷。宋代以来，沿海渔民出海前必先祭妈祖，祈求风平浪静。",
-    "categories": ["daily", "travel"],
+    "categories": [
+      "daily",
+      "travel"
+    ],
     "modernNotes": [
       "求职：可成，且有贵人相助",
       "感情：可成，对方真心",
       "财运：可得，且持续",
       "健康：可愈，无大碍",
       "出行：平安"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "風平浪靜",
+        "poem": "盈眸海水接天涯，慈航普渡佑千家。順風相送舟行穩，一片祥雲覆自家。",
+        "interpretation": "凡事大吉，可進可求。百事順遂，貴人相助。問財得財，問謀得謀。婚姻美滿，病者安康。出行平安，居家納福。",
+        "allusion": "媽祖 28 歲昇天之後，常顯靈海上，護佑漁民漁船化險為夷。宋代以來，沿海漁民出海前必先祭媽祖，祈求風平浪靜。",
+        "modernNotes": [
+          "求職：可成，且有貴人相助",
+          "感情：可成，對方真心",
+          "財運：可得，且持續",
+          "健康：可癒，無大礙",
+          "出行：平安"
+        ]
+      },
+      "en": {
+        "title": "Calm Seas",
+        "poem": "The sea stretches to the horizon, Mazu's grace protects a thousand homes. Fair winds carry the boat steady, a single cloud of blessing rests on yours.",
+        "interpretation": "All matters auspicious — go forward, and your wishes will be granted. Everything falls into place; noble ones come to help. Wealth comes to those who ask. Plans succeed. Marriage flourishes. The sick recover. Travelers are safe. Home is blessed.",
+        "allusion": "After Mazu ascended at age 28, she was often seen protecting fishermen and ships at sea. Since the Song dynasty, coastal fishermen have prayed to Mazu before setting sail, asking for calm waters.",
+        "modernNotes": [
+          "Job: success, with noble help",
+          "Love: a true match",
+          "Wealth: steady gain",
+          "Health: recovery",
+          "Travel: safe"
+        ]
+      }
+    }
   },
   {
     "id": 2,
@@ -22,13 +53,42 @@
     "poem": "慈航普渡万千家，圣德昭昭映彩霞。病者求之得康泰，行人遇之平险涯。",
     "interpretation": "主健康平安，凡事顺遂。问病者，遇此签可放心，必有转机。问出行者，一路顺风。问家庭者，老少安康。",
     "allusion": "妈祖本姓林，名默娘，福建莆田人。传说其能乘席渡海，多次救护海上遇险渔民。宋代以后，被朝廷敕封为天后、天上圣母。",
-    "categories": ["health", "family"],
+    "categories": [
+      "health",
+      "family"
+    ],
     "modernNotes": [
       "问病：可愈，配合治疗",
       "问健康：长期向好",
       "问出行：平安",
       "问家庭：和睦安康"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "慈航普渡",
+        "poem": "慈航普渡萬千家，聖德昭昭映彩霞。病者求之得康泰，行人遇之平險涯。",
+        "interpretation": "主健康平安，凡事順遂。問病者，遇此籤可放心，必有轉機。問出行者，一路順風。問家庭者，老少安康。",
+        "allusion": "媽祖本姓林，名默娘，福建莆田人。傳說其能乘席渡海，多次救護海上遇險漁民。宋代以後，被朝廷敕封為天后、天上聖母。",
+        "modernNotes": [
+          "問病：可癒，配合治療",
+          "問健康：長期向好",
+          "問出行：平安",
+          "問家庭：和睦安康"
+        ]
+      },
+      "en": {
+        "title": "Compassionate Passage",
+        "poem": "Mazu's ferry guides ten thousand homes, her holy grace reflects in colored clouds. The sick who pray find health; travelers find safe passage through danger.",
+        "interpretation": "Health and safety for all. For the sick, this sign brings reassurance and a turn for the better. For travelers, smooth passage. For family, well-being for young and old.",
+        "allusion": "Originally surnamed Lin, Mazu — also called Mo-niang — was from Putian, Fujian. Legend has it she could cross the sea on a mat, repeatedly rescuing imperiled fishermen. From the Song dynasty onward, the court bestowed upon her the titles Tian-hou (Heavenly Empress) and Tian-shang Sheng-mu (Holy Mother of Heaven).",
+        "modernNotes": [
+          "Illness: recovery, with treatment",
+          "Health: long-term improvement",
+          "Travel: safe",
+          "Family: harmony and well-being"
+        ]
+      }
+    }
   },
   {
     "id": 3,
@@ -37,13 +97,42 @@
     "poem": "福星高照耀门庭，德泽绵绵及子孙。一年四季无凶险，安居乐业谢妈尊。",
     "interpretation": "主家庭和睦，长幼安康。问求子者，可得贵子。问长辈者，寿比南山。问健康者，无病无痛。",
     "allusion": "宋代以来，妈祖庙多设有求子、祈福殿，信众于此焚香礼拜，祈求家宅平安。",
-    "categories": ["health", "family"],
+    "categories": [
+      "health",
+      "family"
+    ],
     "modernNotes": [
       "家庭：和睦",
       "求子：可成",
       "长辈：健康长寿",
       "整体：诸事顺遂"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "福德安康",
+        "poem": "福星高照耀門庭，德澤綿綿及子孫。一年四季無凶險，安居樂業謝媽尊。",
+        "interpretation": "主家庭和睦，長幼安康。問求子者，可得貴子。問長輩者，壽比南山。問健康者，無病無痛。",
+        "allusion": "宋代以來，媽祖廟多設有求子、祈福殿，信眾於此焚香禮拜，祈求家宅平安。",
+        "modernNotes": [
+          "家庭：和睦",
+          "求子：可成",
+          "長輩：健康長壽",
+          "整體：諸事順遂"
+        ]
+      },
+      "en": {
+        "title": "Blessed Peace",
+        "poem": "The star of fortune shines on your door; virtue flows to your children and grandchildren. All four seasons free of ill, in peace and labor we thank Mazu.",
+        "interpretation": "Family harmony, well-being for all ages. For those asking about children, a blessed child may come. For elders, long life. For health, freedom from pain and disease.",
+        "allusion": "Since the Song dynasty, Mazu temples have often included halls for praying for children and blessings, where devotees burn incense seeking peace for the household.",
+        "modernNotes": [
+          "Family: harmony",
+          "Children: a possible blessing",
+          "Elders: long life",
+          "Overall: all goes well"
+        ]
+      }
+    }
   },
   {
     "id": 4,
@@ -52,13 +141,42 @@
     "poem": "潜心修炼几多秋，一旦风来便出头。鱼化金龙腾万里，青云直上至琼楼。",
     "interpretation": "主事业大吉。问功名者，金榜题名。问求职者，一击即中。问升职者，步步高升。问创业者，大展宏图。",
     "allusion": "北朝《埤雅·释鱼》载：鱼跃龙门，过而为龙。比喻一举成名。",
-    "categories": ["career", "study"],
+    "categories": [
+      "career",
+      "study"
+    ],
     "modernNotes": [
       "求职：成功",
       "升职：顺利",
       "考试：金榜题名",
       "创业：突破"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "魚躍龍門",
+        "poem": "潛心修煉幾多秋，一旦風來便出頭。魚化金龍騰萬里，青雲直上至瓊樓。",
+        "interpretation": "主事業大吉。問功名者，金榜題名。問求職者，一擊即中。問升職者，步步高升。問創業者，大展宏圖。",
+        "allusion": "北朝《埤雅·釋魚》載：魚躍龍門，過而為龍。比喻一舉成名。",
+        "modernNotes": [
+          "求職：成功",
+          "升職：順利",
+          "考試：金榜題名",
+          "創業：突破"
+        ]
+      },
+      "en": {
+        "title": "Leaping the Dragon Gate",
+        "poem": "Quiet cultivation through many autumns; when the wind comes, rise. The fish becomes a golden dragon, soaring ten thousand miles, straight to the heavenly palace.",
+        "interpretation": "Great fortune in career. For academic pursuit, success on the exams. For job seekers, a direct hit. For promotion, steady advancement. For entrepreneurs, the grand vision unfolds.",
+        "allusion": "The Northern Dynasties text \"Pi-ya · Shi-yu\" records: when a fish leaps the Dragon Gate, it passes through and becomes a dragon — a metaphor for sudden, brilliant success.",
+        "modernNotes": [
+          "Job search: success",
+          "Promotion: smooth",
+          "Exams: top results",
+          "Startup: breakthrough"
+        ]
+      }
+    }
   },
   {
     "id": 5,
@@ -67,13 +185,41 @@
     "poem": "千里姻缘一线牵，月老牵红到君前。前生注定同林鸟，比翼双飞共百年。",
     "interpretation": "婚姻大吉，问缘可成。两人相敬，百年好合。问求偶者，此签明示良缘已至，宜把握。",
     "allusion": "北宋年间，福建莆田一渔家女与同村青年青梅竹马。妈祖托梦其母：此女与彼男乃天定良缘。遂成佳话，传颂至今。",
-    "categories": ["love"],
+    "categories": [
+      "love"
+    ],
     "modernNotes": [
       "单身：近期会遇到对的人",
       "恋爱：可成，且关系稳定",
       "婚姻：可成，婚后和睦",
       "复合：有缘分，但需主动"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "良緣天定",
+        "poem": "千里姻緣一線牽，月老牽紅到君前。前生註定同林鳥，比翼雙飛共百年。",
+        "interpretation": "婚姻大吉，問緣可成。兩人相敬，百年好合。問求偶者，此籤明示良緣已至，宜把握。",
+        "allusion": "北宋年間，福建莆田一漁家女與同村青年青梅竹馬。媽祖托夢其母：此女與彼男乃天定良緣。遂成佳話，傳頌至今。",
+        "modernNotes": [
+          "單身：近期會遇到對的人",
+          "戀愛：可成，且關係穩定",
+          "婚姻：可成，婚後和睦",
+          "復合：有緣分，但需主動"
+        ]
+      },
+      "en": {
+        "title": "Heaven-Sent Bond",
+        "poem": "Across a thousand miles, a single red thread binds; the matchmaker leads it to your door. Fated in a former life as birds of the same wood, wings entwined, a hundred years as one.",
+        "interpretation": "Great fortune in marriage — the bond is real. The two shall honor each other and grow old together. For those seeking a partner, this sign says clearly: the destined one is near. Reach out and grasp the chance.",
+        "allusion": "In the Northern Song era, a fisher-girl of Putian, Fujian, and a young man of the same village grew up together. Mazu appeared to the girl's mother in a dream, saying: this girl and this boy are bound by heaven. The union took place, and the tale has been told ever since.",
+        "modernNotes": [
+          "Single: the right one comes soon",
+          "Dating: stable and lasting",
+          "Marriage: harmonious union",
+          "Reconciliation: fated, but take the first step"
+        ]
+      }
+    }
   },
   {
     "id": 6,
@@ -82,13 +228,41 @@
     "poem": "财星高照运亨通，源远流长日日丰。广进四方皆吉庆，经营得利谢苍穹。",
     "interpretation": "主财运大吉。问求财者，可得。问经营者，盈利。问求业者，得高薪。问投资者，得正财。",
     "allusion": "妈祖庙多与通远二字相关，福建莆田湄洲祖庙、香港佛堂门、北港朝天宫等，皆以通远为号，象征妈祖护佑商旅、远洋。",
-    "categories": ["wealth"],
+    "categories": [
+      "wealth"
+    ],
     "modernNotes": [
       "投资：得利",
       "经营：盈利",
       "求职：薪资高",
       "副业：可成"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "財源廣進",
+        "poem": "財星高照運亨通，源遠流長日日丰。廣進四方皆吉慶，經營得利謝苍穹。",
+        "interpretation": "主財運大吉。問求財者，可得。問經營者，盈利。問求業者，得高薪。問投资者，得正財。",
+        "allusion": "媽祖廟多與通遠二字相關，福建莆田湄洲祖廟、香港佛堂門、北港朝天宮等，皆以通遠為號，象征媽祖護佑商旅、遠洋。",
+        "modernNotes": [
+          "投资：得利",
+          "經營：盈利",
+          "求职：薪资高",
+          "副業：可成"
+        ]
+      },
+      "en": {
+        "title": "Wealth Flows In",
+        "poem": "The wealth-star shines bright, fortune flows freely. Streams from afar grow day by day. Prosperity gathers from the four quarters, profit earned thanks to Heaven above.",
+        "interpretation": "Great fortune in wealth. For those seeking money, gains come. For those in business, profits accrue. For job seekers, a high salary. For investors, honest gain.",
+        "allusion": "Mazu temples often bear the name Tongyuan (Reaching Far). The ancestral temple on Meizhou Island in Putian, Fujian, the Fotangmen temple in Hong Kong, and Beigang Chaotian Gong — all carry this name, symbolizing Mazu's protection of merchants and seafarers.",
+        "modernNotes": [
+          "Investment: profitable",
+          "Business: gains",
+          "Job: high salary",
+          "Side hustle: viable"
+        ]
+      }
+    }
   },
   {
     "id": 7,
@@ -97,13 +271,41 @@
     "poem": "一家老少乐融融，平安二字值千重。慈母倚门常盼望，游子归来喜气浓。",
     "interpretation": "主家庭大吉。问婚姻者，和美。问亲人者，平安。问外出者，归家有望。问家人者，皆得康宁。",
     "allusion": "妈祖又称姑妈、娘妈，是沿海民众的海上守护神，亦是家庭守护神。每逢初一、十五，信众到妈祖庙烧香，祈求家人平安。",
-    "categories": ["family"],
+    "categories": [
+      "family"
+    ],
     "modernNotes": [
       "婚姻：和美",
       "家人：平安",
       "团聚：可成",
       "子女：孝顺"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "合家平安",
+        "poem": "一家老少樂融融，平安二字值千重。慈母倚門常盼望，遊子歸來喜氣濃。",
+        "interpretation": "主家庭大吉。問婚姻者，和美。問親人者，平安。問外出者，歸家有望。問家人者，皆得康寧。",
+        "allusion": "媽祖又稱姑媽、娘媽，是沿海民眾的海上守護神，亦是家庭守護神。每逢初一、十五，信眾到媽祖廟烧香，祈求家人平安。",
+        "modernNotes": [
+          "婚姻：和美",
+          "家人：平安",
+          "團聚：可成",
+          "子女：孝順"
+        ]
+      },
+      "en": {
+        "title": "Family at Peace",
+        "poem": "Old and young gather in harmony, the two words \"peace\" are worth a thousand. The kind mother waits by the door, the wanderer returns to gladness.",
+        "interpretation": "Great fortune in family. Marriage: harmony. Loved ones: safe. Those far from home: return is near. Family members: all well.",
+        "allusion": "Mazu is also called Guma or Niangma — the seaside people's protector on the sea, and the household's protector too. On the first and fifteenth of each month, devotees burn incense at Mazu temples, praying for their family's safety.",
+        "modernNotes": [
+          "Marriage: harmonious",
+          "Family: safe",
+          "Reunion: likely",
+          "Children: filial"
+        ]
+      }
+    }
   },
   {
     "id": 8,
@@ -112,13 +314,41 @@
     "poem": "万事如意顺心行，遂意而来皆称情。一日十二时辰吉，何须再问利和名。",
     "interpretation": "主今日诸事顺遂。出门见贵人，求谋得遂意。但不可骄傲，宜守善心。",
     "allusion": "妈祖升天之日（农历九月初九），沿海民众举行盛大祭典，祈求一年万事遂心。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：顺",
       "求职：可成",
       "谈判：得利",
       "投资：小赚"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "萬事遂心",
+        "poem": "萬事如意順心行，遂意而來皆稱情。一日十二時辰吉，何须再問利和名。",
+        "interpretation": "主今日諸事順遂。出門見貴人，求謀得遂意。但不可骄傲，宜守善心。",
+        "allusion": "媽祖升天之日（農歷九月初九），沿海民眾举行盛大祭典，祈求一年萬事遂心。",
+        "modernNotes": [
+          "今日：順",
+          "求职：可成",
+          "談判：得利",
+          "投资：小赚"
+        ]
+      },
+      "en": {
+        "title": "All Things as You Wish",
+        "poem": "All things go as the heart desires; what comes, fits the mind. Twelve hours of the day bring fortune — why ask again for gain or fame?",
+        "interpretation": "Today, all matters go smoothly. Step out and meet a noble one. Ask, and you shall receive. But do not grow proud; keep a kind heart.",
+        "allusion": "On the day of Mazu's ascension (the 9th day of the 9th lunar month), coastal communities hold grand ceremonies, praying that the year brings all things as wished.",
+        "modernNotes": [
+          "Today: smooth",
+          "Job search: success",
+          "Negotiation: favorable",
+          "Investment: small gain"
+        ]
+      }
+    }
   },
   {
     "id": 9,
@@ -127,12 +357,39 @@
     "poem": "海纳百川容乃大，天长地久寿而康。福如东海深千尺，寿比南山高万丈。",
     "interpretation": "健康大吉，长寿之兆。问病者，遇此签可放心调养，必有转机。问长辈安康，亦主平安。",
     "allusion": "妈祖本姓林，960 年生，传说活至 28 岁飞升。但其精神长存，护佑苍生千载。沿海民众视妈祖为长生之象征。",
-    "categories": ["health", "family"],
+    "categories": [
+      "health",
+      "family"
+    ],
     "modernNotes": [
       "问病：可愈，配合治疗",
       "问长辈：平安健康",
       "问自身：注意饮食起居，长期向好"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "海天同壽",
+        "poem": "海納百川容乃大，天長地久壽而康。福如东海深千尺，壽比南山高萬丈。",
+        "interpretation": "健康大吉，長壽之兆。問病者，遇此籤可放心調養，必有转機。問長辈安康，亦主平安。",
+        "allusion": "媽祖本姓林，960 年生，傳說活至 28 歲飞升。但其精神長存，護佑苍生千载。沿海民眾視媽祖為長生之象征。",
+        "modernNotes": [
+          "問病：可愈，配合治疗",
+          "問長辈：平安健康",
+          "問自身：注意饮食起居，長期向好"
+        ]
+      },
+      "en": {
+        "title": "Sea and Sky, Long Life",
+        "poem": "The sea holds a hundred rivers, vast in its breadth. Heaven and earth endure, long life and health. Fortune deep as the Eastern Sea, longevity high as Southern Mountain.",
+        "interpretation": "Great fortune in health, a sign of long life. For the sick, this sign brings reassurance of recovery. For the elderly, peace and well-being.",
+        "allusion": "Mazu, born in 960 with the family name Lin, is said to have ascended at 28. Yet her spirit endures, protecting all beings for a thousand years. Coastal people see Mazu as a symbol of long life.",
+        "modernNotes": [
+          "Illness: recovery with treatment",
+          "Elders: peace and health",
+          "Self: watch diet and rest, long-term improvement"
+        ]
+      }
+    }
   },
   {
     "id": 10,
@@ -141,13 +398,41 @@
     "poem": "紫气东来万象新，圣光一缕照征尘。贵人暗助前程远，事业兴隆谢妈神。",
     "interpretation": "主事业有贵人相助。问升职者，可成。问创业者，得人助。但宜谦逊，不可张扬。",
     "allusion": "老子骑牛西去，紫气东来三万里。紫气是祥瑞之兆。",
-    "categories": ["career"],
+    "categories": [
+      "career"
+    ],
     "modernNotes": [
       "升职：可成",
       "创业：得助",
       "谈判：得利",
       "转岗：顺利"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "紫氣东來",
+        "poem": "紫氣东來萬象新，聖光一缕照征尘。貴人暗助前程遠，事業興隆謝媽神。",
+        "interpretation": "主事業有貴人相助。問升职者，可成。問创業者，得人助。但宜謙逊，不可張揚。",
+        "allusion": "老子骑牛西去，紫氣东來三萬里。紫氣是祥瑞之兆。",
+        "modernNotes": [
+          "升职：可成",
+          "创業：得助",
+          "談判：得利",
+          "转岗：順利"
+        ]
+      },
+      "en": {
+        "title": "Purple Aura from the East",
+        "poem": "Purple aura comes from the east, ten thousand things renewed. A ray of holy light shines on the dust of the road. A noble one aids in secret, the road ahead is long. May the venture flourish, thanks to Mazu.",
+        "interpretation": "Career with noble help. Promotion: success. Startup: assistance comes. But stay humble; do not boast.",
+        "allusion": "Laozi rode his ox westward; the purple aura came from the east for thirty thousand miles. Purple aura is a sign of auspiciousness.",
+        "modernNotes": [
+          "Promotion: success",
+          "Startup: help comes",
+          "Negotiation: favorable",
+          "Job transfer: smooth"
+        ]
+      }
+    }
   },
   {
     "id": 11,
@@ -156,13 +441,41 @@
     "poem": "鸾凤和鸣比翼飞，百年好合共斜晖。良缘本是前生定，携手白头永不违。",
     "interpretation": "主感情大吉。问求婚者，可成。问恋爱者，终成眷属。问复合者，可重归于好。",
     "allusion": "《诗经》载：凤凰于飞，翙翙其羽。比喻夫妻和美。",
-    "categories": ["love"],
+    "categories": [
+      "love"
+    ],
     "modernNotes": [
       "求婚：可成",
       "恋爱：修成正果",
       "复合：可重归于好",
       "婚姻：和美"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "鸾鳳和鸣",
+        "poem": "鸾鳳和鸣比翼飞，百年好合共斜晖。良緣本是前生定，携手白頭永不违。",
+        "interpretation": "主感情大吉。問求婚者，可成。問恋愛者，終成眷属。問複合者，可重歸於好。",
+        "allusion": "《詩經》载：鳳凰於飞，翙翙其羽。比喻夫妻和美。",
+        "modernNotes": [
+          "求婚：可成",
+          "恋愛：修成正果",
+          "複合：可重歸於好",
+          "婚姻：和美"
+        ]
+      },
+      "en": {
+        "title": "Phoenix in Harmony",
+        "poem": "Phoenix and phoenix sing in flight, paired wings. A hundred years of harmony shared in the slanting sun. The good match was fated in a former life, hand in hand unto old age, never parting.",
+        "interpretation": "Great fortune in love. Proposal: success. Dating: union. Reconciliation: a return to harmony.",
+        "allusion": "The Book of Songs records: the phoenix takes flight, its wings whirring — a metaphor for marital harmony.",
+        "modernNotes": [
+          "Proposal: success",
+          "Dating: union",
+          "Reconciliation: return to harmony",
+          "Marriage: bliss"
+        ]
+      }
+    }
   },
   {
     "id": 12,
@@ -171,13 +484,41 @@
     "poem": "招来财气进门庭，聚宝盆中百宝盈。一年四季财源广，丰衣足食乐升平。",
     "interpretation": "主财运中上。问求财者，可得。问经营者，盈利。但需诚信经营，不可走偏门。",
     "allusion": "妈祖庙多设有添油箱，信众捐油以添庙灯，寓意添财。",
-    "categories": ["wealth"],
+    "categories": [
+      "wealth"
+    ],
     "modernNotes": [
       "投资：得小利",
       "经营：盈利",
       "副业：可成",
       "偏财：不可强求"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "招財進寶",
+        "poem": "招來財氣進門庭，聚寶盆中百寶盈。一年四季財源廣，丰衣足食樂升平。",
+        "interpretation": "主財運中上。問求財者，可得。問經營者，盈利。但需誠信經營，不可走偏門。",
+        "allusion": "媽祖廟多設有添油箱，信眾捐油以添廟燈，寓意添財。",
+        "modernNotes": [
+          "投资：得小利",
+          "經營：盈利",
+          "副業：可成",
+          "偏財：不可強求"
+        ]
+      },
+      "en": {
+        "title": "Calling Wealth, Gathering Treasure",
+        "poem": "Wealth's qi enters the door, the treasure basin overflows with a hundred gems. Through four seasons wealth flows in, dressed and fed, joy and peace rise.",
+        "interpretation": "Upper-middle fortune in wealth. For those seeking money, gains come. For those in business, profit. But act with integrity; avoid side doors.",
+        "allusion": "Mazu temples often have oil donation boxes. Devotees donate oil to feed the temple lamps, symbolizing added wealth.",
+        "modernNotes": [
+          "Investment: small gain",
+          "Business: profit",
+          "Side hustle: viable",
+          "Easy money: not to be forced"
+        ]
+      }
+    }
   },
   {
     "id": 13,
@@ -186,13 +527,41 @@
     "poem": "大鹏展翅九霄云，志在千里万里程。振翮高飞凌绝顶，扶摇直上至天庭。",
     "interpretation": "主事业有成，前程远大。问求职者，可得高位。问升职者，步步高升。",
     "allusion": "《庄子·逍遥游》载：鹏之徙于南冥也，水击三千里，抟扶摇而上者九万里。",
-    "categories": ["career"],
+    "categories": [
+      "career"
+    ],
     "modernNotes": [
       "求职：得高位",
       "升职：顺利",
       "创业：有远景",
       "留学：得 offer"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "鹏程萬里",
+        "poem": "大鹏展翅九霄云，志在千里萬里程。振翮高飞凌绝顶，扶摇直上至天庭。",
+        "interpretation": "主事業有成，前程遠大。問求职者，可得高位。問升职者，步步高升。",
+        "allusion": "《莊子·逍遥遊》载：鹏之徙於南冥也，水擊三千里，抟扶摇而上者九萬里。",
+        "modernNotes": [
+          "求职：得高位",
+          "升职：順利",
+          "创業：有遠景",
+          "留學：得 offer"
+        ]
+      },
+      "en": {
+        "title": "A Rooster's Flight of Ten Thousand Miles",
+        "poem": "The great rooster spreads its wings to the ninth heaven, its aim is a journey of a thousand miles. Beating pinions, soaring above the highest peak, whirling upward to the heavenly court.",
+        "interpretation": "Career achievement, far-reaching prospects. Job seekers: high position. Promotion: steady advancement.",
+        "allusion": "Zhuangzi's \"Free and Easy Wandering\" records: when the rooster migrates to the southern sea, it strikes the water three thousand miles, and spiraling upward rises ninety thousand miles.",
+        "modernNotes": [
+          "Job search: high position",
+          "Promotion: smooth",
+          "Startup: bright prospects",
+          "Study abroad: offer comes"
+        ]
+      }
+    }
   },
   {
     "id": 14,
@@ -201,13 +570,41 @@
     "poem": "一花一世界，一叶一菩提。今朝心清净，见佛在须臾。",
     "interpretation": "主今日心绪安宁，所求皆顺。宜静心守正，不宜急躁。",
     "allusion": "禅宗有拈花微笑的典故。释迦牟尼于灵山会上拈花示众，唯迦叶尊者破颜微笑。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：安宁",
       "心事：放下",
       "工作：平稳",
       "决策：等时机"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "花開見佛",
+        "poem": "一花一世界，一叶一菩提。今朝心清淨，見佛在须臾。",
+        "interpretation": "主今日心緒安寧，所求皆順。宜静心守正，不宜急躁。",
+        "allusion": "禪宗有拈花微笑的典故。释迦牟尼於靈山會上拈花示眾，唯迦叶尊者破颜微笑。",
+        "modernNotes": [
+          "今日：安寧",
+          "心事：放下",
+          "工作：平穩",
+          "決策：等時機"
+        ]
+      },
+      "en": {
+        "title": "Flower Opens, Buddha Appears",
+        "poem": "One flower, one world. One leaf, one bodhi. Today, the heart is clear — the Buddha appears in an instant.",
+        "interpretation": "Today, the heart is at peace, and all is well. Stay quiet and steady; do not rush.",
+        "allusion": "In Zen, there is the tale of the silent flower. Shakyamuni held up a flower before the assembly; only Mahakashyapa broke into a smile.",
+        "modernNotes": [
+          "Today: peaceful",
+          "Worries: let go",
+          "Work: steady",
+          "Decisions: wait for the right moment"
+        ]
+      }
+    }
   },
   {
     "id": 15,
@@ -216,13 +613,42 @@
     "poem": "月到三五分外明，花开烂漫满园春。良宵美景应珍惜，莫负良缘一片心。",
     "interpretation": "主感情中吉。问婚姻者，和美。问恋爱者，情投意合。宜珍惜眼前人。",
     "allusion": "苏轼词：但愿人长久，千里共婵娟。",
-    "categories": ["love", "family"],
+    "categories": [
+      "love",
+      "family"
+    ],
     "modernNotes": [
       "婚姻：和美",
       "恋爱：情投意合",
       "家庭：团圆",
       "友情：长久"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "月圓花好",
+        "poem": "月到三五分外明，花開烂漫滿園春。良宵美景應珍惜，莫負良緣一片心。",
+        "interpretation": "主感情中吉。問婚姻者，和美。問恋愛者，情投意合。宜珍惜眼前人。",
+        "allusion": "蘇轼詞：但願人長久，千里共婵娟。",
+        "modernNotes": [
+          "婚姻：和美",
+          "恋愛：情投意合",
+          "家庭：團圓",
+          "友情：長久"
+        ]
+      },
+      "en": {
+        "title": "Full Moon, Blooming Flowers",
+        "poem": "The moon at the fifteenth shines brighter than usual, flowers bloom filling the garden with spring. Treasure this fine night, this beautiful scene — do not betray the heart of a precious bond.",
+        "interpretation": "Good fortune in love. Marriage: harmony. Dating: hearts aligned. Cherish those before you.",
+        "allusion": "Su Shi's words: may we live long, sharing this beautiful moon even across a thousand miles.",
+        "modernNotes": [
+          "Marriage: harmonious",
+          "Dating: hearts aligned",
+          "Family: reunion",
+          "Friendship: lasting"
+        ]
+      }
+    }
   },
   {
     "id": 16,
@@ -231,13 +657,41 @@
     "poem": "十年寒窗苦读书，一朝金榜题名时。祖宗庇佑儿孙贵，妈祖恩泽照儒衣。",
     "interpretation": "主学业大吉。问考试者，必中。问升学者，榜上有名。问论文者，通过有望。",
     "allusion": "古代科举士子赴考，必到文昌庙、妈祖庙祈福。妈祖亦被称为文教之神。",
-    "categories": ["study"],
+    "categories": [
+      "study"
+    ],
     "modernNotes": [
       "考试：金榜题名",
       "升学：顺利",
       "论文：通过",
       "留学：得 offer"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "金榜题名",
+        "poem": "十年寒窗苦讀書，一朝金榜题名時。祖宗庇佑兒孫貴，媽祖恩澤照儒衣。",
+        "interpretation": "主學業大吉。問考试者，必中。問升學者，榜上有名。問論文者，通過有望。",
+        "allusion": "古代科举士子赴考，必到文昌廟、媽祖廟祈福。媽祖亦被稱為文教之神。",
+        "modernNotes": [
+          "考试：金榜题名",
+          "升學：順利",
+          "論文：通過",
+          "留學：得 offer"
+        ]
+      },
+      "en": {
+        "title": "Name on the Golden List",
+        "poem": "Ten years at the cold window, books in hand. One morning the golden list bears the name. Ancestors protect, descendants honored. Mazu's grace shines on the scholar's robe.",
+        "interpretation": "Great fortune in study. Exams: success. Admission: name on the list. Thesis: likely passed.",
+        "allusion": "Imperial exam candidates of old would visit both Wenchang and Mazu temples for blessing. Mazu is also honored as a patron of literature and education.",
+        "modernNotes": [
+          "Exam: top results",
+          "Admission: smooth",
+          "Thesis: passed",
+          "Study abroad: offer comes"
+        ]
+      }
+    }
   },
   {
     "id": 17,
@@ -246,13 +700,41 @@
     "poem": "前路茫茫莫彷徨，贵人指点有明光。但行正道终有报，莫负苍生一念良。",
     "interpretation": "主事业有贵人相助，但需自身努力。问求事者，必有引路人。",
     "allusion": "刘备三顾茅庐，得诸葛亮为辅佐，建立蜀汉。贵人难求，遇到了要珍惜。",
-    "categories": ["career"],
+    "categories": [
+      "career"
+    ],
     "modernNotes": [
       "求职：有内推",
       "创业：得导师",
       "转岗：得引荐",
       "投资：得指点"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "貴人指路",
+        "poem": "前路茫茫莫彷徨，貴人指點有明光。但行正道終有報，莫負苍生一念良。",
+        "interpretation": "主事業有貴人相助，但需自身努力。問求事者，必有引路人。",
+        "allusion": "劉備三顾茅廬，得諸葛亮為辅佐，建立蜀漢。貴人難求，遇到了要珍惜。",
+        "modernNotes": [
+          "求职：有內推",
+          "创業：得導師",
+          "转岗：得引薦",
+          "投资：得指點"
+        ]
+      },
+      "en": {
+        "title": "The Noble One Shows the Way",
+        "poem": "The road ahead is vast, do not wander in doubt. A noble one points the way with bright light. Walk the right path and you shall be rewarded — do not betray a single good thought in your heart.",
+        "interpretation": "Career with noble help, but one's own effort is needed. For those seeking matters, a guide shall appear.",
+        "allusion": "Liu Bei visited the thatched cottage three times to invite Zhuge Liang, who became his chief advisor and helped him found the Shu Han. Noble helpers are rare; when found, treasure them.",
+        "modernNotes": [
+          "Job search: a referral comes",
+          "Startup: a mentor appears",
+          "Transfer: an introduction",
+          "Investment: a guide's advice"
+        ]
+      }
+    }
   },
   {
     "id": 18,
@@ -261,13 +743,42 @@
     "poem": "枯木逢春又发芽，沉疴得愈见朝霞。病者遇此签大吉，重生再造万千家。",
     "interpretation": "主身体转好，或事业转机。问病者，可愈。问事业者，转危为安。",
     "allusion": "道教有枯木逢春之说，比喻绝处逢生。",
-    "categories": ["health", "daily"],
+    "categories": [
+      "health",
+      "daily"
+    ],
     "modernNotes": [
       "问病：可愈",
       "问事业：转机",
       "问运势：转好",
       "问学业：进步"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "枯木逢春",
+        "poem": "枯木逢春又發芽，沉疴得愈見朝霞。病者遇此籤大吉，重生再造萬千家。",
+        "interpretation": "主身體转好，或事業转機。問病者，可愈。問事業者，转危為安。",
+        "allusion": "道教有枯木逢春之說，比喻绝處逢生。",
+        "modernNotes": [
+          "問病：可愈",
+          "問事業：转機",
+          "問運勢：转好",
+          "問學業：進步"
+        ]
+      },
+      "en": {
+        "title": "Withered Tree Meets Spring",
+        "poem": "The withered tree, meeting spring, sprouts again. The long illness, healed, sees the morning sun. The sick who draw this sign are greatly blessed. Reborn, renewed, ten thousand homes.",
+        "interpretation": "Health improves, or career turns. The sick: recovery. Career: out of danger into safety.",
+        "allusion": "In Daoism, the withered tree meets spring — a metaphor for finding life at the brink of death.",
+        "modernNotes": [
+          "Illness: recovery",
+          "Career: turnaround",
+          "Fortune: improving",
+          "Study: progress"
+        ]
+      }
+    }
   },
   {
     "id": 19,
@@ -276,13 +787,41 @@
     "poem": "桃之夭夭灼灼华，春风一度到君家。良缘天定非人力，只待东君一树花。",
     "interpretation": "主感情大吉。问单身者，近期会遇到对的人。问恋爱者，可成。",
     "allusion": "《诗经》桃夭篇，贺新婚之喜。",
-    "categories": ["love"],
+    "categories": [
+      "love"
+    ],
     "modernNotes": [
       "单身：近期遇良人",
       "恋爱：可成",
       "复合：缘分未尽",
       "求婚：可成"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "桃花绽放",
+        "poem": "桃之夭夭灼灼華，春風一度到君家。良緣天定非人力，只待东君一樹花。",
+        "interpretation": "主感情大吉。問单身者，近期會遇到对的人。問恋愛者，可成。",
+        "allusion": "《詩經》桃夭篇，賀新婚之喜。",
+        "modernNotes": [
+          "单身：近期遇良人",
+          "恋愛：可成",
+          "複合：緣分未尽",
+          "求婚：可成"
+        ]
+      },
+      "en": {
+        "title": "Peach Blossoms Bloom",
+        "poem": "Peach trees, young and bright, their blossoms glowing. A spring breeze comes once to your house. A good match is heaven-sent, not of human hands — only wait for the east wind, and one tree of flowers.",
+        "interpretation": "Great fortune in love. Singles: a right person comes soon. Dating: success.",
+        "allusion": "The Book of Songs' \"Peach Blossoms Young\" — a wedding celebration.",
+        "modernNotes": [
+          "Single: a good match comes",
+          "Dating: success",
+          "Reconciliation: fate not yet done",
+          "Proposal: success"
+        ]
+      }
+    }
   },
   {
     "id": 20,
@@ -291,13 +830,41 @@
     "poem": "日日生财进斗金，经营得利喜人心。但须诚信为本分，莫贪意外不义金。",
     "interpretation": "主财运亨通。问求财者，可得。但宜正财，不宜投机。",
     "allusion": "妈祖庙多设有添油箱和添香箱，信众捐资以添庙用，寓意添财。",
-    "categories": ["wealth"],
+    "categories": [
+      "wealth"
+    ],
     "modernNotes": [
       "投资：得正财",
       "经营：盈利",
       "副业：可成",
       "投机：不宜"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "日進鬥金",
+        "poem": "日日生財進鬥金，經營得利喜人心。但须誠信為本分，莫贪意外不義金。",
+        "interpretation": "主財運亨通。問求財者，可得。但宜正財，不宜投機。",
+        "allusion": "媽祖廟多設有添油箱和添香箱，信眾捐资以添廟用，寓意添財。",
+        "modernNotes": [
+          "投资：得正財",
+          "經營：盈利",
+          "副業：可成",
+          "投機：不宜"
+        ]
+      },
+      "en": {
+        "title": "Daily Gold, Doubloons In",
+        "poem": "Day by day wealth comes, doubloons in. Business earns profit, gladdens the heart. But keep integrity as your root — never covet ill-gotten gold.",
+        "interpretation": "Wealth flows. For those seeking money, gains come. But take the honest path; avoid speculation.",
+        "allusion": "Mazu temples often have oil and incense donation boxes. Devotees donate to maintain the temple, symbolizing added wealth.",
+        "modernNotes": [
+          "Investment: honest gain",
+          "Business: profit",
+          "Side hustle: viable",
+          "Speculation: not advisable"
+        ]
+      }
+    }
   },
   {
     "id": 21,
@@ -306,13 +873,41 @@
     "poem": "学海无涯苦作舟，灯前夜读几春秋。一朝悟得书中味，万里云程在上头。",
     "interpretation": "主学业中上。问考试者，可中。问学者，宜坚持。",
     "allusion": "唐代韩愈《古今贤文》：书山有路勤为径，学海无涯苦作舟。",
-    "categories": ["study"],
+    "categories": [
+      "study"
+    ],
     "modernNotes": [
       "考试：可中",
       "升学：需努力",
       "论文：可成",
       "留学：需准备"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "學海無涯",
+        "poem": "學海無涯苦作舟，燈前夜讀几春秋。一朝悟得書中味，萬里云程在上頭。",
+        "interpretation": "主學業中上。問考试者，可中。問學者，宜堅持。",
+        "allusion": "唐代韩愈《古今贤文》：書山有路勤為徑，學海無涯苦作舟。",
+        "modernNotes": [
+          "考试：可中",
+          "升學：需努力",
+          "論文：可成",
+          "留學：需准備"
+        ]
+      },
+      "en": {
+        "title": "The Sea of Learning Has No Shore",
+        "poem": "The sea of learning has no shore; the boat of hardship sails on. By lamp at night, through many autumns. One morning the taste of books is grasped, and the road to the clouds is open.",
+        "interpretation": "Upper-middle fortune in study. For exam takers: likely pass. For learners: persist.",
+        "allusion": "Han Yu's \"Ancient and Modern Worthies\": in the mountain of books, the path is made by diligence; on the sea of learning, the boat is the hardship.",
+        "modernNotes": [
+          "Exam: likely pass",
+          "Admission: effort needed",
+          "Thesis: possible",
+          "Study abroad: preparation needed"
+        ]
+      }
+    }
   },
   {
     "id": 22,
@@ -321,13 +916,42 @@
     "poem": "顺水行舟不用牵，轻帆一叶过前川。莫贪捷径走险路，直挂云帆济沧海。",
     "interpretation": "主事业顺遂，但需稳扎稳打。不可急功近利。",
     "allusion": "李白诗：长风破浪会有时，直挂云帆济沧海。",
-    "categories": ["career", "wealth"],
+    "categories": [
+      "career",
+      "wealth"
+    ],
     "modernNotes": [
       "事业：顺",
       "投资：得小利",
       "谈判：得利",
       "急事：缓行"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "順水行舟",
+        "poem": "順水行舟不用牽，轻帆一叶過前川。莫贪捷徑走险路，直挂云帆濟沧海。",
+        "interpretation": "主事業順遂，但需穩扎穩打。不可急功近利。",
+        "allusion": "李白詩：長風破浪會有時，直挂云帆濟沧海。",
+        "modernNotes": [
+          "事業：順",
+          "投资：得小利",
+          "談判：得利",
+          "急事：緩行"
+        ]
+      },
+      "en": {
+        "title": "Sailing with the Current",
+        "poem": "Sailing with the current, no towing needed; a single light sail crosses the river ahead. Do not seek shortcuts on dangerous paths — straight the cloud-borne sail to cross the vast sea.",
+        "interpretation": "Career flows smoothly, but stay steady. Do not chase quick wins.",
+        "allusion": "Li Bai's verse: a day will come when the long wind breaks the waves; straight the cloud-borne sail to cross the vast sea.",
+        "modernNotes": [
+          "Career: smooth",
+          "Investment: small gain",
+          "Negotiation: favorable",
+          "Urgent matters: slow down"
+        ]
+      }
+    }
   },
   {
     "id": 23,
@@ -336,13 +960,42 @@
     "poem": "安居不必问桃源，即此便是小春天。儿孙绕膝承欢乐，一家老少庆团圆。",
     "interpretation": "主家庭和睦，事业平稳。问安家者，宜。问家庭者，和美。",
     "allusion": "陶渊明《桃花源记》：黄发垂髫，并怡然自乐。",
-    "categories": ["family", "career"],
+    "categories": [
+      "family",
+      "career"
+    ],
     "modernNotes": [
       "买房：宜",
       "家庭：和睦",
       "事业：稳定",
       "搬迁：可成"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "安居樂業",
+        "poem": "安居不必問桃源，即此便是小春天。兒孫繞膝承歡樂，一家老少慶團圓。",
+        "interpretation": "主家庭和睦，事業平穩。問安家者，宜。問家庭者，和美。",
+        "allusion": "陶渊明《桃花源记》：黃發垂髫，并怡然自樂。",
+        "modernNotes": [
+          "买房：宜",
+          "家庭：和睦",
+          "事業：穩定",
+          "搬迁：可成"
+        ]
+      },
+      "en": {
+        "title": "Settled in Peace, Joy in Labor",
+        "poem": "Settled in peace, no need to seek a peach-blossom spring — this very place is a small heaven. Grandchildren at the knee bring joy; old and young together celebrate reunion.",
+        "interpretation": "Family harmony, career stable. For those seeking a home, favorable. For family, peaceful.",
+        "allusion": "Tao Yuanming's \"Peach Blossom Spring\": the yellow-haired and the pigtailed, all content and happy.",
+        "modernNotes": [
+          "Home buying: favorable",
+          "Family: harmonious",
+          "Career: stable",
+          "Relocation: possible"
+        ]
+      }
+    }
   },
   {
     "id": 24,
@@ -351,13 +1004,42 @@
     "poem": "春来花好夏清凉，秋有明月冬有阳。四季平安无凶险，全家老少乐安康。",
     "interpretation": "主一年四季平安，无大凶险。问健康者，可保平安。",
     "allusion": "民间有四季平安对联，寓意一年无灾。",
-    "categories": ["family", "health"],
+    "categories": [
+      "family",
+      "health"
+    ],
     "modernNotes": [
       "一年：平安",
       "健康：平稳",
       "家庭：和睦",
       "出行：顺"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "四季平安",
+        "poem": "春來花好夏清涼，秋有明月冬有阳。四季平安無凶险，全家老少樂安康。",
+        "interpretation": "主一年四季平安，無大凶险。問健康者，可保平安。",
+        "allusion": "民間有四季平安对聯，寓意一年無灾。",
+        "modernNotes": [
+          "一年：平安",
+          "健康：平穩",
+          "家庭：和睦",
+          "出行：順"
+        ]
+      },
+      "en": {
+        "title": "Peace Through the Four Seasons",
+        "poem": "Spring brings fine flowers, summer cool. Autumn the bright moon, winter the sun. Four seasons of peace, no ill — the whole family, old and young, joy and health.",
+        "interpretation": "Peace through all four seasons, no great misfortune. For health, the body is kept safe.",
+        "allusion": "Folk tradition has spring couplets of \"peace through the four seasons,\" symbolizing a year without disaster.",
+        "modernNotes": [
+          "Year: peaceful",
+          "Health: steady",
+          "Family: harmonious",
+          "Travel: smooth"
+        ]
+      }
+    }
   },
   {
     "id": 25,
@@ -366,13 +1048,41 @@
     "poem": "守得云开见月明，静待风来帆自轻。不求急进求稳健，一朝时运到前程。",
     "interpretation": "不急不躁，可守可进。当前运势平稳，宜守不宜攻。待时机成熟，自有发展。",
     "allusion": "宋代宰相王曾，三度科举不中，旁人劝其放弃。王曾曰：时机未到，固守待之。后中状元，位极人臣。",
-    "categories": ["career"],
+    "categories": [
+      "career"
+    ],
     "modernNotes": [
       "求职：暂时不顺，但沉淀后会更好",
       "事业：当前稳定期，不要瞎折腾",
       "投资：观望为主",
       "学业：稳步前进即可"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "守成待時",
+        "poem": "守得云開見月明，静待風來帆自轻。不求急進求穩健，一朝時運到前程。",
+        "interpretation": "不急不躁，可守可進。當前運勢平穩，宜守不宜攻。待時機成熟，自有發展。",
+        "allusion": "宋代宰相王曾，三度科举不中，旁人勸其放棄。王曾曰：時機未到，固守待之。後中状元，位極人臣。",
+        "modernNotes": [
+          "求职：暂時不順，但沉淀後會更好",
+          "事業：當前穩定期，不要瞎折腾",
+          "投资：觀望為主",
+          "學業：穩步前進即可"
+        ]
+      },
+      "en": {
+        "title": "Hold Steady, Wait the Time",
+        "poem": "Hold till the clouds part to see the moon; wait for the wind, and the sail is light. Seek not rapid advance but steady steps; when fortune turns, the road ahead opens.",
+        "interpretation": "No rush, no panic — hold or advance, as fits. The current fortune is steady; hold, do not attack. Wait for the right time, and growth will follow.",
+        "allusion": "Wang Zeng, prime minister of the Song dynasty, failed the imperial exam three times. Onlookers urged him to give up. He said: the moment has not come; I shall wait. He later became the top scorer and rose to the highest office.",
+        "modernNotes": [
+          "Job search: not smooth for now, but improvement will come",
+          "Career: stable phase, do not thrash about",
+          "Investment: observe",
+          "Study: steady progress is enough"
+        ]
+      }
+    }
   },
   {
     "id": 26,
@@ -381,13 +1091,41 @@
     "poem": "心如止水自安然，不必焦躁不须眠。一日平心又静气，千灾万难不相干。",
     "interpretation": "主今日宜静不宜动，凡事三思而后行。",
     "allusion": "诸葛亮《诫子书》：非淡泊无以明志，非宁静无以致远。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：稳",
       "决策：等时机",
       "情绪：稳住",
       "急事：缓"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "平心静氣",
+        "poem": "心如止水自安然，不必焦躁不须眠。一日平心又静氣，千灾萬難不相干。",
+        "interpretation": "主今日宜静不宜動，凡事三思而後行。",
+        "allusion": "諸葛亮《誡子書》：非淡泊無以明志，非寧静無以致遠。",
+        "modernNotes": [
+          "今日：穩",
+          "決策：等時機",
+          "情緒：穩住",
+          "急事：緩"
+        ]
+      },
+      "en": {
+        "title": "Calm Heart, Steady Qi",
+        "poem": "The heart, like still water, naturally at peace. No need for haste, no need for sleeplessness. One day of calm heart and steady qi — a thousand disasters cannot touch.",
+        "interpretation": "Today, be still rather than act. Think thrice before every move.",
+        "allusion": "Zhuge Liang's \"Admonition to My Son\": without detachment, one cannot clarify one's purpose; without tranquility, one cannot reach far.",
+        "modernNotes": [
+          "Today: stable",
+          "Decisions: wait for the right moment",
+          "Emotions: steady",
+          "Urgent matters: slow"
+        ]
+      }
+    }
   },
   {
     "id": 27,
@@ -396,13 +1134,42 @@
     "poem": "夫妻相敬如宾客，和和睦睦共朝夕。莫因小事伤和气，白头偕老最相宜。",
     "interpretation": "主感情中平。宜互相尊重，包容理解。",
     "allusion": "《左传》载：宾有四座，夫妇亦相敬如宾。",
-    "categories": ["love", "family"],
+    "categories": [
+      "love",
+      "family"
+    ],
     "modernNotes": [
       "婚姻：平稳",
       "恋爱：互相尊重",
       "家庭：少吵架",
       "婆媳：多忍让"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "相敬如賓",
+        "poem": "夫妻相敬如賓客，和和睦睦共朝夕。莫因小事傷和氣，白頭偕老最相宜。",
+        "interpretation": "主感情中平。宜互相尊重，包容理解。",
+        "allusion": "《左傳》载：賓有四座，夫婦亦相敬如賓。",
+        "modernNotes": [
+          "婚姻：平穩",
+          "恋愛：互相尊重",
+          "家庭：少吵架",
+          "婆媳：多忍让"
+        ]
+      },
+      "en": {
+        "title": "Husband and Wife as Honored Guests",
+        "poem": "Husband and wife honor each other as guests, in harmony through all the days. Do not let small things hurt the peace — growing old together is the truest blessing.",
+        "interpretation": "Middle-grade fortune in love. Honor and tolerate each other; understand one another.",
+        "allusion": "The Zuo Zhuan records: there are four kinds of guests; husband and wife should honor each other as guests.",
+        "modernNotes": [
+          "Marriage: stable",
+          "Dating: mutual respect",
+          "Family: fewer quarrels",
+          "In-laws: more patience"
+        ]
+      }
+    }
   },
   {
     "id": 28,
@@ -411,13 +1178,41 @@
     "poem": "莫贪暴富求横财，细水长流慢慢来。节俭持家长安乐，积少成多富贵开。",
     "interpretation": "主财运中平。宜节俭，不宜投机。",
     "allusion": "朱熹《朱子家训》：一粥一饭，当思来处不易。",
-    "categories": ["wealth"],
+    "categories": [
+      "wealth"
+    ],
     "modernNotes": [
       "收入：稳定",
       "投资：保守",
       "副业：慢慢来",
       "大支出：暂缓"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "細水長流",
+        "poem": "莫贪暴富求橫財，細水長流慢慢來。节儉持家長安樂，積少成多富貴開。",
+        "interpretation": "主財運中平。宜节儉，不宜投機。",
+        "allusion": "朱熹《朱子家訓》：一粥一飯，當思來處不易。",
+        "modernNotes": [
+          "收入：穩定",
+          "投资：保守",
+          "副業：慢慢來",
+          "大支出：暂緩"
+        ]
+      },
+      "en": {
+        "title": "A Long, Steady Stream",
+        "poem": "Do not chase sudden wealth or windfall. A long, steady stream flows slowly. Thrift and care bring family peace; small savings grow into fortune.",
+        "interpretation": "Middle-grade fortune in wealth. Be frugal; avoid speculation.",
+        "allusion": "Zhu Xi's \"Family Instructions\": a bowl of rice, a dish of soup — think how hard they were to obtain.",
+        "modernNotes": [
+          "Income: stable",
+          "Investment: conservative",
+          "Side hustle: take it slow",
+          "Big spending: pause"
+        ]
+      }
+    }
   },
   {
     "id": 29,
@@ -426,13 +1221,41 @@
     "poem": "寒窗十载伴青灯，苦读诗书志气增。一朝风云际会日，鲲鹏展翅上天庭。",
     "interpretation": "主学业中平。需继续努力，不可松懈。",
     "allusion": "晋代孙康家贫无烛，映雪读书；车胤囊萤照书。",
-    "categories": ["study"],
+    "categories": [
+      "study"
+    ],
     "modernNotes": [
       "考试：需努力",
       "学习：坚持",
       "论文：可成",
       "留学：要准备"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "寒窗苦讀",
+        "poem": "寒窗十载伴青燈，苦讀詩書志氣增。一朝風云际會日，鲲鹏展翅上天庭。",
+        "interpretation": "主學業中平。需繼續努力，不可松懈。",
+        "allusion": "晉代孫康家貧無燭，映雪讀書；车胤囊萤照書。",
+        "modernNotes": [
+          "考试：需努力",
+          "學習：堅持",
+          "論文：可成",
+          "留學：要准備"
+        ]
+      },
+      "en": {
+        "title": "Years at the Cold Window",
+        "poem": "Ten years at the cold window, with a green lamp; hard reading of poetry builds resolve. One day when the wind and clouds meet, the rooster spreads its wings to the heavenly court.",
+        "interpretation": "Middle-grade fortune in study. Continue to work hard; do not slack.",
+        "allusion": "Jin dynasty's Sun Kang, too poor for a candle, read by the snow's reflection; Che Yin read by glow-worms in a bag.",
+        "modernNotes": [
+          "Exam: effort required",
+          "Study: persist",
+          "Thesis: possible",
+          "Study abroad: prepare"
+        ]
+      }
+    }
   },
   {
     "id": 30,
@@ -441,13 +1264,41 @@
     "poem": "修身养性自安然，饮食有节起居端。心无烦恼身康健，长寿何须问地天。",
     "interpretation": "主健康中平。宜养生，调理身体。",
     "allusion": "孔子《论语》：食不厌精，脍不厌细。",
-    "categories": ["health"],
+    "categories": [
+      "health"
+    ],
     "modernNotes": [
       "健康：注意",
       "饮食：节制",
       "运动：坚持",
       "睡眠：规律"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "修身養性",
+        "poem": "修身養性自安然，饮食有节起居端。心無煩惱身康健，長壽何须問地天。",
+        "interpretation": "主健康中平。宜養生，調理身體。",
+        "allusion": "孔子《論語》：食不厭精，脍不厭細。",
+        "modernNotes": [
+          "健康：注意",
+          "饮食：节制",
+          "運動：堅持",
+          "睡眠：規律"
+        ]
+      },
+      "en": {
+        "title": "Cultivate Body and Mind",
+        "poem": "Cultivate body and mind, and peace is natural. Moderate food, regular rest. No troubles in the heart, the body is well — long life needs not ask of Heaven or Earth.",
+        "interpretation": "Middle-grade fortune in health. Nurture life; tend the body.",
+        "allusion": "Confucius' Analects: food finely prepared, meat finely sliced.",
+        "modernNotes": [
+          "Health: pay attention",
+          "Diet: moderate",
+          "Exercise: persist",
+          "Sleep: regular"
+        ]
+      }
+    }
   },
   {
     "id": 31,
@@ -456,13 +1307,41 @@
     "poem": "知足之人自得乐，不贪不竞远灾祸。粗茶淡饭安心食，胜似琼浆与仙果。",
     "interpretation": "主今日宜知足，不宜攀比。",
     "allusion": "《道德经》：知足不辱，知止不殆。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：安",
       "心态：放平",
       "物质：知足",
       "精神：富足"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "知足常樂",
+        "poem": "知足之人自得樂，不贪不竞遠灾祸。粗茶淡飯安心食，胜似琼浆與仙果。",
+        "interpretation": "主今日宜知足，不宜攀比。",
+        "allusion": "《道德經》：知足不辱，知止不殆。",
+        "modernNotes": [
+          "今日：安",
+          "心態：放平",
+          "物质：知足",
+          "精神：富足"
+        ]
+      },
+      "en": {
+        "title": "Contentment, Constant Joy",
+        "poem": "The contented one finds joy within, free from greed and rivalry, far from disaster. Simple tea and plain rice, eaten at peace, surpass the finest ambrosia and immortal fruit.",
+        "interpretation": "Today, be content. Do not compare yourself to others.",
+        "allusion": "Dao De Jing: Those who know contentment are not disgraced; those who know when to stop are not endangered.",
+        "modernNotes": [
+          "Today: at peace",
+          "Mind: settle",
+          "Material: enough",
+          "Spirit: rich"
+        ]
+      }
+    }
   },
   {
     "id": 32,
@@ -471,13 +1350,41 @@
     "poem": "和气一门有吉祥，家中老少尽安康。莫因口舌生嫌隙，忍让宽容福泽长。",
     "interpretation": "主家庭中平。宜和气，不要争吵。",
     "allusion": "《周易·乾》：保合太和，乃利贞。",
-    "categories": ["family"],
+    "categories": [
+      "family"
+    ],
     "modernNotes": [
       "家庭：和睦",
       "矛盾：化解",
       "关系：维护",
       "老人：尊敬"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "和氣致祥",
+        "poem": "和氣一門有吉祥，家中老少尽安康。莫因口舌生嫌隙，忍讓宽容福泽長。",
+        "interpretation": "主家庭中平。宜和氣，不要争吵。",
+        "allusion": "《周易·乾》：保合太和，乃利贞。",
+        "modernNotes": [
+          "家庭：和睦",
+          "矛盾：化解",
+          "關系：維護",
+          "老人：尊敬"
+        ]
+      },
+      "en": {
+        "title": "Harmony Brings Auspice",
+        "poem": "A house of harmony bears good fortune; the old and young are all at peace. Do not let words stir a rift; patience and tolerance bring long blessings.",
+        "interpretation": "Middle-grade fortune in family. Be gentle; do not quarrel.",
+        "allusion": "Zhou Yi · Qian: Preserve the great harmony; it benefits and is correct.",
+        "modernNotes": [
+          "Family: harmonious",
+          "Conflict: dissolve",
+          "Relationships: maintain",
+          "Elders: respect"
+        ]
+      }
+    }
   },
   {
     "id": 33,
@@ -486,13 +1393,42 @@
     "poem": "病从口入祸从言，慎独慎微始安全。闭口深藏舌，免招烦恼到身边。",
     "interpretation": "宜缄默，慎言行。问事业者，谨防小人；问感情者，避免口舌。此签主因言语招祸，宜三思而后言。",
     "allusion": "明代杨慎因直言进谏被贬云南。其妻黄娥劝曰：言多必失，守口如瓶。杨慎从之，后于云南专心著述，得以善终。",
-    "categories": ["career", "love"],
+    "categories": [
+      "career",
+      "love"
+    ],
     "modernNotes": [
       "职场：少说话多做事，避免被同事抓到把柄",
       "感情：不要翻旧账、不要在气头上说重话",
       "家庭：谨言慎行，避免家庭矛盾",
       "社交：低调一段时间"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "守口如瓶",
+        "poem": "病從口入祸從言，慎独慎微始安全。閉口深藏舌，免招煩恼到身邊。",
+        "interpretation": "宜缄默，慎言行。問事業者，謹防小人；問感情者，避免口舌。此籤主因言語招祸，宜三思而後言。",
+        "allusion": "明代楊慎因直言進谏被贬云南。其妻黃娥劝曰：言多必失，守口如瓶。楊慎從之，後於云南专心著述，得以善終。",
+        "modernNotes": [
+          "职場：少說话多做事，避免被同事抓到把柄",
+          "感情：不要翻舊账、不要在氣頭上說重话",
+          "家庭：謹言慎行，避免家庭矛盾",
+          "社交：低调一段時間"
+        ]
+      },
+      "en": {
+        "title": "Keep the Mouth Sealed",
+        "poem": "Illness enters through the mouth, disaster through words. Careful in private and small things, safety begins. Close the mouth, hide the tongue — avoid troubles that come to your side.",
+        "interpretation": "Be silent; watch your words. For career, beware of the small-minded; for love, avoid biting words. This sign warns of trouble from speech — think three times before you speak.",
+        "allusion": "Ming dynasty's Yang Shen, for speaking out, was exiled to Yunnan. His wife Huang E advised: too many words invite loss; keep the mouth as sealed as a bottle. Heeding this, he devoted himself to writing and met a good end.",
+        "modernNotes": [
+          "At work: speak less, do more; avoid giving colleagues a handle",
+          "In love: don't dig up the past, don't say harsh things in anger",
+          "At home: careful words, avoid family conflict",
+          "In social life: lay low for a while"
+        ]
+      }
+    }
   },
   {
     "id": 34,
@@ -501,13 +1437,42 @@
     "poem": "出门在外须谨慎，火烛刀兵要小心。一时不察生灾祸，慎始慎终保安宁。",
     "interpretation": "主健康/出行中下。宜谨慎，防意外。",
     "allusion": "民间有小心火烛之警语，提醒居家出行皆需谨慎。",
-    "categories": ["health", "travel"],
+    "categories": [
+      "health",
+      "travel"
+    ],
     "modernNotes": [
       "出行：注意安全",
       "健康：体检",
       "工作：仔细",
       "防火：检查"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "小心火燭",
+        "poem": "出門在外須謹慎，火燭刀兵要小心。一時不察生灾祸，慎始慎終保安宁。",
+        "interpretation": "主健康/出行中下。宜謹慎，防意外。",
+        "allusion": "民間有小心火燭之警語，提醒居家出行皆需謹慎。",
+        "modernNotes": [
+          "出行：注意安全",
+          "健康：體檢",
+          "工作：仔細",
+          "防火：檢查"
+        ]
+      },
+      "en": {
+        "title": "Beware Fire and Candle",
+        "poem": "Out and about, be cautious — fire, candle, blade, and weapon all need care. One moment of inattention brings disaster. Begin and end with care, and peace is kept.",
+        "interpretation": "Middle-lower fortune in health and travel. Be careful; prevent accidents.",
+        "allusion": "The folk saying \"beware of fire and candle\" reminds one to be cautious in both home and travel.",
+        "modernNotes": [
+          "Travel: safety first",
+          "Health: check-up",
+          "Work: careful",
+          "Fire: inspect"
+        ]
+      }
+    }
   },
   {
     "id": 35,
@@ -516,13 +1481,42 @@
     "poem": "退一步来海阔天，让三分后心自闲。莫因小事伤和气，忍让宽容福绵绵。",
     "interpretation": "主感情中下。宜退让，不要争强。",
     "allusion": "清代《格言联璧》：退一步海阔天空，让三分何等清闲。",
-    "categories": ["love", "family"],
+    "categories": [
+      "love",
+      "family"
+    ],
     "modernNotes": [
       "吵架：让步",
       "谈判：退让",
       "家庭：忍让",
       "矛盾：化解"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "退一步海闊天空",
+        "poem": "退一步來海闊天，讓三分後心自闲。莫因小事傷和氣，忍讓宽容福绵绵。",
+        "interpretation": "主感情中下。宜退讓，不要争強。",
+        "allusion": "清代《格言聯璧》：退一步海闊天空，讓三分何等清闲。",
+        "modernNotes": [
+          "吵架：讓步",
+          "谈判：退讓",
+          "家庭：忍讓",
+          "矛盾：化解"
+        ]
+      },
+      "en": {
+        "title": "Step Back, Sky Opens Wide",
+        "poem": "Step back, and the sea and sky open wide. Yield three points, and the heart is at ease. Do not let small things harm the peace — patience and tolerance bring boundless blessings.",
+        "interpretation": "Middle-lower fortune in love. Yield; do not fight for victory.",
+        "allusion": "Qing dynasty's \"Maxim Couplets\": Step back, and the sea and sky are wide; yield three points, and how peaceful is the heart.",
+        "modernNotes": [
+          "Quarrels: yield",
+          "Negotiation: concede",
+          "Family: patience",
+          "Conflict: dissolve"
+        ]
+      }
+    }
   },
   {
     "id": 36,
@@ -531,13 +1525,41 @@
     "poem": "财不入急门，富不偏执念。莫贪快钱走险路，稳扎稳打自安然。",
     "interpretation": "主财运中下。宜保守，不宜投机。",
     "allusion": "古代有财不急入之警语，劝人理财要稳。",
-    "categories": ["wealth"],
+    "categories": [
+      "wealth"
+    ],
     "modernNotes": [
       "投资：不急",
       "副业：慢慢来",
       "投机：不宜",
       "赌博：不沾"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "財不入急門",
+        "poem": "財不入急門，富不偏执念。莫贪快錢走險路，穩扎穩打自安然。",
+        "interpretation": "主財運中下。宜保守，不宜投機。",
+        "allusion": "古代有財不急入之警語，劝人理財要穩。",
+        "modernNotes": [
+          "投资：不急",
+          "副業：慢慢來",
+          "投機：不宜",
+          "赌博：不沾"
+        ]
+      },
+      "en": {
+        "title": "Wealth Does Not Enter the Hurrying Door",
+        "poem": "Wealth does not enter the hurried door; riches do not favor obsession. Do not chase quick money on dangerous paths; step by step, in safety, all is well.",
+        "interpretation": "Middle-lower fortune in wealth. Be conservative; avoid speculation.",
+        "allusion": "The old saying \"wealth does not enter the hurrying door\" advises prudence in financial matters.",
+        "modernNotes": [
+          "Investment: don't rush",
+          "Side hustle: take it slow",
+          "Speculation: not advisable",
+          "Gambling: avoid"
+        ]
+      }
+    }
   },
   {
     "id": 37,
@@ -546,13 +1568,41 @@
     "poem": "学然后知不足，教然后知困顿。虚心求教方为上，骄傲自满难进步。",
     "interpretation": "主学业中下。宜谦虚，不宜自满。",
     "allusion": "《礼记·学记》：学然后知不足，教然后知困。",
-    "categories": ["study"],
+    "categories": [
+      "study"
+    ],
     "modernNotes": [
       "学习：虚心",
       "考试：需努力",
       "论文：要改",
       "留学：要准备"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "學然後知不足",
+        "poem": "學然後知不足，教然後知困頓。虛心求教方為上，骄傲自满難進步。",
+        "interpretation": "主學業中下。宜謙虛，不宜自满。",
+        "allusion": "《禮記·學記》：學然後知不足，教然後知困。",
+        "modernNotes": [
+          "學習：虛心",
+          "考试：需努力",
+          "论文：要改",
+          "留學：要准备"
+        ]
+      },
+      "en": {
+        "title": "Learning Reveals What We Lack",
+        "poem": "Learning, then we know our lack; teaching, then we know our gaps. The humble seeker of advice is the wise one; pride and self-satisfaction block all progress.",
+        "interpretation": "Middle-lower fortune in study. Be humble; do not be complacent.",
+        "allusion": "Li Ji · Xue Ji: Learning, then we know our lack; teaching, then we know our gaps.",
+        "modernNotes": [
+          "Study: humble",
+          "Exam: effort required",
+          "Thesis: needs revision",
+          "Study abroad: prepare"
+        ]
+      }
+    }
   },
   {
     "id": 38,
@@ -561,13 +1611,41 @@
     "poem": "节饮食来慎起居，莫贪口腹伤身体。早起早睡身心健，长寿何须问仙医。",
     "interpretation": "主健康中下。宜养生，不宜放纵。",
     "allusion": "《黄帝内经》：饮食有节，起居有常。",
-    "categories": ["health"],
+    "categories": [
+      "health"
+    ],
     "modernNotes": [
       "健康：注意",
       "饮食：节制",
       "睡眠：规律",
       "运动：坚持"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "节飲食慎起居",
+        "poem": "节飲食來慎起居，莫贪口腹傷身體。早起早睡身心健，長壽何須問仙醫。",
+        "interpretation": "主健康中下。宜養生，不宜放縱。",
+        "allusion": "《黃帝內經》：飲食有节，起居有常。",
+        "modernNotes": [
+          "健康：注意",
+          "飲食：节制",
+          "睡眠：規律",
+          "運動：坚持"
+        ]
+      },
+      "en": {
+        "title": "Moderate Diet, Careful Living",
+        "poem": "Moderate the diet, careful in living; do not indulge the mouth and harm the body. Early rise, early sleep, body and mind in health — long life needs not ask of immortals or physicians.",
+        "interpretation": "Middle-lower fortune in health. Nurture life; do not be unrestrained.",
+        "allusion": "Huang Di Nei Jing: Diet in measure, living in rhythm.",
+        "modernNotes": [
+          "Health: attention",
+          "Diet: moderate",
+          "Sleep: regular",
+          "Exercise: persist"
+        ]
+      }
+    }
   },
   {
     "id": 39,
@@ -576,13 +1654,41 @@
     "poem": "静观其变待时机，不必仓皇失主意。风云变幻寻常事，守得云开见月明。",
     "interpretation": "主今日宜静，不宜动。等形势明朗。",
     "allusion": "诸葛亮《诫子书》：静以修身，俭以养德。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：等",
       "决策：观望",
       "投资：不动",
       "急事：缓办"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "静觀其變",
+        "poem": "静觀其變待時機，不必仓皇失主意。風云變幻寻常事，守得云開見月明。",
+        "interpretation": "主今日宜静，不宜動。等形势明朗。",
+        "allusion": "诸葛亮《诫子書》：静以修身，俭以養德。",
+        "modernNotes": [
+          "今日：等",
+          "決策：觀望",
+          "投资：不動",
+          "急事：緩办"
+        ]
+      },
+      "en": {
+        "title": "Watch the Changes Quietly",
+        "poem": "Watch the changes quietly, wait for the moment. Do not panic and lose your mind. Wind and clouds shift as is their way — hold till the clouds part to see the moon.",
+        "interpretation": "Today, be still, not active. Wait for the situation to become clear.",
+        "allusion": "Zhuge Liang's \"Admonition to My Son\": Stillness cultivates the self; thrift nourishes virtue.",
+        "modernNotes": [
+          "Today: wait",
+          "Decisions: observe",
+          "Investment: stay put",
+          "Urgent matters: delay"
+        ]
+      }
+    }
   },
   {
     "id": 40,
@@ -591,13 +1697,42 @@
     "poem": "远小人来自安宁，近贤良者事业兴。莫与奸佞多来往，清白做人谢妈尊。",
     "interpretation": "主事业/家庭中下。宜远离小人。",
     "allusion": "孔子曰：益者三友，友直，友谅，友多闻。",
-    "categories": ["career", "family"],
+    "categories": [
+      "career",
+      "family"
+    ],
     "modernNotes": [
       "同事：远离",
       "朋友：慎选",
       "合作伙伴：考察",
       "家庭：和睦"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "遠小人",
+        "poem": "遠小人來自安宁，近贤良者事業興。莫與奸佞多來往，清白做人謝媽尊。",
+        "interpretation": "主事業/家庭中下。宜遠离小人。",
+        "allusion": "孔子曰：益者三友，友直，友谅，友多闻。",
+        "modernNotes": [
+          "同事：遠离",
+          "朋友：慎選",
+          "合作伙伴：考察",
+          "家庭：和睦"
+        ]
+      },
+      "en": {
+        "title": "Keep the Petty at Distance",
+        "poem": "Keep the petty at a distance, and peace comes. Be near the worthy, and the venture thrives. Do not associate with the treacherous; live a clean life and thank Mazu.",
+        "interpretation": "Middle-lower fortune in career and family. Keep the small-minded at arm's length.",
+        "allusion": "Confucius said: There are three有益 friends: the upright, the sincere, the well-informed.",
+        "modernNotes": [
+          "Coworkers: keep at distance",
+          "Friends: choose carefully",
+          "Partners: vet",
+          "Family: harmonious"
+        ]
+      }
+    }
   },
   {
     "id": 41,
@@ -606,13 +1741,41 @@
     "poem": "莫嫌来路多崎岖，风雨兼程志未移。历尽艰辛终有报，山花烂漫在归期。",
     "interpretation": "当前虽难，终有转机。问事者，宜坚持不放弃，困难会过去，结果会变好。",
     "allusion": "汉代司马迁因李陵之祸受宫刑，本欲自尽。继父任安劝曰：困厄是砥砺，忍辱可成《史记》。后完成史家之绝唱。",
-    "categories": ["career"],
+    "categories": [
+      "career"
+    ],
     "modernNotes": [
       "创业：当前亏损正常，长期看好",
       "求职：被拒几次正常，会有好的",
       "感情：被分手后还会遇到对的人",
       "健康：慢病但可控制"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "先難後易",
+        "poem": "莫嫌來路多崎岖，風雨兼程志未移。歷尽艰辛終有報，山花烂漫在歸期。",
+        "interpretation": "當前虽難，終有轉機。問事者，宜坚持不放弃，困難會過去，結果會變好。",
+        "allusion": "汉代司馬遷因李陵之祸受宫刑，本欲自尽。繼父任安劝曰：困厄是砥砺，忍辱可成《史記》。後完成史家之绝唱。",
+        "modernNotes": [
+          "创業：當前亏损正常，長期看好",
+          "求职：被拒几次正常，會有好的",
+          "感情：被分手後還會遇到对的人",
+          "健康：慢病但可控制"
+        ]
+      },
+      "en": {
+        "title": "Difficulty First, Ease After",
+        "poem": "Do not complain the road ahead is rough; through wind and rain, your purpose does not shift. After hardship comes reward; mountain flowers bloom in the season of return.",
+        "interpretation": "Although difficult now, a turn will come. For those who ask, hold on and do not give up — the hardship will pass, the result will brighten.",
+        "allusion": "Han dynasty's Sima Qian, after suffering castration for the Li Ling affair, wished to end his life. His stepfather Ren An urged: hardship is the whetstone; enduring shame can complete the Records. He did, becoming the unmatched historian.",
+        "modernNotes": [
+          "Startup: current loss is normal, long-term looks good",
+          "Job search: a few rejections are normal, the right one will come",
+          "Love: after a breakup, you will meet the right person",
+          "Health: chronic but manageable"
+        ]
+      }
+    }
   },
   {
     "id": 42,
@@ -621,13 +1784,41 @@
     "poem": "破镜重圆古所稀，离而复合有天机。但须改过自新后，方能再续旧情归。",
     "interpretation": "主感情小凶可化解。问复合者，可成，但需改过。",
     "allusion": "南朝陈将亡，驸马徐德言与妻乐昌公主破镜各执一半，后果复合。",
-    "categories": ["love"],
+    "categories": [
+      "love"
+    ],
     "modernNotes": [
       "复合：可能但需努力",
       "离婚：可挽回",
       "吵架：可化解",
       "心态：放平"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "破鏡重圆",
+        "poem": "破鏡重圆古所稀，离而複合有天機。但須改過自新後，方能再續舊情歸。",
+        "interpretation": "主感情小凶可化解。問複合者，可成，但需改過。",
+        "allusion": "南朝陳將亡，驸馬徐德言與妻樂昌公主破鏡各执一半，後果複合。",
+        "modernNotes": [
+          "複合：可能但需努力",
+          "离婚：可挽回",
+          "吵架：可化解",
+          "心態：放平"
+        ]
+      },
+      "en": {
+        "title": "Broken Mirror, Round Again",
+        "poem": "A broken mirror, round again, is rare in ancient tales; parting and reunion follow Heaven's design. Yet only after mending the self anew can the old love be joined once more.",
+        "interpretation": "A small misfortune in love can be resolved. For reconciliation: possible, but requires change.",
+        "allusion": "As the Southern Chen dynasty fell, the imperial son-in-law Xu Deyan and his wife Princess Lechang each kept half a broken mirror; later they were indeed reunited.",
+        "modernNotes": [
+          "Reconciliation: possible but requires effort",
+          "Divorce: reversible",
+          "Quarrels: resolvable",
+          "Mindset: settle"
+        ]
+      }
+    }
   },
   {
     "id": 43,
@@ -636,13 +1827,42 @@
     "poem": "转危为安赖至诚，妈祖垂怜护众生。险中得救终有救，须当铭记谢神灵。",
     "interpretation": "主健康/出行小凶可化解。遇难呈祥。",
     "allusion": "妈祖海上救难传说众多，最著名的是救海难——海商船遇风浪，妈祖显灵相救。",
-    "categories": ["health", "travel"],
+    "categories": [
+      "health",
+      "travel"
+    ],
     "modernNotes": [
       "健康：可救",
       "出行：可化险",
       "工作：可解",
       "危机：可过"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "轉危為安",
+        "poem": "轉危為安賴至诚，媽祖垂憐護眾生。險中得救終有救，須當铭記謝神靈。",
+        "interpretation": "主健康/出行小凶可化解。遇難呈祥。",
+        "allusion": "媽祖海上救難傳說眾多，最著名的是救海難——海商船遇風浪，媽祖顯靈相救。",
+        "modernNotes": [
+          "健康：可救",
+          "出行：可化險",
+          "工作：可解",
+          "危機：可過"
+        ]
+      },
+      "en": {
+        "title": "Turn Danger to Safety",
+        "poem": "Turning danger to safety rests on sincerity; Mazu looks with compassion on all beings. Saved at the brink, in the end there is rescue — remember to give thanks to the divine.",
+        "interpretation": "A small misfortune in health and travel can be resolved. From peril comes fortune.",
+        "allusion": "There are many Mazu legends of saving those at sea. The most famous: a merchant ship met a storm, and Mazu appeared to save the sailors.",
+        "modernNotes": [
+          "Health: rescueable",
+          "Travel: danger can pass",
+          "Work: solvable",
+          "Crisis: passable"
+        ]
+      }
+    }
   },
   {
     "id": 44,
@@ -651,13 +1871,41 @@
     "poem": "否极泰来运转新，苦尽甘来喜气生。莫因眼前多困顿，时来运转自通亨。",
     "interpretation": "主今日运势小凶可化。触底反弹。",
     "allusion": "《周易·否》：否极泰来。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：转好",
       "困境：可解",
       "投资：可回本",
       "事业：转机"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "否極泰來",
+        "poem": "否極泰來運轉新，苦尽甘來喜氣生。莫因眼前多困頓，時來運轉自通亨。",
+        "interpretation": "主今日運势小凶可化。触底反弹。",
+        "allusion": "《周易·否》：否極泰來。",
+        "modernNotes": [
+          "今日：轉好",
+          "困境：可解",
+          "投资：可回本",
+          "事業：轉機"
+        ]
+      },
+      "en": {
+        "title": "The Worst Passes, Fortune Returns",
+        "poem": "When the worst turns, fortune comes anew; hardship ends, sweetness arrives. Do not despair at present trials — when fortune turns, all flows open and smooth.",
+        "interpretation": "Today's fortune is small-unlucky, but resolving. A bounce back from the bottom.",
+        "allusion": "Zhou Yi · Pi: When Pi (obstruction) reaches its extreme, Tai (prosperity) comes.",
+        "modernNotes": [
+          "Today: improving",
+          "Difficulty: solvable",
+          "Investment: can recover",
+          "Career: turnaround"
+        ]
+      }
+    }
   },
   {
     "id": 45,
@@ -666,13 +1914,41 @@
     "poem": "失之东隅收桑榆，莫因小挫失前途。眼前失利非全败，改日得利谢妈祖。",
     "interpretation": "主财运小凶可化。失而复得。",
     "allusion": "《后汉书·冯异传》：失之东隅，收之桑榆。",
-    "categories": ["wealth"],
+    "categories": [
+      "wealth"
+    ],
     "modernNotes": [
       "投资：可回本",
       "副业：转机",
       "投机：可挽回",
       "失物：可寻回"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "失之东隅",
+        "poem": "失之东隅收桑榆，莫因小挫失前途。眼前失利非全败，改日得利謝媽祖。",
+        "interpretation": "主財運小凶可化。失而複得。",
+        "allusion": "《後汉書·馮异傳》：失之东隅，收之桑榆。",
+        "modernNotes": [
+          "投资：可回本",
+          "副業：轉機",
+          "投機：可挽回",
+          "失物：可寻回"
+        ]
+      },
+      "en": {
+        "title": "Lost in the East, Gained in the West",
+        "poem": "Lost in the east, gained in the west; do not let small setbacks dim the road ahead. Present loss is not total defeat — gain another day, and thank Mazu.",
+        "interpretation": "A small misfortune in wealth can be resolved. Loss returns to gain.",
+        "allusion": "Hou Han Shu · Biography of Feng Yi: Lost in the east, gained in the mulberry trees of the west.",
+        "modernNotes": [
+          "Investment: can recover",
+          "Side hustle: turnaround",
+          "Speculation: recoverable",
+          "Lost items: findable"
+        ]
+      }
+    }
   },
   {
     "id": 46,
@@ -681,13 +1957,41 @@
     "poem": "浪子回头金不换，改过自新谢妈尊。莫因一时失足恨，重整家风再立身。",
     "interpretation": "主家庭小凶可化。浪子可回头。",
     "allusion": "传统戏曲《浪子回头》讲述浪子回头的故事。",
-    "categories": ["family"],
+    "categories": [
+      "family"
+    ],
     "modernNotes": [
       "家人：可回头",
       "子女：可教化",
       "矛盾：可化解",
       "关系：可修复"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "浪子回頭",
+        "poem": "浪子回頭金不换，改過自新謝媽尊。莫因一時失足恨，重整家風再立身。",
+        "interpretation": "主家庭小凶可化。浪子可回頭。",
+        "allusion": "傳統戲曲《浪子回頭》講述浪子回頭的故事。",
+        "modernNotes": [
+          "家人：可回頭",
+          "子女：可教化",
+          "矛盾：可化解",
+          "關系：可修複"
+        ]
+      },
+      "en": {
+        "title": "The Prodigal Returns",
+        "poem": "The prodigal's return is worth more than gold; mending the self anew, thanks to Mazu. Do not despair at one misstep; rebuild the family ways and stand once more.",
+        "interpretation": "A small misfortune in family can be resolved. The wanderer can return.",
+        "allusion": "The traditional opera \"The Prodigal Returns\" tells the story of one who turns back.",
+        "modernNotes": [
+          "Family member: can return",
+          "Children: teachable",
+          "Conflict: resolvable",
+          "Relationship: repairable"
+        ]
+      }
+    }
   },
   {
     "id": 47,
@@ -696,13 +2000,42 @@
     "poem": "苦尽甘来终有时，历经艰辛志不移。莫因困顿失信念，一朝风云便化机。",
     "interpretation": "主事业/学业小凶可化。终有转机。",
     "allusion": "传统谚语苦尽甘来。",
-    "categories": ["career", "study"],
+    "categories": [
+      "career",
+      "study"
+    ],
     "modernNotes": [
       "事业：转机",
       "学业：进步",
       "创业：突破",
       "考试：金榜"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "苦尽甘來",
+        "poem": "苦尽甘來終有時，歷經艰辛志不移。莫因困頓失信念，一朝風云便化機。",
+        "interpretation": "主事業/學業小凶可化。終有轉機。",
+        "allusion": "傳統谚語苦尽甘來。",
+        "modernNotes": [
+          "事業：轉機",
+          "學業：進步",
+          "创業：突破",
+          "考试：金榜"
+        ]
+      },
+      "en": {
+        "title": "Bitterness Ends, Sweetness Comes",
+        "poem": "Bitterness ends, sweetness comes in time; through hardship, your purpose does not shift. Do not lose faith in trials; one day the wind and clouds become the moment.",
+        "interpretation": "A small misfortune in career and study can be resolved. A turn will come.",
+        "allusion": "The traditional saying: bitterness ends, sweetness comes.",
+        "modernNotes": [
+          "Career: turnaround",
+          "Study: progress",
+          "Startup: breakthrough",
+          "Exam: success"
+        ]
+      }
+    }
   },
   {
     "id": 48,
@@ -711,13 +2044,41 @@
     "poem": "暗室亏心神目如，独行不愧影与徒。一念之差千里远，戒慎恐惧守坦途。",
     "interpretation": "主事者当前不顺利，多因内心不净、行为不端。宜反躬自省，戒除恶习，方可转机。",
     "allusion": "宋代曾子曰：吾日三省吾身。每日自我审视，内心坦荡则诸事顺遂。",
-    "categories": ["career"],
+    "categories": [
+      "career"
+    ],
     "modernNotes": [
       "事业：项目不顺，多想想是不是方法错了",
       "感情：可能自己有不当行为",
       "财运：是不是花钱大手大脚",
       "健康：是不是生活习惯有问题"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "慎独",
+        "poem": "暗室亏心神目如，独行不愧影與徒。一念之差千里遠，戒慎恐懼守坦途。",
+        "interpretation": "主事者當前不順利，多因內心不净、行為不端。宜反躬自省，戒除恶習，方可轉機。",
+        "allusion": "宋代曾子曰：吾日三省吾身。每日自我审視，內心坦荡则诸事順遂。",
+        "modernNotes": [
+          "事業：項目不順，多想想是不是方法錯了",
+          "感情：可能自己有不當行為",
+          "財運：是不是花錢大手大腳",
+          "健康：是不是生活習惯有問題"
+        ]
+      },
+      "en": {
+        "title": "Vigilance in Solitude",
+        "poem": "In the hidden room, conscience sees as clearly as divine eyes; alone, one owes nothing to shadow or companion. A single slip, a thousand miles apart — keep reverence and fear, walk the level path.",
+        "interpretation": "Matters are not going smoothly, often from an unclean heart or improper conduct. Reflect on oneself; cast out bad habits, and a turn will come.",
+        "allusion": "Song dynasty's Zengzi said: I examine myself three times each day. With daily self-reflection and a clear heart, all goes well.",
+        "modernNotes": [
+          "Career: project not going well — consider whether the method is wrong",
+          "Love: maybe you have behaved inappropriately",
+          "Wealth: maybe you spend too freely",
+          "Health: maybe your habits are the problem"
+        ]
+      }
+    }
   },
   {
     "id": 49,
@@ -726,13 +2087,41 @@
     "poem": "守拙不与人争锋，笨鸟先飞亦成功。莫学巧诈多失信，朴实无华谢妈尊。",
     "interpretation": "主今日运势小凶。宜守拙，不宜张扬。",
     "allusion": "曾国藩：唯天下之至诚能胜天下之至伪，唯天下之至拙能胜天下之至巧。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "今日：守",
       "决策：等",
       "工作：低调",
       "投资：不动"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "守拙",
+        "poem": "守拙不與人争鋒，笨鳥先飞亦成功。莫學巧诈多失信，朴實無華謝媽尊。",
+        "interpretation": "主今日運势小凶。宜守拙，不宜张扬。",
+        "allusion": "曾國藩：唯天下之至诚能胜天下之至伪，唯天下之至拙能胜天下之至巧。",
+        "modernNotes": [
+          "今日：守",
+          "決策：等",
+          "工作：低调",
+          "投资：不動"
+        ]
+      },
+      "en": {
+        "title": "Hold to Simplicity",
+        "poem": "Hold to simplicity, do not vie with others; the slow bird that flies first also wins. Do not learn deceit and lose trust — plain and unadorned, thank Mazu.",
+        "interpretation": "Today's fortune is small-unlucky. Hold to simplicity; do not flaunt.",
+        "allusion": "Zeng Guofan: Only the utmost sincerity in the world can overcome the utmost deception; only the utmost simplicity in the world can overcome the utmost cunning.",
+        "modernNotes": [
+          "Today: hold",
+          "Decisions: wait",
+          "Work: lay low",
+          "Investment: stay put"
+        ]
+      }
+    }
   },
   {
     "id": 50,
@@ -741,13 +2130,42 @@
     "poem": "安土重迁古所传，背井离乡苦难言。若能谨守本分住，胜似漂流在外天。",
     "interpretation": "主出行/家庭小凶。不宜远行，宜守家。",
     "allusion": "《汉书·元帝纪》：安土重迁，黎民之性。",
-    "categories": ["travel", "family"],
+    "categories": [
+      "travel",
+      "family"
+    ],
     "modernNotes": [
       "搬迁：不急",
       "远行：缓",
       "出国：等",
       "留乡：可"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "安土重遷",
+        "poem": "安土重遷古所傳，背井离乡苦難言。若能謹守本分住，胜似漂流在外天。",
+        "interpretation": "主出行/家庭小凶。不宜遠行，宜守家。",
+        "allusion": "《汉書·元帝纪》：安土重遷，黎民之性。",
+        "modernNotes": [
+          "搬遷：不急",
+          "遠行：緩",
+          "出國：等",
+          "留乡：可"
+        ]
+      },
+      "en": {
+        "title": "Hold the Hearth, Value Home",
+        "poem": "To hold the hearth and value home is a tradition of old; leaving home and hearth brings bitter words. If you can keep your place with care, it surpasses drifting in foreign lands.",
+        "interpretation": "A small misfortune in travel and family. Not advisable to travel far; stay home.",
+        "allusion": "Han Shu · Yuan Di Ji: To hold the hearth and value relocation is the nature of the people.",
+        "modernNotes": [
+          "Relocation: not urgent",
+          "Long journey: delay",
+          "Going abroad: wait",
+          "Stay home: ok"
+        ]
+      }
+    }
   },
   {
     "id": 51,
@@ -756,13 +2174,42 @@
     "poem": "抱薪救火火更燃，越救越烈难收场。莫为眼前小利益，酿成大祸悔难当。",
     "interpretation": "主财运/事业小凶。不可冒进。",
     "allusion": "《史记·秦始皇本纪》：抱薪救火。",
-    "categories": ["wealth", "career"],
+    "categories": [
+      "wealth",
+      "career"
+    ],
     "modernNotes": [
       "投资：止损",
       "副业：暂停",
       "投机：不可",
       "赌博：远离"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "抱薪救火",
+        "poem": "抱薪救火火更燃，越救越烈難收場。莫為眼前小利益，釀成大祸悔難當。",
+        "interpretation": "主財運/事業小凶。不可冒進。",
+        "allusion": "《史記·秦始皇本纪》：抱薪救火。",
+        "modernNotes": [
+          "投资：止损",
+          "副業：暂停",
+          "投機：不可",
+          "赌博：遠离"
+        ]
+      },
+      "en": {
+        "title": "Adding Wood to the Fire",
+        "poem": "Adding wood to a fire only fans it higher; the more you fight, the harder to contain. Do not chase small gains before you, lest a great disaster brew beyond repair.",
+        "interpretation": "A small misfortune in wealth and career. Do not charge forward.",
+        "allusion": "Shi Ji · Qin Shi Huang Ben Ji: Adding wood to a fire.",
+        "modernNotes": [
+          "Investment: cut losses",
+          "Side hustle: pause",
+          "Speculation: no",
+          "Gambling: stay away"
+        ]
+      }
+    }
   },
   {
     "id": 52,
@@ -771,13 +2218,41 @@
     "poem": "强弩之末难穿缟，精疲力尽身心疲。莫要硬撑须休养，待得气复再奋飞。",
     "interpretation": "主健康小凶。宜休养。",
     "allusion": "《史记·韩长孺列传》：强弩之末，势不能穿鲁缟。",
-    "categories": ["health"],
+    "categories": [
+      "health"
+    ],
     "modernNotes": [
       "健康：休息",
       "工作：缓",
       "运动：暂停",
       "情绪：放平"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "強弩之末",
+        "poem": "強弩之末難穿缟，精疲力尽身心疲。莫要硬撑須休養，待得氣複再奋飞。",
+        "interpretation": "主健康小凶。宜休養。",
+        "allusion": "《史記·韩長孺列傳》：強弩之末，势不能穿鲁缟。",
+        "modernNotes": [
+          "健康：休息",
+          "工作：緩",
+          "運動：暂停",
+          "情緒：放平"
+        ]
+      },
+      "en": {
+        "title": "The Bow at Full Draw",
+        "poem": "The bow at full draw cannot pierce silk; spirit spent, body and mind exhausted. Do not force yourself to push through; rest, recover, and then fly again.",
+        "interpretation": "A small misfortune in health. Rest and recover.",
+        "allusion": "Shi Ji · Han Changru Lie Zhuan: At full draw, the bow cannot pierce even the lightest silk of Lu.",
+        "modernNotes": [
+          "Health: rest",
+          "Work: slow",
+          "Exercise: pause",
+          "Emotion: settle"
+        ]
+      }
+    }
   },
   {
     "id": 53,
@@ -786,13 +2261,41 @@
     "poem": "覆水入地难再收，离歌已起不回眸。旧情如梦随风去，莫挽莫留且放休。",
     "interpretation": "主感情事已成定局，难以挽回。问复合者，神明不允。宜放下过往，向前看。",
     "allusion": "商朝姜子牙之妻马氏，不堪姜子牙贫困离弃。后姜子牙辅周文王称帝，马氏求合。姜子牙取水泼地，问马氏：水可收否？",
-    "categories": ["love"],
+    "categories": [
+      "love"
+    ],
     "modernNotes": [
       "分手：可能真的结束了",
       "复合：不要勉强，放过自己也放过对方",
       "离婚：不可逆，接受现实",
       "暗恋：对方不爱你"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "覆水難收",
+        "poem": "覆水入地難再收，离歌已起不回眸。舊情如夢随風去，莫挽莫留且放休。",
+        "interpretation": "主感情事已成定局，難以挽回。問複合者，神明不允。宜放下過往，向前看。",
+        "allusion": "商朝姜子牙之妻馬氏，不堪姜子牙贫困离弃。後姜子牙辅周文王稱帝，馬氏求合。姜子牙取水泼地，問馬氏：水可收否？",
+        "modernNotes": [
+          "分手：可能真的結束了",
+          "複合：不要勉強，放過自己也放過对方",
+          "离婚：不可逆，接受現實",
+          "暗恋：对方不愛你"
+        ]
+      },
+      "en": {
+        "title": "Spilled Water, Beyond Recall",
+        "poem": "Spilled water into the ground cannot be gathered; the parting song has risen, no turning back. Old love like a dream, gone with the wind — do not cling, do not hold, but let go.",
+        "interpretation": "In love, the matter is decided; it cannot be recovered. For those asking about reconciliation, the divine does not permit. Let go of the past; look forward.",
+        "allusion": "Shang dynasty's Jiang Ziya's wife Ma, unable to bear Jiang's poverty, left him. Later Jiang assisted King Wen of Zhou to greatness. Ma came to seek reunion. Jiang took water and poured it on the ground, asking Ma: can the water be gathered back?",
+        "modernNotes": [
+          "Breakup: may really be over",
+          "Reconciliation: don't force; release yourself and the other",
+          "Divorce: irreversible, accept reality",
+          "Unrequited love: they don't love you"
+        ]
+      }
+    }
   },
   {
     "id": 54,
@@ -801,13 +2304,42 @@
     "poem": "名缰利锁困英雄，多少豪杰梦中空。莫为浮名失本心，淡泊宁静谢妈尊。",
     "interpretation": "主事业/财运小凶。宜放下名利。",
     "allusion": "秦始皇汉武求仙问道，终成空。",
-    "categories": ["career", "wealth"],
+    "categories": [
+      "career",
+      "wealth"
+    ],
     "modernNotes": [
       "事业：放平",
       "投资：不贪",
       "攀比：放下",
       "心态：富足"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "名缰利鎖",
+        "poem": "名缰利鎖困英雄，多少豪杰夢中空。莫為浮名失本心，淡泊宁静謝媽尊。",
+        "interpretation": "主事業/財運小凶。宜放下名利。",
+        "allusion": "秦始皇汉武求仙問道，終成空。",
+        "modernNotes": [
+          "事業：放平",
+          "投资：不贪",
+          "攀比：放下",
+          "心態：富足"
+        ]
+      },
+      "en": {
+        "title": "The Reins of Fame and Profit",
+        "poem": "Reins of fame and profit bind the hero; many a great soul dreams in vain. Do not lose your true heart for hollow name; quiet and peaceful, thank Mazu.",
+        "interpretation": "A small misfortune in career and wealth. Let go of fame and profit.",
+        "allusion": "Qin Shi Huang and Han Wu Di sought immortality and Dao, and all came to nothing.",
+        "modernNotes": [
+          "Career: settle",
+          "Investment: no greed",
+          "Comparison: release",
+          "Mind: rich"
+        ]
+      }
+    }
   },
   {
     "id": 55,
@@ -816,13 +2348,42 @@
     "poem": "退守深闺自省身，闭门端坐谢红尘。错从一念差千里，反悔方知日已沉。",
     "interpretation": "主当前重大不顺，宜暂停一切行动，反思己过。此时进取必败，保守为上。",
     "allusion": "春秋时期，晋国大夫赵盾家族因赵括纸上谈兵导致长平之战大败，全族闭门思过三年，后赵氏孤儿得以延续。",
-    "categories": ["career", "love"],
+    "categories": [
+      "career",
+      "love"
+    ],
     "modernNotes": [
       "事业：当前不是创业/扩张的时候",
       "投资：亏损的项目要止损",
       "感情：冷静期，不要做决定",
       "健康：好好休息，不要硬撑"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "閉門思過",
+        "poem": "退守深闺自省身，閉門端坐謝紅尘。錯從一念差千里，反悔方知日已沉。",
+        "interpretation": "主當前重大不順，宜暂停一切行動，反思己過。此時進取必败，保守為上。",
+        "allusion": "春秋時期，晋國大夫趙盾家族因趙括紙上谈兵导致長平之战大败，全族閉門思過三年，後趙氏孤兒得以延續。",
+        "modernNotes": [
+          "事業：當前不是创業/扩张的時候",
+          "投资：亏损的項目要止损",
+          "感情：冷静期，不要做決定",
+          "健康：好好休息，不要硬撑"
+        ]
+      },
+      "en": {
+        "title": "Behind Closed Doors, Reflect",
+        "poem": "Retreat to the inner chamber, examine the self; sit behind closed doors, thank the worldly dust. One wrong thought, a thousand miles astray; only in regret does one know the day has sunk.",
+        "interpretation": "Currently a major difficulty; pause all action, reflect on one's faults. To advance now is to lose; to hold back is best.",
+        "allusion": "Spring and Autumn period, the Jin minister Zhao Dun's family, because of Zhao Kuo's paper-warrior talk, suffered the great defeat of the Battle of Changping. The whole clan retired behind closed doors to reflect for three years; later the Zhao orphan continued the line.",
+        "modernNotes": [
+          "Career: not the time to start or expand",
+          "Investment: cut losses on losing projects",
+          "Love: cooling-off period, no decisions",
+          "Health: rest well, don't push"
+        ]
+      }
+    }
   },
   {
     "id": 56,
@@ -831,13 +2392,41 @@
     "poem": "眼前悬崖万丈深，止步不前自安宁。莫逞一时之勇猛，退后一步海阔明。",
     "interpretation": "主出行大凶。切勿前行。",
     "allusion": "悬崖勒马，回头是岸。",
-    "categories": ["travel"],
+    "categories": [
+      "travel"
+    ],
     "modernNotes": [
       "出行：不可",
       "投资：止",
       "决策：缓",
       "跳槽：等"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "止步",
+        "poem": "眼前悬崖萬丈深，止步不前自安宁。莫逞一時之勇猛，退後一步海闊明。",
+        "interpretation": "主出行大凶。切勿前行。",
+        "allusion": "悬崖勒馬，回頭是岸。",
+        "modernNotes": [
+          "出行：不可",
+          "投资：止",
+          "決策：緩",
+          "跳槽：等"
+        ]
+      },
+      "en": {
+        "title": "Halt the Step",
+        "poem": "A ten-thousand-foot cliff ahead; halting the step brings peace. Do not boast a moment's bravery; one step back, the sea and sky open wide.",
+        "interpretation": "A great misfortune in travel. Do not proceed.",
+        "allusion": "Rein in the horse at the cliff; turning back is the shore.",
+        "modernNotes": [
+          "Travel: no",
+          "Investment: stop",
+          "Decisions: slow",
+          "Job change: wait"
+        ]
+      }
+    }
   },
   {
     "id": 57,
@@ -846,13 +2435,42 @@
     "poem": "旧路难行改弦张，莫因执拗失前途。改过自新方有救，一改旧观便通亨。",
     "interpretation": "主事业/学业大凶。需彻底改变。",
     "allusion": "商鞅变法，改弦更张，秦国遂强。",
-    "categories": ["career", "study"],
+    "categories": [
+      "career",
+      "study"
+    ],
     "modernNotes": [
       "事业：转型",
       "学业：换方向",
       "跳槽：可",
       "创业：换"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "改弦更张",
+        "poem": "舊路難行改弦张，莫因执拗失前途。改過自新方有救，一改舊觀便通亨。",
+        "interpretation": "主事業/學業大凶。需彻底改變。",
+        "allusion": "商鞅變法，改弦更张，秦國遂強。",
+        "modernNotes": [
+          "事業：轉型",
+          "學業：换方向",
+          "跳槽：可",
+          "创業：换"
+        ]
+      },
+      "en": {
+        "title": "Change Course, Begin Anew",
+        "poem": "The old road is hard to travel; change the strings, begin anew. Do not lose the road ahead through stubbornness; self-renewal brings rescue — change the old view, all flows open.",
+        "interpretation": "A great misfortune in career and study. A thorough change is needed.",
+        "allusion": "Shang Yang's reforms, a complete change of course, made Qin strong.",
+        "modernNotes": [
+          "Career: transform",
+          "Study: change direction",
+          "Job change: ok",
+          "Startup: pivot"
+        ]
+      }
+    }
   },
   {
     "id": 58,
@@ -861,13 +2479,42 @@
     "poem": "悬崖勒马犹未晚，失足跌落悔难当。急流勇退全身还，莫待身陷再彷徨。",
     "interpretation": "主财运/健康大凶。及时回头。",
     "allusion": "佛家有苦海无边，回头是岸之说。",
-    "categories": ["wealth", "health"],
+    "categories": [
+      "wealth",
+      "health"
+    ],
     "modernNotes": [
       "投资：止损",
       "健康：检查",
       "副业：暂停",
       "赌博：戒"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "悬崖勒馬",
+        "poem": "悬崖勒馬犹未晚，失足跌落悔難當。急流勇退全身還，莫待身陷再彷徨。",
+        "interpretation": "主財運/健康大凶。及時回頭。",
+        "allusion": "佛家有苦海無邊，回頭是岸之說。",
+        "modernNotes": [
+          "投资：止损",
+          "健康：檢查",
+          "副業：暂停",
+          "赌博：戒"
+        ]
+      },
+      "en": {
+        "title": "Rein in at the Cliff's Edge",
+        "poem": "Rein in at the cliff while there is still time; a misstep and the fall brings endless regret. Withdraw bravely from the torrent, return whole — do not wait till caught in the depths to hesitate.",
+        "interpretation": "A great misfortune in wealth and health. Turn back in time.",
+        "allusion": "Buddhism speaks of the boundless sea of suffering; turning back is the shore.",
+        "modernNotes": [
+          "Investment: cut losses",
+          "Health: check",
+          "Side hustle: pause",
+          "Gambling: quit"
+        ]
+      }
+    }
   },
   {
     "id": 59,
@@ -876,13 +2523,41 @@
     "poem": "雷雨交加暂掩门，闭门端坐待天明。时来运转风云变，否极泰来万象新。",
     "interpretation": "主当前运势极低，不宜妄动。宜静守，待时来运转，自有转机。",
     "allusion": "三国时期，诸葛亮躬耕南阳十年，待刘备三顾茅庐，方出山建功立业。若时机未到，强出亦难成事。",
-    "categories": ["daily"],
+    "categories": [
+      "daily"
+    ],
     "modernNotes": [
       "求职：暂时找不到工作，等经济周期",
       "创业：当前市场环境差，再等等",
       "投资：现金为王，不要抄底",
       "感情：缘分未到，先提升自己"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "静待天時",
+        "poem": "雷雨交加暂掩門，閉門端坐待天明。時來運轉風云變，否極泰來萬象新。",
+        "interpretation": "主當前運势極低，不宜妄動。宜静守，待時來運轉，自有轉機。",
+        "allusion": "三國時期，诸葛亮躬耕南阳十年，待刘备三顧茅庐，方出山建功立業。若時機未到，強出亦難成事。",
+        "modernNotes": [
+          "求职：暂時找不到工作，等經济周期",
+          "创業：當前市場環境差，再等等",
+          "投资：現金為王，不要抄底",
+          "感情：緣分未到，先提升自己"
+        ]
+      },
+      "en": {
+        "title": "Wait for Heaven's Time",
+        "poem": "Thunder and rain together, shut the door for now; sit in stillness, wait for the dawn. When fortune turns, the wind and clouds shift; from the worst, prosperity rises, all things new.",
+        "interpretation": "Currently the fortune is at its lowest; do not act rashly. Be still; when the time comes, a turn will come by itself.",
+        "allusion": "Three Kingdoms period, Zhuge Liang tilled in Nanyang for ten years, waiting for Liu Bei's three visits to the thatched cottage, before he came out to build a great achievement. If the time had not come, going out early would not have brought success.",
+        "modernNotes": [
+          "Job search: no offers right now, wait for the economic cycle",
+          "Startup: market is bad now, wait",
+          "Investment: cash is king, don't bottom-fish",
+          "Love: fate not yet ripe, first improve yourself"
+        ]
+      }
+    }
   },
   {
     "id": 60,
@@ -891,12 +2566,41 @@
     "poem": "苦海无边莫妄行，回头是岸谢妈尊。一念之差千里远，放下屠刀立地成。",
     "interpretation": "主感情/家庭大凶。宜回头。",
     "allusion": "佛教放下屠刀，立地成佛。",
-    "categories": ["love", "family"],
+    "categories": [
+      "love",
+      "family"
+    ],
     "modernNotes": [
       "感情：放",
       "家庭：和",
       "离婚：思",
       "复合：难"
-    ]
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "回頭是岸",
+        "poem": "苦海無邊莫妄行，回頭是岸謝媽尊。一念之差千里遠，放下屠刀立地成。",
+        "interpretation": "主感情/家庭大凶。宜回頭。",
+        "allusion": "佛教放下屠刀，立地成佛。",
+        "modernNotes": [
+          "感情：放",
+          "家庭：和",
+          "离婚：思",
+          "複合：難"
+        ]
+      },
+      "en": {
+        "title": "Turning Back is the Shore",
+        "poem": "The sea of suffering is boundless; do not act rashly. Turning back is the shore, thank Mazu. One stray thought, a thousand miles apart; lay down the butcher's knife, become a Buddha on the spot.",
+        "interpretation": "A great misfortune in love and family. Turn back.",
+        "allusion": "Buddhism: lay down the butcher's knife, become a Buddha on the spot.",
+        "modernNotes": [
+          "Love: let go",
+          "Family: reconcile",
+          "Divorce: reconsider",
+          "Reconciliation: difficult"
+        ]
+      }
+    }
   }
 ]

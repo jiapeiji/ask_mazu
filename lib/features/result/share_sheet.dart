@@ -10,8 +10,6 @@
 // 未来接微信开放平台 AppID 后：
 // - "微信"按钮可改为直接调起 fluwx（不弹系统面板）
 
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gal/gal.dart';
@@ -20,6 +18,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/result_templates.dart';
 import '../../data/models/fortune_sign.dart';
+import '../../l10n/generated/app_localizations.dart';
 import 'share_card.dart';
 
 /// 自建分享 sheet（顶部预览 + 底部 4 渠道按钮）
@@ -78,23 +77,24 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
   String? _processingChannel;
 
   /// 准备分享文案（与截屏图片配套）
-  String _buildShareText() {
+  String _buildShareText(AppLocalizations l) {
     final resultLabel = switch (widget.result) {
-      ThrowResultType.saint => '圣杯',
-      ThrowResultType.laugh => '笑杯',
-      ThrowResultType.yin => '阴杯',
+      ThrowResultType.saint => l.resultSaint,
+      ThrowResultType.laugh => l.resultLaugh,
+      ThrowResultType.yin => l.resultYin,
     };
     final lines = <String>[];
-    lines.add('🙏 妈祖所示 · $resultLabel');
+    lines.add('${l.shareSignPrefix}$resultLabel');
     lines.add('');
     lines.add(widget.message);
     lines.add('');
-    lines.add('—— 来自「问妈祖 Ask Mazu」');
+    lines.add(l.shareFooter);
     return lines.join('\n');
   }
 
   Future<void> _onChannelTap(String channel) async {
     if (_isProcessing) return;
+    final l = AppLocalizations.of(context);
     setState(() {
       _isProcessing = true;
       _processingChannel = channel;
@@ -102,26 +102,26 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
 
     try {
       final bytes = await ShareService.capture(_boundaryKey);
-      if (bytes == null) throw '生成图片失败，请重试';
+      if (bytes == null) throw l.shareImageGenFail;
 
       switch (channel) {
         case 'wechat':
-          await _shareToWechat(bytes);
+          await _shareToWechat(l);
           break;
         case 'moments':
-          await _shareToMoments(bytes);
+          await _shareToMoments(l);
           break;
         case 'copy':
-          await _copyText();
+          await _copyText(l);
           break;
         case 'save':
-          await _saveImage(bytes);
+          await _saveImage(l);
           break;
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('操作失败: $e')),
+          SnackBar(content: Text(l.shareOpFail(e.toString()))),
         );
       }
     } finally {
@@ -135,7 +135,9 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
   }
 
   /// 微信（调起系统分享面板，用户选微信）
-  Future<void> _shareToWechat(Uint8List bytes) async {
+  Future<void> _shareToWechat(AppLocalizations l) async {
+    final bytes = await ShareService.capture(_boundaryKey);
+    if (bytes == null) return;
     await Share.shareXFiles(
       [
         XFile.fromData(
@@ -144,14 +146,16 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
           mimeType: 'image/png',
         ),
       ],
-      text: _buildShareText(),
-      subject: '妈祖所示',
+      text: _buildShareText(l),
+      subject: l.shareSubject,
     );
   }
 
   /// 朋友圈（同上，提示选朋友圈）
-  Future<void> _shareToMoments(Uint8List bytes) async {
-    final text = '${_buildShareText()}\n（请在分享面板选"朋友圈"）';
+  Future<void> _shareToMoments(AppLocalizations l) async {
+    final bytes = await ShareService.capture(_boundaryKey);
+    if (bytes == null) return;
+    final text = '${_buildShareText(l)}\n${l.shareMomentsHint}';
     await Share.shareXFiles(
       [
         XFile.fromData(
@@ -165,34 +169,36 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
   }
 
   /// 复制文案到剪贴板
-  Future<void> _copyText() async {
-    await Clipboard.setData(ClipboardData(text: _buildShareText()));
+  Future<void> _copyText(AppLocalizations l) async {
+    await Clipboard.setData(ClipboardData(text: _buildShareText(l)));
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('文案已复制到剪贴板'),
-          duration: Duration(seconds: 2),
+        SnackBar(
+          content: Text(l.shareCopied),
+          duration: const Duration(seconds: 2),
         ),
       );
     }
   }
 
   /// 保存图片到相册
-  Future<void> _saveImage(Uint8List bytes) async {
+  Future<void> _saveImage(AppLocalizations l) async {
+    final bytes = await ShareService.capture(_boundaryKey);
+    if (bytes == null) return;
     // gal 2.x 需要请求权限（iOS 14+ / Android 13+）
     final hasAccess = await Gal.hasAccess(toAlbum: true);
     if (!hasAccess) {
       final granted = await Gal.requestAccess(toAlbum: true);
       if (!granted) {
-        throw '没有相册权限，请到设置中开启';
+        throw l.shareAlbumPermFail;
       }
     }
     await Gal.putImageBytes(bytes, album: 'AskMazu');
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('已保存到相册"AskMazu"文件夹'),
-          duration: Duration(seconds: 2),
+        SnackBar(
+          content: Text(l.shareSavedToAlbum),
+          duration: const Duration(seconds: 2),
         ),
       );
     }
@@ -200,6 +206,7 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
     final media = MediaQuery.of(context);
     final screenW = media.size.width;
     final screenH = media.size.height - media.viewInsets.bottom;
@@ -227,9 +234,9 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
             // 标题
             Row(
               children: [
-                const Text(
-                  '分享妈祖所示',
-                  style: TextStyle(
+                Text(
+                  l.shareTitle,
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: AppColors.inkBlack,
@@ -253,7 +260,7 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.15),
+                      color: Colors.black.withValues(alpha: 0.15),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -285,28 +292,28 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
               children: [
                 _ChannelButton(
                   icon: Icons.chat_bubble_outline,
-                  label: '微信',
+                  label: l.shareWechat,
                   channel: 'wechat',
                   isLoading: _isProcessing && _processingChannel == 'wechat',
                   onTap: _onChannelTap,
                 ),
                 _ChannelButton(
                   icon: Icons.camera_alt_outlined,
-                  label: '朋友圈',
+                  label: l.shareMoments,
                   channel: 'moments',
                   isLoading: _isProcessing && _processingChannel == 'moments',
                   onTap: _onChannelTap,
                 ),
                 _ChannelButton(
                   icon: Icons.content_copy_outlined,
-                  label: '复制',
+                  label: l.shareCopy,
                   channel: 'copy',
                   isLoading: _isProcessing && _processingChannel == 'copy',
                   onTap: _onChannelTap,
                 ),
                 _ChannelButton(
                   icon: Icons.image_outlined,
-                  label: '存图',
+                  label: l.shareSave,
                   channel: 'save',
                   isLoading: _isProcessing && _processingChannel == 'save',
                   onTap: _onChannelTap,
@@ -350,7 +357,7 @@ class _ChannelButton extends StatelessWidget {
               width: 56,
               height: 56,
               decoration: BoxDecoration(
-                color: AppColors.mazuRed.withOpacity(0.1),
+                color: AppColors.mazuRed.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: isLoading
@@ -364,8 +371,13 @@ class _ChannelButton extends StatelessWidget {
                   : Icon(icon, color: AppColors.mazuRed, size: 28),
             ),
             const SizedBox(height: 8),
+            // maxLines:1 + ellipsis + softWrap:false：英文长 label
+            // （WeChat/Moments/Save）不会撑爆按钮宽度。
             Text(
               label,
+              maxLines: 1,
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontSize: 13,
                 color: AppColors.inkBlack,

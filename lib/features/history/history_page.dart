@@ -10,6 +10,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/utils/result_templates.dart';
 import '../../data/models/question_record.dart';
 import '../../data/models/fortune_sign.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 
 class HistoryPage extends ConsumerWidget {
@@ -17,6 +18,8 @@ class HistoryPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
+    final code = ref.watch(settingsProvider).localeCode;
     final recordsAsync = ref.watch(recordsProvider);
     final signsAsync = ref.watch(signsProvider);
     final isSubscribed = ref.watch(isSubscribedProvider);
@@ -24,7 +27,7 @@ class HistoryPage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
       appBar: AppBar(
-        title: const Text('问 事 记 录'),
+        title: Text(l.historyTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
@@ -32,18 +35,18 @@ class HistoryPage extends ConsumerWidget {
       ),
       body: recordsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('加载失败: $e')),
+        error: (e, _) => Center(child: Text(l.historyLoadError(e.toString()))),
         data: (records) {
           if (records.isEmpty) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('🙏', style: TextStyle(fontSize: 48)),
-                  SizedBox(height: 16),
+                  const Text('🙏', style: TextStyle(fontSize: 48)),
+                  const SizedBox(height: 16),
                   Text(
-                    '暂无问事记录',
-                    style: TextStyle(color: AppColors.gray),
+                    l.historyEmpty,
+                    style: const TextStyle(color: AppColors.gray),
                   ),
                 ],
               ),
@@ -66,7 +69,7 @@ class HistoryPage extends ConsumerWidget {
               final sign = record.signId != null
                   ? allSigns.where((s) => s.id == record.signId).firstOrNull
                   : null;
-              return _buildRecordCard(context, record, sign, isSubscribed);
+              return _buildRecordCard(context, l, record, sign, code);
             },
           );
         },
@@ -76,14 +79,15 @@ class HistoryPage extends ConsumerWidget {
 
   Widget _buildRecordCard(
     BuildContext context,
+    AppLocalizations l,
     QuestionRecord record,
     FortuneSign? sign,
-    bool isSubscribed,
+    String code,
   ) {
     final (resultColor, resultLabel) = switch (record.result) {
-      ThrowResultType.saint => (AppColors.successGreen, '圣杯'),
-      ThrowResultType.laugh => (AppColors.hintYellow, '笑杯'),
-      ThrowResultType.yin => (AppColors.warningRed, '阴杯'),
+      ThrowResultType.saint => (AppColors.successGreen, l.historyResultSaint),
+      ThrowResultType.laugh => (AppColors.hintYellow, l.historyResultLaugh),
+      ThrowResultType.yin => (AppColors.warningRed, l.historyResultYin),
     };
 
     final timeStr = DateFormat('M月d日 HH:mm').format(record.timestamp);
@@ -104,7 +108,7 @@ class HistoryPage extends ConsumerWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: resultColor.withOpacity(0.1),
+                  color: resultColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
@@ -120,8 +124,8 @@ class HistoryPage extends ConsumerWidget {
               Expanded(
                 child: Text(
                   sign != null
-                      ? '${sign.level.label}签 · 第 ${sign.id} 签「${sign.title}」'
-                      : '未得签文',
+                      ? l.historySignTitle(sign.level.label, sign.id.toString(), sign.getTitle(code))
+                      : l.historyNoSign,
                   style: const TextStyle(
                     fontSize: 14,
                     color: AppColors.inkBlack,
@@ -137,7 +141,7 @@ class HistoryPage extends ConsumerWidget {
               const Icon(Icons.help_outline, size: 14, color: AppColors.gray),
               const SizedBox(width: 4),
               Text(
-                '问：${record.question}',
+                l.historyAsk(record.question),
                 style: const TextStyle(fontSize: 13, color: AppColors.gray),
               ),
             ],

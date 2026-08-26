@@ -1,0 +1,222 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Ask Mazu",
+
+  "commonCancel": "Cancel",
+  "commonSave": "Save",
+  "commonClose": "Close",
+  "commonConfirm": "OK",
+
+  "homeDiscipleSuffix": "Devotee",
+  "homeCityPrefix": "Living in ",
+  "homeAskTitle": "What do you seek today?",
+  "homeCatDaily": "Daily Fortune",
+  "homeCatCareer": "Career",
+  "homeCatLove": "Love",
+  "homeCatFamily": "Family",
+  "homeCatHealth": "Health",
+  "homeCatWealth": "Wealth",
+  "homeCatCustom": "Custom",
+  "homeThrowBtn": "Throw the Blocks",
+  "homeCustomPlaceholder": "Tap to ask a question",
+  "homeRemaining": "{count} throws left today",
+  "@homeRemaining": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "homeUnlimited": "Unlimited throws today",
+  "homeUpgradeLink": "Upgrade for unlimited →",
+  "homeLimitTitle": "Daily limit reached",
+  "homeLimitBody": "Free tier: 3 throws per day.\nSubscribe for unlimited throws + the full 60-sign library.",
+  "homeLimitSub": "View Plans",
+  "homeCustomTitle": "Custom Question",
+  "homeCustomHint": "What would you like to ask Mazu?",
+
+  "onbMazu": "Mazu",
+  "onbTagline": "A daily ritual for overseas Chinese",
+  "onbNameLabel": "What shall we call you?",
+  "onbNameHint": "Enter your name",
+  "onbNameErrorEmpty": "Please enter your name",
+  "onbNameErrorShort": "Name must be at least 2 characters",
+  "onbCityLabel": "Where do you live?",
+  "onbCityHint": "Enter your city",
+  "onbCityErrorEmpty": "Please enter your city",
+  "onbCityErrorShort": "City must be at least 2 characters",
+  "onbSubmit": "Enter the Temple",
+  "onbFootnote": "Your name and city are only used in readings and can be changed anytime in Settings.",
+
+  "settingsTitle": "Settings",
+  "settingsSectionProfile": "Profile",
+  "settingsSectionLanguage": "Language",
+  "settingsSectionSound": "Sound",
+  "settingsSectionSubscription": "Subscription",
+  "settingsSectionView": "Browse",
+  "settingsSectionAbout": "About",
+  "settingsSectionDebug": "Debug",
+
+  "settingsProfileUnset": "Not set",
+  "settingsEditProfileTitle": "Edit Profile",
+  "settingsEditProfileName": "Name",
+  "settingsEditProfileCity": "City",
+
+  "settingsLanguageZhCn": "简体中文",
+  "settingsLanguageZhTw": "繁體中文",
+  "settingsLanguageEn": "English",
+  "settingsLanguageChanged": "Language updated",
+
+  "settingsSoundBlockTitle": "Block Landing Sound",
+  "settingsSoundBlockDesc": "The sound of the wooden blocks landing",
+  "settingsSoundAmbientTitle": "Temple Ambience",
+  "settingsSoundAmbientActive": "Loops on the result page",
+  "settingsSoundAmbientLocked": "Subscribe to unlock",
+  "settingsSoundHapticTitle": "Haptic Feedback",
+  "settingsSoundHapticDesc": "A gentle vibration when the throw completes",
+  "settingsSoundBadge": "PRO",
+
+  "settingsSubActive": "Subscribed",
+  "settingsSubInactive": "Upgrade for Unlimited",
+  "settingsSubActiveDesc": "Thanks for your support!",
+  "settingsSubInactiveDesc": "$4.99 / month · $29.99 / year",
+
+  "settingsViewHistory": "Question History",
+  "settingsAboutMazu": "About Mazu",
+  "settingsPrivacy": "Privacy Policy",
+  "settingsTerms": "Terms of Service",
+  "settingsAboutApp": "About this App",
+
+  "settingsDebugMockSub": "Mock Subscription",
+  "settingsDebugMockSubDesc": "Enables all subscription features (unlimited throws + full sign library).",
+  "settingsDebugResetToday": "Reset Today's Count",
+  "settingsDebugResetTodayDesc": "Clear today's thrown count",
+  "settingsDebugResetDone": "Today's count has been reset",
+
+  "settingsUpgradeTitle": "Upgrade to Pro",
+  "settingsUpgradeFeatures": "· Unlimited daily throws\n· Full 60-sign library\n· Cloud sync of history\n· Temple ambience\n· Special holiday signs",
+  "settingsUpgradePrice": "$4.99 / month\n$29.99 / year (first month free)",
+  "settingsUpgradeNote": "Note: V0.1 has not yet integrated App Store billing. Subscription goes live in V1.",
+
+  "historyTitle": "Question History",
+  "historyEmpty": "No questions yet",
+  "historyLoadError": "Failed to load: {error}",
+  "historyResultSaint": "Saint Cup",
+  "historyResultLaugh": "Laughing Cup",
+  "historyResultYin": "Yin Cup",
+  "historyNoSign": "No sign drawn",
+  "historyAsk": "Q: {question}",
+  "historySignTitle": "{level} · #{id} 「{title}」",
+
+  "signsTitle": "Sign Library",
+  "signsLoadError": "Failed to load: {error}",
+  "signsDetailTitle": "Sign #{id}",
+  "signsDetailInterpretation": "Interpretation",
+  "signsDetailAllusion": "Origin",
+  "signsDetailModern": "Modern Reading",
+
+  "throwHint": "Throw · Throw",
+
+  "saintTemplate1": "Mazu has heard your prayer, {name}. This is the sign of 「{signTitle}」.",
+  "@saintTemplate1": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate2": "The path is illuminated, {name}. The sign is true.",
+  "@saintTemplate2": {"placeholders": {"name": {"type": "String"}}},
+  "saintTemplate3": "Mazu blesses your question, {name}. The sign 「{signTitle}」 — heed Heaven's timing.",
+  "@saintTemplate3": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate4": "The sail is set, {name}. Fair winds ahead. Ponder the sign carefully.",
+  "@saintTemplate4": {"placeholders": {"name": {"type": "String"}}},
+  "saintTemplate5": "Mazu, the mother, grants your wish. The sign 「{signTitle}」 — go forth in peace.",
+  "@saintTemplate5": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate6": "The Saint Cup is cast, {name}. The way is clear — move forward with intent.",
+  "@saintTemplate6": {"placeholders": {"name": {"type": "String"}}},
+  "saintTemplate7": "Sails are raised, {name}. The sign 「{signTitle}」 — act when the time is right.",
+  "@saintTemplate7": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "signTitle": {"type": "String"}
+    }
+  },
+  "saintTemplate8": "Mazu smiles and nods. The sign is true. A steady heart wins all.",
+  "@saintTemplate8": {"placeholders": {"name": {"type": "String"}}},
+
+  "laughTemplate1": "A sincere heart, {name}. Mazu has not yet granted. Pause, reflect, then ask again.",
+  "@laughTemplate1": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate2": "Mazu smiles but says nothing, {name}. Your question is unclear. Reflect and ask again.",
+  "@laughTemplate2": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate3": "Mazu smiles, {name}. The question may be too hasty or too broad. Slow down and ask again.",
+  "@laughTemplate3": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate4": "The incense is not yet ready, {name}. Take three quiet breaths and return.",
+  "@laughTemplate4": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate5": "Asking Mazu is like sharpening a blade — too quickly dulls it. Mazu smiles at your haste. Slow down.",
+  "@laughTemplate5": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate6": "Mazu shakes her head and smiles, {name}. The time is not yet right. Return another day.",
+  "@laughTemplate6": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate7": "Mazu smiles without answering, {name}. There is a reason. Reflect inward — the answer may already be within you.",
+  "@laughTemplate7": {"placeholders": {"name": {"type": "String"}}},
+  "laughTemplate8": "The Laughing Cup is a \"not yet,\" {name}. An unsettled heart cannot receive an answer.",
+  "@laughTemplate8": {"placeholders": {"name": {"type": "String"}}},
+
+  "yinTemplate1": "Mazu signals this path is not right, {name}. Proceed slowly, if at all.",
+  "@yinTemplate1": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate2": "This goes against the timing, {name}. Mazu says: step back — the sea is wide.",
+  "@yinTemplate2": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate3": "Haste brings no gain, {name}. Mazu says: slow down, await the turning of fortune.",
+  "@yinTemplate3": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate4": "Mazu clearly says this is wrong, {name}. To force it brings regret.",
+  "@yinTemplate4": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate5": "Mazu does not grant, {name}. There is a deeper reason. Do not work against Heaven — defend, do not attack.",
+  "@yinTemplate5": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate6": "Out of compassion, Mazu gives the Yin Cup, {name}. It is for your good. Sheath the blade; plan, then act.",
+  "@yinTemplate6": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate7": "Mazu shakes her head in warning, {name}. The road ahead is closed. Wait patiently for Heaven's time.",
+  "@yinTemplate7": {"placeholders": {"name": {"type": "String"}}},
+  "yinTemplate8": "The Yin Cup warns of difficulty, not doom, {name}. Mazu points you: turn the corner — the road lies ahead.",
+  "@yinTemplate8": {"placeholders": {"name": {"type": "String"}}},
+
+  "resultSaint": "Saint Cup",
+  "resultLaugh": "Laughing Cup",
+  "resultYin": "Yin Cup",
+  "resultShareBtn": "Share",
+  "resultRetrySaint": "Ask Again",
+  "resultRetryLaugh": "Reframe Your Question",
+  "resultRetryYin": "Try Another Day",
+
+  "shareTitle": "Share Mazu's Reading",
+  "shareWechat": "WeChat",
+  "shareMoments": "Moments",
+  "shareCopy": "Copy",
+  "shareSave": "Save",
+  "shareCopied": "Text copied to clipboard",
+  "shareSavedToAlbum": "Saved to \"AskMazu\" album",
+  "shareImageGenFail": "Failed to generate image. Please try again.",
+  "shareOpFail": "Operation failed: {error}",
+  "shareAlbumPermFail": "Photo permission required. Please enable in Settings.",
+  "shareSubject": "Mazu's Reading",
+  "shareSignPrefix": "🙏 Mazu's Reading · ",
+  "shareFooter": "— from 「Ask Mazu 問媽祖」",
+  "shareMomentsHint": "(Please choose \"Moments\" in the share sheet)",
+
+  "aboutMazuTitle": "About Mazu",
+  "privacyTitle": "Privacy Policy",
+  "tosTitle": "Terms of Service",
+  "aboutAppVersion": "Version",
+  "aboutAppBuildTime": "Build",
+  "aboutAppPlatform": "Platform",
+  "aboutAppFooter": "Made with ❤️ and 🙏",
+  "aboutCopy": "Copy",
+  "aboutCopied": "Copied to clipboard"
+}

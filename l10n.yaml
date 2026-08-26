@@ -1,0 +1,10 @@
+# l10n.yaml
+# Flutter 国际化配置：ARB 文件位置 + 生成代码位置
+# 跑 `flutter gen-l10n` 生成 lib/l10n/generated/app_localizations_*.dart
+
+arb-dir: lib/l10n
+template-arb-file: app_zh.arb
+output-localization-file: app_localizations.dart
+output-class: AppLocalizations
+output-dir: lib/l10n/generated
+nullable-getter: false

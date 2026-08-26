@@ -58,6 +58,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true  # 启用 l10n 代码生成（lib/l10n/ 下的 .arb 文件）
 
   assets:
     - assets/data/

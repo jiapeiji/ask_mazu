@@ -1,5 +1,8 @@
 // lib/data/models/fortune_sign.dart
 // 签文数据模型
+//
+// 字段（title/poem/interpretation/allusion/modernNotes）默认存简体中文（zh_CN）。
+// 多语言覆盖放在 `i18n: { zh_TW: {...}, en: {...} }`，缺失字段 fallback 到默认（zh_CN）。
 
 enum FortuneLevel {
   upperUpper,   // 上上
@@ -13,6 +16,7 @@ enum FortuneLevel {
 }
 
 extension FortuneLevelExtension on FortuneLevel {
+  /// 中文等级标签（"上上"/"上中"等），UI 一般会再拼"签"字
   String get label {
     return switch (this) {
       FortuneLevel.upperUpper => '上上',
@@ -77,15 +81,45 @@ extension SignCategoryExtension on SignCategory {
   }
 }
 
+/// 单个 locale 的可选覆盖字段。null 表示沿用默认（zh_CN）。
+class SignI18n {
+  final String? title;
+  final String? poem;
+  final String? interpretation;
+  final String? allusion;
+  final List<String>? modernNotes;
+
+  const SignI18n({
+    this.title,
+    this.poem,
+    this.interpretation,
+    this.allusion,
+    this.modernNotes,
+  });
+
+  factory SignI18n.fromJson(Map<String, dynamic> json) {
+    return SignI18n(
+      title: json['title'] as String?,
+      poem: json['poem'] as String?,
+      interpretation: json['interpretation'] as String?,
+      allusion: json['allusion'] as String?,
+      modernNotes: (json['modernNotes'] as List<dynamic>?)?.cast<String>(),
+    );
+  }
+}
+
 class FortuneSign {
   final int id;
   final FortuneLevel level;
-  final String title;
+  final String title;        // zh_CN 默认
   final String poem;
   final String interpretation;
   final String allusion;
   final List<SignCategory> categories;
   final List<String> modernNotes;
+
+  /// locale code -> 覆盖字段。例 `{ "zh_TW": {...}, "en": {...} }`
+  final Map<String, SignI18n> i18n;
 
   const FortuneSign({
     required this.id,
@@ -96,9 +130,11 @@ class FortuneSign {
     required this.allusion,
     required this.categories,
     required this.modernNotes,
+    this.i18n = const {},
   });
 
   factory FortuneSign.fromJson(Map<String, dynamic> json) {
+    final i18nMap = (json['i18n'] as Map<String, dynamic>?) ?? {};
     return FortuneSign(
       id: json['id'] as int,
       level: FortuneLevel.values.firstWhere(
@@ -113,6 +149,9 @@ class FortuneSign {
           .map((e) => SignCategoryExtension.fromString(e as String))
           .toList(),
       modernNotes: List<String>.from(json['modernNotes'] as List<dynamic>),
+      i18n: i18nMap.map(
+        (k, v) => MapEntry(k, SignI18n.fromJson(v as Map<String, dynamic>)),
+      ),
     );
   }
 
@@ -125,5 +164,24 @@ class FortuneSign {
         'allusion': allusion,
         'categories': categories.map((e) => e.name).toList(),
         'modernNotes': modernNotes,
+        'i18n': i18n,
       };
+
+  // ── 按 locale 取字段（缺失 fallback 到 zh_CN 默认）──────────────────
+
+  /// localeCode 形如 'zh_CN' / 'zh_TW' / 'en'
+  String getTitle(String localeCode) =>
+      i18n[localeCode]?.title ?? title;
+
+  String getPoem(String localeCode) =>
+      i18n[localeCode]?.poem ?? poem;
+
+  String getInterpretation(String localeCode) =>
+      i18n[localeCode]?.interpretation ?? interpretation;
+
+  String getAllusion(String localeCode) =>
+      i18n[localeCode]?.allusion ?? allusion;
+
+  List<String> getModernNotes(String localeCode) =>
+      i18n[localeCode]?.modernNotes ?? modernNotes;
 }
