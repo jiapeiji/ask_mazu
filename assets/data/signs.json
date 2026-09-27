@@ -2602,5 +2602,1385 @@
         ]
       }
     }
+  },
+  {
+    "id": 61,
+    "level": "上上",
+    "title": "风帆远济",
+    "poem": "一帆高挂趁东风，万里云程不畏穷。\n稳舵前行心有定向，何愁彼岸不成功。",
+    "interpretation": "凡事大吉，宜进宜求。天时已至，机缘汇聚。进则吉，退亦不凶。\n问行动者，果断可成；问守候者，稳中求进。\n所求之事虽远，道已铺就，宜顺势而行。",
+    "allusion": "妈祖信俗中，渔家出海必先观天象、视风向，顺风而行方能满载而归。此签以「一帆」喻天时，「万里」喻前程，示人识时务者方为俊杰。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：果断前行，犹豫反失良机",
+      "心态：胸有成竹，自信而不自负",
+      "人际：得贵人扶持，宜主动连结",
+      "节奏：先快后稳，前期发力后期收敛",
+      "提醒：顺势而非强求，借力而不可懈"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "風帆遠濟",
+        "poem": "一帆高掛趁東風，萬里雲程不畏窮。\n穩舵前行心有定向，何愁彼岸不成功。",
+        "interpretation": "凡事大吉，宜進宜求。天時已至，機緣匯聚。進則吉，退亦不凶。\n問行動者，果斷可成；問守候者，穩中求進。\n所求之事雖遠，道已鋪就，宜順勢而行。",
+        "allusion": "媽祖信俗中，漁家出海必先觀天象、視風向，順風而行方能滿載而歸。此籤以「一帆」喻天時，「萬里」喻前程，示人識時務者方為俊傑。",
+        "modernNotes": [
+          "行動：果斷前行，猶豫反失良機",
+          "心態：胸有成竹，自信而不自負",
+          "人際：得貴人扶持，宜主動連結",
+          "節奏：先快後穩，前期發力後期收斂",
+          "提醒：順勢而非強求，借力而不可懈"
+        ]
+      },
+      "en": {
+        "title": "Fair Wind, Far Voyage",
+        "poem": "One sail lifted on the eastern wind, ten thousand miles of cloud-road fear no end.\nSteady helm, steadfast heart, fixed direction—why fear the far shore will not be reached?",
+        "interpretation": "All matters auspicious. Go forward, and your wishes will be granted. The time is ripe; opportunities gather. Advancing is fortunate; even withdrawing brings no harm.\nFor those asking about action, decide boldly and you shall succeed. For those asking about waiting, advance steadily within your patience.\nWhat you seek is far, but the path is already laid—go with the current, not against it.",
+        "allusion": "In Mazu worship, fisherfolk setting out to sea must first read the sky and watch the wind; only by sailing with the wind do they return laden. This sign uses \"one sail\" to mean the right moment, \"ten thousand miles\" to mean the journey ahead—teaching that those who read the times are the true heroes.",
+        "modernNotes": [
+          "Action: Move decisively. Hesitation costs the chance.",
+          "Mindset: Be confident without arrogance.",
+          "Relationships: Noble help will come. Reach out first.",
+          "Pace: Quick start, steady finish. Push early, gather later.",
+          "Reminder: Go with the current, do not force. Borrow strength, but do not slack."
+        ]
+      }
+    }
+  },
+  {
+    "id": 62,
+    "level": "下下",
+    "title": "雾锁前路",
+    "poem": "浓雾漫山不见踪，前行一步惧千重。\n且把行囊暂歇下，待得云开日自东。",
+    "interpretation": "主运势低迷，不宜妄动。所问之事时机未至，强求反生变数。\n宜退守静观，整理内务，蓄势待时。\n待雾散天明，路径自现；此时隐忍，他日可期。",
+    "allusion": "《三国》水镜先生言：「卧龙虽得其主，不得其时，亦难展经纶。」此签以浓雾喻时运未济，示人识时务、知进退。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：暂停计划，不宜硬推",
+      "心态：接纳低谷，焦虑无益",
+      "人际：减少应酬，独处充电",
+      "节奏：休整期，低调收敛",
+      "提醒：雾散需时，给过程耐心"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "霧鎖前路",
+        "poem": "濃霧漫山不見蹤，前行一步懼千重。\n且把行囊暫歇下，待得雲開日自東。",
+        "interpretation": "主運勢低迷，不宜妄動。所問之事時機未至，強求反生變數。\n宜退守靜觀，整理內務，蓄勢待時。\n待霧散天明，路徑自現；此時隱忍，他日可期。",
+        "allusion": "《三國》水鏡先生言：「臥龍雖得其主，不得其時，亦難展經綸。」此籤以濃霧喻時運未濟，示人識時務、知進退。",
+        "modernNotes": [
+          "行動：暫停計劃，不宜硬推",
+          "心態：接納低谷，焦慮無益",
+          "人際：減少應酬，獨處充電",
+          "節奏：休整期，低調收斂",
+          "提醒：霧散需時，給過程耐心"
+        ]
+      },
+      "en": {
+        "title": "Mist Over the Path",
+        "poem": "Thick mist cloaks the mountain, no trace of the way; one step forward, a thousand fears.\nSet down your pack and rest; when clouds part, the sun rises from the east.",
+        "interpretation": "Fortune is low. Do not act rashly. The matter you ask of is not yet ripe; forcing it will bring reversals.\nWithdraw, observe quietly. Tidy what is within. Gather strength for the right time.\nWhen the mist clears and daylight comes, the path will show itself. Endure now; the day will come.",
+        "allusion": "In the Romance of the Three Kingdoms, the Water-Mirror Master said: \"Even the Crouching Dragon, having found his lord, cannot unfold his talents without the right hour.\" This sign uses thick mist to mean an unripe time, teaching us to read the season and to know when to advance and when to retreat.",
+        "modernNotes": [
+          "Action: Pause your plans. Do not force.",
+          "Mindset: Accept the low. Worry helps nothing.",
+          "Relationships: Cut social obligations. Solitude recharges.",
+          "Pace: A rest period. Stay low-key.",
+          "Reminder: Mist takes time to clear. Be patient with the process."
+        ]
+      }
+    }
+  },
+  {
+    "id": 63,
+    "level": "上中",
+    "title": "明月照途",
+    "poem": "明月高悬照远途，光风霁月伴征夫。\n莫言前路多崎岖，心有清辉自坦途。",
+    "interpretation": "主凡事顺遂，所求渐明。前路虽远而方向已现，宜按部就班，稳中求进。\n问进者有机缘，但勿躁进；问退者可守正，待机自至。",
+    "allusion": "《庄子·天道》言：「水静犹明，而况精神。」月照千途，示人内心澄澈则万象自明。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：看清方向再走，避免盲目尝试",
+      "心态：沉静如水，自有洞察",
+      "人际：贵人暗中相助，但需主动求助",
+      "节奏：稳步推进，不求速成",
+      "提醒：外境虽明，勿忘内观"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "明月照途",
+        "poem": "明月高懸照遠途，光風霽月伴征夫。\n莫言前路多崎嶇，心有清輝自坦途。",
+        "interpretation": "主凡事順遂，所求漸明。前路雖遠而方向已現，宜按部就班，穩中求進。\n問進者有機緣，但勿躁進；問退者可守正，待機自至。",
+        "allusion": "《莊子·天道》言：「水靜猶明，而況精神。」月照千途，示人內心澄澈則萬象自明。",
+        "modernNotes": [
+          "行動：看清方向再走，避免盲目嘗試",
+          "心態：沉靜如水，自有洞察",
+          "人際：貴人暗中相助，但需主動求助",
+          "節奏：穩步推進，不求速成",
+          "提醒：外境雖明，勿忘內觀"
+        ]
+      },
+      "en": {
+        "title": "Bright Moon Lights the Road",
+        "poem": "The bright moon hangs high, lighting the far road; clear wind and fair moon keep the traveler company.\nSay not the way ahead is rough—when the heart holds clear light, the path is its own open road.",
+        "interpretation": "All matters proceed smoothly. What you seek becomes clear by degrees. Though the way is long, the direction is now visible. Move step by step, advancing steadily within your pace.\nFor those asking about advancing, opportunity is here, but do not rush. For those asking about retreat, hold the right; your moment will come.",
+        "allusion": "Zhuangzi · Way of Heaven says: \"Still water is clear, how much more the spirit.\" The moon lights a thousand roads, teaching that when the heart is clear, all things become visible.",
+        "modernNotes": [
+          "Action: See the direction before you walk. Avoid blind trials.",
+          "Mindset: Still as water. Insight arises of itself.",
+          "Relationships: Noble help comes quietly, but you must ask.",
+          "Pace: Steady progress. Do not seek quick results.",
+          "Reminder: Though the world is bright, do not forget to look within."
+        ]
+      }
+    }
+  },
+  {
+    "id": 64,
+    "level": "上中",
+    "title": "旭日初升",
+    "poem": "朝阳破雾照山巅，晓色入窗万象鲜。\n一日之计在于晨，劝君莫负好华年。",
+    "interpretation": "主运势初升，时机已至。沉寂过后生机勃发，所谋可成。宜把握当下，及早行动。\n问起步者天时已给，宜立决；问等待者当止则止，转守为攻。",
+    "allusion": "《周易·晋卦》曰：「明出地上，顺而丽乎大明。」日升于地，示人进之时机已到，宜顺势而上。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：把握窗口，时不我待",
+      "心态：振奋而不急躁",
+      "人际：晨光同行者，皆可托付",
+      "节奏：起步快走，中段稳住",
+      "提醒：勿以小成自满，骄兵必败"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "旭日初升",
+        "poem": "朝陽破霧照山巔，曉色入窗萬象鮮。\n一日之計在於晨，勸君莫負好華年。",
+        "interpretation": "主運勢初升，時機已至。沉寂過後生機勃發，所謀可成。宜把握當下，及早行動。\n問起步者天時已給，宜立決；問等待者當止則止，轉守為攻。",
+        "allusion": "《周易·晉卦》曰：「明出地上，順而麗乎大明。」日升於地，示人進之時機已到，宜順勢而上。",
+        "modernNotes": [
+          "行動：把握窗口，時不我待",
+          "心態：振奮而不急躁",
+          "人際：晨光同行者，皆可託付",
+          "節奏：起步快走，中段穩住",
+          "提醒：勿以小成自滿，驕兵必敗"
+        ]
+      },
+      "en": {
+        "title": "Rising Sun, New Day",
+        "poem": "The morning sun breaks the mist, lighting the peak; dawn-color enters the window, ten thousand things fresh.\nA day's plan is in the morning—I urge you, do not waste these good years.",
+        "interpretation": "Fortune begins to rise. The moment is here. After stillness, vitality bursts forth; what you plan can succeed. Seize the present, act early.\nFor those asking about starting, the time is given—decide now. For those asking about waiting, stop when you should, turn defense into advance.",
+        "allusion": "The Book of Changes · Jin hexagram says: \"Brightness rises above earth, following and made beautiful by the great light.\" The sun rising on earth teaches that the moment to advance has come—go with the rising.",
+        "modernNotes": [
+          "Action: Seize the window. Time waits for no one.",
+          "Mindset: Energetic, but not hasty.",
+          "Relationships: Those who walk with the morning light can be trusted.",
+          "Pace: Quick start, steady middle.",
+          "Reminder: Do not grow proud of small wins. Arrogant armies always lose."
+        ]
+      }
+    }
+  },
+  {
+    "id": 65,
+    "level": "上中",
+    "title": "帆悬待风",
+    "poem": "帆已高悬待好风，潮平水阔接遥空。\n莫因暂歇生疑沮，一朝风起自西东。",
+    "interpretation": "主凡事待时，时至则成。当前虽未行，但万事已备。宜养精蓄锐，勿因一时未动而生疑。\n问机会者已近，候风至；问行止者当静观其变。",
+    "allusion": "妈祖信俗，渔家出海前必先整帆、待风。风未至则不动，风至则满载。此签以「帆悬」喻准备已足，「待风」喻时机未至，示人时机与准备并重。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：准备已足，耐心等风",
+      "心态：行至水穷处，坐看云起时",
+      "人际：同舟共济者，可托付",
+      "节奏：蓄力期不可强推",
+      "提醒：勿因焦虑错判时机"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "帆懸待風",
+        "poem": "帆已高懸待好風，潮平水闊接遙空。\n莫因暫歇生疑沮，一朝風起自西東。",
+        "interpretation": "主凡事待時，時至則成。當前雖未行，但萬事已備。宜養精蓄銳，勿因一時未動而生疑。\n問機會者已近，候風至；問行止者當靜觀其變。",
+        "allusion": "媽祖信俗，漁家出海前必先整帆、待風。風未至則不動，風至則滿載。此籤以「帆懸」喻準備已足，「待風」喻時機未至，示人時機與準備並重。",
+        "modernNotes": [
+          "行動：準備已足，耐心等風",
+          "心態：行至水窮處，坐看雲起時",
+          "人際：同舟共濟者，可託付",
+          "節奏：蓄力期不可強推",
+          "提醒：勿因焦慮錯判時機"
+        ]
+      },
+      "en": {
+        "title": "Sail Hoisted, Waiting Wind",
+        "poem": "The sail already lifted, waits the good wind; calm tide, broad water meet the distant sky.\nDo not, in the waiting, fall to doubt—when the wind rises from west or east, you shall go.",
+        "interpretation": "All matters wait their time; when the time comes, they succeed. Nothing has moved yet, but all is prepared. Gather your strength; do not doubt because the moment has not arrived.\nFor those asking about opportunity, it is near—wait the wind. For those asking about action or rest, observe quietly.",
+        "allusion": "In Mazu worship, fisherfolk setting out to sea first hoist the sail and wait the wind. No wind, no sailing; wind comes, full load returns. This sign uses \"hoisted sail\" for readiness, \"waiting wind\" for unripe time—teaching that timing and preparation must go together.",
+        "modernNotes": [
+          "Action: Preparation is complete. Patiently wait the wind.",
+          "Mindset: When the road ends at water, sit and watch the clouds rise.",
+          "Relationships: Fellow sailors can be trusted.",
+          "Pace: A gathering period. Do not force progress.",
+          "Reminder: Do not misjudge timing out of anxiety."
+        ]
+      }
+    }
+  },
+  {
+    "id": 66,
+    "level": "上中",
+    "title": "琼枝玉树",
+    "poem": "琼枝玉树立庭阶，瑞气盈盈入室来。\n不是凡花能比拟，清香一缕净尘埃。",
+    "interpretation": "主凡事清雅，格调自成。所求虽非大富贵，但必得上品。宜守正持洁，不随波逐流。\n问品格者自贵重，问机缘者非俗流。",
+    "allusion": "《世说新语·容止》记：「此客不凡，如琼林琼树。」此签以「琼枝玉树」喻品格高洁，非俗世可比。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：择善固执，不为利动",
+      "心态：守静自律，不媚俗",
+      "人际：择友慎重，宁缺毋滥",
+      "节奏：慢工出细活",
+      "提醒：清高非孤傲，自重非自矜"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "瓊枝玉樹",
+        "poem": "瓊枝玉樹立庭階，瑞氣盈盈入室來。\n不是凡花能比擬，清香一縷淨塵埃。",
+        "interpretation": "主凡事清雅，格調自成。所求雖非大富貴，但必得上品。宜守正持潔，不隨波逐流。\n問品格者自貴重，問機緣者非俗流。",
+        "allusion": "《世說新語·容止》記：「此客不凡，如瓊林瓊樹。」此籤以「瓊枝玉樹」喻品格高潔，非俗世可比。",
+        "modernNotes": [
+          "行動：擇善固執，不為利動",
+          "心態：守靜自律，不媚俗",
+          "人際：擇友慎重，寧缺毋濫",
+          "節奏：慢工出細活",
+          "提醒：清高非孤傲，自重非自矜"
+        ]
+      },
+      "en": {
+        "title": "Jade Branch, Gem Tree",
+        "poem": "Jade branch and gem tree stand by the courtyard stairs; an air of blessing fills the room.\nNo common flower can compare—one wisp of clean fragrance purges the dust.",
+        "interpretation": "All matters refined; character forms itself. What you seek may not be great wealth, but it will be of the highest quality. Hold to the upright, keep clean; do not drift with the current.\nFor those asking about character, you are your own worth. For those asking about opportunity, it is not of the common sort.",
+        "allusion": "A New Account of the Tales of the World · Bearing says: \"This guest is no common man, like a jade forest of jade trees.\" This sign uses \"jade branch, gem tree\" to mean a character of pure elegance, beyond the common world.",
+        "modernNotes": [
+          "Action: Hold to the good. Do not be moved by profit.",
+          "Mindset: Keep still, discipline yourself. Do not court the world.",
+          "Relationships: Choose friends carefully. Better few than many.",
+          "Pace: Slow work makes fine craft.",
+          "Reminder: Nobility is not aloofness; self-respect is not self-regard."
+        ]
+      }
+    }
+  },
+  {
+    "id": 67,
+    "level": "中上",
+    "title": "长河奔流",
+    "poem": "长河日夜向东流，不舍昼夜势无休。\n莫道前功今尽弃，源头活水续上游。",
+    "interpretation": "主凡事虽小有波折，终归大流。持续之力胜于一曝十寒，所谋虽缓必成。\n问积累者有后劲，问速成者宜调心态。",
+    "allusion": "《论语·子罕》：「子在川上曰：逝者如斯夫，不舍昼夜。」长河奔流，示人时光不待，功在不舍。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：日拱一卒，功不唐捐",
+      "心态：持之以恒，不躁不怠",
+      "人际：同路者众，可结伴行",
+      "节奏：日积月累，水到渠成",
+      "提醒：勿因一时未见效而中断"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "長河奔流",
+        "poem": "長河日夜向東流，不捨晝夜勢無休。\n莫道前功今盡棄，源頭活水續上游。",
+        "interpretation": "主凡事雖小有波折，終歸大流。持續之力勝於一曝十寒，所謀雖緩必成。\n問積累者有後勁，問速成者宜調心態。",
+        "allusion": "《論語·子罕》：「子在川上曰：逝者如斯夫，不捨晝夜。」長河奔流，示人時光不待，功在不捨。",
+        "modernNotes": [
+          "行動：日拱一卒，功不唐捐",
+          "心態：持之以恆，不躁不怠",
+          "人際：同路者眾，可結伴行",
+          "節奏：日積月累，水到渠成",
+          "提醒：勿因一時未見效而中斷"
+        ]
+      },
+      "en": {
+        "title": "Long River Runs East",
+        "poem": "The long river flows eastward day and night, ceaseless, without rest.\nSay not the former work is now lost—the source's living water feeds the upstream.",
+        "interpretation": "Though matters meet small setbacks, they end in the great current. Steady endurance outlasts bursts of effort; what you plan, though slow, shall succeed.\nFor those asking about accumulation, there is strength behind. For those asking about quick results, adjust your mind.",
+        "allusion": "Analects · Zi Han: \"The Master stood by the river and said: 'It passes on like this, never ceasing day or night.'\" The long river running teaches that time does not wait, and the work lies in not ceasing.",
+        "modernNotes": [
+          "Action: One step a day. No effort is lost.",
+          "Mindset: Persevere. Neither hasty nor slack.",
+          "Relationships: Many walk the same road. Walk together.",
+          "Pace: Day by day, the channel forms itself.",
+          "Reminder: Do not stop just because you do not see results yet."
+        ]
+      }
+    }
+  },
+  {
+    "id": 68,
+    "level": "中上",
+    "title": "高山仰止",
+    "poem": "高山巍巍接紫霄，仰之弥高志愈骄。\n攀到峰顶回头望，万里江山入眼辽。",
+    "interpretation": "主凡事高远，所求虽大，必有阶梯可达。宜立大志，但不弃小步。\n问志向者格局已具，问具体事先打基础。",
+    "allusion": "《论语·子罕》颜渊叹孔子：「仰之弥高，钻之弥坚。」高山仰止，示人立志在高，取法乎上。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：取法乎上，得乎其中",
+      "心态：志当存高远，行宜积跬步",
+      "人际：寻良师益友，引路在前",
+      "节奏：先慢后快，前期筑基",
+      "提醒：勿因望而生畏，止步不前"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "高山仰止",
+        "poem": "高山巍巍接紫霄，仰之彌高志愈驕。\n攀到峰頂回頭望，萬里江山入眼遼。",
+        "interpretation": "主凡事高遠，所求雖大，必有階梯可達。宜立大志，但不棄小步。\n問志向者格局已具，問具體事先打基礎。",
+        "allusion": "《論語·子罕》顏淵歎孔子：「仰之彌高，鑽之彌堅。」高山仰止，示人立志在高，取法乎上。",
+        "modernNotes": [
+          "行動：取法乎上，得乎其中",
+          "心態：志當存高遠，行宜積跬步",
+          "人際：尋良師益友，引路在前",
+          "節奏：先慢後快，前期筑基",
+          "提醒：勿因望而生畏，止步不前"
+        ]
+      },
+      "en": {
+        "title": "Lofty Peak in Sight",
+        "poem": "The high mountain, towering, meets the purple sky; the higher you look, the prouder the aim.\nClimb to the summit, turn and look—ten thousand miles of rivers and mountains open to the eye.",
+        "interpretation": "All matters are lofty. What you seek, though great, has steps to reach it. Set a great aim, but do not abandon the small steps.\nFor those asking about ambition, the frame is already there. For those asking about concrete matters, lay the foundation first.",
+        "allusion": "Analects · Zi Han: Yan Yuan sighed of Confucius: \"The higher you look up, the higher he is; the harder you dig, the harder he is.\" The lofty peak teaches: set the aim high; take the model from above.",
+        "modernNotes": [
+          "Action: Take the model from above, achieve the middle.",
+          "Mindset: Aim high, but count the small steps.",
+          "Relationships: Seek good teachers and helpful friends. They lead the way.",
+          "Pace: Slow first, then fast. Build the foundation early.",
+          "Reminder: Do not stop from awe of the height."
+        ]
+      }
+    }
+  },
+  {
+    "id": 69,
+    "level": "中上",
+    "title": "灵蛇蜕变",
+    "poem": "灵蛇蜕骨待新成，旧壳虽坚阻前程。\n一朝破茧飞腾去，他日成龙万里鸣。",
+    "interpretation": "主凡事将变，旧局已破，新机待成。当下虽困，是蜕变之期。\n问转型者时机已到，问守旧者宜主动破局。",
+    "allusion": "道家言蛇可化龙，蜕皮重生。破茧成蝶，示人蜕变虽痛，必有新生。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：主动破局，不待外力",
+      "心态：破茧之痛，终将过去",
+      "人际：旧友或散去，新缘将至",
+      "节奏：转换期，节奏必变",
+      "提醒：蜕变非一夕，过程需忍"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "靈蛇蛻變",
+        "poem": "靈蛇蛻骨待新成，舊殼雖堅阻前程。\n一朝破繭飛騰去，他日成龍萬里鳴。",
+        "interpretation": "主凡事將變，舊局已破，新機待成。當下雖困，是蛻變之期。\n問轉型者時機已到，問守舊者宜主動破局。",
+        "allusion": "道家言蛇可化龍，蛻皮重生。破繭成蝶，示人蛻變雖痛，必有新生。",
+        "modernNotes": [
+          "行動：主動破局，不待外力",
+          "心態：破繭之痛，終將過去",
+          "人際：舊友或散去，新緣將至",
+          "節奏：轉換期，節奏必變",
+          "提醒：蛻變非一夕，過程需忍"
+        ]
+      },
+      "en": {
+        "title": "Spirit Snake's Renewal",
+        "poem": "The spirit snake casts its bone, awaiting new form; the old shell, though hard, blocks the way ahead.\nOne day, breaking the cocoon, it soars—the dragon it shall be, calling across ten thousand miles.",
+        "interpretation": "All matters are about to change. The old pattern is broken; the new awaits. The present, though tight, is the season of transformation.\nFor those asking about transition, the time has come. For those asking about holding the old, break the pattern yourself.",
+        "allusion": "The Daoist tradition says the snake can become a dragon, casting its skin for rebirth. Breaking the cocoon into a butterfly, it teaches that transformation, though painful, brings new life.",
+        "modernNotes": [
+          "Action: Break the pattern yourself. Do not wait for outside force.",
+          "Mindset: The cocoon's pain will pass.",
+          "Relationships: Old friends may scatter; new ties will come.",
+          "Pace: A transition period. The rhythm must change.",
+          "Reminder: Transformation is not one night. Endure the process."
+        ]
+      }
+    }
+  },
+  {
+    "id": 70,
+    "level": "中上",
+    "title": "浮云蔽日",
+    "poem": "浮云一片蔽青天，转眼风来散碧烟。\n莫因暂时失光彩，便疑长夜不再宣。",
+    "interpretation": "主运势暂受阻，但非不吉。浮云过日，光明仍存。\n问困顿者非终局，问失意者勿灰心。",
+    "allusion": "《左传》：「日月之食，焉知其不光明也。」浮云遮日，示人一时之暗非永远。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：照常推进，不因暂阻而停",
+      "心态：风来云散，不必焦虑",
+      "人际：暗中有援，不必求显",
+      "节奏：低潮期长，耐心待转",
+      "提醒：勿在低谷做重大决定"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "浮雲蔽日",
+        "poem": "浮雲一片蔽青天，轉眼風來散碧煙。\n莫因暫時失光彩，便疑長夜不再宣。",
+        "interpretation": "主運勢暫受阻，但非不吉。浮雲過日，光明仍存。\n問困頓者非終局，問失意者勿灰心。",
+        "allusion": "《左傳》：「日月之食，焉知其不光明也。」浮雲遮日，示人一時之暗非永遠。",
+        "modernNotes": [
+          "行動：照常推進，不因暫阻而停",
+          "心態：風來雲散，不必焦慮",
+          "人際：暗中有援，不必求顯",
+          "節奏：低潮期長，耐心待轉",
+          "提醒：勿在低谷做重大決定"
+        ]
+      },
+      "en": {
+        "title": "Drifting Cloud Veils the Sun",
+        "poem": "A single drifting cloud veils the blue sky; in a blink, wind comes and scatters the jade smoke.\nDo not, for the moment's lost light, doubt the long day will not shine again.",
+        "interpretation": "Fortune is briefly blocked, but it is not ill. The cloud passes the sun; the light remains.\nFor those asking about being stuck, this is not the end. For those asking about discouragement, do not lose heart.",
+        "allusion": "Zuo Zhuan: \"The sun and moon are eclipsed—how do we know they are not still bright?\" The cloud veiling the sun teaches that a moment's darkness is not forever.",
+        "modernNotes": [
+          "Action: Push forward as usual. Do not stop at a brief block.",
+          "Mindset: Wind comes, clouds scatter. No need to worry.",
+          "Relationships: Help may come quietly. No need to seek the obvious.",
+          "Pace: A long low tide. Wait patiently for the turn.",
+          "Reminder: Do not make big decisions in the valley."
+        ]
+      }
+    }
+  },
+  {
+    "id": 71,
+    "level": "中上",
+    "title": "玉琢成器",
+    "poem": "璞玉浑金待琢磨，百炼千锤见真我。\n未经一番寒彻骨，哪得梅花扑鼻香。",
+    "interpretation": "主凡事需磨，方成大器。当下所经，皆为成器之资。\n问学习者痛中成长，问事业者磨砺见功。",
+    "allusion": "《诗经·淇奥》：「如切如磋，如琢如磨。」玉不琢不成器，示人磨砺方成大器。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：迎难而上，主动求磨",
+      "心态：苦尽甘来，过程即修行",
+      "人际：严师益友，是助缘",
+      "节奏：积累慢，突破快",
+      "提醒：勿求捷径，根基本分"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "玉琢成器",
+        "poem": "璞玉渾金待琢磨，百煉千錘見真我。\n未經一番寒徹骨，哪得梅花撲鼻香。",
+        "interpretation": "主凡事需磨，方成大器。當下所經，皆為成器之資。\n問學習者痛中成長，問事業者磨礪見功。",
+        "allusion": "《詩經·淇奧》：「如切如磋，如琢如磨。」玉不琢不成器，示人磨礪方成大器。",
+        "modernNotes": [
+          "行動：迎難而上，主動求磨",
+          "心態：苦盡甘來，過程即修行",
+          "人際：嚴師益友，是助緣",
+          "節奏：積累慢，突破快",
+          "提醒：勿求捷徑，根基本分"
+        ]
+      },
+      "en": {
+        "title": "Jade Carved to Vessel",
+        "poem": "Uncarved jade, rough gold, await the chisel; a hundred refinings, a thousand hammerings, reveal the true self.\nWithout the chill that cuts to the bone, how can the plum blossom's fragrance meet the nose?",
+        "interpretation": "All matters must be ground to become great. What you pass through now is the material for becoming.\nFor those asking about learning, you grow in pain. For those asking about work, the work shows through the grinding.",
+        "allusion": "Book of Songs · Qi Ao: \"As cut, as filed, as chiseled, as polished.\" Jade uncarved does not become a vessel—teaching that grinding makes the great vessel.",
+        "modernNotes": [
+          "Action: Meet difficulty head-on. Seek the grinding yourself.",
+          "Mindset: The bitter ends, the sweet comes. The process itself is the practice.",
+          "Relationships: Strict teachers and good friends are aids.",
+          "Pace: Slow accumulation, fast breakthrough.",
+          "Reminder: Do not seek shortcuts. The foundation counts."
+        ]
+      }
+    }
+  },
+  {
+    "id": 72,
+    "level": "中上",
+    "title": "千金散尽",
+    "poem": "千金散尽还复来，聚散本是浮生债。\n莫以得失累心境，云在青天水在怀。",
+    "interpretation": "主凡事看淡，得失不萦于心。失时不馁，得时不忘。\n问财运者聚散有时，问情感者缘起缘灭。",
+    "allusion": "《史记·货殖列传》言财聚财散本天道。此签以聚散示人超然得失，云行水流皆自在。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：顺势而为，勿贪勿执",
+      "心态：聚散随缘，心如止水",
+      "人际：得之我幸，失之我命",
+      "节奏：聚时惜缘，散时放手",
+      "提醒：失时莫怨，得时莫骄"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "千金散盡",
+        "poem": "千金散盡還復來，聚散本是浮生債。\n莫以得失累心境，雲在青天水在懷。",
+        "interpretation": "主凡事看淡，得失不縈於心。失時不餒，得時不忘。\n問財運者聚散有時，問情感者緣起緣滅。",
+        "allusion": "《史記·貨殖列傳》言財聚財散本天道。此籤以聚散示人超然得失，雲行水流皆自在。",
+        "modernNotes": [
+          "行動：順勢而為，勿貪勿執",
+          "心態：聚散隨緣，心如止水",
+          "人際：得之我幸，失之我命",
+          "節奏：聚時惜緣，散時放手",
+          "提醒：失時莫怨，得時莫驕"
+        ]
+      },
+      "en": {
+        "title": "A Thousand Gold Pieces Scattered",
+        "poem": "A thousand gold pieces scattered, they return again; gathering and scattering are the debts of this drifting life.\nDo not let gain and loss burden the heart—the cloud is in the blue sky, the water in the heart.",
+        "interpretation": "All matters look lightly on. Let not gain and loss cling to the heart. In losing, do not despair; in gaining, do not forget.\nFor those asking about wealth, gathering and scattering have their time. For those asking about relationships, they begin and end by fate.",
+        "allusion": "Records of the Grand Historian · Biographies of Money-Makers says that wealth's gathering and scattering follow the way of heaven. This sign uses gathering and scattering to teach rising above gain and loss—the cloud moves, the water flows, each at ease.",
+        "modernNotes": [
+          "Action: Go with the current. Do not be greedy or grasping.",
+          "Mindset: Gathering and scattering follow fate. The heart like still water.",
+          "Relationships: To gain is my fortune; to lose is my fate.",
+          "Pace: When together, cherish the bond. When apart, let go.",
+          "Reminder: In losing, do not complain. In gaining, do not grow proud."
+        ]
+      }
+    }
+  },
+  {
+    "id": 73,
+    "level": "中中",
+    "title": "静水澄波",
+    "poem": "静水无波映碧天，心如止水自安然。\n喧嚣散尽归平淡，方见本来真面目。",
+    "interpretation": "主运势平稳，无大喜亦无忧。宜守静，待时而动。\n问躁进者宜止步，问安稳者可长守。",
+    "allusion": "《庄子·天道》：「水静犹明，而况精神。」静水澄波，示人内心宁静则智慧自生。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：守静观复，勿轻举妄动",
+      "心态：心如止水，宠辱不惊",
+      "人际：平淡之交，可久可长",
+      "节奏：不急不缓，顺其自然",
+      "提醒：静中蓄势，非消极避世"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "靜水澄波",
+        "poem": "靜水無波映碧天，心如止水自安然。\n喧囂散盡歸平淡，方見本來真面目。",
+        "interpretation": "主運勢平穩，無大喜亦無憂。宜守靜，待時而動。\n問躁進者宜止步，問安穩者可長守。",
+        "allusion": "《莊子·天道》：「水靜猶明，而況精神。」靜水澄波，示人內心寧靜則智慧自生。",
+        "modernNotes": [
+          "行動：守靜觀復，勿輕舉妄動",
+          "心態：心如止水，寵辱不驚",
+          "人際：平淡之交，可久可長",
+          "節奏：不急不緩，順其自然",
+          "提醒：靜中蓄勢，非消極避世"
+        ]
+      },
+      "en": {
+        "title": "Still Water, Clear Reflection",
+        "poem": "Still water without waves reflects the blue sky; a heart like still water finds its own peace.\nWhen the clamor fades, returning to the plain—at last you see the true face that was always there.",
+        "interpretation": "Fortune is steady; no great joy, no great worry. Keep still; move when the time comes.\nFor those asking about rushing forward, stop your step. For those asking about stability, you may keep it long.",
+        "allusion": "Zhuangzi · Way of Heaven: \"Still water is clear, how much more the spirit.\" Still water, clear waves—teaching that when the inner heart is calm, wisdom arises of itself.",
+        "modernNotes": [
+          "Action: Keep still and observe the return. Do not act lightly.",
+          "Mindset: Heart like still water. Unmoved by favor or disgrace.",
+          "Relationships: Plain friendships can last long.",
+          "Pace: Neither hurried nor slow. Follow what is natural.",
+          "Reminder: Gathering strength in stillness is not passive withdrawal."
+        ]
+      }
+    }
+  },
+  {
+    "id": 74,
+    "level": "中中",
+    "title": "鹤鸣九皋",
+    "poem": "鹤鸣九皋声彻天，野处悠然自得闲。\n不向朱门觅知己，孤标傲骨对青山。",
+    "interpretation": "主凡事自持，不求闻达。问名声者不汲汲于世，问心境者得自在之乐。",
+    "allusion": "《诗经·鹤鸣》：「鹤鸣于九皋，声闻于天。」野鹤闲鸣，示人隐者之乐。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：自修自省，不媚俗",
+      "心态：悠然自得，不为物累",
+      "人际：择志同道合者深交",
+      "节奏：闲云野鹤，不赶时间",
+      "提醒：勿因清高而孤绝"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "鶴鳴九皋",
+        "poem": "鶴鳴九皋聲徹天，野處悠然自得閒。\n不向朱門覓知己，孤標傲骨對青山。",
+        "interpretation": "主凡事自持，不求聞達。問名聲者不汲汲於世，問心境者得自在之樂。",
+        "allusion": "《詩經·鶴鳴》：「鶴鳴於九皋，聲聞於天。」野鶴閒鳴，示人隱者之樂。",
+        "modernNotes": [
+          "行動：自修自省，不媚俗",
+          "心態：悠然自得，不為物累",
+          "人際：擇志同道合者深交",
+          "節奏：閒雲野鶴，不趕時間",
+          "提醒：勿因清高而孤絕"
+        ]
+      },
+      "en": {
+        "title": "Crane Calls from the Deep Marsh",
+        "poem": "The crane calls from the deep marsh, its sound reaches the sky; in the wild, at ease, finding its own leisure.\nIt seeks no kindred soul at the red gates—lonely grace, proud bone, facing the green mountains.",
+        "interpretation": "All matters held in one's own hand. Do not seek fame or advancement.\nFor those asking about reputation, do not scramble for the world. For those asking about the heart, find the joy of being at ease.",
+        "allusion": "Book of Songs · The Crane Calls: \"The crane calls in the deep marsh, its sound is heard in heaven.\" The wild crane's idle call teaches the joy of the one who dwells apart.",
+        "modernNotes": [
+          "Action: Cultivate yourself. Do not court the world.",
+          "Mindset: At ease and content. Not burdened by things.",
+          "Relationships: Choose those of like mind for deep friendship.",
+          "Pace: A wandering cloud, a wild crane. No need to rush.",
+          "Reminder: Nobility must not turn to isolation."
+        ]
+      }
+    }
+  },
+  {
+    "id": 75,
+    "level": "中中",
+    "title": "松下问童",
+    "poem": "松下问童何所思，童言童语最入时。\n机锋相对浑无定，片晌沉吟各自知。",
+    "interpretation": "主凡事需明心见性，外求不如内省。\n问决断者反问自己，问未来者当下即是。",
+    "allusion": "禅宗「赵州茶」公案，问者答者皆机锋相对，无一定义。松下问童，示人一切答案皆在自心。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：静坐反问，不必外求",
+      "心态：心如明镜，答案自现",
+      "人际：观人观己，皆为师友",
+      "节奏：缓一缓，让答案浮出",
+      "提醒：勿被他人答案左右"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "松下問童",
+        "poem": "松下問童何所思，童言童語最入時。\n機鋒相對渾無定，片晌沉吟各自知。",
+        "interpretation": "主凡事需明心見性，外求不如內省。\n問決斷者反問自己，問未來者當下即是。",
+        "allusion": "禪宗「趙州茶」公案，問者答者皆機鋒相對，無一定義。松下問童，示人一切答案皆在自心。",
+        "modernNotes": [
+          "行動：靜坐反問，不必外求",
+          "心態：心如明鏡，答案自現",
+          "人際：觀人觀己，皆為師友",
+          "節奏：緩一緩，讓答案浮出",
+          "提醒：勿被他人答案左右"
+        ]
+      },
+      "en": {
+        "title": "Asking the Boy Beneath the Pine",
+        "poem": "Beneath the pine I ask the boy what he thinks; the boy's simple words hit the moment best.\nWits meet, no fixed answer—a moment's silence, and each knows for himself.",
+        "interpretation": "All matters need the heart to see its own nature. Seeking outside is not as good as looking within.\nFor those asking about decision, turn the question on yourself. For those asking about the future, the present is it.",
+        "allusion": "The Zen koan of \"Zhaozhou's tea\"—questioner and answerer both speak in sudden wit, with no fixed meaning. Asking the boy beneath the pine teaches that every answer lies in one's own heart.",
+        "modernNotes": [
+          "Action: Sit and ask yourself. No need to seek outside.",
+          "Mindset: Heart like a clear mirror. The answer appears.",
+          "Relationships: Watching others and watching oneself, all are teachers and friends.",
+          "Pace: Slow down. Let the answer surface.",
+          "Reminder: Do not be swayed by others' answers."
+        ]
+      }
+    }
+  },
+  {
+    "id": 76,
+    "level": "中中",
+    "title": "扁舟夜泊",
+    "poem": "扁舟一叶泊芦汀，月白风清夜气宁。\n明日行程明日计，今宵且听浪头声。",
+    "interpretation": "主凡事按部就班，宜缓不宜急。\n问急务者今非其时，问慢行者终有所至。",
+    "allusion": "张继《枫桥夜泊》：「月落乌啼霜满天，江枫渔火对愁眠。」扁舟夜泊，示人暂歇非怠，蓄力再发。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：今夜且歇，明日再图",
+      "心态：胸有成竹，不为所动",
+      "人际：同舟共济者，可交心",
+      "节奏：缓字诀，张弛有度",
+      "提醒：暂歇非放弃，是充电"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "扁舟夜泊",
+        "poem": "扁舟一葉泊蘆汀，月白風清夜氣寧。\n明日行程明日計，今宵且聽浪頭聲。",
+        "interpretation": "主凡事按部就班，宜緩不宜急。\n問急務者今非其時，問慢行者終有所至。",
+        "allusion": "張繼《楓橋夜泊》：「月落烏啼霜滿天，江楓漁火對愁眠。」扁舟夜泊，示人暫歇非怠，蓄力再發。",
+        "modernNotes": [
+          "行動：今夜且歇，明日再圖",
+          "心態：胸有成竹，不為所動",
+          "人際：同舟共濟者，可交心",
+          "節奏：緩字訣，張弛有度",
+          "提醒：暫歇非放棄，是充電"
+        ]
+      },
+      "en": {
+        "title": "Skiff Moored by Night",
+        "poem": "A single skiff moored by the reed bank; pale moon, clear wind, the night's breath is calm.\nTomorrow's journey is for tomorrow to plan; tonight, just listen to the sound of the waves.",
+        "interpretation": "All matters move in order. Better slow than hurried.\nFor those asking about urgent matters, this is not the time. For those asking about slow going, you shall arrive at last.",
+        "allusion": "Zhang Ji's \"Night Mooring at Maple Bridge\": \"The moon sets, crows call, frost fills the sky; river maples, fishing fires face my worried sleep.\" The skiff moored by night teaches that a brief rest is not idleness, but gathering strength to set out again.",
+        "modernNotes": [
+          "Action: Rest tonight. Plan again tomorrow.",
+          "Mindset: Knowing the plan is in hand, nothing moves you.",
+          "Relationships: Those who share the boat can be heart-bound.",
+          "Pace: The word is \"slow\"—tension and release in measure.",
+          "Reminder: Rest is not giving up. It is recharging."
+        ]
+      }
+    }
+  },
+  {
+    "id": 77,
+    "level": "中中",
+    "title": "寒梅傲雪",
+    "poem": "寒梅一枝傲雪开，幽香暗送入窗来。\n不与百花争春色，自有清骨立苍崖。",
+    "interpretation": "主凡事自守，品格自有。不趋炎附势，不与世争。\n问立场者自持之，问合作者慎择之。",
+    "allusion": "王安石《梅花》：「墙角数枝梅，凌寒独自开。」寒梅傲雪，示人品格自持，不随俗。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：择善固执，不为利动",
+      "心态：心有主见，外境不扰",
+      "人际：择志同道合者，勿攀附",
+      "节奏：慢中见真，久而弥坚",
+      "提醒：清高非孤傲，自重非自矜"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "寒梅傲雪",
+        "poem": "寒梅一枝傲雪開，幽香暗送入窗來。\n不與百花爭春色，自有清骨立蒼崖。",
+        "interpretation": "主凡事自守，品格自有。不趨炎附勢，不與世爭。\n問立場者自持之，問合作者慎擇之。",
+        "allusion": "王安石《梅花》：「牆角數枝梅，凌寒獨自開。」寒梅傲雪，示人品格自持，不隨俗。",
+        "modernNotes": [
+          "行動：擇善固執，不為利動",
+          "心態：心有主見，外境不擾",
+          "人際：擇志同道合者，勿攀附",
+          "節奏：慢中見真，久而彌堅",
+          "提醒：清高非孤傲，自重非自矜"
+        ]
+      },
+      "en": {
+        "title": "Winter Plum Braving the Snow",
+        "poem": "A branch of winter plum blooms, braving the snow; a hidden fragrance slips in through the window.\nIt does not vie with the hundred flowers for spring's color—its own clear bone stands by the gray cliff.",
+        "interpretation": "All matters held in one's own; character stands of itself. Do not court the powerful, do not contend with the world.\nFor those asking about one's stance, hold to it. For those asking about partnership, choose carefully.",
+        "allusion": "Wang Anshi's \"Plum Blossoms\": \"A few branches by the wall, blooming alone in the cold.\" The winter plum braving the snow teaches that character holds itself, not following the crowd.",
+        "modernNotes": [
+          "Action: Hold to the good. Do not be moved by profit.",
+          "Mindset: Heart has its own view. Outer things do not disturb.",
+          "Relationships: Choose those of like mind. Do not cling to the powerful.",
+          "Pace: In slowness, truth appears; with time, it grows firmer.",
+          "Reminder: Nobility is not aloofness; self-respect is not self-regard."
+        ]
+      }
+    }
+  },
+  {
+    "id": 78,
+    "level": "中下",
+    "title": "风摇烛影",
+    "poem": "风摇烛影乱参差，一豆微光欲灭时。\n莫待风吹烛火熄，及时添油莫迟疑。",
+    "interpretation": "主运势转弱，宜早做准备。问守成者加固防线，问激进者暂退一步。",
+    "allusion": "杜甫「江风不定半壁昏」，示人风雨欲来，宜早绸缪。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：守为主，进为辅",
+      "心态：戒惧警惕，不侥幸",
+      "人际：疏远是非，亲近可信者",
+      "节奏：放缓脚步，稳字当头",
+      "提醒：勿因小成而忘危"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "風搖燭影",
+        "poem": "風搖燭影亂參差，一豆微光欲滅時。\n莫待風吹燭火熄，及時添油莫遲疑。",
+        "interpretation": "主運勢轉弱，宜早做準備。問守成者加固防線，問激進者暫退一步。",
+        "allusion": "杜甫「江風不定半壁昏」，示人風雨欲來，宜早綢繆。",
+        "modernNotes": [
+          "行動：守為主，進為輔",
+          "心態：戒懼警惕，不僥倖",
+          "人際：疏遠是非，親近可信者",
+          "節奏：放緩腳步，穩字當頭",
+          "提醒：勿因小成而忘危"
+        ]
+      },
+      "en": {
+        "title": "Wind Sways the Candle's Shadow",
+        "poem": "Wind sways the candle's shadow, all askew; a single bean's small light about to die.\nDo not wait until the wind blows the flame out—add the oil in time, do not hesitate.",
+        "interpretation": "Fortune turns weaker; prepare early.\nFor those asking about holding what is built, strengthen the defense. For those asking about advancing, retreat a step for now.",
+        "allusion": "Du Fu's \"the river wind uncertain, half the wall in shadow\" teaches that when storm approaches, one must prepare in advance.",
+        "modernNotes": [
+          "Action: Defense first, advance second.",
+          "Mindset: Aware and cautious. Do not count on luck.",
+          "Relationships: Distance from trouble, draw near to the trustworthy.",
+          "Pace: Slow the steps. The word is \"steady.\"",
+          "Reminder: Do not forget danger because of small wins."
+        ]
+      }
+    }
+  },
+  {
+    "id": 79,
+    "level": "中下",
+    "title": "长路漫漫",
+    "poem": "长路漫漫接天涯，一步一挨莫怨嗟。\n纵有千难与万险，跬步不止到堪嘉。",
+    "interpretation": "主运势虽困，但路在脚下。问前程者坚持，问速达者放弃幻想。",
+    "allusion": "李白《行路难》：「行路难！行路难！多歧路，今安在？长风破浪会有时，直挂云帆济沧海。」长路漫漫，示人虽难必达。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：日拱一卒，功不唐捐",
+      "心态：坚忍不拔，不为困阻挫",
+      "人际：同路人少而精，可托付",
+      "节奏：一步一挨，不求速达",
+      "提醒：勿在困时寻捷径"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "長路漫漫",
+        "poem": "長路漫漫接天涯，一步一挨莫怨嗟。\n縱有千難與萬險，蹠步不止到堪嘉。",
+        "interpretation": "主運勢雖困，但路在腳下。問前程者堅持，問速達者放棄幻想。",
+        "allusion": "李白《行路難》：「行路難！行路難！多歧路，今安在？長風破浪會有時，直掛雲帆濟滄海。」長路漫漫，示人雖難必達。",
+        "modernNotes": [
+          "行動：日拱一卒，功不唐捐",
+          "心態：堅忍不拔，不為困阻挫",
+          "人際：同路人少而精，可託付",
+          "節奏：一步一挨，不求速達",
+          "提醒：勿在困時尋捷徑"
+        ]
+      },
+      "en": {
+        "title": "Long Road, Endless Miles",
+        "poem": "The long road stretches on to the edge of the sky; one step, then another, do not complain.\nThough a thousand trials, ten thousand dangers—inching forward without pause is worthy of praise.",
+        "interpretation": "Fortune is hard, but the road is under your feet.\nFor those asking about the path ahead, keep on. For those asking about quick arrival, give up the dream.",
+        "allusion": "Li Bai's \"Hard is the Way\": \"Hard is the way! Hard is the way! So many branching paths—where am I now? One day, riding the long wind, breaking the great waves, I shall set up the cloud-sail and cross the vast sea.\" The long road teaches: though hard, you will arrive.",
+        "modernNotes": [
+          "Action: One step a day. No effort is lost.",
+          "Mindset: Steadfast and unyielding. Not broken by difficulty.",
+          "Relationships: Few fellow travelers, but they can be trusted.",
+          "Pace: One step, then another. No need for quick arrival.",
+          "Reminder: Do not seek shortcuts in hard times."
+        ]
+      }
+    }
+  },
+  {
+    "id": 80,
+    "level": "下上",
+    "title": "触藩篱破",
+    "poem": "强羊触藩角已摧，进退两难困崔嵬。\n退一步时海天阔，莫将执念作死灰。",
+    "interpretation": "主运势困顿，强求必败。问进者当止，问退者反得生机。",
+    "allusion": "《易经·大壮》：「羝羊触藩，羸其角。」藩篱角破，示人强求之害，退一步海阔天空。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：壮士断腕，急流勇退",
+      "心态：放下执念，方得自在",
+      "人际：远离消耗者，惜缘惜福",
+      "节奏：休整期，彻底放空",
+      "提醒：执念是枷锁，非动力"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "觸藩籬破",
+        "poem": "強羊觸藩角已摧，進退兩難困崔嵬。\n退一步時海天闊，莫將執念作死灰。",
+        "interpretation": "主運勢困頓，強求必敗。問進者當止，問退者反得生機。",
+        "allusion": "《易經·大壯》：「羝羊觸藩，羸其角。」藩籬角破，示人強求之害，退一步海闊天空。",
+        "modernNotes": [
+          "行動：壯士斷腕，急流勇退",
+          "心態：放下執念，方得自在",
+          "人際：遠離消耗者，惜緣惜福",
+          "節奏：休整期，徹底放空",
+          "提醒：執念是枷鎖，非動力"
+        ]
+      },
+      "en": {
+        "title": "Horns Caught in the Fence",
+        "poem": "The ram butts the fence, its horns already broken; advance and retreat both hard, trapped by the cliff.\nStep back one pace, and the sea and sky are wide; do not keep the obsession as dead ash.",
+        "interpretation": "Fortune is stuck; pushing forward will fail.\nFor those asking about advancing, stop. For those asking about retreat, you will find new life.",
+        "allusion": "Book of Changes · Great Strength: \"The ram butts the fence, its horns entangled.\" The fence broken by the horns teaches the harm of forcing it; step back and the sea and sky open wide.",
+        "modernNotes": [
+          "Action: The brave man cuts off his wrist. Retreat from the swift current.",
+          "Mindset: Let go of the obsession; only then are you at ease.",
+          "Relationships: Distance from those who drain you. Cherish the bond, cherish the blessing.",
+          "Pace: A rest period. Empty the mind completely.",
+          "Reminder: Obsession is a shackle, not a driving force."
+        ]
+      }
+    }
+  },
+  {
+    "id": 81,
+    "level": "上中",
+    "title": "春雷惊蛰",
+    "poem": "一声春雷破九垓，蛰虫惊醒动苍苔。\n万象更新从此始，莫负天公一片裁。",
+    "interpretation": "主运势勃发，蛰伏已久，时机已至。宜乘势而起，不可迟疑。\n问起步者雷已动，问守候者冰已开。",
+    "allusion": "《礼记·月令》：「二月节，万物出乎震，震为雷，故曰惊蛰。」春雷惊蛰，示人时机到不可失。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：雷已发，宜立起",
+      "心态：振奋而清醒",
+      "人际：同声相应者，可共举",
+      "节奏：起步要快，稳步推进",
+      "提醒：雷虽惊耳，勿乱方寸"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "春雷驚蟄",
+        "poem": "一聲春雷破九垓，蟄蟲驚醒動蒼苔。\n萬象更新從此始，莫負天公一片裁。",
+        "interpretation": "主運勢勃發，蟄伏已久，時機已至。宜乘勢而起，不可遲疑。\n問起步者雷已動，問守候者冰已開。",
+        "allusion": "《禮記·月令》：「二月節，萬物出乎震，震為雷，故曰驚蟄。」春雷驚蟄，示人時機到不可失。",
+        "modernNotes": [
+          "行動：雷已發，宜立起",
+          "心態：振奮而清醒",
+          "人際：同聲相應者，可共舉",
+          "節奏：起步要快，穩步推進",
+          "提醒：雷雖驚耳，勿亂方寸"
+        ]
+      },
+      "en": {
+        "title": "Spring Thunder, Waking Hibernation",
+        "poem": "One sound of spring thunder breaks through the nine heavens; the hibernating insects wake, stirring the green moss.\nTen thousand things make themselves new from here—do not fail the heavens' measure.",
+        "interpretation": "Fortune breaks forth. You have lain dormant long; the time is here. Rise with the force; do not hesitate.\nFor those asking about starting, the thunder has moved. For those asking about waiting, the ice has cracked.",
+        "allusion": "Book of Rites · Monthly Ordinances: \"The second month's node: the ten thousand things emerge from Zhen; Zhen is thunder, so it is called Jingzhe (Waking of Insects).\" Spring thunder waking hibernation teaches that when the moment comes, do not lose it.",
+        "modernNotes": [
+          "Action: The thunder has sounded. Rise up now.",
+          "Mindset: Energetic and clear-headed.",
+          "Relationships: Those who answer the same call can rise together.",
+          "Pace: Quick start, then steady advance.",
+          "Reminder: Though the thunder startles, do not lose your head."
+        ]
+      }
+    }
+  },
+  {
+    "id": 82,
+    "level": "上中",
+    "title": "金风送爽",
+    "poem": "金风一缕送秋凉，稻熟林红满野芳。\n收获时节宜收束，且将新岁问青阳。",
+    "interpretation": "主运势正丰，所谋将有所成。宜把握收获期，整理过去，规划未来。\n问事业者秋实可摘，问情感者当下是黄金期。",
+    "allusion": "《诗经·蒹葭》：「蒹葭苍苍，白露为霜。」秋气清朗，示人收获之际，亦是收束之时。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：收获期，抓紧成果",
+      "心态：知足常乐，不奢不躁",
+      "人际：分享所得，可成善缘",
+      "节奏：先收后藏，蓄势来春",
+      "提醒：勿因已得而忘未备"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "金風送爽",
+        "poem": "金風一縷送秋涼，稻熟林紅滿野芳。\n收穫時節宜收束，且將新歲問青陽。",
+        "interpretation": "主運勢正豐，所謀將有所成。宜把握收穫期，整理過去，規劃未來。\n問事業者秋實可摘，問情感者當下是黃金期。",
+        "allusion": "《詩經·蒹葈》：「蒹葈蒼蒼，白露為霜。」秋氣清朗，示人收穫之際，亦是收束之時。",
+        "modernNotes": [
+          "行動：收穫期，抓緊成果",
+          "心態：知足常樂，不奢不躁",
+          "人際：分享所得，可成善緣",
+          "節奏：先收後藏，蓄勢來春",
+          "提醒：勿因已得而忘未備"
+        ]
+      },
+      "en": {
+        "title": "Golden Wind, Autumn Cool",
+        "poem": "One thread of golden wind brings autumn's cool; the rice is ripe, the forest red, the wildlands full of fragrance.\nIn the season of harvest, gather in—what is the coming year to ask of the spring sun?",
+        "interpretation": "Fortune is full. What you plan shall come to fruit. Take the harvest time, gather the past, plan the future.\nFor those asking about work, the autumn fruit can be picked. For those asking about relationships, the present is the golden time.",
+        "allusion": "Book of Songs · Jian Jia: \"The reeds are lush, the white dew turns to frost.\" The clear air of autumn teaches that the season of harvest is also the time of gathering in.",
+        "modernNotes": [
+          "Action: Harvest time. Seize the fruits.",
+          "Mindset: Contentment is the constant joy. Not greedy, not restless.",
+          "Relationships: Share what you have gained—it can become a good bond.",
+          "Pace: First gather, then store. Save strength for the coming spring.",
+          "Reminder: Do not forget to prepare for what is not yet ready, just because you have gained."
+        ]
+      }
+    }
+  },
+  {
+    "id": 83,
+    "level": "中上",
+    "title": "林深人静",
+    "poem": "林深人静鸟声稀，独坐幽篁听翠微。\n心远地偏尘自远，一窗山色自忘机。",
+    "interpretation": "主运势内敛，宜潜心自修。当下之静非为蛰伏，乃为厚积。\n问躁进者宜止步，问深修者得其乐。",
+    "allusion": "王维《竹里馆》：「独坐幽篁里，弹琴复长啸。深林人不知，明月来相照。」林深人静，示人内省之乐。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：闭门读书，反观内心",
+      "心态：宁静以致远",
+      "人际：择二三知己深交",
+      "节奏：慢节奏，重质不重量",
+      "提醒：静中勿忘外察"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "林深人靜",
+        "poem": "林深人靜鳥聲稀，獨坐幽篁聽翠微。\n心遠地偏塵自遠，一窗山色自忘機。",
+        "interpretation": "主運勢內斂，宜潛心自修。當下之靜非為蟄伏，乃為厚積。\n問躁進者宜止步，問深修者得其樂。",
+        "allusion": "王維《竹里館》：「獨坐幽篁裡，彈琴復長嘯。深林人不知，明月來相照。」林深人靜，示人內省之樂。",
+        "modernNotes": [
+          "行動：閉門讀書，反觀內心",
+          "心態：寧靜以致遠",
+          "人際：擇二三知己深交",
+          "節奏：慢節奏，重質不重量",
+          "提醒：靜中勿忘外察"
+        ]
+      },
+      "en": {
+        "title": "Deep Forest, Quiet Mind",
+        "poem": "The forest is deep, the people still, the birdsong rare; alone I sit in the dark bamboo, listening to the green.\nWhen the heart is far and the place is off the beaten track, the dust is far of itself; one window of mountain color, and the mind forgets its wiles.",
+        "interpretation": "Fortune is inward; dive into self-cultivation. The present quiet is not hiding, but gathering.\nFor those asking about rushing forward, stop your step. For those asking about deep cultivation, you find your joy.",
+        "allusion": "Wang Wei's \"Bamboo Lodge\": \"Alone I sit in the dark bamboo, pluck the lute, and sing long. The deep forest knows no one; the bright moon comes to shine on me.\" The deep forest's quiet teaches the joy of looking within.",
+        "modernNotes": [
+          "Action: Close the door, read, look within.",
+          "Mindset: Stillness reaches far.",
+          "Relationships: Choose two or three true friends for deep company.",
+          "Pace: A slow pace. Quality over quantity.",
+          "Reminder: In stillness, do not forget to observe the outside."
+        ]
+      }
+    }
+  },
+  {
+    "id": 84,
+    "level": "中上",
+    "title": "灯火可亲",
+    "poem": "一灯如豆坐黄昏，暖意盈怀抵万金。\n莫道平居无足道，家人闲处见情深。",
+    "interpretation": "主运势平稳，所求在近不在远。珍惜当下所有，便是最大福气。\n问事业者稳中求进，问家庭者当下即是。",
+    "allusion": "汪曾祺：「家人闲坐，灯火可亲。」平居之乐，示人幸福常在寻常处。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：珍视眼前，不慕高远",
+      "心态：知足即富",
+      "人际：陪伴是最长情的告白",
+      "节奏：日常节奏，张弛有度",
+      "提醒：莫待失去方知贵"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "燈火可親",
+        "poem": "一燈如豆坐黃昏，暖意盈懷抵萬金。\n莫道平居無足道，家人閒處見情深。",
+        "interpretation": "主運勢平穩，所求在近不在遠。珍惜當下所有，便是最大福氣。\n問事業者穩中求進，問家庭者當下即是。",
+        "allusion": "汪曾祺：「家人閒坐，燈火可親。」平居之樂，示人幸福常在尋常處。",
+        "modernNotes": [
+          "行動：珍視眼前，不慕高遠",
+          "心態：知足即富",
+          "人際：陪伴是最長情的告白",
+          "節奏：日常節奏，張弛有度",
+          "提醒：莫待失去方知貴"
+        ]
+      },
+      "en": {
+        "title": "The Lamplight, Warm and Near",
+        "poem": "One lamp, bean-sized, sitting at dusk; warmth fills the arms, worth ten thousand gold.\nSay not the everyday has nothing to speak—where the family sits at ease, the feeling runs deep.",
+        "interpretation": "Fortune is steady. What you seek is near, not far. Cherish what is already here—that is the greatest blessing.\nFor those asking about work, advance steadily. For those asking about family, the present is it.",
+        "allusion": "Wang Zengqi: \"The family sits at leisure; the lamplight is warm and dear.\" The joy of everyday life teaches that happiness is often in the ordinary place.",
+        "modernNotes": [
+          "Action: Cherish what is in front of you. Do not long for the distant.",
+          "Mindset: Contentment itself is wealth.",
+          "Relationships: Companionship is the longest告白.",
+          "Pace: The everyday pace. Tension and release in measure.",
+          "Reminder: Do not wait until you have lost to know its worth."
+        ]
+      }
+    }
+  },
+  {
+    "id": 85,
+    "level": "中中",
+    "title": "坐看云起",
+    "poem": "行到水穷山尽处，坐看云起意悠然。\n得失从来无定数，一蓑烟雨任平生。",
+    "interpretation": "主运势转折在即，看似无路，实有新机。宜转换视角，安然处之。\n问进者退一步海阔天空，问退者当下即安稳。",
+    "allusion": "王维《终南别业》：「行到水穷处，坐看云起时。」绝处未必无路，示人转换视角。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：转换视角，不执着",
+      "心态：得失随缘，心自安然",
+      "人际：远离消耗，珍惜当下",
+      "节奏：放慢脚步，让心跟上",
+      "提醒：穷处非终点"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "坐看雲起",
+        "poem": "行到水窮山盡處，坐看雲起意悠然。\n得失從來無定數，一簑煙雨任平生。",
+        "interpretation": "主運勢轉折在即，看似無路，實有新機。宜轉換視角，安然處之。\n問進者退一步海闊天空，問退者當下即安穩。",
+        "allusion": "王維《終南別業》：「行到水窮處，坐看雲起時。」絕處未必無路，示人轉換視角。",
+        "modernNotes": [
+          "行動：轉換視角，不執著",
+          "心態：得失隨緣，心自安然",
+          "人際：遠離消耗，珍惜當下",
+          "節奏：放慢腳步，讓心跟上",
+          "提醒：窮處非終點"
+        ]
+      },
+      "en": {
+        "title": "Sit and Watch the Clouds Rise",
+        "poem": "Walk to where the water ends and the mountain is spent; sit and watch the clouds rise, the mind at ease.\nGain and loss were never fixed—a straw cloak in mist and rain, and the whole life is at will.",
+        "interpretation": "Fortune is about to turn. What seems to be no way is, in fact, a new opening. Shift the angle; be at peace.\nFor those asking about advancing, one step back and sea and sky are wide. For those asking about retreat, the present is stable.",
+        "allusion": "Wang Wei's \"Dwelling at the Foot of Zhongnan\": \"Walk to where the water ends; sit and watch the clouds rise.\" The dead-end is not necessarily no road—teaching us to shift the angle.",
+        "modernNotes": [
+          "Action: Shift the angle. Do not be attached.",
+          "Mindset: Gain and loss follow fate. The heart is at peace.",
+          "Relationships: Distance from what drains you. Cherish the present.",
+          "Pace: Slow the steps. Let the heart catch up.",
+          "Reminder: The end of the road is not the end."
+        ]
+      }
+    }
+  },
+  {
+    "id": 86,
+    "level": "中中",
+    "title": "清风徐来",
+    "poem": "清风徐来水波生，明月徘徊照我心。\n万物静观皆自得，扁舟一叶任浮沉。",
+    "interpretation": "主运势平稳，宜顺其自然。强求不如顺势，无为亦是有为。\n问躁进者宜缓，问等待者时机未至。",
+    "allusion": "苏轼《赤壁赋》：「惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭。」清风明月，示人取用无尽。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：顺势而为，不强求",
+      "心态：万物自得，无求即安",
+      "人际：淡交如水，久而益清",
+      "节奏：自然节律，不疾不徐",
+      "提醒：清风常在，勿失本心"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "清風徐來",
+        "poem": "清風徐來水波生，明月徘徊照我心。\n萬物靜觀皆自得，扁舟一葉任浮沉。",
+        "interpretation": "主運勢平穩，宜順其自然。強求不如順勢，無為亦是有為。\n問躁進者宜緩，問等待者時機未至。",
+        "allusion": "蘇軾《赤壁賦》：「惟江上之清風，與山間之明月，耳得之而為聲，目遇之而成色，取之無禁，用之不竭。」清風明月，示人取用無盡。",
+        "modernNotes": [
+          "行動：順勢而為，不強求",
+          "心態：萬物自得，無求即安",
+          "人際：淡交如水，久而益清",
+          "節奏：自然節律，不疾不徐",
+          "提醒：清風常在，勿失本心"
+        ]
+      },
+      "en": {
+        "title": "A Gentle Breeze Comes Slowly",
+        "poem": "The gentle breeze comes slowly, the water stirs; the bright moon lingers, shining on my heart.\nAll things, watched quietly, are content of themselves; one leaf of a skiff, at will it floats or sinks.",
+        "interpretation": "Fortune is steady. Go with what is natural. Forcing is not as good as following; not-doing is also a doing.\nFor those asking about rushing forward, slow down. For those asking about waiting, the time is not yet.",
+        "allusion": "Su Shi's \"Rhapsody on the Red Cliff\": \"Only the clear wind on the river and the bright moon in the mountains—ears receive them as sound, eyes meet them as color; take them without prohibition, use them without exhaustion.\" The clear wind and bright moon teach that there is an inexhaustible supply.",
+        "modernNotes": [
+          "Action: Go with the current. Do not force.",
+          "Mindset: All things are content of themselves. No seeking, then peace.",
+          "Relationships: Light friendship like water. The longer, the clearer.",
+          "Pace: The natural rhythm. Neither fast nor slow.",
+          "Reminder: The clear wind is always there. Do not lose the original heart."
+        ]
+      }
+    }
+  },
+  {
+    "id": 87,
+    "level": "中下",
+    "title": "冰封三尺",
+    "poem": "冰封三尺非一朝，寒气入骨意萧条。\n莫怨当下多阻滞，积年沉疴待今朝。",
+    "interpretation": "主运势欠佳，困境非一日之积。冰冻三尺非一日之寒，破冰亦非一日可成。\n问急务者缓办，问困境者徐图。",
+    "allusion": "《增广贤文》：「冰冻三尺，非一日之寒。」示人困境成因深远，宜徐图缓改。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：徐图缓改，不求速破",
+      "心态：接纳当下，不怨不躁",
+      "人际：远离消耗，深交可信",
+      "节奏：极慢，重在积累",
+      "提醒：冰非一日可破"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "冰封三尺",
+        "poem": "冰封三尺非一朝，寒氣入骨意蕭條。\n莫怨當下多阻滯，積年沉疴待今朝。",
+        "interpretation": "主運勢欠佳，困境非一日之積。冰凍三尺非一日之寒，破冰亦非一日可成。\n問急務者緩辦，問困境者徐圖。",
+        "allusion": "《增廣賢文》：「冰凍三尺，非一日之寒。」示人困境成因深遠，宜徐圖緩改。",
+        "modernNotes": [
+          "行動：徐圖緩改，不求速破",
+          "心態：接納當下，不怨不躁",
+          "人際：遠離消耗，深交可信",
+          "節奏：極慢，重在積累",
+          "提醒：冰非一日可破"
+        ]
+      },
+      "en": {
+        "title": "Ice Sealed, Three Feet Deep",
+        "poem": "Ice sealed three feet deep is not one morning's work; the cold enters the bone, the spirit is bleak.\nDo not blame the present for its many blocks—long-standing ills await this very day.",
+        "interpretation": "Fortune is poor. The predicament is not one day's making. Ice frozen three feet deep is not one day's cold; breaking it is not one day's work either.\nFor those asking about urgent matters, do them slowly. For those asking about difficulty, plot the change in due time.",
+        "allusion": "Expanded Wise Sayings: \"Three feet of ice is not one day's cold.\" Teaching that the causes of difficulty run deep; take time to plot the change.",
+        "modernNotes": [
+          "Action: Plot the change slowly. Do not seek a quick break.",
+          "Mindset: Accept the present. No complaint, no restlessness.",
+          "Relationships: Distance from what drains. Be deep with the trustworthy.",
+          "Pace: Very slow. The weight is on accumulation.",
+          "Reminder: Ice cannot be broken in one day."
+        ]
+      }
+    }
+  },
+  {
+    "id": 88,
+    "level": "中下",
+    "title": "孤舟蓑笠",
+    "poem": "孤舟一叶钓寒江，蓑笠翁立风雪中。\n世人笑我形单影，我笑世人太匆匆。",
+    "interpretation": "主运势孤立，宜独行慎思。独处非为弃世，乃为自清。\n问合作者宜缓，问孤行者得其乐。",
+    "allusion": "柳宗元《江雪》：「千山鸟飞绝，万径人踪灭。孤舟蓑笠翁，独钓寒江雪。」孤舟独钓，示人独处之境。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：独行慎思，戒急戒躁",
+      "心态：孤而不孤，心如止水",
+      "人际：远离应酬，择一二知己",
+      "节奏：极慢，无日程",
+      "提醒：孤独非遗世，是自清"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "孤舟簑笠",
+        "poem": "孤舟一葉釣寒江，簑笠翁立風雪中。\n世人笑我形單影，我笑世人太匆匆。",
+        "interpretation": "主運勢孤立，宜獨行慎思。獨處非為棄世，乃為自清。\n問合作者宜緩，問孤行者得其樂。",
+        "allusion": "柳宗元《江雪》：「千山鳥飛絕，萬徑人蹤滅。孤舟簑笠翁，獨釣寒江雪。」孤舟獨釣，示人獨處之境。",
+        "modernNotes": [
+          "行動：獨行慎思，戒急戒躁",
+          "心態：孤而不孤，心如止水",
+          "人際：遠離應酬，擇一二知己",
+          "節奏：極慢，無日程",
+          "提醒：孤獨非遺世，是自清"
+        ]
+      },
+      "en": {
+        "title": "Lone Skiff, Straw Hat and Cape",
+        "poem": "A lone skiff of one leaf, fishing the cold river; the old man in straw cape and hat stands in the wind and snow.\nThe world laughs at my single shadow; I laugh at the world for being in too much of a rush.",
+        "interpretation": "Fortune is solitary. Walk alone, think carefully. Solitude is not abandoning the world, but cleansing the self.\nFor those asking about partnership, slow down. For those asking about the solitary path, you find your joy.",
+        "allusion": "Liu Zongyuan's \"River Snow\": \"A thousand mountains—no bird in flight; ten thousand paths—no trace of man. In a lone skiff, an old man in straw cape and hat, fishing alone in the cold river snow.\" The lone skiff, fishing alone, teaches the state of solitude.",
+        "modernNotes": [
+          "Action: Walk alone, think carefully. Be wary of rush, wary of unrest.",
+          "Mindset: Solitary yet not alone. Heart like still water.",
+          "Relationships: Distance from social obligations. Choose one or two true friends.",
+          "Pace: Very slow. No schedule.",
+          "Reminder: Solitude is not abandoning the world; it is cleansing the self."
+        ]
+      }
+    }
+  },
+  {
+    "id": 89,
+    "level": "下上",
+    "title": "残雪消融",
+    "poem": "残雪一寸寸消融，檐下冰凌落叮咚。\n莫道冬深寒未尽，春消息已到墙东。",
+    "interpretation": "主运势虽弱，转机已现。困境将解，时机渐至。\n问守候者勿失耐心，问待时者已近。",
+    "allusion": "陆游：「山重水复疑无路，柳暗花明又一村。」残雪消融，示人困境中有生机。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：再坚持一时，勿放弃",
+      "心态：见微知著，信春将至",
+      "人际：保持连接，不孤立",
+      "节奏：等待节律，不可强推",
+      "提醒：残雪虽寒，化时已到"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "殘雪消融",
+        "poem": "殘雪一寸寸消融，檐下冰凌落叮咚。\n莫道冬深寒未盡，春消息已到牆東。",
+        "interpretation": "主運勢雖弱，轉機已現。困境將解，時機漸至。\n問守候者勿失耐心，問待時者已近。",
+        "allusion": "陸游：「山重水複疑無路，柳暗花明又一村。」殘雪消融，示人困境中有生機。",
+        "modernNotes": [
+          "行動：再堅持一時，勿放棄",
+          "心態：見微知著，信春將至",
+          "人際：保持連接，不孤立",
+          "節奏：等待節律，不可強推",
+          "提醒：殘雪雖寒，化時已到"
+        ]
+      },
+      "en": {
+        "title": "Lingering Snow Melts",
+        "poem": "The lingering snow melts, inch by inch; icicles under the eaves fall with a clear plink.\nSay not the winter's cold is not yet spent—news of spring has already reached the eastern wall.",
+        "interpretation": "Though fortune is weak, the turn has come. The difficulty will resolve; the moment draws near.\nFor those asking about waiting, do not lose patience. For those asking about the right time, it is close.",
+        "allusion": "Lu You: \"Where hills bend, streams wind and the pathway seems to end, past dark willows and flowers in bloom lies another village.\" The lingering snow melting teaches that there is life within the difficulty.",
+        "modernNotes": [
+          "Action: Hold on a little longer. Do not give up.",
+          "Mindset: See the small signs. Trust that spring will come.",
+          "Relationships: Keep connected. Do not isolate.",
+          "Pace: A waiting rhythm. Do not push.",
+          "Reminder: Though the lingering snow is cold, the time of melting is here."
+        ]
+      }
+    }
+  },
+  {
+    "id": 90,
+    "level": "下下",
+    "title": "长夜待旦",
+    "poem": "长夜漫漫何时旦，孤灯一点照心寒。\n莫言此夜无穷尽，天意昭昭待晓看。",
+    "interpretation": "主运势低谷，宜极守。当下之暗为长夜，待旦自有期。\n问急务者宜止，问等待者勿躁。",
+    "allusion": "《三国演义》：「大梦谁先觉，平生我自知。」长夜待旦，示人低谷非永远。",
+    "categories": [
+      "general"
+    ],
+    "modernNotes": [
+      "行动：极守，不妄动",
+      "心态：接纳黑夜，不绝望",
+      "人际：抱团取暖，求可信者",
+      "节奏：极缓，保存实力",
+      "提醒：长夜终有尽头"
+    ],
+    "i18n": {
+      "zh_TW": {
+        "title": "長夜待旦",
+        "poem": "長夜漫漫何時旦，孤燈一點照心寒。\n莫言此夜無窮盡，天意昭昭待曉看。",
+        "interpretation": "主運勢低谷，宜極守。當下之暗為長夜，待旦自有期。\n問急務者宜止，問等待者勿躁。",
+        "allusion": "《三國演義》：「大夢誰先覺，平生我自知。」長夜待旦，示人低谷非永遠。",
+        "modernNotes": [
+          "行動：極守，不妄動",
+          "心態：接納黑夜，不絕望",
+          "人際：抱團取暖，求可信者",
+          "節奏：極緩，保存實力",
+          "提醒：長夜終有盡頭"
+        ]
+      },
+      "en": {
+        "title": "Long Night, Waiting for Dawn",
+        "poem": "The long night stretches on—when will dawn come? One point of lonely lamp, lighting the cold heart.\nSay not this night has no end; the heavens' will is bright—wait and see at daybreak.",
+        "interpretation": "Fortune is at its low. Hold most firmly. The present dark is the long night; dawn has its own time.\nFor those asking about urgent matters, stop. For those asking about waiting, do not be impatient.",
+        "allusion": "Romance of the Three Kingdoms: \"Who first wakes from the great dream? My whole life, I know myself.\" The long night waiting for dawn teaches that the low is not forever.",
+        "modernNotes": [
+          "Action: Hold most firmly. Do not act rashly.",
+          "Mindset: Accept the dark. Do not despair.",
+          "Relationships: Cluster for warmth. Seek the trustworthy.",
+          "Pace: Very slow. Preserve your strength.",
+          "Reminder: The long night has its end."
+        ]
+      }
+    }
   }
 ]

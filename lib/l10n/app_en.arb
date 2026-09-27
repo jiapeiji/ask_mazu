@@ -20,19 +20,67 @@
   "homeCatCustom": "Custom",
   "homeThrowBtn": "Throw the Blocks",
   "homeCustomPlaceholder": "Tap to ask a question",
-  "homeRemaining": "{count} throws left today",
-  "@homeRemaining": {
+  "homeStatusTrialActive": "{days} days left in your free trial",
+  "@homeStatusTrialActive": {
     "placeholders": {
-      "count": {"type": "int"}
+      "days": {"type": "int"}
     }
   },
-  "homeUnlimited": "Unlimited throws today",
-  "homeUpgradeLink": "Upgrade for unlimited →",
-  "homeLimitTitle": "Daily limit reached",
-  "homeLimitBody": "Free tier: 3 throws per day.\nSubscribe for unlimited throws + the full 60-sign library.",
-  "homeLimitSub": "View Plans",
+  "homeStatusTrialLastDay": "Today is the last day of your free trial",
+  "homeStatusTrialExpired": "Unlock unlimited throws for just $0.99/month",
+  "homeStatusSubscribed": "Subscribed · renews {date}",
+  "@homeStatusSubscribed": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "homeStatusSubExpired": "Subscription expired",
+  "homeStatusLinkSubscribe": "Subscribe Now",
+  "homeStatusLinkManage": "Manage",
+  "homeStatusLinkRenew": "Renew Now",
   "homeCustomTitle": "Custom Question",
   "homeCustomHint": "What would you like to ask Mazu?",
+
+  "paywallTitle": "Unlock Mazu's Full Guidance",
+  "paywallSubtitle": "Thank you for walking with Mazu",
+  "paywallFeatureUnlimited": "Unlimited daily throws",
+  "paywallFeatureAllSigns": "Full 60-sign library",
+  "paywallFeatureAmbient": "Temple ambience for immersion",
+  "paywallPriceCardTitle": "Monthly Subscription",
+  "paywallPriceCardPrice": "$0.99 / month",
+  "paywallPriceCardNote": "Auto-renews · cancel anytime in iOS Settings",
+  "paywallSubscribeBtn": "Subscribe Now",
+  "paywallRestoreBtn": "Restore Purchase",
+  "paywallSubscribeSuccess": "Subscribed! Thanks for the support 🙏",
+  "paywallRestoreSuccess": "Purchase restored",
+  "paywallRestoreEmpty": "No purchase to restore",
+  "paywallTermsPrefix": "By continuing you agree to our",
+  "paywallTermsLink": "Terms of Service",
+  "paywallPrivacyLink": "Privacy Policy",
+  "paywallPriceLoading": "Loading…",
+  "paywallPriceError": "Unavailable",
+  "paywallPendingHint": "Awaiting confirmation…",
+  "paywallCanceledHint": "Canceled",
+  "paywallErrorProduct": "Unable to load product info. Please retry.",
+  "paywallErrorPurchase": "Purchase failed: {message}",
+  "@paywallErrorPurchase": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallErrorRestore": "Restore failed: {message}",
+  "@paywallErrorRestore": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallErrorGeneric": "Operation failed: {message}",
+  "@paywallErrorGeneric": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallRetry": "Retry",
 
   "onbMazu": "Mazu",
   "onbTagline": "A daily ritual for overseas Chinese",
@@ -78,7 +126,7 @@
   "settingsSubActive": "Subscribed",
   "settingsSubInactive": "Upgrade for Unlimited",
   "settingsSubActiveDesc": "Thanks for your support!",
-  "settingsSubInactiveDesc": "$4.99 / month · $29.99 / year",
+  "settingsSubInactiveDesc": "$0.99 / month",
 
   "settingsViewHistory": "Question History",
   "settingsAboutMazu": "About Mazu",
@@ -87,15 +135,11 @@
   "settingsAboutApp": "About this App",
 
   "settingsDebugMockSub": "Mock Subscription",
-  "settingsDebugMockSubDesc": "Enables all subscription features (unlimited throws + full sign library).",
-  "settingsDebugResetToday": "Reset Today's Count",
-  "settingsDebugResetTodayDesc": "Clear today's thrown count",
-  "settingsDebugResetDone": "Today's count has been reset",
+  "settingsDebugMockSubDesc": "When on, simulates an active subscription (for development). When off, resets the trial start time.",
 
   "settingsUpgradeTitle": "Upgrade to Pro",
-  "settingsUpgradeFeatures": "· Unlimited daily throws\n· Full 60-sign library\n· Cloud sync of history\n· Temple ambience\n· Special holiday signs",
-  "settingsUpgradePrice": "$4.99 / month\n$29.99 / year (first month free)",
-  "settingsUpgradeNote": "Note: V0.1 has not yet integrated App Store billing. Subscription goes live in V1.",
+  "settingsUpgradeFeatures": "· Unlimited daily throws\n· Full 60-sign library\n· Temple ambience",
+  "settingsUpgradeNote": "Note: Subscription goes live in V1 (after iOS App Store release).",
 
   "historyTitle": "Question History",
   "historyEmpty": "No questions yet",

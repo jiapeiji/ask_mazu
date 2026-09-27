@@ -60,30 +60,119 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeCustomPlaceholder => '想问点什么？';
 
   @override
-  String homeRemaining(int count) {
-    return '今日剩余 $count 次';
+  String homeStatusTrialActive(int days) {
+    return '免费体验还剩 $days 天';
   }
 
   @override
-  String get homeUnlimited => '今日无限次';
+  String get homeStatusTrialLastDay => '今天是免费体验最后一天';
 
   @override
-  String get homeUpgradeLink => '升级无限 →';
+  String get homeStatusTrialExpired => '解锁全部投掷仅需 \$0.99/月';
 
   @override
-  String get homeLimitTitle => '今日次数已用完';
+  String homeStatusSubscribed(String date) {
+    return '已订阅 · 续期至 $date';
+  }
 
   @override
-  String get homeLimitBody => '免费版每天可投掷 3 次\n订阅无限次数 + 完整签文库';
+  String get homeStatusSubExpired => '订阅已到期';
 
   @override
-  String get homeLimitSub => '查看订阅';
+  String get homeStatusLinkSubscribe => '立即订阅';
+
+  @override
+  String get homeStatusLinkManage => '管理';
+
+  @override
+  String get homeStatusLinkRenew => '立即续订';
 
   @override
   String get homeCustomTitle => '自定义问题';
 
   @override
   String get homeCustomHint => '请输入您想问的事~';
+
+  @override
+  String get paywallTitle => '解锁妈祖全部指引';
+
+  @override
+  String get paywallSubtitle => '感谢与妈祖同行';
+
+  @override
+  String get paywallFeatureUnlimited => '每日无限次投掷';
+
+  @override
+  String get paywallFeatureAllSigns => '完整 60 支签文';
+
+  @override
+  String get paywallFeatureAmbient => '庙宇环境音 · 沉浸仪式感';
+
+  @override
+  String get paywallPriceCardTitle => '月度订阅';
+
+  @override
+  String get paywallPriceCardPrice => '\$0.99 / 月';
+
+  @override
+  String get paywallPriceCardNote => '自动续期 · 可随时在 iOS 设置中取消';
+
+  @override
+  String get paywallSubscribeBtn => '立即订阅';
+
+  @override
+  String get paywallRestoreBtn => '恢复购买';
+
+  @override
+  String get paywallSubscribeSuccess => '订阅成功！感谢支持 🙏';
+
+  @override
+  String get paywallRestoreSuccess => '已恢复购买';
+
+  @override
+  String get paywallRestoreEmpty => '未找到可恢复的购买';
+
+  @override
+  String get paywallTermsPrefix => '继续即代表同意';
+
+  @override
+  String get paywallTermsLink => '用户协议';
+
+  @override
+  String get paywallPrivacyLink => '隐私政策';
+
+  @override
+  String get paywallPriceLoading => '加载中…';
+
+  @override
+  String get paywallPriceError => '暂不可用';
+
+  @override
+  String get paywallPendingHint => '等待系统确认…';
+
+  @override
+  String get paywallCanceledHint => '已取消';
+
+  @override
+  String get paywallErrorProduct => '无法获取产品信息，请稍后重试';
+
+  @override
+  String paywallErrorPurchase(String message) {
+    return '订阅失败：$message';
+  }
+
+  @override
+  String paywallErrorRestore(String message) {
+    return '恢复失败：$message';
+  }
+
+  @override
+  String paywallErrorGeneric(String message) {
+    return '操作失败：$message';
+  }
+
+  @override
+  String get paywallRetry => '重试';
 
   @override
   String get onbMazu => '妈祖';
@@ -203,7 +292,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsSubActiveDesc => '感谢支持！';
 
   @override
-  String get settingsSubInactiveDesc => '月卡 \$4.99 / 年卡 \$29.99';
+  String get settingsSubInactiveDesc => '月费 \$0.99';
 
   @override
   String get settingsViewHistory => '问事记录';
@@ -224,29 +313,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsDebugMockSub => '模拟订阅';
 
   @override
-  String get settingsDebugMockSubDesc => '开启后所有订阅功能可用（无限次数 + 完整签文库）';
-
-  @override
-  String get settingsDebugResetToday => '重置今日使用次数';
-
-  @override
-  String get settingsDebugResetTodayDesc => '清空今日已投掷次数';
-
-  @override
-  String get settingsDebugResetDone => '已重置今日使用次数';
+  String get settingsDebugMockSubDesc => '开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间';
 
   @override
   String get settingsUpgradeTitle => '升 级 订 阅';
 
   @override
-  String get settingsUpgradeFeatures =>
-      '· 每日无限次投掷\n· 完整 60 支签文\n· 历史记录云同步\n· 庙宇环境音\n· 节日特别签';
+  String get settingsUpgradeFeatures => '· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音';
 
   @override
-  String get settingsUpgradePrice => '月卡 \$4.99\n年卡 \$29.99（首月免费）';
-
-  @override
-  String get settingsUpgradeNote => '注：V0.1 暂未对接 App Store，订阅功能在 V1 启用。';
+  String get settingsUpgradeNote => '注：订阅功能在 V1 启用（iOS 上架后）。';
 
   @override
   String get historyTitle => '问 事 记 录';
@@ -575,30 +651,119 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get homeCustomPlaceholder => '想問點什麼？';
 
   @override
-  String homeRemaining(int count) {
-    return '今日剩餘 $count 次';
+  String homeStatusTrialActive(int days) {
+    return '免費體驗還剩 $days 天';
   }
 
   @override
-  String get homeUnlimited => '今日無限次';
+  String get homeStatusTrialLastDay => '今天是免費體驗最後一天';
 
   @override
-  String get homeUpgradeLink => '升級無限 →';
+  String get homeStatusTrialExpired => '解鎖全部投擲僅需 \$0.99/月';
 
   @override
-  String get homeLimitTitle => '今日次數已用完';
+  String homeStatusSubscribed(String date) {
+    return '已訂閱 · 續期至 $date';
+  }
 
   @override
-  String get homeLimitBody => '免費版每天可投擲 3 次\n訂閱無限次數 + 完整籤文庫';
+  String get homeStatusSubExpired => '訂閱已到期';
 
   @override
-  String get homeLimitSub => '查看訂閱';
+  String get homeStatusLinkSubscribe => '立即訂閱';
+
+  @override
+  String get homeStatusLinkManage => '管理';
+
+  @override
+  String get homeStatusLinkRenew => '立即續訂';
 
   @override
   String get homeCustomTitle => '自訂問題';
 
   @override
   String get homeCustomHint => '請輸入您想問的事~';
+
+  @override
+  String get paywallTitle => '解鎖媽祖全部指引';
+
+  @override
+  String get paywallSubtitle => '感謝與媽祖同行';
+
+  @override
+  String get paywallFeatureUnlimited => '每日無限次投擲';
+
+  @override
+  String get paywallFeatureAllSigns => '完整 60 支籤文';
+
+  @override
+  String get paywallFeatureAmbient => '廟宇環境音 · 沉浸儀式感';
+
+  @override
+  String get paywallPriceCardTitle => '月度訂閱';
+
+  @override
+  String get paywallPriceCardPrice => '\$0.99 / 月';
+
+  @override
+  String get paywallPriceCardNote => '自動續訂 · 可隨時在 iOS 設定中取消';
+
+  @override
+  String get paywallSubscribeBtn => '立即訂閱';
+
+  @override
+  String get paywallRestoreBtn => '恢復購買';
+
+  @override
+  String get paywallSubscribeSuccess => '訂閱成功！感謝支持 🙏';
+
+  @override
+  String get paywallRestoreSuccess => '已恢復購買';
+
+  @override
+  String get paywallRestoreEmpty => '未找到可恢復的購買';
+
+  @override
+  String get paywallTermsPrefix => '繼續即代表同意';
+
+  @override
+  String get paywallTermsLink => '使用者協議';
+
+  @override
+  String get paywallPrivacyLink => '隱私政策';
+
+  @override
+  String get paywallPriceLoading => '載入中…';
+
+  @override
+  String get paywallPriceError => '暫時無法使用';
+
+  @override
+  String get paywallPendingHint => '等待系統確認…';
+
+  @override
+  String get paywallCanceledHint => '已取消';
+
+  @override
+  String get paywallErrorProduct => '無法取得產品資訊，請稍後重試';
+
+  @override
+  String paywallErrorPurchase(String message) {
+    return '訂閱失敗：$message';
+  }
+
+  @override
+  String paywallErrorRestore(String message) {
+    return '恢復失敗：$message';
+  }
+
+  @override
+  String paywallErrorGeneric(String message) {
+    return '操作失敗：$message';
+  }
+
+  @override
+  String get paywallRetry => '重試';
 
   @override
   String get onbMazu => '媽祖';
@@ -718,7 +883,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get settingsSubActiveDesc => '感謝支持！';
 
   @override
-  String get settingsSubInactiveDesc => '月卡 \$4.99 / 年卡 \$29.99';
+  String get settingsSubInactiveDesc => '月費 \$0.99';
 
   @override
   String get settingsViewHistory => '問事記錄';
@@ -739,29 +904,16 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get settingsDebugMockSub => '模擬訂閱';
 
   @override
-  String get settingsDebugMockSubDesc => '開啟後所有訂閱功能可用（無限次數 + 完整籤文庫）';
-
-  @override
-  String get settingsDebugResetToday => '重設今日使用次數';
-
-  @override
-  String get settingsDebugResetTodayDesc => '清空今日已投擲次數';
-
-  @override
-  String get settingsDebugResetDone => '已重設今日使用次數';
+  String get settingsDebugMockSubDesc => '開啟後模擬訂閱生效中（開發除錯用），關閉則重設試用起算時間';
 
   @override
   String get settingsUpgradeTitle => '升 級 訂 閱';
 
   @override
-  String get settingsUpgradeFeatures =>
-      '· 每日無限次投擲\n· 完整 60 支籤文\n· 歷史記錄雲端同步\n· 廟宇環境音\n· 節日特別籤';
+  String get settingsUpgradeFeatures => '· 每日無限次投擲\n· 完整 60 支籤文\n· 廟宇環境音';
 
   @override
-  String get settingsUpgradePrice => '月卡 \$4.99\n年卡 \$29.99（首月免費）';
-
-  @override
-  String get settingsUpgradeNote => '註：V0.1 暫未對接 App Store，訂閱功能於 V1 啟用。';
+  String get settingsUpgradeNote => '註：訂閱功能於 V1 啟用（iOS 上架後）。';
 
   @override
   String get historyTitle => '問 事 記 錄';

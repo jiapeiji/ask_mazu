@@ -10,9 +10,8 @@ class AppConstants {
   static const String appSubtitle = '每日一问，妈祖指引';
   static const String version = '0.1.0';
 
-  // 业务常量
-  static const int freeDailyLimit = 3;
-  static const int freeSignsLimit = 30;
+  // 试用期（首次启动起算，3 个自然日）
+  static const Duration trialPeriod = Duration(days: 3);
 
   // 物理参数
   static const double throwGravity = 9.8;
@@ -26,9 +25,14 @@ class AppConstants {
   static const String userBox = 'user_box';
   static const String recordBox = 'record_box';
   static const String settingsBox = 'settings_box';
-  static const String usageBox = 'usage_box';
 
-  // 订阅产品 ID
+  // 订阅产品 ID（V1 上架前会在 App Store Connect 创建）
   static const String monthlyProductId = 'mazu_monthly';
   static const String yearlyProductId = 'mazu_yearly';
+
+  // SharedPreferences 键
+  // 试用起算：app 首次启动时间，存 ISO8601 字符串（永久不变）
+  static const String prefsAppFirstLaunchedAt = 'app_first_launched_at';
+  // 订阅状态：JSON 字符串（含 subscriptionExpiresAt / originalTransactionId）
+  static const String prefsSubscriptionState = 'subscription_state_json';
 }

@@ -20,14 +20,67 @@
   "homeCatCustom": "自訂",
   "homeThrowBtn": "投 擲 杯 筊",
   "homeCustomPlaceholder": "想問點什麼？",
-  "homeRemaining": "今日剩餘 {count} 次",
-  "homeUnlimited": "今日無限次",
-  "homeUpgradeLink": "升級無限 →",
-  "homeLimitTitle": "今日次數已用完",
-  "homeLimitBody": "免費版每天可投擲 3 次\n訂閱無限次數 + 完整籤文庫",
-  "homeLimitSub": "查看訂閱",
+  "homeStatusTrialActive": "免費體驗還剩 {days} 天",
+  "@homeStatusTrialActive": {
+    "placeholders": {
+      "days": {"type": "int"}
+    }
+  },
+  "homeStatusTrialLastDay": "今天是免費體驗最後一天",
+  "homeStatusTrialExpired": "解鎖全部投擲僅需 $0.99/月",
+  "homeStatusSubscribed": "已訂閱 · 續期至 {date}",
+  "@homeStatusSubscribed": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "homeStatusSubExpired": "訂閱已到期",
+  "homeStatusLinkSubscribe": "立即訂閱",
+  "homeStatusLinkManage": "管理",
+  "homeStatusLinkRenew": "立即續訂",
   "homeCustomTitle": "自訂問題",
   "homeCustomHint": "請輸入您想問的事~",
+
+  "paywallTitle": "解鎖媽祖全部指引",
+  "paywallSubtitle": "感謝與媽祖同行",
+  "paywallFeatureUnlimited": "每日無限次投擲",
+  "paywallFeatureAllSigns": "完整 60 支籤文",
+  "paywallFeatureAmbient": "廟宇環境音 · 沉浸儀式感",
+  "paywallPriceCardTitle": "月度訂閱",
+  "paywallPriceCardPrice": "$0.99 / 月",
+  "paywallPriceCardNote": "自動續訂 · 可隨時在 iOS 設定中取消",
+  "paywallSubscribeBtn": "立即訂閱",
+  "paywallRestoreBtn": "恢復購買",
+  "paywallSubscribeSuccess": "訂閱成功！感謝支持 🙏",
+  "paywallRestoreSuccess": "已恢復購買",
+  "paywallRestoreEmpty": "未找到可恢復的購買",
+  "paywallTermsPrefix": "繼續即代表同意",
+  "paywallTermsLink": "使用者協議",
+  "paywallPrivacyLink": "隱私政策",
+  "paywallPriceLoading": "載入中…",
+  "paywallPriceError": "暫時無法使用",
+  "paywallPendingHint": "等待系統確認…",
+  "paywallCanceledHint": "已取消",
+  "paywallErrorProduct": "無法取得產品資訊，請稍後重試",
+  "paywallErrorPurchase": "訂閱失敗：{message}",
+  "@paywallErrorPurchase": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallErrorRestore": "恢復失敗：{message}",
+  "@paywallErrorRestore": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallErrorGeneric": "操作失敗：{message}",
+  "@paywallErrorGeneric": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallRetry": "重試",
 
   "onbMazu": "媽祖",
   "onbTagline": "海外華人之日常儀式",
@@ -73,7 +126,7 @@
   "settingsSubActive": "已訂閱",
   "settingsSubInactive": "升級無限次數",
   "settingsSubActiveDesc": "感謝支持！",
-  "settingsSubInactiveDesc": "月卡 $4.99 / 年卡 $29.99",
+  "settingsSubInactiveDesc": "月費 $0.99",
 
   "settingsViewHistory": "問事記錄",
   "settingsAboutMazu": "關於媽祖",
@@ -82,15 +135,11 @@
   "settingsAboutApp": "關於此 App",
 
   "settingsDebugMockSub": "模擬訂閱",
-  "settingsDebugMockSubDesc": "開啟後所有訂閱功能可用（無限次數 + 完整籤文庫）",
-  "settingsDebugResetToday": "重設今日使用次數",
-  "settingsDebugResetTodayDesc": "清空今日已投擲次數",
-  "settingsDebugResetDone": "已重設今日使用次數",
+  "settingsDebugMockSubDesc": "開啟後模擬訂閱生效中（開發除錯用），關閉則重設試用起算時間",
 
   "settingsUpgradeTitle": "升 級 訂 閱",
-  "settingsUpgradeFeatures": "· 每日無限次投擲\n· 完整 60 支籤文\n· 歷史記錄雲端同步\n· 廟宇環境音\n· 節日特別籤",
-  "settingsUpgradePrice": "月卡 $4.99\n年卡 $29.99（首月免費）",
-  "settingsUpgradeNote": "註：V0.1 暫未對接 App Store，訂閱功能於 V1 啟用。",
+  "settingsUpgradeFeatures": "· 每日無限次投擲\n· 完整 60 支籤文\n· 廟宇環境音",
+  "settingsUpgradeNote": "註：訂閱功能於 V1 啟用（iOS 上架後）。",
 
   "historyTitle": "問 事 記 錄",
   "historyEmpty": "暫無問事記錄",

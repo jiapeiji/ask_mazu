@@ -201,41 +201,53 @@ abstract class AppLocalizations {
   /// **'想问点什么？'**
   String get homeCustomPlaceholder;
 
-  /// No description provided for @homeRemaining.
+  /// No description provided for @homeStatusTrialActive.
   ///
   /// In zh, this message translates to:
-  /// **'今日剩余 {count} 次'**
-  String homeRemaining(int count);
+  /// **'免费体验还剩 {days} 天'**
+  String homeStatusTrialActive(int days);
 
-  /// No description provided for @homeUnlimited.
+  /// No description provided for @homeStatusTrialLastDay.
   ///
   /// In zh, this message translates to:
-  /// **'今日无限次'**
-  String get homeUnlimited;
+  /// **'今天是免费体验最后一天'**
+  String get homeStatusTrialLastDay;
 
-  /// No description provided for @homeUpgradeLink.
+  /// No description provided for @homeStatusTrialExpired.
   ///
   /// In zh, this message translates to:
-  /// **'升级无限 →'**
-  String get homeUpgradeLink;
+  /// **'解锁全部投掷仅需 \$0.99/月'**
+  String get homeStatusTrialExpired;
 
-  /// No description provided for @homeLimitTitle.
+  /// No description provided for @homeStatusSubscribed.
   ///
   /// In zh, this message translates to:
-  /// **'今日次数已用完'**
-  String get homeLimitTitle;
+  /// **'已订阅 · 续期至 {date}'**
+  String homeStatusSubscribed(String date);
 
-  /// No description provided for @homeLimitBody.
+  /// No description provided for @homeStatusSubExpired.
   ///
   /// In zh, this message translates to:
-  /// **'免费版每天可投掷 3 次\n订阅无限次数 + 完整签文库'**
-  String get homeLimitBody;
+  /// **'订阅已到期'**
+  String get homeStatusSubExpired;
 
-  /// No description provided for @homeLimitSub.
+  /// No description provided for @homeStatusLinkSubscribe.
   ///
   /// In zh, this message translates to:
-  /// **'查看订阅'**
-  String get homeLimitSub;
+  /// **'立即订阅'**
+  String get homeStatusLinkSubscribe;
+
+  /// No description provided for @homeStatusLinkManage.
+  ///
+  /// In zh, this message translates to:
+  /// **'管理'**
+  String get homeStatusLinkManage;
+
+  /// No description provided for @homeStatusLinkRenew.
+  ///
+  /// In zh, this message translates to:
+  /// **'立即续订'**
+  String get homeStatusLinkRenew;
 
   /// No description provided for @homeCustomTitle.
   ///
@@ -248,6 +260,156 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'请输入您想问的事~'**
   String get homeCustomHint;
+
+  /// No description provided for @paywallTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'解锁妈祖全部指引'**
+  String get paywallTitle;
+
+  /// No description provided for @paywallSubtitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'感谢与妈祖同行'**
+  String get paywallSubtitle;
+
+  /// No description provided for @paywallFeatureUnlimited.
+  ///
+  /// In zh, this message translates to:
+  /// **'每日无限次投掷'**
+  String get paywallFeatureUnlimited;
+
+  /// No description provided for @paywallFeatureAllSigns.
+  ///
+  /// In zh, this message translates to:
+  /// **'完整 60 支签文'**
+  String get paywallFeatureAllSigns;
+
+  /// No description provided for @paywallFeatureAmbient.
+  ///
+  /// In zh, this message translates to:
+  /// **'庙宇环境音 · 沉浸仪式感'**
+  String get paywallFeatureAmbient;
+
+  /// No description provided for @paywallPriceCardTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'月度订阅'**
+  String get paywallPriceCardTitle;
+
+  /// No description provided for @paywallPriceCardPrice.
+  ///
+  /// In zh, this message translates to:
+  /// **'\$0.99 / 月'**
+  String get paywallPriceCardPrice;
+
+  /// No description provided for @paywallPriceCardNote.
+  ///
+  /// In zh, this message translates to:
+  /// **'自动续期 · 可随时在 iOS 设置中取消'**
+  String get paywallPriceCardNote;
+
+  /// No description provided for @paywallSubscribeBtn.
+  ///
+  /// In zh, this message translates to:
+  /// **'立即订阅'**
+  String get paywallSubscribeBtn;
+
+  /// No description provided for @paywallRestoreBtn.
+  ///
+  /// In zh, this message translates to:
+  /// **'恢复购买'**
+  String get paywallRestoreBtn;
+
+  /// No description provided for @paywallSubscribeSuccess.
+  ///
+  /// In zh, this message translates to:
+  /// **'订阅成功！感谢支持 🙏'**
+  String get paywallSubscribeSuccess;
+
+  /// No description provided for @paywallRestoreSuccess.
+  ///
+  /// In zh, this message translates to:
+  /// **'已恢复购买'**
+  String get paywallRestoreSuccess;
+
+  /// No description provided for @paywallRestoreEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'未找到可恢复的购买'**
+  String get paywallRestoreEmpty;
+
+  /// No description provided for @paywallTermsPrefix.
+  ///
+  /// In zh, this message translates to:
+  /// **'继续即代表同意'**
+  String get paywallTermsPrefix;
+
+  /// No description provided for @paywallTermsLink.
+  ///
+  /// In zh, this message translates to:
+  /// **'用户协议'**
+  String get paywallTermsLink;
+
+  /// No description provided for @paywallPrivacyLink.
+  ///
+  /// In zh, this message translates to:
+  /// **'隐私政策'**
+  String get paywallPrivacyLink;
+
+  /// No description provided for @paywallPriceLoading.
+  ///
+  /// In zh, this message translates to:
+  /// **'加载中…'**
+  String get paywallPriceLoading;
+
+  /// No description provided for @paywallPriceError.
+  ///
+  /// In zh, this message translates to:
+  /// **'暂不可用'**
+  String get paywallPriceError;
+
+  /// No description provided for @paywallPendingHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'等待系统确认…'**
+  String get paywallPendingHint;
+
+  /// No description provided for @paywallCanceledHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'已取消'**
+  String get paywallCanceledHint;
+
+  /// No description provided for @paywallErrorProduct.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法获取产品信息，请稍后重试'**
+  String get paywallErrorProduct;
+
+  /// No description provided for @paywallErrorPurchase.
+  ///
+  /// In zh, this message translates to:
+  /// **'订阅失败：{message}'**
+  String paywallErrorPurchase(String message);
+
+  /// No description provided for @paywallErrorRestore.
+  ///
+  /// In zh, this message translates to:
+  /// **'恢复失败：{message}'**
+  String paywallErrorRestore(String message);
+
+  /// No description provided for @paywallErrorGeneric.
+  ///
+  /// In zh, this message translates to:
+  /// **'操作失败：{message}'**
+  String paywallErrorGeneric(String message);
+
+  /// No description provided for @paywallRetry.
+  ///
+  /// In zh, this message translates to:
+  /// **'重试'**
+  String get paywallRetry;
 
   /// No description provided for @onbMazu.
   ///
@@ -486,7 +648,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSubInactiveDesc.
   ///
   /// In zh, this message translates to:
-  /// **'月卡 \$4.99 / 年卡 \$29.99'**
+  /// **'月费 \$0.99'**
   String get settingsSubInactiveDesc;
 
   /// No description provided for @settingsViewHistory.
@@ -528,26 +690,8 @@ abstract class AppLocalizations {
   /// No description provided for @settingsDebugMockSubDesc.
   ///
   /// In zh, this message translates to:
-  /// **'开启后所有订阅功能可用（无限次数 + 完整签文库）'**
+  /// **'开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间'**
   String get settingsDebugMockSubDesc;
-
-  /// No description provided for @settingsDebugResetToday.
-  ///
-  /// In zh, this message translates to:
-  /// **'重置今日使用次数'**
-  String get settingsDebugResetToday;
-
-  /// No description provided for @settingsDebugResetTodayDesc.
-  ///
-  /// In zh, this message translates to:
-  /// **'清空今日已投掷次数'**
-  String get settingsDebugResetTodayDesc;
-
-  /// No description provided for @settingsDebugResetDone.
-  ///
-  /// In zh, this message translates to:
-  /// **'已重置今日使用次数'**
-  String get settingsDebugResetDone;
 
   /// No description provided for @settingsUpgradeTitle.
   ///
@@ -558,19 +702,13 @@ abstract class AppLocalizations {
   /// No description provided for @settingsUpgradeFeatures.
   ///
   /// In zh, this message translates to:
-  /// **'· 每日无限次投掷\n· 完整 60 支签文\n· 历史记录云同步\n· 庙宇环境音\n· 节日特别签'**
+  /// **'· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音'**
   String get settingsUpgradeFeatures;
-
-  /// No description provided for @settingsUpgradePrice.
-  ///
-  /// In zh, this message translates to:
-  /// **'月卡 \$4.99\n年卡 \$29.99（首月免费）'**
-  String get settingsUpgradePrice;
 
   /// No description provided for @settingsUpgradeNote.
   ///
   /// In zh, this message translates to:
-  /// **'注：V0.1 暂未对接 App Store，订阅功能在 V1 启用。'**
+  /// **'注：订阅功能在 V1 启用（iOS 上架后）。'**
   String get settingsUpgradeNote;
 
   /// No description provided for @historyTitle.

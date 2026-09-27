@@ -22,7 +22,6 @@ class HistoryPage extends ConsumerWidget {
     final code = ref.watch(settingsProvider).localeCode;
     final recordsAsync = ref.watch(recordsProvider);
     final signsAsync = ref.watch(signsProvider);
-    final isSubscribed = ref.watch(isSubscribedProvider);
 
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
@@ -53,12 +52,8 @@ class HistoryPage extends ConsumerWidget {
             );
           }
 
-          // 免费版只显示最近 7 天
-          final filtered = isSubscribed
-              ? records
-              : records.where((r) =>
-                  r.timestamp.isAfter(DateTime.now().subtract(const Duration(days: 7)))
-                ).toList();
+          // V1：所有用户都能看全部历史记录（自己的投掷记录，V0.1 的"7 天"限制移除）
+          final filtered = records;
 
           return ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

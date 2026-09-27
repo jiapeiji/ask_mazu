@@ -67,11 +67,12 @@ abstract class R {
 // 设计稿基准 750宽
 const double _kDesignW = 750;
 
-class ResultPage extends ConsumerWidget {
+class ResultPage extends ConsumerStatefulWidget {
   final ThrowResultType result;
   final FortuneSign? sign;
   final SignCategory category;
   final String question;
+  final bool isCustom;
 
   const ResultPage({
     super.key,
@@ -79,40 +80,54 @@ class ResultPage extends ConsumerWidget {
     required this.sign,
     required this.category,
     required this.question,
+    this.isCustom = false,
   });
 
-  String get _cupAsset => switch (result) {
-        ThrowResultType.saint => R.cupSaint,
-        ThrowResultType.laugh => R.cupLaugh,
-        ThrowResultType.yin   => R.cupYin,
-      };
+  @override
+  ConsumerState<ResultPage> createState() => _ResultPageState();
+}
 
-  String get _cupNameBadgeAsset => switch (result) {
-        ThrowResultType.saint => R.cupSaintBg,
-        ThrowResultType.laugh => R.cupLaughBg,
-        ThrowResultType.yin   => R.cupYinBg,
-      };
-
-  // NOTE: _cupNameBadgeAsset 保留以备未来恢复切图徽章样式（中文版）。
-  // 当前用纯文字徽章，不引用切图（避免和英文/繁体文字重叠）。
-
-  String _cupName(AppLocalizations l) => switch (result) {
-        ThrowResultType.saint => l.resultSaint,
-        ThrowResultType.laugh => l.resultLaugh,
-        ThrowResultType.yin   => l.resultYin,
-      };
-
-  String _retryText(AppLocalizations l) => switch (result) {
-        ThrowResultType.saint => l.resultRetrySaint,
-        ThrowResultType.laugh => l.resultRetryLaugh,
-        ThrowResultType.yin   => l.resultRetryYin,
-      };
+class _ResultPageState extends ConsumerState<ResultPage> {
+  @override
+  void initState() {
+    super.initState();
+    // 揭晓 ding(投掷视频结束后 → result_page 进来 → 响一下)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) ref.read(soundServiceProvider).playResult();
+    });
+  }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+    final result = widget.result;
+    final sign = widget.sign;
+    final category = widget.category;
+    final question = widget.question;
+    final isCustom = widget.isCustom;
+
     final l = AppLocalizations.of(context);
-    final locale = Localizations.localeOf(context);
     final code = ref.watch(settingsProvider).localeCode;
+
+    final cupAsset = switch (result) {
+      ThrowResultType.saint => R.cupSaint,
+      ThrowResultType.laugh => R.cupLaugh,
+      ThrowResultType.yin   => R.cupYin,
+    };
+    final cupNameBadgeAsset = switch (result) {
+      ThrowResultType.saint => R.cupSaintBg,
+      ThrowResultType.laugh => R.cupLaughBg,
+      ThrowResultType.yin   => R.cupYinBg,
+    };
+    final cupName = switch (result) {
+      ThrowResultType.saint => l.resultSaint,
+      ThrowResultType.laugh => l.resultLaugh,
+      ThrowResultType.yin   => l.resultYin,
+    };
+    final retryText = switch (result) {
+      ThrowResultType.saint => l.resultRetrySaint,
+      ThrowResultType.laugh => l.resultRetryLaugh,
+      ThrowResultType.yin   => l.resultRetryYin,
+    };
     final user    = ref.watch(currentUserProvider).valueOrNull;
     final name    = user?.name ?? '弟子';
     final city    = user?.city ?? '';
@@ -150,20 +165,31 @@ class ResultPage extends ConsumerWidget {
                   SizedBox(height: 1.8 * statusBar), // 顶部让出（状态栏 + 一点点 buffer，让签杯图不贴顶）
 
                 // ① 签杯图
-                _CupImage(cupAsset: _cupAsset, scale: scale),
+                _CupImage(cupAsset: cupAsset, scale: scale),
                 SizedBox(height: 30 * scale),
 
                 // ② 杯名徽章
                 _CupNameBadge(
-                  name: _cupName(l),
-                  badgeAsset: _cupNameBadgeAsset,
+                  name: cupName,
+                  badgeAsset: cupNameBadgeAsset,
                   scale: scale,
                 ),
                 SizedBox(height: 30 * scale),
 
                 // ③ 开场白（妈祖签语）
                 _OpeningMessage(message: message, scale: scale),
-                SizedBox(height: 32 * scale),
+                SizedBox(height: 16 * scale),
+
+                // ③-b 所问（小字居中灰）
+                // 自定义问题模式 → 显示用户原文
+                // category 模式 → 显示 category.label（"事业"/"感情"等）
+                _QuestionChip(
+                  isCustom: isCustom,
+                  question: question,
+                  category: category,
+                  scale: scale,
+                ),
+                SizedBox(height: 24 * scale),
 
                 // ④ 笑杯 → 展位图（妈祖观音 + 祥云）；圣杯/阴杯 → 解析卡
                 if (result == ThrowResultType.laugh)
@@ -199,7 +225,7 @@ class ResultPage extends ConsumerWidget {
                     // 改日再问 = 回到首页（首页就是 isFirst）
                     Navigator.of(context).popUntil((route) => route.isFirst);
                   },
-                  retryText: _retryText(l),
+                  retryText: retryText,
                 ),
                 SizedBox(height: 20 * scale),
                 ],
@@ -378,6 +404,45 @@ class _OpeningMessage extends StatelessWidget {
           fontFamily: 'ChillJinshuSong',
           // 任务 2：英文 letterSpacing < 2 保留 30%
           letterSpacing: letterSpacingFor(locale, 1.5 * scale),
+        ),
+      ),
+    );
+  }
+}
+
+// ─── ③-b 所问 chip（小字居中，自定义问题/分类两种模式）──
+class _QuestionChip extends StatelessWidget {
+  final bool isCustom;
+  final String question;
+  final SignCategory category;
+  final double scale;
+  const _QuestionChip({
+    required this.isCustom,
+    required this.question,
+    required this.category,
+    required this.scale,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
+    // 自定义问题模式 → 显示用户原文
+    // category 模式 → 显示 category.label
+    final body = isCustom ? question : category.label;
+    final text = '—  所  问  —   $body';
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 80 * scale),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          fontSize: 22 * scale,
+          color: const Color(0x9935241B),  // 半透明深棕，与开场白主体协调但不抢风头
+          fontFamily: 'ChillJinshuSong',
+          letterSpacing: letterSpacingFor(locale, 1 * scale),
+          height: heightFor(locale, 1.4),
         ),
       ),
     );
@@ -1034,6 +1099,7 @@ class ResultPageDebug extends StatelessWidget {
       sign: _sampleSign,
       category: SignCategory.daily,
       question: '我想换个工作，时机合适吗？',
+      isCustom: true,  // debug 示例是自定义问题，触发 _QuestionChip 显示用户原文
     );
   }
 }

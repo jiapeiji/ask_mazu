@@ -39,14 +39,18 @@ class SignRepository {
   /// 圣杯匹配
   /// - 同一时段（4 段/天）同一用户同一类别 → 同一签（时段级一致性）
   /// - 跨时段必换签（一天最多 4 个不同签）
+  /// - isCustom = true 时：忽略 category，走 [SignCategory.general] 通用签池
+  ///   （用户输入自定义问题时用，签面/解曰宽泛，不绑死求职/感情/财运等场景）
   FortuneSign matchForSaint({
     required SignCategory category,
     required DateTime date,
     required String userId,
     required List<FortuneSign> allSigns,
+    bool isCustom = false,
   }) {
-    // 1. 筛选该类签文池
-    final pool = allSigns.where((s) => s.categories.contains(category)).toList();
+    // 1. 筛选该类签文池（custom 模式 → general 池）
+    final effectiveCategory = isCustom ? SignCategory.general : category;
+    final pool = allSigns.where((s) => s.categories.contains(effectiveCategory)).toList();
     if (pool.isEmpty) {
       return allSigns[Random().nextInt(allSigns.length)];
     }
@@ -72,21 +76,29 @@ class SignRepository {
 
     // 3. 用日期 + 时段 + 用户ID + 类别作种子
     //    跨时段换签；同一天同时段同用户同类别保持一致
+    //    custom 模式用 'custom' 种子串，与 category 模式不互相串
     final dateKey = '${date.year}${date.month}${date.day}';
     final slot = _timeSlot(date);
-    final random = Random('$dateKey$slot$userId${category.name}'.hashCode);
+    final seedKey = isCustom
+        ? 'custom'
+        : effectiveCategory.name;
+    final random = Random('$dateKey$slot$userId$seedKey'.hashCode);
 
     return weighted[random.nextInt(weighted.length)];
   }
 
   /// 阴杯强制匹配下等签
+  /// - isCustom = true 时：走 [SignCategory.general] 通用池
   FortuneSign matchForYin({
     required SignCategory category,
     required List<FortuneSign> allSigns,
+    bool isCustom = false,
   }) {
+    // custom 模式 → general 池；其他 → 走原 category 池
+    final effectiveCategory = isCustom ? SignCategory.general : category;
     // 优先匹配下等签 + 该类别
     final pool = allSigns
-        .where((s) => s.level.isLower && s.categories.contains(category))
+        .where((s) => s.level.isLower && s.categories.contains(effectiveCategory))
         .toList();
     if (pool.isNotEmpty) {
       return pool[Random().nextInt(pool.length)];

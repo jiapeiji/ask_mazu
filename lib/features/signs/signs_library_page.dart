@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/models/fortune_sign.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -19,7 +18,7 @@ class SignsLibraryPage extends ConsumerWidget {
     final l = AppLocalizations.of(context);
     final code = ref.watch(settingsProvider).localeCode;
     final signsAsync = ref.watch(signsProvider);
-    final isSubscribed = ref.watch(isSubscribedProvider);
+    final hasUnlimited = ref.watch(hasUnlimitedAccessProvider);
 
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
@@ -62,7 +61,7 @@ class SignsLibraryPage extends ConsumerWidget {
                 context: context,
                 level: level,
                 signs: signs,
-                isSubscribed: isSubscribed,
+                hasUnlimited: hasUnlimited,
                 l: l,
                 code: code,
               );
@@ -77,7 +76,7 @@ class SignsLibraryPage extends ConsumerWidget {
     required BuildContext context,
     required FortuneLevel level,
     required List<FortuneSign> signs,
-    required bool isSubscribed,
+    required bool hasUnlimited,
     required AppLocalizations l,
     required String code,
   }) {
@@ -108,7 +107,8 @@ class SignsLibraryPage extends ConsumerWidget {
           itemCount: signs.length,
           itemBuilder: (context, i) {
             final sign = signs[i];
-            final isLocked = !isSubscribed && sign.id > AppConstants.freeSignsLimit;
+            // V1：试用到期后签文库全部锁住（不保留 V0.1 的前 30 支可看）
+            final isLocked = !hasUnlimited;
             return _buildSignCard(context, sign, isLocked, code);
           },
         ),

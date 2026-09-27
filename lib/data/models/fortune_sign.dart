@@ -57,6 +57,7 @@ enum SignCategory {
   family,   // 家庭
   study,    // 学业
   travel,   // 出行
+  general,  // 通用（仅用于签文分类，UI 不显示；custom 模式抽签池）
 }
 
 extension SignCategoryExtension on SignCategory {
@@ -70,6 +71,7 @@ extension SignCategoryExtension on SignCategory {
       SignCategory.family => '家庭',
       SignCategory.study => '学业',
       SignCategory.travel => '出行',
+      SignCategory.general => '通用',
     };
   }
 

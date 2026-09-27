@@ -1,5 +1,23 @@
 // lib/features/throw/throw_page.dart
-// 投掷页（核心物理动画）
+// 投掷页(MP4 视频驱动,2026-09 重构)
+// 之前用自定义 BlockPhysics 2D 物理 + 切图旋转,现在改用预渲染视频:
+/*
+视频时序(2.0s 总长):
+  - 0.0 - 0.8s: 杯筊下落 + 第一次落地
+  - 0.8 - 1.5s: 翻转 / 二次落地
+  - 1.5 - 2.0s: 完全静止(结果展示 0.5s,用户看清)
+  - 2.0s: 跳结果页
+
+事件触发:
+  - 0.8s 触发"叩"声(画面刚落地)
+  - 1.9s(剩 0.1s)触发跳页(用户已看清结果 0.4s)
+
+设计要点:
+  - 视频本身带水墨山水底图,throw_page 不画自己的背景
+  - 顶覆盖层(返回按钮)浮在视频上(无底部"叩·叩"提示)
+  - "预生成 result" 的语义保留:用户点投掷→随机 result→视频从头播到底
+*/
+// BlockPhysics 整模块已废弃,保留物理文件不删(其他 reference 处理)
 
 import 'dart:math';
 
@@ -7,74 +25,107 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
+import 'package:video_player/video_player.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/result_templates.dart';
 import '../../data/models/fortune_sign.dart';
 import '../../data/models/question_record.dart';
-import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import '../result/result_page.dart';
-import '../../services/physics/block_physics.dart';
+
+/// 视频总时长 4.76s(原视频),1.2 倍速播放 → 实际 ~3.97s
+/// 常量是 1.2 倍速后的实际时间(v.position / v.duration 反映倍速后的真实时间)
+const Duration _kLandedSoundAt = Duration(milliseconds: 417);  // 落地音(原 167,2026-09 再晚 0.25s)
+const Duration _kJumpPageThreshold = Duration(milliseconds: 100);  // 视频剩 0.1s 跳页
+const double _kPlaybackSpeed = 1.2;  // 视频倍速(1.0=原速,1.2=快 20%)
 
 class ThrowPage extends ConsumerStatefulWidget {
   final SignCategory category;
   final String question;
+  final bool isCustom;
   const ThrowPage({
     super.key,
     required this.category,
     required this.question,
+    this.isCustom = false,
   });
 
   @override
   ConsumerState<ThrowPage> createState() => _ThrowPageState();
 }
 
-class _ThrowPageState extends ConsumerState<ThrowPage>
-    with SingleTickerProviderStateMixin {
-  BlockPhysics? _physics;
-  late AnimationController _controller;
-  ThrowResultType? _result;
-  FortuneSign? _matchedSign;
-  bool _isDone = false;
-  bool _isDisposed = false;  // 防止用户返回后还跳结果页
+class _ThrowPageState extends ConsumerState<ThrowPage> {
+  VideoPlayerController? _videoController;
+  ThrowResultType? _result;     // 预生成的 result(选视频 + 后续 match 用)
+  bool _isDone = false;          // 防止跳页重复触发
+  bool _landedSoundPlayed = false;  // 防止"叩"声重复触发
+  bool _isDisposed = false;      // 防止用户返回后还跳结果页
   final _uuid = const Uuid();
+  final _random = Random();
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 16),  // 60fps
-    )..addListener(_onTick);
+    // 等 first frame 渲染后再 init video(避免 initState 里 context 不可用)
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _startThrow();
     });
   }
 
   void _startThrow() {
-    final size = MediaQuery.of(context).size;
-    _physics = BlockPhysics();
-    _physics!.init(size: size);
-    _controller.repeat();
+    // 1. 预生成 result(圣/笑/阴 三选一)
+    _result = ThrowResultType.values[_random.nextInt(ThrowResultType.values.length)];
+
+    // 2. 选对应视频(视频本身已含水墨山水底图 + 杯筊落地全过程)
+    final asset = switch (_result!) {
+      ThrowResultType.saint => 'assets/videos/saint.mp4',
+      ThrowResultType.laugh => 'assets/videos/laugh.mp4',
+      ThrowResultType.yin => 'assets/videos/yin.mp4',
+    };
+
+    _videoController = VideoPlayerController.asset(asset)
+      ..addListener(_onVideoTick)
+      ..initialize().then((_) {
+        if (!mounted) return;
+        setState(() {});
+        // 1.2 倍速播放(落地节奏紧凑,落地结果展示 ~2.6s)
+        _videoController!.setPlaybackSpeed(_kPlaybackSpeed);
+        _videoController!.play();
+      }).catchError((e) {
+        // 视频初始化失败(极少见:文件损坏/缺编解码器)
+        // 兜底:直接跳结果页
+        if (mounted && !_isDisposed) {
+          _isDone = true;
+          _handleResult();
+        }
+      });
   }
 
-  void _onTick() {
-    if (_isDone) return;
-    final dt = 0.016;
-    final done = _physics!.update(dt);
-    if (mounted) setState(() {});
-    if (done && !_isDone) {
+  void _onVideoTick() {
+    if (_videoController == null) return;
+    final v = _videoController!.value;
+    if (!v.isInitialized) return;
+
+    // 1. 0.8s 触发落地"叩"声(画面第一次落地时刻)
+    //    SoundService 是占位 TODO,等音频文件就绪解开注释即生效
+    if (!_landedSoundPlayed && v.position >= _kLandedSoundAt) {
+      _landedSoundPlayed = true;
+      ref.read(soundServiceProvider).playBlockLand();
+    }
+
+    // 2. 视频接近结束(剩 0.1s)时跳页
+    //    此时落地结果已展示约 0.4s,用户已看清
+    if (!_isDone && v.duration - v.position <= _kJumpPageThreshold) {
       _isDone = true;
-      _controller.stop();
       _handleResult();
     }
   }
 
   Future<void> _handleResult() async {
-    if (_isDisposed) return;  // 用户已返回，不处理
+    if (_isDisposed) return;  // 用户已返回,不处理
 
-    final result = _physics!.getResult();
+    final result = _result!;
     final allSigns = await ref.read(signsProvider.future);
     if (_isDisposed) return;
 
@@ -88,13 +139,16 @@ class _ThrowPageState extends ConsumerState<ThrowPage>
             date: DateTime.now(),
             userId: userId,
             allSigns: allSigns,
+            isCustom: widget.isCustom,
           );
     } else if (result == ThrowResultType.yin) {
       matchedSign = ref.read(signRepositoryProvider).matchForYin(
             category: widget.category,
             allSigns: allSigns,
+            isCustom: widget.isCustom,
           );
     }
+    // 笑杯无签
 
     // 记录到历史
     if (user != null) {
@@ -111,66 +165,73 @@ class _ThrowPageState extends ConsumerState<ThrowPage>
     }
 
     if (_isDisposed) return;
+    if (!mounted) return;
 
-    // 延迟 0.5s 后跳转
-    await Future.delayed(const Duration(milliseconds: 500));
-    if (_isDisposed || !mounted) return;
+    // 落地震动反馈(投掷完成,settings 开关控制)
+    if (ref.read(settingsProvider).hapticEnabled) {
+      await ref.read(hapticServiceProvider).light();
+    }
 
-    // 用 Navigator.push + 自定义 PageRouteBuilder，绕过 go_router 的 reverse animation bug
-    // 不再检查 go_router 路由（throw 不再走 go_router）
+    // 用 Navigator.push + 自定义 PageRouteBuilder,绕过 go_router 的 reverse animation bug
     try {
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           opaque: true,
           transitionDuration: const Duration(milliseconds: 150),
-          reverseTransitionDuration: Duration.zero,  // 瞬切，不闪
+          reverseTransitionDuration: Duration.zero,  // 瞬切,不闪
           pageBuilder: (context, animation, secondaryAnimation) => ResultPage(
             result: result,
             sign: matchedSign,
             category: widget.category,
             question: widget.question,
+            isCustom: widget.isCustom,
           ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            // pop 时：直接显示（瞬切）
+            // pop 时:直接显示(瞬切)
             if (animation.status == AnimationStatus.reverse) {
               return child;
             }
-            // push 时：淡入
+            // push 时:淡入
             return FadeTransition(opacity: animation, child: child);
           },
         ),
       );
     } catch (e) {
-      // 任何异常都吞掉，不影响其他
+      // 任何异常都吞掉,不影响其他
     }
   }
 
   @override
   void dispose() {
-    _isDisposed = true;  // 先标记，拦住所有 await 后的逻辑
-    _controller.stop();
-    _controller.dispose();
+    _isDisposed = true;  // 先标记,拦住所有 await 后的逻辑
+    _videoController?.removeListener(_onVideoTick);
+    _videoController?.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final l = AppLocalizations.of(context);
+    final videoReady = _videoController != null && _videoController!.value.isInitialized;
+
     return Scaffold(
-      backgroundColor: AppColors.riceWhite,
+      // 透明背景:视频自带水墨山水底图,不能有自己的米白色盖住
+      backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          // 杯筊动画（_physics 在 postFrameCallback 异步初始化，第一帧可能为 null）
-          if (!_isDone && _physics != null)
+          // 视频全屏(按视频原比例 contain,确保水墨山水完整)
+          if (videoReady)
             Positioned.fill(
-              child: CustomPaint(
-                painter: _BlockPainter(
-                  blockA: _physics!.blockA,
-                  blockB: _physics!.blockB,
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: SizedBox(
+                  width: _videoController!.value.size.width,
+                  height: _videoController!.value.size.height,
+                  child: VideoPlayer(_videoController!),
                 ),
               ),
             ),
-          // 顶部返回
+
+          // 顶部返回(底部"叩·叩"提示已删,2026-09)
           Positioned(
             top: MediaQuery.of(context).padding.top + 8,
             left: 8,
@@ -179,73 +240,8 @@ class _ThrowPageState extends ConsumerState<ThrowPage>
               onPressed: () => context.pop(),
             ),
           ),
-          // 底部提示
-          Positioned(
-            bottom: 60,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Text(
-                _isDone ? '' : l.throwHint,
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: AppColors.gray,
-                  letterSpacing: 1,
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );
   }
-}
-
-class _BlockPainter extends CustomPainter {
-  final Block blockA;
-  final Block blockB;
-  _BlockPainter({required this.blockA, required this.blockB});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    _drawBlock(canvas, blockA);
-    _drawBlock(canvas, blockB);
-  }
-
-  void _drawBlock(Canvas canvas, Block block) {
-    final paint = Paint()
-      ..color = block.face == BlockFace.flat
-          ? const Color(0xFFB8895A)  // 浅木色
-          : const Color(0xFF8B5A2B); // 深木色
-    final shadowPaint = Paint()
-      ..color = Colors.black.withOpacity(0.2)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
-
-    canvas.save();
-    canvas.translate(block.position.dx, block.position.dy);
-    canvas.rotate(block.angle);
-
-    // 阴影
-    canvas.drawOval(
-      Rect.fromCenter(
-        center: const Offset(0, 4),
-        width: 70,
-        height: 16,
-      ),
-      shadowPaint,
-    );
-
-    // 主体（月牙形简化：椭圆）
-    final rect = Rect.fromCenter(center: Offset.zero, width: 70, height: 70);
-    canvas.drawOval(rect, paint);
-
-    // 中心点
-    final centerPaint = Paint()..color = Colors.white.withOpacity(0.3);
-    canvas.drawCircle(const Offset(0, 0), 4, centerPaint);
-
-    canvas.restore();
-  }
-
-  @override
-  bool shouldRepaint(covariant _BlockPainter old) => true;
 }

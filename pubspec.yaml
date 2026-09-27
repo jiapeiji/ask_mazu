@@ -1,7 +1,7 @@
 name: ask_mazu
 description: "问妈祖 / Ask Mazu - 海外华人的日常仪式。投掷杯筊，问事求签。"
 publish_to: 'none'
-version: 0.1.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -26,7 +26,7 @@ dependencies:
   shared_preferences: ^2.2.2
 
   # 动画
-  lottie: ^2.7.0
+  video_player: ^2.9.1   # 投掷页视频(saint/laugh/yin)
 
   # 音效
   audioplayers: ^5.2.1
@@ -39,9 +39,6 @@ dependencies:
 
   # 国际化
   intl: ^0.20.0
-
-  # UI 工具
-  cached_network_image: ^3.3.0
 
   # 工具
   uuid: ^4.2.1
@@ -63,8 +60,11 @@ flutter:
   assets:
     - assets/data/
     - assets/images/home/
+    - assets/images/onboarding/
     - assets/images/result/
     - assets/images/result_new/
+    - assets/videos/   # 投掷页视频(saint/laugh/yin)
+    - assets/audio/    # 音效(落地 / ding / 环境音)
 
   # 字体：寒蝉锦书宋（ChillJinshuSong）—— 中文宋体
   # 共 7 个字重总 ~106MB，建议后续做子集化（常用字+繁体常用字）

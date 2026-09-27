@@ -20,19 +20,67 @@
   "homeCatCustom": "自定义",
   "homeThrowBtn": "投 掷 杯 筊",
   "homeCustomPlaceholder": "想问点什么？",
-  "homeRemaining": "今日剩余 {count} 次",
-  "@homeRemaining": {
+  "homeStatusTrialActive": "免费体验还剩 {days} 天",
+  "@homeStatusTrialActive": {
     "placeholders": {
-      "count": {"type": "int"}
+      "days": {"type": "int"}
     }
   },
-  "homeUnlimited": "今日无限次",
-  "homeUpgradeLink": "升级无限 →",
-  "homeLimitTitle": "今日次数已用完",
-  "homeLimitBody": "免费版每天可投掷 3 次\n订阅无限次数 + 完整签文库",
-  "homeLimitSub": "查看订阅",
+  "homeStatusTrialLastDay": "今天是免费体验最后一天",
+  "homeStatusTrialExpired": "解锁全部投掷仅需 $0.99/月",
+  "homeStatusSubscribed": "已订阅 · 续期至 {date}",
+  "@homeStatusSubscribed": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "homeStatusSubExpired": "订阅已到期",
+  "homeStatusLinkSubscribe": "立即订阅",
+  "homeStatusLinkManage": "管理",
+  "homeStatusLinkRenew": "立即续订",
   "homeCustomTitle": "自定义问题",
   "homeCustomHint": "请输入您想问的事~",
+
+  "paywallTitle": "解锁妈祖全部指引",
+  "paywallSubtitle": "感谢与妈祖同行",
+  "paywallFeatureUnlimited": "每日无限次投掷",
+  "paywallFeatureAllSigns": "完整 60 支签文",
+  "paywallFeatureAmbient": "庙宇环境音 · 沉浸仪式感",
+  "paywallPriceCardTitle": "月度订阅",
+  "paywallPriceCardPrice": "$0.99 / 月",
+  "paywallPriceCardNote": "自动续期 · 可随时在 iOS 设置中取消",
+  "paywallSubscribeBtn": "立即订阅",
+  "paywallRestoreBtn": "恢复购买",
+  "paywallSubscribeSuccess": "订阅成功！感谢支持 🙏",
+  "paywallRestoreSuccess": "已恢复购买",
+  "paywallRestoreEmpty": "未找到可恢复的购买",
+  "paywallTermsPrefix": "继续即代表同意",
+  "paywallTermsLink": "用户协议",
+  "paywallPrivacyLink": "隐私政策",
+  "paywallPriceLoading": "加载中…",
+  "paywallPriceError": "暂不可用",
+  "paywallPendingHint": "等待系统确认…",
+  "paywallCanceledHint": "已取消",
+  "paywallErrorProduct": "无法获取产品信息，请稍后重试",
+  "paywallErrorPurchase": "订阅失败：{message}",
+  "@paywallErrorPurchase": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallErrorRestore": "恢复失败：{message}",
+  "@paywallErrorRestore": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallErrorGeneric": "操作失败：{message}",
+  "@paywallErrorGeneric": {
+    "placeholders": {
+      "message": {"type": "String"}
+    }
+  },
+  "paywallRetry": "重试",
 
   "onbMazu": "妈祖",
   "onbTagline": "海外华人之日常仪式",
@@ -78,7 +126,7 @@
   "settingsSubActive": "已订阅",
   "settingsSubInactive": "升级无限次数",
   "settingsSubActiveDesc": "感谢支持！",
-  "settingsSubInactiveDesc": "月卡 $4.99 / 年卡 $29.99",
+  "settingsSubInactiveDesc": "月费 $0.99",
 
   "settingsViewHistory": "问事记录",
   "settingsAboutMazu": "关于妈祖",
@@ -87,15 +135,11 @@
   "settingsAboutApp": "关于此 App",
 
   "settingsDebugMockSub": "模拟订阅",
-  "settingsDebugMockSubDesc": "开启后所有订阅功能可用（无限次数 + 完整签文库）",
-  "settingsDebugResetToday": "重置今日使用次数",
-  "settingsDebugResetTodayDesc": "清空今日已投掷次数",
-  "settingsDebugResetDone": "已重置今日使用次数",
+  "settingsDebugMockSubDesc": "开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间",
 
   "settingsUpgradeTitle": "升 级 订 阅",
-  "settingsUpgradeFeatures": "· 每日无限次投掷\n· 完整 60 支签文\n· 历史记录云同步\n· 庙宇环境音\n· 节日特别签",
-  "settingsUpgradePrice": "月卡 $4.99\n年卡 $29.99（首月免费）",
-  "settingsUpgradeNote": "注：V0.1 暂未对接 App Store，订阅功能在 V1 启用。",
+  "settingsUpgradeFeatures": "· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音",
+  "settingsUpgradeNote": "注：订阅功能在 V1 启用（iOS 上架后）。",
 
   "historyTitle": "问 事 记 录",
   "historyEmpty": "暂无问事记录",

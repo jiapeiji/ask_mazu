@@ -60,31 +60,123 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeCustomPlaceholder => 'Tap to ask a question';
 
   @override
-  String homeRemaining(int count) {
-    return '$count throws left today';
+  String homeStatusTrialActive(int days) {
+    return '$days days left in your free trial';
   }
 
   @override
-  String get homeUnlimited => 'Unlimited throws today';
+  String get homeStatusTrialLastDay =>
+      'Today is the last day of your free trial';
 
   @override
-  String get homeUpgradeLink => 'Upgrade for unlimited →';
+  String get homeStatusTrialExpired =>
+      'Unlock unlimited throws for just \$0.99/month';
 
   @override
-  String get homeLimitTitle => 'Daily limit reached';
+  String homeStatusSubscribed(String date) {
+    return 'Subscribed · renews $date';
+  }
 
   @override
-  String get homeLimitBody =>
-      'Free tier: 3 throws per day.\nSubscribe for unlimited throws + the full 60-sign library.';
+  String get homeStatusSubExpired => 'Subscription expired';
 
   @override
-  String get homeLimitSub => 'View Plans';
+  String get homeStatusLinkSubscribe => 'Subscribe Now';
+
+  @override
+  String get homeStatusLinkManage => 'Manage';
+
+  @override
+  String get homeStatusLinkRenew => 'Renew Now';
 
   @override
   String get homeCustomTitle => 'Custom Question';
 
   @override
   String get homeCustomHint => 'What would you like to ask Mazu?';
+
+  @override
+  String get paywallTitle => 'Unlock Mazu\'s Full Guidance';
+
+  @override
+  String get paywallSubtitle => 'Thank you for walking with Mazu';
+
+  @override
+  String get paywallFeatureUnlimited => 'Unlimited daily throws';
+
+  @override
+  String get paywallFeatureAllSigns => 'Full 60-sign library';
+
+  @override
+  String get paywallFeatureAmbient => 'Temple ambience for immersion';
+
+  @override
+  String get paywallPriceCardTitle => 'Monthly Subscription';
+
+  @override
+  String get paywallPriceCardPrice => '\$0.99 / month';
+
+  @override
+  String get paywallPriceCardNote =>
+      'Auto-renews · cancel anytime in iOS Settings';
+
+  @override
+  String get paywallSubscribeBtn => 'Subscribe Now';
+
+  @override
+  String get paywallRestoreBtn => 'Restore Purchase';
+
+  @override
+  String get paywallSubscribeSuccess => 'Subscribed! Thanks for the support 🙏';
+
+  @override
+  String get paywallRestoreSuccess => 'Purchase restored';
+
+  @override
+  String get paywallRestoreEmpty => 'No purchase to restore';
+
+  @override
+  String get paywallTermsPrefix => 'By continuing you agree to our';
+
+  @override
+  String get paywallTermsLink => 'Terms of Service';
+
+  @override
+  String get paywallPrivacyLink => 'Privacy Policy';
+
+  @override
+  String get paywallPriceLoading => 'Loading…';
+
+  @override
+  String get paywallPriceError => 'Unavailable';
+
+  @override
+  String get paywallPendingHint => 'Awaiting confirmation…';
+
+  @override
+  String get paywallCanceledHint => 'Canceled';
+
+  @override
+  String get paywallErrorProduct =>
+      'Unable to load product info. Please retry.';
+
+  @override
+  String paywallErrorPurchase(String message) {
+    return 'Purchase failed: $message';
+  }
+
+  @override
+  String paywallErrorRestore(String message) {
+    return 'Restore failed: $message';
+  }
+
+  @override
+  String paywallErrorGeneric(String message) {
+    return 'Operation failed: $message';
+  }
+
+  @override
+  String get paywallRetry => 'Retry';
 
   @override
   String get onbMazu => 'Mazu';
@@ -206,7 +298,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsSubActiveDesc => 'Thanks for your support!';
 
   @override
-  String get settingsSubInactiveDesc => '\$4.99 / month · \$29.99 / year';
+  String get settingsSubInactiveDesc => '\$0.99 / month';
 
   @override
   String get settingsViewHistory => 'Question History';
@@ -228,31 +320,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsDebugMockSubDesc =>
-      'Enables all subscription features (unlimited throws + full sign library).';
-
-  @override
-  String get settingsDebugResetToday => 'Reset Today\'s Count';
-
-  @override
-  String get settingsDebugResetTodayDesc => 'Clear today\'s thrown count';
-
-  @override
-  String get settingsDebugResetDone => 'Today\'s count has been reset';
+      'When on, simulates an active subscription (for development). When off, resets the trial start time.';
 
   @override
   String get settingsUpgradeTitle => 'Upgrade to Pro';
 
   @override
   String get settingsUpgradeFeatures =>
-      '· Unlimited daily throws\n· Full 60-sign library\n· Cloud sync of history\n· Temple ambience\n· Special holiday signs';
-
-  @override
-  String get settingsUpgradePrice =>
-      '\$4.99 / month\n\$29.99 / year (first month free)';
+      '· Unlimited daily throws\n· Full 60-sign library\n· Temple ambience';
 
   @override
   String get settingsUpgradeNote =>
-      'Note: V0.1 has not yet integrated App Store billing. Subscription goes live in V1.';
+      'Note: Subscription goes live in V1 (after iOS App Store release).';
 
   @override
   String get historyTitle => 'Question History';

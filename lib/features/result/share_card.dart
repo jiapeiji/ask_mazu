@@ -205,6 +205,57 @@ class ShareCard extends StatelessWidget {
                               letterSpacing: 1.5,
                             ),
                           ),
+
+                          // ─── 解曰 ───
+                          SizedBox(height: h * 0.025),
+                          _SectionHeader(label: '解  曰', scale: w),
+                          SizedBox(height: h * 0.008),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: w * 0.02),
+                            child: Text(
+                              sign!.interpretation,
+                              style: TextStyle(
+                                fontSize: w * 0.024, // 26/1080
+                                color: AppColors.inkBlack,
+                                fontFamily: 'ChillJinshuSong',
+                                height: 1.6,
+                              ),
+                            ),
+                          ),
+
+                          // ─── 典故 ───
+                          if (sign!.allusion.isNotEmpty) ...[
+                            SizedBox(height: h * 0.018),
+                            _SectionHeader(label: '典  故', scale: w),
+                            SizedBox(height: h * 0.006),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: w * 0.02),
+                              child: Text(
+                                sign!.allusion,
+                                style: TextStyle(
+                                  fontSize: w * 0.022, // 24/1080
+                                  color: AppColors.gray,
+                                  fontFamily: 'ChillJinshuSong',
+                                  height: 1.6,
+                                ),
+                              ),
+                            ),
+                          ],
+
+                          // ─── 现代解读（取前 3 条）───
+                          if (sign!.modernNotes.isNotEmpty) ...[
+                            SizedBox(height: h * 0.02),
+                            _SectionHeader(label: '现代解读', scale: w),
+                            SizedBox(height: h * 0.006),
+                            ...sign!.modernNotes.take(3).map((note) => Padding(
+                                  padding: EdgeInsets.only(
+                                    top: h * 0.005,
+                                    left: w * 0.025,
+                                    right: w * 0.02,
+                                  ),
+                                  child: _ModernNoteItem(text: note, scale: w),
+                                )),
+                          ],
                         ],
 
                         // 自适应撑开（替代写死 SizedBox）
@@ -260,7 +311,76 @@ class ShareCard extends StatelessWidget {
   }
 }
 
-/// 金色分隔线（带菱形装饰）
+/// 解析段标题（✦ + 文字，参考 result_page _Section 风格）
+class _SectionHeader extends StatelessWidget {
+  final String label;
+  final double scale;
+  const _SectionHeader({required this.label, required this.scale});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          '✦',
+          style: TextStyle(
+            color: AppColors.mazuRed,
+            fontSize: scale * 0.03, // 32/1080
+            height: 1,
+          ),
+        ),
+        SizedBox(width: scale * 0.012),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: scale * 0.028, // 30/1080
+            color: AppColors.mazuRed,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'ChillJinshuSong',
+            letterSpacing: 2,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// 现代解读单条（• + 文字）
+class _ModernNoteItem extends StatelessWidget {
+  final String text;
+  final double scale;
+  const _ModernNoteItem({required this.text, required this.scale});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '•',
+          style: TextStyle(
+            fontSize: scale * 0.024, // 26/1080
+            color: AppColors.mazuRed,
+            fontFamily: 'ChillJinshuSong',
+            height: 1.6,
+          ),
+        ),
+        SizedBox(width: scale * 0.012),
+        Expanded(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: scale * 0.024, // 26/1080
+              color: AppColors.inkBlack,
+              fontFamily: 'ChillJinshuSong',
+              height: 1.6,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
 class _GoldDivider extends StatelessWidget {
   final double? width;
   final bool hasDiamond;

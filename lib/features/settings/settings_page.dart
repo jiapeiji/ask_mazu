@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../data/models/subscription_state.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import 'about_dialogs.dart';
@@ -18,7 +19,8 @@ class SettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l = AppLocalizations.of(context);
     final user = ref.watch(currentUserProvider).valueOrNull;
-    final isSubscribed = ref.watch(isSubscribedProvider);
+    final hasUnlimited = ref.watch(hasUnlimitedAccessProvider);
+    final subState = ref.watch(subscriptionStateProvider);
     final settings = ref.watch(settingsProvider);
     final notifier = ref.read(settingsProvider.notifier);
 
@@ -91,12 +93,12 @@ class SettingsPage extends ConsumerWidget {
               SwitchListTile(
                 secondary: Icon(
                   Icons.music_note,
-                  color: isSubscribed ? AppColors.mazuRed : AppColors.gray,
+                  color: hasUnlimited ? AppColors.mazuRed : AppColors.gray,
                 ),
                 title: Row(
                   children: [
                     Text(l.settingsSoundAmbientTitle),
-                    if (!isSubscribed) ...[
+                    if (!hasUnlimited) ...[
                       const SizedBox(width: 8),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -113,13 +115,13 @@ class SettingsPage extends ConsumerWidget {
                   ],
                 ),
                 subtitle: Text(
-                  isSubscribed
+                  hasUnlimited
                       ? l.settingsSoundAmbientActive
                       : l.settingsSoundAmbientLocked,
                   style: const TextStyle(fontSize: 12),
                 ),
-                value: isSubscribed ? settings.ambientEnabled : false,
-                onChanged: isSubscribed
+                value: hasUnlimited ? settings.ambientEnabled : false,
+                onChanged: hasUnlimited
                     ? (v) => notifier.setAmbientEnabled(v)
                     : null,
               ),
@@ -139,19 +141,27 @@ class SettingsPage extends ConsumerWidget {
             children: [
               ListTile(
                 leading: Icon(
-                  isSubscribed ? Icons.workspace_premium : Icons.workspace_premium_outlined,
-                  color: isSubscribed ? AppColors.goldYellow : AppColors.gray,
+                  subState.hasUnlimitedAccess
+                      ? Icons.workspace_premium
+                      : Icons.workspace_premium_outlined,
+                  color: subState.hasUnlimitedAccess
+                      ? AppColors.goldYellow
+                      : AppColors.gray,
                 ),
-                title: Text(isSubscribed ? l.settingsSubActive : l.settingsSubInactive),
+                title: Text(subState.hasUnlimitedAccess
+                    ? l.settingsSubActive
+                    : l.settingsSubInactive),
                 subtitle: Text(
-                  isSubscribed
+                  subState.hasUnlimitedAccess
                       ? l.settingsSubActiveDesc
                       : l.settingsSubInactiveDesc,
                 ),
-                trailing: isSubscribed ? null : const Icon(Icons.chevron_right),
-                onTap: isSubscribed
+                trailing: subState.hasUnlimitedAccess
                     ? null
-                    : () => _showSubscriptionDialog(context, l),
+                    : const Icon(Icons.chevron_right),
+                onTap: subState.hasUnlimitedAccess
+                    ? null
+                    : () => context.push('/paywall'),
               ),
             ],
           ),
@@ -210,22 +220,11 @@ class SettingsPage extends ConsumerWidget {
                   secondary: const Icon(Icons.bug_report, color: AppColors.warningRed),
                   title: Text(l.settingsDebugMockSub),
                   subtitle: Text(l.settingsDebugMockSubDesc),
-                  value: isSubscribed,
-                  onChanged: (v) {
-                    ref.read(isSubscribedProvider.notifier).state = v;
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.refresh, color: AppColors.gray),
-                  title: Text(l.settingsDebugResetToday),
-                  subtitle: Text(l.settingsDebugResetTodayDesc),
-                  onTap: () async {
-                    await ref.read(remainingProvider.notifier).reset();
-                    if (context.mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(l.settingsDebugResetDone)),
-                      );
-                    }
+                  value: subState.status == SubscriptionStatus.subscribed,
+                  onChanged: (v) async {
+                    await ref.read(subscriptionStateProvider.notifier).debugSetMode(
+                          v ? 'unlimited' : 'fresh',
+                        );
                   },
                 ),
               ],
@@ -337,43 +336,6 @@ class SettingsPage extends ConsumerWidget {
               if (context.mounted) Navigator.pop(context);
             },
             child: Text(l.commonSave, style: const TextStyle(color: AppColors.mazuRed)),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showSubscriptionDialog(BuildContext context, AppLocalizations l) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppColors.riceWhite,
-        title: Text(l.settingsUpgradeTitle),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(l.settingsUpgradeFeatures),
-            const SizedBox(height: 16),
-            Text(
-              l.settingsUpgradePrice,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.mazuRed,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              l.settingsUpgradeNote,
-              style: const TextStyle(fontSize: 12, color: AppColors.gray),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l.commonClose),
           ),
         ],
       ),

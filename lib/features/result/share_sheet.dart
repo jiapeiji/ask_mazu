@@ -138,6 +138,11 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
   Future<void> _shareToWechat(AppLocalizations l) async {
     final bytes = await ShareService.capture(_boundaryKey);
     if (bytes == null) return;
+    if (!mounted) return;
+    // iOS 强制要求 sharePositionOrigin（即使是 iPhone）
+    // 用整个屏幕作为源 view 坐标（iPhone 上弹全屏分享面板，不影响）
+    final media = MediaQuery.of(context);
+    final origin = Rect.fromLTWH(0, 0, media.size.width, media.size.height);
     await Share.shareXFiles(
       [
         XFile.fromData(
@@ -148,6 +153,7 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
       ],
       text: _buildShareText(l),
       subject: l.shareSubject,
+      sharePositionOrigin: origin,
     );
   }
 
@@ -155,7 +161,10 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
   Future<void> _shareToMoments(AppLocalizations l) async {
     final bytes = await ShareService.capture(_boundaryKey);
     if (bytes == null) return;
+    if (!mounted) return;
     final text = '${_buildShareText(l)}\n${l.shareMomentsHint}';
+    final media = MediaQuery.of(context);
+    final origin = Rect.fromLTWH(0, 0, media.size.width, media.size.height);
     await Share.shareXFiles(
       [
         XFile.fromData(
@@ -165,6 +174,7 @@ class _ShareChannelSheetState extends State<ShareChannelSheet> {
         ),
       ],
       text: text,
+      sharePositionOrigin: origin,
     );
   }
 

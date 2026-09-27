@@ -5,15 +5,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../data/models/subscription_state.dart';
+import '../data/models/user_profile.dart';
+import '../data/models/question_record.dart';
+import '../data/models/fortune_sign.dart';
 import '../data/repositories/sign_repository.dart';
 import '../data/repositories/record_repository.dart';
 import '../data/repositories/user_repository.dart';
 import '../data/repositories/settings_repository.dart';
-import '../services/usage/usage_service.dart';
+import '../data/repositories/subscription_repository.dart';
+import '../services/subscription/iap_service.dart';
+import '../services/subscription/subscription_service.dart';
 import '../services/sound/sound_service.dart';
-import '../data/models/user_profile.dart';
-import '../data/models/question_record.dart';
-import '../data/models/fortune_sign.dart';
+import '../services/haptic/haptic_service.dart';
 
 // ============ Repositories ============
 
@@ -29,18 +33,55 @@ final userRepositoryProvider = Provider<UserRepository>((ref) {
   return UserRepository();
 });
 
-final usageServiceProvider = Provider<UsageService>((ref) {
-  return UsageService();
-});
-
 final settingsRepositoryProvider = Provider<SettingsRepository>((ref) {
   return SettingsRepository();
 });
+
+final subscriptionRepositoryProvider = Provider<SubscriptionRepository>((ref) {
+  return SubscriptionRepository();
+});
+
+final subscriptionServiceProvider = Provider<SubscriptionService>((ref) {
+  return SubscriptionService(ref.read(subscriptionRepositoryProvider));
+});
+
+/// IAP 服务（iOS StoreKit / Android Billing 封装）
+/// 单例，启动时由 main.dart 调 init() 初始化
+final iapServiceProvider = Provider<IapService>((ref) {
+  final svc = IapService();
+  ref.onDispose(svc.dispose);
+  return svc;
+});
+
+/// 当前产品价格（从 IAP 拉到的真实本地化价格）
+/// null = 还在加载 / 加载失败
+final productPriceProvider = StateProvider<ProductPrice?>((ref) {
+  return null;
+});
+
+/// 价格信息（产品 ID + 本地化价格字符串）
+class ProductPrice {
+  final String productId;
+  final String displayPrice;
+  final String title;
+  final String description;
+  const ProductPrice({
+    required this.productId,
+    required this.displayPrice,
+    required this.title,
+    required this.description,
+  });
+}
 
 final soundServiceProvider = Provider<SoundService>((ref) {
   final svc = SoundService();
   ref.onDispose(svc.dispose);
   return svc;
+});
+
+/// 震动反馈服务(2026-09 接入)
+final hapticServiceProvider = Provider<HapticService>((ref) {
+  return HapticService();
 });
 
 // ============ Data ============
@@ -130,49 +171,90 @@ class RecordsNotifier extends StateNotifier<AsyncValue<List<QuestionRecord>>> {
   }
 }
 
-/// 今日剩余次数
-final remainingProvider = StateNotifierProvider<RemainingNotifier, AsyncValue<int>>((ref) {
-  return RemainingNotifier(ref.read(usageServiceProvider));
+// ============ Subscription（V1 状态机）============
+
+/// 订阅状态（5 态：trialActive / trialLastDay / trialExpired / subscribed / subExpired）
+/// main.dart 启动时预热，初始 state 直接是 data（无 loading）
+final subscriptionStateProvider =
+    StateNotifierProvider<SubscriptionStateNotifier, SubscriptionState>((ref) {
+  return SubscriptionStateNotifier(ref.read(subscriptionServiceProvider));
 });
 
-class RemainingNotifier extends StateNotifier<AsyncValue<int>> {
-  final UsageService _service;
-  RemainingNotifier(this._service) : super(const AsyncValue.loading()) {
-    _load();
+class SubscriptionStateNotifier extends StateNotifier<SubscriptionState> {
+  final SubscriptionService _service;
+
+  SubscriptionStateNotifier(this._service, {SubscriptionState? initialState})
+      : super(initialState ?? SubscriptionState.fresh(DateTime.now()));
+
+  /// 重新拉取（用于 M5 接 IAP 后处理 Receipt 刷新 / 跨设备同步 / 启动核对）
+  /// 计算逻辑都在 SubscriptionState model 的 getter 里，这里只是「重新计算并触发 UI 更新」
+  Future<void> refresh() async {
+    // 模型 getter 已经是基于 DateTime.now() 算的，
+    // 重新构造一个 state（值不变）就能让 Riverpod 通知所有监听者
+    state = state.copyWith();
   }
 
-  Future<int> getRemaining({bool isSubscribed = false}) async {
-    final remaining = await _service.getRemaining(isSubscribed: isSubscribed);
-    state = AsyncValue.data(remaining);
-    return remaining;
+  /// M5 接 IAP 后用：订阅成功 / 自动续期
+  Future<void> updateSubscription({
+    required DateTime expiresAt,
+    required String originalTransactionId,
+  }) async {
+    state = await _service.updateSubscription(
+      expiresAt: expiresAt,
+      originalTransactionId: originalTransactionId,
+    );
   }
 
-  Future<void> _load({bool isSubscribed = false}) async {
-    state = const AsyncValue.loading();
-    final remaining = await _service.getRemaining(isSubscribed: isSubscribed);
-    state = AsyncValue.data(remaining);
-  }
-
-  Future<bool> consume({bool isSubscribed = false}) async {
-    final ok = await _service.consume(isSubscribed: isSubscribed);
-    if (ok) {
-      await _load(isSubscribed: isSubscribed);
+  /// 恢复购买
+  /// - M2: store 没东西可恢复，返 null
+  /// - M3 接 IAP 后：参数由 InAppPurchase.restorePurchases() 返回的 active entitlement 提供
+  /// - 返回 null 表示没找到；返回 state 表示已恢复
+  Future<SubscriptionState?> tryRestore() async {
+    final restored = await _service.restore();
+    if (restored != null) {
+      state = restored;
     }
-    return ok;
+    return restored;
   }
 
-  Future<void> reset() async {
-    await _service.reset();
-    await _load();
+  /// M5 用：订阅到期 / 退款
+  Future<void> clearSubscription() async {
+    state = await _service.clearSubscription();
+  }
+
+  /// Debug 用：覆盖 state（settings 页面调试区块 toggle 调它）
+  /// - mode == 'unlimited' → 模拟订阅中（未来 30 天到期）
+  /// - mode == 'expired'   → 模拟 trial_expired（fresh 状态）
+  /// - mode == 'fresh'     → 强制重置 trialStartedAt 为现在
+  Future<void> debugSetMode(String mode) async {
+    if (!kDebugMode) return;
+    final now = DateTime.now();
+    switch (mode) {
+      case 'unlimited':
+        state = SubscriptionState(
+          trialStartedAt: state.trialStartedAt,
+          subscriptionExpiresAt: now.add(const Duration(days: 30)),
+          originalTransactionId: 'debug-mock-${now.millisecondsSinceEpoch}',
+        );
+        break;
+      case 'expired':
+        // 把 trialStartedAt 推到 4 天前 → 自动 trial_expired
+        state = SubscriptionState(
+          trialStartedAt: now.subtract(const Duration(days: 4)),
+        );
+        break;
+      case 'fresh':
+        // 重置 trialStartedAt 为现在（用于重置试用）
+        state = SubscriptionState.fresh(now);
+        break;
+    }
   }
 }
 
-/// 订阅状态（V1 接 Apple StoreKit，V0.1 先做本地状态）
-/// Debug 模式下默认开启，方便开发测试无限次数/完整签文库。
-/// Release 模式默认 false。也可以在 settings 页面手动 toggle 覆盖。
-final isSubscribedProvider = StateProvider<bool>((ref) {
-  if (kDebugMode) return true;
-  return false;
+/// 派生：是否享有 unlimited 权限（投掷 / 完整签文库 / 庙宇环境音）
+/// 直接读 state.hasUnlimitedAccess，但这里暴露成独立 provider 方便 UI 用 ref.watch
+final hasUnlimitedAccessProvider = Provider<bool>((ref) {
+  return ref.watch(subscriptionStateProvider).hasUnlimitedAccess;
 });
 
 // ============ Settings (持久化到 Hive) ============
@@ -237,8 +319,9 @@ String _themeModeToString(ThemeMode m) {
 
 class SettingsNotifier extends StateNotifier<AppSettings> {
   final SettingsRepository _repo;
+  final Ref _ref;  // 用来读 soundServiceProvider(2026-09 接入音频)
 
-  SettingsNotifier(this._repo) : super(const AppSettings(
+  SettingsNotifier(this._repo, this._ref) : super(const AppSettings(
           themeMode: ThemeMode.light,
           soundEnabled: true,
           ambientEnabled: false,
@@ -273,8 +356,13 @@ class SettingsNotifier extends StateNotifier<AppSettings> {
   Future<void> setAmbientEnabled(bool v) async {
     state = state.copyWith(ambientEnabled: v);
     await _repo.setAmbientEnabled(v);
-    // 同步控制 sound service
-    // （实际有资源时，这里调 soundService.startAmbient/stopAmbient）
+    // 同步控制 sound service(2026-09 接入真实音频)
+    final svc = _ref.read(soundServiceProvider);
+    if (v) {
+      await svc.startAmbient();
+    } else {
+      await svc.stopAmbient();
+    }
   }
 
   Future<void> setHapticEnabled(bool v) async {
@@ -294,5 +382,5 @@ class SettingsNotifier extends StateNotifier<AppSettings> {
 }
 
 final settingsProvider = StateNotifierProvider<SettingsNotifier, AppSettings>((ref) {
-  return SettingsNotifier(ref.read(settingsRepositoryProvider));
+  return SettingsNotifier(ref.read(settingsRepositoryProvider), ref);
 });
