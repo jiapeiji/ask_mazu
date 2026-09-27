@@ -4,10 +4,6 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>用于保存妈祖签文分享图到相册</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>用于保存妈祖签文分享图到相册</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -30,6 +26,20 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>用于保存妈祖签文分享图到相册</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>用于保存妈祖签文分享图到相册</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>assets/fonts/ChillJinshuSong-Light.otf</string>
+		<string>assets/fonts/ChillJinshuSong-Regular.otf</string>
+		<string>assets/fonts/ChillJinshuSong-Medium.otf</string>
+		<string>assets/fonts/ChillJinshuSong-Bold.otf</string>
+		<string>assets/fonts/ChillJinshuSong-Heavy.otf</string>
+		<string>assets/fonts/ChillJinshuSong-TextRegular.otf</string>
+		<string>assets/fonts/ChillJinshuSong-TextMedium.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -53,6 +63,10 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -69,16 +83,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>assets/fonts/ChillJinshuSong-Light.otf</string>
-		<string>assets/fonts/ChillJinshuSong-Regular.otf</string>
-		<string>assets/fonts/ChillJinshuSong-Medium.otf</string>
-		<string>assets/fonts/ChillJinshuSong-Bold.otf</string>
-		<string>assets/fonts/ChillJinshuSong-Heavy.otf</string>
-		<string>assets/fonts/ChillJinshuSong-TextRegular.otf</string>
-		<string>assets/fonts/ChillJinshuSong-TextMedium.otf</string>
 	</array>
 </dict>
 </plist>
