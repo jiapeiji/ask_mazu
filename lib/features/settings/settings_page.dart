@@ -398,25 +398,30 @@ class SettingsPage extends ConsumerWidget {
                             await Hive.deleteBoxFromDisk(AppConstants.userBox);
                             await Hive.deleteBoxFromDisk(AppConstants.recordBox);
                             await Hive.deleteBoxFromDisk(AppConstants.settingsBox);
-                            // 4. 清 SharedPreferences 里的 subscription state + first launch
+                            // 4. 清各 Repository 缓存的 box 引用(_box ??= 不会重新 open)
+                            //    防止后续 save() 写入失效 box
+                            ref.read(userRepositoryProvider).clearCache();
+                            ref.read(recordRepositoryProvider).clearCache();
+                            ref.read(settingsRepositoryProvider).clearCache();
+                            // 5. 清 SharedPreferences 里的 subscription state + first launch
                             await ref.read(subscriptionServiceProvider)
                                 .clearSubscription();
-                            // 5. 重置 Riverpod 内存 state(否则 user/records/订阅 在内存里还在)
+                            // 6. 重置 Riverpod 内存 state(否则 user/records/订阅 在内存里还在)
                             //    invalidate 触发 StateNotifier 重新构造,会从磁盘读新值
                             ref.invalidate(currentUserProvider);
                             ref.invalidate(recordsProvider);
                             ref.invalidate(subscriptionStateProvider);
                             ref.invalidate(settingsProvider);
-                            // 6. 停掉可能还在播的所有音效(防止新用户登入时还听到)
+                            // 7. 停掉可能还在播的所有音效(防止新用户登入时还听到)
                             await ref.read(soundServiceProvider).stopAllOneShot();
                             await ref.read(soundServiceProvider).stopAmbient();
-                            // 7. SnackBar 提示
+                            // 8. SnackBar 提示
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(l.settingsDeleteDone)),
                               );
                             }
-                            // 8. 跳回 onboarding(router redirect 会因为 user_box 为空进 onboarding)
+                            // 9. 跳回 onboarding(router redirect 会因为 user_box 为空进 onboarding)
                             if (context.mounted) context.go('/onboarding');
                           } catch (e) {
                             // 任何异常恢复按钮

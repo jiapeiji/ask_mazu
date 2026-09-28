@@ -16,6 +16,12 @@ class UserRepository {
 
   static const String userKey = 'current_user';
 
+  /// 清缓存的 box 引用(账号删除后 Hive 磁盘文件已删,内存里 _box 指向失效引用)
+  /// 不 close,让 Hive 内部 GC,下次 _ensureBox 会重新 open
+  void clearCache() {
+    _box = null;
+  }
+
   Future<UserProfile?> get() async {
     final box = await _ensureBox();
     return box.get(userKey);
