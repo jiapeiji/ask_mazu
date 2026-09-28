@@ -389,36 +389,37 @@ class SettingsPage extends ConsumerWidget {
                       ? null
                       : () async {
                           setLocalState(() => confirming = true);
+                          // 1. 先关弹窗(等动画完成再操作 Navigator)
+                          if (ctx.mounted) Navigator.pop(ctx);
+                          // 2. 等 350ms 让 pop 动画走完(Navigator 释放锁)
+                          await Future.delayed(const Duration(milliseconds: 350));
                           try {
-                            // 1. 清 3 个 Hive box(磁盘文件)
+                            // 3. 清 3 个 Hive box(磁盘文件)
                             await Hive.deleteBoxFromDisk(AppConstants.userBox);
                             await Hive.deleteBoxFromDisk(AppConstants.recordBox);
                             await Hive.deleteBoxFromDisk(AppConstants.settingsBox);
-                            // 2. 清 SharedPreferences 里的 subscription state + first launch
+                            // 4. 清 SharedPreferences 里的 subscription state + first launch
                             await ref.read(subscriptionServiceProvider)
                                 .clearSubscription();
-                            // 3. 重置 Riverpod 内存 state(否则 user/records/订阅 在内存里还在)
+                            // 5. 重置 Riverpod 内存 state(否则 user/records/订阅 在内存里还在)
                             //    invalidate 触发 StateNotifier 重新构造,会从磁盘读新值
                             ref.invalidate(currentUserProvider);
                             ref.invalidate(recordsProvider);
                             ref.invalidate(subscriptionStateProvider);
                             ref.invalidate(settingsProvider);
-                            // 4. 停掉可能还在播的所有音效(防止新用户登入时还听到)
+                            // 6. 停掉可能还在播的所有音效(防止新用户登入时还听到)
                             await ref.read(soundServiceProvider).stopAllOneShot();
                             await ref.read(soundServiceProvider).stopAmbient();
-                            // 5. 关闭弹窗
-                            if (ctx.mounted) Navigator.pop(ctx);
-                            // 6. SnackBar 提示
+                            // 7. SnackBar 提示
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(l.settingsDeleteDone)),
                               );
                             }
-                            // 7. 跳回 onboarding(router redirect 会因为 user_box 为空进 onboarding)
+                            // 8. 跳回 onboarding(router redirect 会因为 user_box 为空进 onboarding)
                             if (context.mounted) context.go('/onboarding');
                           } catch (e) {
                             // 任何异常恢复按钮
-                            setLocalState(() => confirming = false);
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text('Error: $e')),
