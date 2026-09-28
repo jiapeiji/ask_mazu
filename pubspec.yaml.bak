@@ -1,7 +1,7 @@
 name: ask_mazu
 description: "问妈祖 / Ask Mazu - 海外华人的日常仪式。投掷杯筊，问事求签。"
 publish_to: 'none'
-version: 1.0.2+5
+version: 1.0.2+4
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

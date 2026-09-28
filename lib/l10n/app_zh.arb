@@ -137,6 +137,13 @@
   "settingsDebugMockSub": "模拟订阅",
   "settingsDebugMockSubDesc": "开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间",
 
+  "settingsSectionData": "数据",
+  "settingsDeleteAllData": "删除全部数据",
+  "settingsDeleteConfirmTitle": "删除全部数据？",
+  "settingsDeleteConfirmBody": "此操作不可撤销。您的名字、城市、问事记录和设置都会被清除，App 会回到初始状态。",
+  "settingsDeleteDone": "数据已清除",
+  "commonDelete": "删除",
+
   "settingsUpgradeTitle": "升 级 订 阅",
   "settingsUpgradeFeatures": "· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音",
   "settingsUpgradeNote": "注：订阅功能在 V1 启用（iOS 上架后）。",

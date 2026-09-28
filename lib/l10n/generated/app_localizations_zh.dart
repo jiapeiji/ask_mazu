@@ -316,6 +316,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsDebugMockSubDesc => '开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间';
 
   @override
+  String get settingsSectionData => '数据';
+
+  @override
+  String get settingsDeleteAllData => '删除全部数据';
+
+  @override
+  String get settingsDeleteConfirmTitle => '删除全部数据？';
+
+  @override
+  String get settingsDeleteConfirmBody =>
+      '此操作不可撤销。您的名字、城市、问事记录和设置都会被清除，App 会回到初始状态。';
+
+  @override
+  String get settingsDeleteDone => '数据已清除';
+
+  @override
+  String get commonDelete => '删除';
+
+  @override
   String get settingsUpgradeTitle => '升 级 订 阅';
 
   @override
@@ -905,6 +924,25 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get settingsDebugMockSubDesc => '開啟後模擬訂閱生效中（開發除錯用），關閉則重設試用起算時間';
+
+  @override
+  String get settingsSectionData => '資料';
+
+  @override
+  String get settingsDeleteAllData => '刪除全部資料';
+
+  @override
+  String get settingsDeleteConfirmTitle => '刪除全部資料？';
+
+  @override
+  String get settingsDeleteConfirmBody =>
+      '此操作無法撤銷。您的名字、城市、問事記錄和設定都會被清除，App 會回到初始狀態。';
+
+  @override
+  String get settingsDeleteDone => '資料已清除';
+
+  @override
+  String get commonDelete => '刪除';
 
   @override
   String get settingsUpgradeTitle => '升 級 訂 閱';

@@ -693,6 +693,42 @@ abstract class AppLocalizations {
   /// **'开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间'**
   String get settingsDebugMockSubDesc;
 
+  /// No description provided for @settingsSectionData.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据'**
+  String get settingsSectionData;
+
+  /// No description provided for @settingsDeleteAllData.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除全部数据'**
+  String get settingsDeleteAllData;
+
+  /// No description provided for @settingsDeleteConfirmTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除全部数据？'**
+  String get settingsDeleteConfirmTitle;
+
+  /// No description provided for @settingsDeleteConfirmBody.
+  ///
+  /// In zh, this message translates to:
+  /// **'此操作不可撤销。您的名字、城市、问事记录和设置都会被清除，App 会回到初始状态。'**
+  String get settingsDeleteConfirmBody;
+
+  /// No description provided for @settingsDeleteDone.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据已清除'**
+  String get settingsDeleteDone;
+
+  /// No description provided for @commonDelete.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除'**
+  String get commonDelete;
+
   /// No description provided for @settingsUpgradeTitle.
   ///
   /// In zh, this message translates to:

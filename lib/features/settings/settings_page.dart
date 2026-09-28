@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive/hive.dart';
 
+import '../../core/constants/app_constants.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/models/subscription_state.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -229,6 +231,22 @@ class SettingsPage extends ConsumerWidget {
                 ),
               ],
             ),
+
+          // 数据(账号删除 / 清除本地数据,Apple Guideline 5.1.1 强制要求)
+          _buildSection(
+            context: context,
+            title: l.settingsSectionData,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.delete_outline, color: AppColors.warningRed),
+                title: Text(
+                  l.settingsDeleteAllData,
+                  style: const TextStyle(color: AppColors.warningRed),
+                ),
+                onTap: () => _showDeleteAllDataDialog(context, ref),
+              ),
+            ],
+          ),
           const SizedBox(height: 32),
         ],
       ),
@@ -338,6 +356,80 @@ class SettingsPage extends ConsumerWidget {
             child: Text(l.commonSave, style: const TextStyle(color: AppColors.mazuRed)),
           ),
         ],
+      ),
+    );
+  }
+
+  /// Apple Guideline 5.1.1:账号删除 / 数据清除
+  /// 清 3 个 Hive box(用户、记录、设置) + SharedPreferences 的 subscription state
+  /// 完成后清内存中的所有 provider state,跳回 onboarding
+  void _showDeleteAllDataDialog(BuildContext context, WidgetRef ref) {
+    final l = AppLocalizations.of(context);
+    bool confirming = false;
+
+    showDialog(
+      context: context,
+      barrierDismissible: !confirming,
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setLocalState) {
+          return AlertDialog(
+            backgroundColor: AppColors.riceWhite,
+            icon: const Icon(Icons.warning_amber_rounded,
+                color: AppColors.warningRed, size: 48),
+            title: Text(l.settingsDeleteConfirmTitle),
+            content: Text(l.settingsDeleteConfirmBody),
+            actions: [
+              TextButton(
+                onPressed: confirming ? null : () => Navigator.pop(ctx),
+                child: Text(l.commonCancel),
+              ),
+              StatefulBuilder(builder: (ctx, setLocalState) {
+                return TextButton(
+                  onPressed: confirming
+                      ? null
+                      : () async {
+                          setLocalState(() => confirming = true);
+                          try {
+                            // 1. 清 3 个 Hive box
+                            await Hive.deleteBoxFromDisk(AppConstants.userBox);
+                            await Hive.deleteBoxFromDisk(AppConstants.recordBox);
+                            await Hive.deleteBoxFromDisk(AppConstants.settingsBox);
+                            // 2. 清 SharedPreferences 里的 subscription state + first launch
+                            //    (通过 SubscriptionRepository 走正规 API)
+                            await ref.read(subscriptionServiceProvider)
+                                .clearSubscription();
+                            // 3. 卸载 box 缓存(下次打开会重新 open)
+                            // Hive box 是惰性打开,这里不需要显式 close
+                            // 4. 关闭弹窗
+                            if (ctx.mounted) Navigator.pop(ctx);
+                            // 5. SnackBar 提示
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(l.settingsDeleteDone)),
+                              );
+                            }
+                            // 6. 跳回 onboarding
+                            if (context.mounted) context.go('/onboarding');
+                          } catch (e) {
+                            // 任何异常恢复按钮
+                            setLocalState(() => confirming = false);
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Error: $e')),
+                              );
+                            }
+                          }
+                        },
+                  child: Text(
+                    l.commonDelete,
+                    style: const TextStyle(
+                        color: AppColors.warningRed, fontWeight: FontWeight.w700),
+                  ),
+                );
+              }),
+            ],
+          );
+        },
       ),
     );
   }

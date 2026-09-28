@@ -137,6 +137,13 @@
   "settingsDebugMockSub": "Mock Subscription",
   "settingsDebugMockSubDesc": "When on, simulates an active subscription (for development). When off, resets the trial start time.",
 
+  "settingsSectionData": "Data",
+  "settingsDeleteAllData": "Delete All Data",
+  "settingsDeleteConfirmTitle": "Delete All Data?",
+  "settingsDeleteConfirmBody": "This action cannot be undone. Your name, city, throw history, and settings will be permanently erased. The app will return to its initial state.",
+  "settingsDeleteDone": "Data deleted",
+  "commonDelete": "Delete",
+
   "settingsUpgradeTitle": "Upgrade to Pro",
   "settingsUpgradeFeatures": "· Unlimited daily throws\n· Full 60-sign library\n· Temple ambience",
   "settingsUpgradeNote": "Note: Subscription goes live in V1 (after iOS App Store release).",

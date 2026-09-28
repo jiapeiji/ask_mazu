@@ -323,6 +323,25 @@ class AppLocalizationsEn extends AppLocalizations {
       'When on, simulates an active subscription (for development). When off, resets the trial start time.';
 
   @override
+  String get settingsSectionData => 'Data';
+
+  @override
+  String get settingsDeleteAllData => 'Delete All Data';
+
+  @override
+  String get settingsDeleteConfirmTitle => 'Delete All Data?';
+
+  @override
+  String get settingsDeleteConfirmBody =>
+      'This action cannot be undone. Your name, city, throw history, and settings will be permanently erased. The app will return to its initial state.';
+
+  @override
+  String get settingsDeleteDone => 'Data deleted';
+
+  @override
+  String get commonDelete => 'Delete';
+
+  @override
   String get settingsUpgradeTitle => 'Upgrade to Pro';
 
   @override
