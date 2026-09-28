@@ -30,8 +30,19 @@ class SoundService {
     await _ambientPlayer.play(AssetSource('audio/ambient_temple.mp3'));
   }
 
+  /// 停止环境音(iOS 上单纯 stop() 偶发不彻底,需 release + seek 重置)
   Future<void> stopAmbient() async {
     await _ambientPlayer.stop();
+    await _ambientPlayer.seek(Duration.zero);
+    await _ambientPlayer.release();
+  }
+
+  /// 停止所有一次性音效(投掷 + 揭晓,用于账号删除等清理场景)
+  Future<void> stopAllOneShot() async {
+    await _blockPlayer.stop();
+    await _blockPlayer.release();
+    await _resultPlayer.stop();
+    await _resultPlayer.release();
   }
 
   Future<void> dispose() async {

@@ -390,25 +390,31 @@ class SettingsPage extends ConsumerWidget {
                       : () async {
                           setLocalState(() => confirming = true);
                           try {
-                            // 1. 清 3 个 Hive box
+                            // 1. 清 3 个 Hive box(磁盘文件)
                             await Hive.deleteBoxFromDisk(AppConstants.userBox);
                             await Hive.deleteBoxFromDisk(AppConstants.recordBox);
                             await Hive.deleteBoxFromDisk(AppConstants.settingsBox);
                             // 2. 清 SharedPreferences 里的 subscription state + first launch
-                            //    (通过 SubscriptionRepository 走正规 API)
                             await ref.read(subscriptionServiceProvider)
                                 .clearSubscription();
-                            // 3. 卸载 box 缓存(下次打开会重新 open)
-                            // Hive box 是惰性打开,这里不需要显式 close
-                            // 4. 关闭弹窗
+                            // 3. 重置 Riverpod 内存 state(否则 user/records/订阅 在内存里还在)
+                            //    invalidate 触发 StateNotifier 重新构造,会从磁盘读新值
+                            ref.invalidate(currentUserProvider);
+                            ref.invalidate(recordsProvider);
+                            ref.invalidate(subscriptionStateProvider);
+                            ref.invalidate(settingsProvider);
+                            // 4. 停掉可能还在播的所有音效(防止新用户登入时还听到)
+                            await ref.read(soundServiceProvider).stopAllOneShot();
+                            await ref.read(soundServiceProvider).stopAmbient();
+                            // 5. 关闭弹窗
                             if (ctx.mounted) Navigator.pop(ctx);
-                            // 5. SnackBar 提示
+                            // 6. SnackBar 提示
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(l.settingsDeleteDone)),
                               );
                             }
-                            // 6. 跳回 onboarding
+                            // 7. 跳回 onboarding(router redirect 会因为 user_box 为空进 onboarding)
                             if (context.mounted) context.go('/onboarding');
                           } catch (e) {
                             // 任何异常恢复按钮
