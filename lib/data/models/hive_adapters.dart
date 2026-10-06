@@ -3,7 +3,9 @@
 //
 // V1.2 (v5) 改动:
 //   - UserProfile:city 字段删除
-//   - QuestionRecord:暂不动(mood 字段改造留到 W2 与 category 字段一起)
+//   - QuestionRecord:SignCategory category → Mood mood
+//   - 注:V1 老数据字段 3 是 SignCategory 字符串,反序列化时 Mood.fromString 会 fallback 到 confused,
+//        V1.2 上线后老用户要么没记录要么迁移兼容(不重要,V1.2 是重新上架)
 
 import 'package:hive/hive.dart';
 
@@ -57,7 +59,7 @@ class QuestionRecordAdapter extends TypeAdapter<QuestionRecord> {
       id: fields[0] as String,
       timestamp: fields[1] as DateTime,
       question: fields[2] as String,
-      category: SignCategory.values.byName(fields[3] as String),
+      mood: Mood.fromString(fields[3] as String),
       result: ThrowResultType.values.byName(fields[4] as String),
       signId: fields[5] as int?,
       nameAtTime: fields[6] as String,
@@ -75,7 +77,7 @@ class QuestionRecordAdapter extends TypeAdapter<QuestionRecord> {
       ..writeByte(2)
       ..write(obj.question)
       ..writeByte(3)
-      ..write(obj.category.name)
+      ..write(obj.mood.name)
       ..writeByte(4)
       ..write(obj.result.name)
       ..writeByte(5)

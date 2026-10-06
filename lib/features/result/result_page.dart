@@ -33,11 +33,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/result_templates.dart';
 import '../../core/i18n/locale_aware_style.dart';
 import '../../data/models/fortune_sign.dart';
+import '../../data/models/question_record.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import 'share_sheet.dart';
@@ -70,17 +72,15 @@ const double _kDesignW = 750;
 class ResultPage extends ConsumerStatefulWidget {
   final ThrowResultType result;
   final FortuneSign? sign;
-  final SignCategory category;
   final String question;
-  final bool isCustom;
+  final Mood mood;
 
   const ResultPage({
     super.key,
     required this.result,
     required this.sign,
-    required this.category,
     required this.question,
-    this.isCustom = false,
+    this.mood = Mood.confused,
   });
 
   @override
@@ -88,6 +88,8 @@ class ResultPage extends ConsumerStatefulWidget {
 }
 
 class _ResultPageState extends ConsumerState<ResultPage> {
+  bool _saved = false;  // 防止重复保存
+
   @override
   void initState() {
     super.initState();
@@ -97,13 +99,46 @@ class _ResultPageState extends ConsumerState<ResultPage> {
     });
   }
 
+  /// V1.2:保存 · 写入日记
+  /// - add 一条 QuestionRecord
+  /// - 跳回首页
+  /// - SnackBar 提示
+  Future<void> _onSave() async {
+    if (_saved) return;
+    _saved = true;
+
+    final user = ref.read(currentUserProvider).valueOrNull;
+    final name = user?.name ?? '弟子';
+
+    final record = QuestionRecord(
+      id: const Uuid().v4(),
+      timestamp: DateTime.now(),
+      question: widget.question,
+      mood: widget.mood,
+      result: widget.result,
+      signId: widget.sign?.id,
+      nameAtTime: name,
+    );
+
+    await ref.read(recordsProvider.notifier).add(record);
+
+    if (!mounted) return;
+    // 回到首页
+    Navigator.of(context).popUntil((route) => route.isFirst);
+    // SnackBar
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('已记一次 · 今日记录'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final result = widget.result;
     final sign = widget.sign;
-    final category = widget.category;
     final question = widget.question;
-    final isCustom = widget.isCustom;
 
     final l = AppLocalizations.of(context);
     final code = ref.watch(settingsProvider).localeCode;
@@ -122,11 +157,6 @@ class _ResultPageState extends ConsumerState<ResultPage> {
       ThrowResultType.saint => l.resultSaint,
       ThrowResultType.laugh => l.resultLaugh,
       ThrowResultType.yin   => l.resultYin,
-    };
-    final retryText = switch (result) {
-      ThrowResultType.saint => l.resultRetrySaint,
-      ThrowResultType.laugh => l.resultRetryLaugh,
-      ThrowResultType.yin   => l.resultRetryYin,
     };
     final user    = ref.watch(currentUserProvider).valueOrNull;
     final name    = user?.name ?? '弟子';
@@ -180,12 +210,9 @@ class _ResultPageState extends ConsumerState<ResultPage> {
                 SizedBox(height: 16 * scale),
 
                 // ③-b 所问（小字居中灰）
-                // 自定义问题模式 → 显示用户原文
-                // category 模式 → 显示 category.label（"事业"/"感情"等）
+                // V1.2 (v5):只显示用户输入的思考文本(不再有 category 模式)
                 _QuestionChip(
-                  isCustom: isCustom,
                   question: question,
-                  category: category,
                   scale: scale,
                 ),
                 SizedBox(height: 24 * scale),
@@ -210,7 +237,7 @@ class _ResultPageState extends ConsumerState<ResultPage> {
 
                 SizedBox(height: 60 * scale),
 
-                // ⑤ 底部按钮（分享 + 改日再问）
+                // ⑤ 底部按钮（分享 + 保存 · 写入日记）
                 _BottomButtons(
                   scale: scale,
                   onShare: () => ShareChannelSheet.show(
@@ -219,12 +246,7 @@ class _ResultPageState extends ConsumerState<ResultPage> {
                     message: message, question: question,
                     name: name, city: '',
                   ),
-                  onRetry: () {
-                    // throw_page 用的是 pushReplacement → ResultPage 已是栈顶
-                    // 改日再问 = 回到首页（首页就是 isFirst）
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                  },
-                  retryText: retryText,
+                  onSave: () => _onSave(),
                 ),
                 SizedBox(height: 20 * scale),
                 ],
@@ -409,25 +431,19 @@ class _OpeningMessage extends StatelessWidget {
   }
 }
 
-// ─── ③-b 所问 chip（小字居中，自定义问题/分类两种模式）──
+// ─── ③-b 所问 chip（小字居中,V1.2 只显示输入文本）──
 class _QuestionChip extends StatelessWidget {
-  final bool isCustom;
   final String question;
-  final SignCategory category;
   final double scale;
   const _QuestionChip({
-    required this.isCustom,
     required this.question,
-    required this.category,
     required this.scale,
   });
 
   @override
   Widget build(BuildContext context) {
     final locale = Localizations.localeOf(context);
-    // 自定义问题模式 → 显示用户原文
-    // category 模式 → 显示 category.label
-    final body = isCustom ? question : category.label;
+    final body = question.isEmpty ? '—' : question;
     final text = '—  所  问  —   $body';
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 80 * scale),
@@ -921,28 +937,26 @@ class _SideLevelTag extends StatelessWidget {
   }
 }
 
-// ─── ⑤ 底部按钮（分享 + 改日再问）────────────────────────
+// ─── ⑤ 底部按钮（分享 + 保存 · 写入日记）────────────────────
 class _BottomButtons extends StatelessWidget {
   final double scale;
   final VoidCallback onShare;
-  final VoidCallback onRetry;
-  final String retryText;
+  final VoidCallback onSave;
   const _BottomButtons({
     required this.scale,
     required this.onShare,
-    required this.onRetry,
-    required this.retryText,
+    required this.onSave,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 36 * scale),  // 底部按钮到屏幕边的距离
+      padding: EdgeInsets.symmetric(horizontal: 36 * scale),
       child: Row(
         children: [
           Expanded(child: _ShareButton(scale: scale, onPressed: onShare)),
-          SizedBox(width: 24 * scale),  // 两按钮间距
-          Expanded(child: _RetryButton(scale: scale, label: retryText, onPressed: onRetry)),
+          SizedBox(width: 24 * scale),
+          Expanded(child: _SaveButton(scale: scale, onPressed: onSave)),
         ],
       ),
     );
@@ -1013,22 +1027,20 @@ class _ShareButtonState extends State<_ShareButton> {
   }
 }
 
-// ⑤-b 改日再问按钮（暗红云纹切图 + 米色字，按下变浅）
-class _RetryButton extends StatefulWidget {
+// ⑤-b 保存按钮（暗红云纹切图 + 米色字，按下变浅）
+class _SaveButton extends StatefulWidget {
   final double scale;
-  final String label;
   final VoidCallback onPressed;
-  const _RetryButton({
+  const _SaveButton({
     required this.scale,
-    required this.label,
     required this.onPressed,
   });
 
   @override
-  State<_RetryButton> createState() => _RetryButtonState();
+  State<_SaveButton> createState() => _SaveButtonState();
 }
 
-class _RetryButtonState extends State<_RetryButton> {
+class _SaveButtonState extends State<_SaveButton> {
   bool _down = false;
 
   @override
@@ -1050,14 +1062,13 @@ class _RetryButtonState extends State<_RetryButton> {
             ),
             Center(
               child: Text(
-                widget.label,
+                '保存 · 写入日记',
                 style: TextStyle(
-                  fontSize: 32 * widget.scale,
+                  fontSize: 30 * widget.scale,
                   fontWeight: FontWeight.w600,
                   color: AppColors.riceWhite,
                   fontFamily: 'ChillJinshuSong',
-                  // 任务 2：英文艺术性 letterSpacing 归零
-                  letterSpacing: letterSpacingFor(locale, 3 * widget.scale),
+                  letterSpacing: letterSpacingFor(locale, 2 * widget.scale),
                 ),
               ),
             ),
@@ -1096,9 +1107,8 @@ class ResultPageDebug extends StatelessWidget {
     return const ResultPage(
       result: ThrowResultType.yin,
       sign: _sampleSign,
-      category: SignCategory.daily,
       question: '我想换个工作，时机合适吗？',
-      isCustom: true,  // debug 示例是自定义问题，触发 _QuestionChip 显示用户原文
+      mood: Mood.confused,
     );
   }
 }

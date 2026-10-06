@@ -24,7 +24,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uuid/uuid.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../core/theme/app_theme.dart';
@@ -61,7 +60,6 @@ class _ThrowPageState extends ConsumerState<ThrowPage> {
   bool _isDone = false;          // 防止跳页重复触发
   bool _landedSoundPlayed = false;  // 防止"叩"声重复触发
   bool _isDisposed = false;      // 防止用户返回后还跳结果页
-  final _uuid = const Uuid();
   final _random = Random();
 
   @override
@@ -150,19 +148,8 @@ class _ThrowPageState extends ConsumerState<ThrowPage> {
     }
     // 笑杯无签
 
-    // 记录到历史
-    if (user != null) {
-      final record = QuestionRecord(
-        id: _uuid.v4(),
-        timestamp: DateTime.now(),
-        question: widget.question,
-        category: widget.category,
-        result: result,
-        signId: matchedSign?.id,
-        nameAtTime: user.name,
-      );
-      await ref.read(recordsProvider.notifier).add(record);
-    }
+    // V1.2 (v5):记录写入移到 result_page,用户主动点「保存 · 写入日记」才落地
+    // throw_page 只负责 match 出签 + 跳 result_page,不在这里 add QuestionRecord
 
     if (_isDisposed) return;
     if (!mounted) return;
@@ -182,9 +169,8 @@ class _ThrowPageState extends ConsumerState<ThrowPage> {
           pageBuilder: (context, animation, secondaryAnimation) => ResultPage(
             result: result,
             sign: matchedSign,
-            category: widget.category,
             question: widget.question,
-            isCustom: widget.isCustom,
+            mood: Mood.confused,  // TODO:从 home_page 真实选择传过来(下轮接心情状态)
           ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // pop 时:直接显示(瞬切)

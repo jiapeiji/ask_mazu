@@ -295,7 +295,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         id: '',
         timestamp: DateTime.now(),
         question: '',
-        category: SignCategory.daily,
+        mood: Mood.confused,
         result: ThrowResultType.saint,
         nameAtTime: '',
       ),
