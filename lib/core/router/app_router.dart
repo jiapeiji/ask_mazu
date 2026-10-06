@@ -12,7 +12,6 @@ import '../../features/result/result_page.dart';
 import '../../features/signs/signs_library_page.dart';
 import '../../features/history/history_page.dart';
 import '../../features/settings/settings_page.dart';
-import '../../features/paywall/paywall_page.dart';
 import '../../data/models/fortune_sign.dart';
 import '../../data/models/user_profile.dart';
 import '../../core/utils/result_templates.dart';
@@ -99,23 +98,6 @@ final routerProvider = Provider<GoRouter>((ref) {
             return SlideTransition(
               position: Tween<Offset>(
                 begin: const Offset(-1, 0),  // 从左往右滑入（按钮在左上）
-                end: Offset.zero,
-              ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic)),
-              child: child,
-            );
-          },
-        ),
-      ),
-      GoRoute(
-        path: '/paywall',
-        pageBuilder: (context, state) => CustomTransitionPage(
-          key: state.pageKey,
-          child: const PaywallPage(),
-          transitionDuration: const Duration(milliseconds: 300),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, 1),  // 从下往上滑入（投掷按钮在底部）
                 end: Offset.zero,
               ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic)),
               child: child,

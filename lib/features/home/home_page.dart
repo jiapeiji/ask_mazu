@@ -9,7 +9,6 @@ import 'package:intl/intl.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/utils/lunar_calendar.dart';
 import '../../data/models/fortune_sign.dart';
-import '../../data/models/subscription_state.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../providers/providers.dart';
 import '../throw/throw_page.dart';
@@ -50,14 +49,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _onThrow() async {
-    // V1 试用到期后不再有"3 次/日"轻量体验
-    // 没 unlimited 权限 → 直接弹付费墙，不进投掷
-    final hasUnlimited = ref.read(hasUnlimitedAccessProvider);
-    if (!hasUnlimited) {
-      context.push('/paywall');
-      return;
-    }
-
+    // V1.2 (v5) 取消订阅拦截：直接进投掷
     final question = _customQuestion.isNotEmpty
         ? _customQuestion
         : _selectedCategory.label;
@@ -363,7 +355,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                               ),
                               const SizedBox(width: 8),
                               Text(
-                                '${l.homeCityPrefix}${user.city}',
+                                user.name,
                                 style: const TextStyle(
                                   fontSize: 13,
                                   color: AppColors.gray,
@@ -558,7 +550,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        _buildStatusLine(),
+                        // V1.2 (v5) 移除订阅状态行
                       ],
                     ),
                   ),
@@ -624,107 +616,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 
-  /// 投掷按钮下方的状态行（5 状态对应 5 套文案 + 链接）
-  /// 替代 V0.1 的「今日剩余次数 · 升级无限」
-  Widget _buildStatusLine() {
-    final l = AppLocalizations.of(context);
-    final subState = ref.watch(subscriptionStateProvider);
-
-    String text;
-    String linkText;
-    VoidCallback onLinkTap;
-    Color linkColor;
-
-    switch (subState.status) {
-      case SubscriptionStatus.trialActive:
-        text = l.homeStatusTrialActive(subState.daysRemaining);
-        linkText = l.homeStatusLinkSubscribe;
-        onLinkTap = () => context.push('/paywall');
-        linkColor = AppColors.mazuRed;
-        break;
-      case SubscriptionStatus.trialLastDay:
-        text = l.homeStatusTrialLastDay;
-        linkText = l.homeStatusLinkSubscribe;
-        onLinkTap = () => context.push('/paywall');
-        linkColor = AppColors.mazuRed;
-        break;
-      case SubscriptionStatus.trialExpired:
-        text = l.homeStatusTrialExpired;
-        linkText = l.homeStatusLinkSubscribe;
-        onLinkTap = () => context.push('/paywall');
-        linkColor = AppColors.mazuRed;
-        break;
-      case SubscriptionStatus.subscribed:
-        final renewal = subState.subscriptionRenewalDate;
-        final dateStr = renewal == null
-            ? ''
-            : DateFormat.MMMd(Localizations.localeOf(context).toLanguageTag())
-                .format(renewal);
-        text = l.homeStatusSubscribed(dateStr);
-        linkText = l.homeStatusLinkManage;
-        onLinkTap = () => _openManageSubscription();
-        linkColor = AppColors.gray;
-        break;
-      case SubscriptionStatus.subExpired:
-        text = l.homeStatusSubExpired;
-        linkText = l.homeStatusLinkRenew;
-        onLinkTap = () => context.push('/paywall');
-        linkColor = AppColors.mazuRed;
-        break;
-    }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Flexible(
-            child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 13,
-                color: AppColors.gray,
-                fontFamily: 'ChillJinshuSong',
-              ),
-            ),
-          ),
-          const SizedBox(width: 4),
-          Text(
-            '·',
-            style: TextStyle(
-              fontSize: 13,
-              color: AppColors.gray,
-              fontFamily: 'ChillJinshuSong',
-            ),
-          ),
-          const SizedBox(width: 4),
-          GestureDetector(
-            onTap: onLinkTap,
-            behavior: HitTestBehavior.opaque,
-            child: Text(
-              linkText,
-              style: TextStyle(
-                fontSize: 13,
-                color: linkColor,
-                decoration: TextDecoration.underline,
-                decorationColor: linkColor,
-                fontFamily: 'ChillJinshuSong',
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  /// 已订阅用户点「管理」时跳 App Store 订阅管理页
-  /// M5 接 IAP 后：调 InAppPurchase.showSubscriptionsIAPPage()（iOS 弹原生 sheet）
-  /// 当前 M1 stub：跳到 settings（暂未接 IAP，settings 是订阅区块入口）
-  void _openManageSubscription() {
-    context.push('/settings');
-  }
+  // V1.2 (v5) 移除 _buildStatusLine 与 _openManageSubscription
 }
 
 class _CategoryCard extends StatelessWidget {

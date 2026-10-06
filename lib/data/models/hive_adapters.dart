@@ -1,5 +1,9 @@
 // lib/data/models/hive_adapters.dart
 // 手动实现的 Hive TypeAdapters
+//
+// V1.2 (v5) 改动:
+//   - UserProfile:city 字段删除
+//   - QuestionRecord:暂不动(mood 字段改造留到 W2 与 category 字段一起)
 
 import 'package:hive/hive.dart';
 
@@ -22,20 +26,17 @@ class UserProfileAdapter extends TypeAdapter<UserProfile> {
     }
     return UserProfile(
       name: fields[0] as String,
-      city: fields[1] as String,
-      createdAt: fields[2] as DateTime,
+      createdAt: fields[1] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, UserProfile obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(2)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.city)
-      ..writeByte(2)
       ..write(obj.createdAt);
   }
 }

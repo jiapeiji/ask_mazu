@@ -1,11 +1,12 @@
 // lib/providers/providers.dart
 // 全局 Riverpod providers
+//
+// V1.2 (v5) 移除:订阅相关 providers(IAP / subscriptionState / hasUnlimitedAccess / productPrice)
+// 商业化推迟到 V2。
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../data/models/subscription_state.dart';
 import '../data/models/user_profile.dart';
 import '../data/models/question_record.dart';
 import '../data/models/fortune_sign.dart';
@@ -13,9 +14,6 @@ import '../data/repositories/sign_repository.dart';
 import '../data/repositories/record_repository.dart';
 import '../data/repositories/user_repository.dart';
 import '../data/repositories/settings_repository.dart';
-import '../data/repositories/subscription_repository.dart';
-import '../services/subscription/iap_service.dart';
-import '../services/subscription/subscription_service.dart';
 import '../services/sound/sound_service.dart';
 import '../services/haptic/haptic_service.dart';
 
@@ -36,42 +34,6 @@ final userRepositoryProvider = Provider<UserRepository>((ref) {
 final settingsRepositoryProvider = Provider<SettingsRepository>((ref) {
   return SettingsRepository();
 });
-
-final subscriptionRepositoryProvider = Provider<SubscriptionRepository>((ref) {
-  return SubscriptionRepository();
-});
-
-final subscriptionServiceProvider = Provider<SubscriptionService>((ref) {
-  return SubscriptionService(ref.read(subscriptionRepositoryProvider));
-});
-
-/// IAP 服务（iOS StoreKit / Android Billing 封装）
-/// 单例，启动时由 main.dart 调 init() 初始化
-final iapServiceProvider = Provider<IapService>((ref) {
-  final svc = IapService();
-  ref.onDispose(svc.dispose);
-  return svc;
-});
-
-/// 当前产品价格（从 IAP 拉到的真实本地化价格）
-/// null = 还在加载 / 加载失败
-final productPriceProvider = StateProvider<ProductPrice?>((ref) {
-  return null;
-});
-
-/// 价格信息（产品 ID + 本地化价格字符串）
-class ProductPrice {
-  final String productId;
-  final String displayPrice;
-  final String title;
-  final String description;
-  const ProductPrice({
-    required this.productId,
-    required this.displayPrice,
-    required this.title,
-    required this.description,
-  });
-}
 
 final soundServiceProvider = Provider<SoundService>((ref) {
   final svc = SoundService();
@@ -113,18 +75,17 @@ class CurrentUserNotifier extends StateNotifier<AsyncValue<UserProfile?>> {
     }
   }
 
-  Future<void> save(String name, String city) async {
+  Future<void> save(String name) async {
     final profile = UserProfile(
       name: name,
-      city: city,
       createdAt: DateTime.now(),
     );
     await _repo.save(profile);
     state = AsyncValue.data(profile);
   }
 
-  Future<void> update({String? name, String? city}) async {
-    await _repo.update(name: name, city: city);
+  Future<void> update({String? name}) async {
+    await _repo.update(name: name);
     await _load();
   }
 
@@ -134,7 +95,7 @@ class CurrentUserNotifier extends StateNotifier<AsyncValue<UserProfile?>> {
   }
 }
 
-/// 问事记录
+/// 反思记录(日记流)
 final recordsProvider = StateNotifierProvider<RecordsNotifier, AsyncValue<List<QuestionRecord>>>((ref) {
   return RecordsNotifier(ref.read(recordRepositoryProvider));
 });
@@ -170,92 +131,6 @@ class RecordsNotifier extends StateNotifier<AsyncValue<List<QuestionRecord>>> {
     state = const AsyncValue.data([]);
   }
 }
-
-// ============ Subscription（V1 状态机）============
-
-/// 订阅状态（5 态：trialActive / trialLastDay / trialExpired / subscribed / subExpired）
-/// main.dart 启动时预热，初始 state 直接是 data（无 loading）
-final subscriptionStateProvider =
-    StateNotifierProvider<SubscriptionStateNotifier, SubscriptionState>((ref) {
-  return SubscriptionStateNotifier(ref.read(subscriptionServiceProvider));
-});
-
-class SubscriptionStateNotifier extends StateNotifier<SubscriptionState> {
-  final SubscriptionService _service;
-
-  SubscriptionStateNotifier(this._service, {SubscriptionState? initialState})
-      : super(initialState ?? SubscriptionState.fresh(DateTime.now()));
-
-  /// 重新拉取（用于 M5 接 IAP 后处理 Receipt 刷新 / 跨设备同步 / 启动核对）
-  /// 计算逻辑都在 SubscriptionState model 的 getter 里，这里只是「重新计算并触发 UI 更新」
-  Future<void> refresh() async {
-    // 模型 getter 已经是基于 DateTime.now() 算的，
-    // 重新构造一个 state（值不变）就能让 Riverpod 通知所有监听者
-    state = state.copyWith();
-  }
-
-  /// M5 接 IAP 后用：订阅成功 / 自动续期
-  Future<void> updateSubscription({
-    required DateTime expiresAt,
-    required String originalTransactionId,
-  }) async {
-    state = await _service.updateSubscription(
-      expiresAt: expiresAt,
-      originalTransactionId: originalTransactionId,
-    );
-  }
-
-  /// 恢复购买
-  /// - M2: store 没东西可恢复，返 null
-  /// - M3 接 IAP 后：参数由 InAppPurchase.restorePurchases() 返回的 active entitlement 提供
-  /// - 返回 null 表示没找到；返回 state 表示已恢复
-  Future<SubscriptionState?> tryRestore() async {
-    final restored = await _service.restore();
-    if (restored != null) {
-      state = restored;
-    }
-    return restored;
-  }
-
-  /// M5 用：订阅到期 / 退款
-  Future<void> clearSubscription() async {
-    state = await _service.clearSubscription();
-  }
-
-  /// Debug 用：覆盖 state（settings 页面调试区块 toggle 调它）
-  /// - mode == 'unlimited' → 模拟订阅中（未来 30 天到期）
-  /// - mode == 'expired'   → 模拟 trial_expired（fresh 状态）
-  /// - mode == 'fresh'     → 强制重置 trialStartedAt 为现在
-  Future<void> debugSetMode(String mode) async {
-    if (!kDebugMode) return;
-    final now = DateTime.now();
-    switch (mode) {
-      case 'unlimited':
-        state = SubscriptionState(
-          trialStartedAt: state.trialStartedAt,
-          subscriptionExpiresAt: now.add(const Duration(days: 30)),
-          originalTransactionId: 'debug-mock-${now.millisecondsSinceEpoch}',
-        );
-        break;
-      case 'expired':
-        // 把 trialStartedAt 推到 4 天前 → 自动 trial_expired
-        state = SubscriptionState(
-          trialStartedAt: now.subtract(const Duration(days: 4)),
-        );
-        break;
-      case 'fresh':
-        // 重置 trialStartedAt 为现在（用于重置试用）
-        state = SubscriptionState.fresh(now);
-        break;
-    }
-  }
-}
-
-/// 派生：是否享有 unlimited 权限（投掷 / 完整签文库 / 庙宇环境音）
-/// 直接读 state.hasUnlimitedAccess，但这里暴露成独立 provider 方便 UI 用 ref.watch
-final hasUnlimitedAccessProvider = Provider<bool>((ref) {
-  return ref.watch(subscriptionStateProvider).hasUnlimitedAccess;
-});
 
 // ============ Settings (持久化到 Hive) ============
 

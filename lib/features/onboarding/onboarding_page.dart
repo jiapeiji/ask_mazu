@@ -1,17 +1,18 @@
 // lib/features/onboarding/onboarding_page.dart
 // 报家门页（仅首次启动）
 //
+// V1.2 (v5) 改动:
+//   - 单步：只输入昵称(2-10 字),无地区字段
+//   - 保留 mazu-figure / bamboo / mountain / ornament-line 装饰
+//
 // 资产：
 //   - 背景四张：mountain-main@2x.png（主景，半透明 0.5）/ mountain-1@2x.png（底左山）
 //     / mountain-2@2x.png（底右山）/ bamboo@2x.png（左上竹叶）
 //   - 顶部妈祖图：mazu-figure@2x.png
 //   - 输入框 / 按钮：复用首页切图（输入框bg / 按钮bg-default|pressed）
-//   - 输入框左侧 icon：icon-name@2x.png（人形）/ icon-city@2x.png（定位）
+//   - 输入框左侧 icon：icon-name@2x.png（人形）
 //   - 装饰线：ornament-line@2x.png（左右翻转）
 //   - 标题后圆形装饰：复用首页 assets/images/home/标题装饰@2x.png
-//
-// 验证：去掉 Form/validator，提交时手动检查 → SnackBar 报错
-//       （原因：Form 默认 error 文字位置跟 hint 错位，且切图输入框内显示红字很丑）
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,13 +31,11 @@ class OnboardingPage extends ConsumerStatefulWidget {
 
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final _nameController = TextEditingController();
-  final _cityController = TextEditingController();
   bool _buttonPressed = false;
 
   @override
   void dispose() {
     _nameController.dispose();
-    _cityController.dispose();
     super.dispose();
   }
 
@@ -53,14 +52,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   Future<void> _submit() async {
     final l = AppLocalizations.of(context);
     final name = _nameController.text.trim();
-    final city = _cityController.text.trim();
 
     if (name.isEmpty) { _showError(l.onbNameErrorEmpty); return; }
     if (name.length < 2) { _showError(l.onbNameErrorShort); return; }
-    if (city.isEmpty) { _showError(l.onbCityErrorEmpty); return; }
-    if (city.length < 2) { _showError(l.onbCityErrorShort); return; }
 
-    await ref.read(currentUserProvider.notifier).save(name, city);
+    await ref.read(currentUserProvider.notifier).save(name);
     if (mounted) context.go('/home');
   }
 
@@ -76,11 +72,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             child: ColoredBox(color: AppColors.riceWhite),
           ),
           // ═══ 主景：山 + 船 + 亭 + 桥（半透明，水平居中靠下）═══
-          // 调参：top 控制上下 / width 控制大小 / opacity 控制透明度
           Positioned(
             left: 0,
             right: 0,
-            top: 170,
+            top: 200,
             child: Opacity(
               opacity: 0.4,
               child: Image.asset(
@@ -150,12 +145,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   ),
                   const SizedBox(height: 12),
                   // ─── 装饰线 + tagline ───
-                  // 调参：装饰线 width 限制（防止溢出）
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // 左：装饰线原图，限宽 60
                       SizedBox(
                         width: 80,
                         child: Image.asset(
@@ -165,7 +158,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      // 中：tagline，Flexible 让它能收缩
                       Flexible(
                         child: Text(
                           l.onbTagline,
@@ -179,7 +171,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      // 右：装饰线翻转，限宽 60
                       Transform.scale(
                         scaleX: -1,
                         child: SizedBox(
@@ -193,7 +184,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 48),
+                  const SizedBox(height: 56),
                   // ─── 名字 label + 圆形装饰 ───
                   _LabelWithOrnament(text: l.onbNameLabel),
                   const SizedBox(height: 12),
@@ -202,16 +193,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     hint: l.onbNameHint,
                     maxLength: 10,
                     iconAsset: 'assets/images/onboarding/icon-name@2x.png',
-                  ),
-                  const SizedBox(height: 24),
-                  // ─── 城市 label + 圆形装饰 ───
-                  _LabelWithOrnament(text: l.onbCityLabel),
-                  const SizedBox(height: 12),
-                  _HomeStyleInputField(
-                    controller: _cityController,
-                    hint: l.onbCityHint,
-                    maxLength: 30,
-                    iconAsset: 'assets/images/onboarding/icon-city@2x.png',
                   ),
                   const SizedBox(height: 40),
                   // ─── 入殿问事按钮 ───
@@ -273,9 +254,6 @@ class _LabelWithOrnament extends StatelessWidget {
 }
 
 /// 输入框：复用首页切图（输入框bg + icon），内部 TextFormField
-/// 行为：
-///   - icon 永远显示
-///   - placeholder(hint)：unfocus + 空内容时显示，focus 时淡出（200ms）
 class _HomeStyleInputField extends StatefulWidget {
   final TextEditingController controller;
   final String hint;
@@ -321,19 +299,17 @@ class _HomeStyleInputFieldState extends State<_HomeStyleInputField> {
     return Container(
       height: 58,
       decoration: const BoxDecoration(
-        color: Color(0xFFF7F1EA),  // 内部填充色（米色）
+        color: Color(0xFFF7F1EA),
         image: DecorationImage(
           image: AssetImage('assets/images/home/输入框bg@2x.png'),
           fit: BoxFit.fill,
         ),
       ),
-      // Center + Row：icon 紧贴文字（10px 间距），整体在输入框内水平居中
       child: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // icon：永远显示
             Image.asset(widget.iconAsset, width: 16, height: 16),
             const SizedBox(width: 10),
             SizedBox(
@@ -341,7 +317,6 @@ class _HomeStyleInputFieldState extends State<_HomeStyleInputField> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // TextField（无 hint）
                   TextFormField(
                     controller: widget.controller,
                     focusNode: _focusNode,
@@ -362,7 +337,6 @@ class _HomeStyleInputFieldState extends State<_HomeStyleInputField> {
                       filled: false,
                     ),
                   ),
-                  // 自定义 placeholder：空内容 + unfocus 时显示
                   IgnorePointer(
                     child: ValueListenableBuilder<TextEditingValue>(
                       valueListenable: widget.controller,

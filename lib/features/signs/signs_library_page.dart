@@ -18,7 +18,6 @@ class SignsLibraryPage extends ConsumerWidget {
     final l = AppLocalizations.of(context);
     final code = ref.watch(settingsProvider).localeCode;
     final signsAsync = ref.watch(signsProvider);
-    final hasUnlimited = ref.watch(hasUnlimitedAccessProvider);
 
     return Scaffold(
       backgroundColor: AppColors.riceWhite,
@@ -61,7 +60,6 @@ class SignsLibraryPage extends ConsumerWidget {
                 context: context,
                 level: level,
                 signs: signs,
-                hasUnlimited: hasUnlimited,
                 l: l,
                 code: code,
               );
@@ -76,7 +74,6 @@ class SignsLibraryPage extends ConsumerWidget {
     required BuildContext context,
     required FortuneLevel level,
     required List<FortuneSign> signs,
-    required bool hasUnlimited,
     required AppLocalizations l,
     required String code,
   }) {
@@ -107,16 +104,15 @@ class SignsLibraryPage extends ConsumerWidget {
           itemCount: signs.length,
           itemBuilder: (context, i) {
             final sign = signs[i];
-            // V1：试用到期后签文库全部锁住（不保留 V0.1 的前 30 支可看）
-            final isLocked = !hasUnlimited;
-            return _buildSignCard(context, sign, isLocked, code);
+            // V1.2 (v5):取消订阅,签文库永远全部可见
+            return _buildSignCard(context, sign, code);
           },
         ),
       ],
     );
   }
 
-  Widget _buildSignCard(BuildContext context, FortuneSign sign, bool isLocked, String code) {
+  Widget _buildSignCard(BuildContext context, FortuneSign sign, String code) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -154,18 +150,14 @@ class SignsLibraryPage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                if (isLocked) ...[
-                  const Spacer(),
-                  const Icon(Icons.lock, size: 14, color: AppColors.gray),
-                ],
               ],
             ),
             Text(
               '「${sign.getTitle(code)}」',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: isLocked ? AppColors.gray : AppColors.inkBlack,
+                color: AppColors.inkBlack,
               ),
             ),
           ],

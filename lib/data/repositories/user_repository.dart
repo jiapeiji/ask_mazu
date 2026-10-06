@@ -1,5 +1,7 @@
 // lib/data/repositories/user_repository.dart
 // 用户报家门信息仓储
+//
+// V1.2 (v5):update() 删 city 参数。
 
 import 'package:hive/hive.dart';
 
@@ -32,10 +34,10 @@ class UserRepository {
     await box.put(userKey, profile);
   }
 
-  Future<void> update({String? name, String? city}) async {
+  Future<void> update({String? name}) async {
     final current = await get();
     if (current == null) return;
-    await save(current.copyWith(name: name, city: city));
+    await save(current.copyWith(name: name));
   }
 
   Future<void> clear() async {
