@@ -10,7 +10,7 @@ import '../../features/home/home_page.dart';
 import '../../features/throw/throw_page.dart';
 import '../../features/result/result_page.dart';
 import '../../features/signs/signs_library_page.dart';
-import '../../features/history/history_page.dart';
+import '../../features/records/records_page.dart';
 import '../../features/settings/settings_page.dart';
 import '../../data/models/fortune_sign.dart';
 import '../../data/models/user_profile.dart';
@@ -86,7 +86,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/history',
-        builder: (_, __) => const HistoryPage(),
+        builder: (_, __) => const RecordsPage(),
       ),
       GoRoute(
         path: '/settings',

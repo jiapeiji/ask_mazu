@@ -130,7 +130,6 @@ class _ResultPageState extends ConsumerState<ResultPage> {
     };
     final user    = ref.watch(currentUserProvider).valueOrNull;
     final name    = user?.name ?? '弟子';
-    final city    = user?.city ?? '';
     final message = ResultTemplates.getMessage(
       l: l,
       type: result, name: name, signTitle: sign?.getTitle(code),
@@ -218,7 +217,7 @@ class _ResultPageState extends ConsumerState<ResultPage> {
                     context,
                     result: result, sign: sign,
                     message: message, question: question,
-                    name: name, city: city,
+                    name: name, city: '',
                   ),
                   onRetry: () {
                     // throw_page 用的是 pushReplacement → ResultPage 已是栈顶

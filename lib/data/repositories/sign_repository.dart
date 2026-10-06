@@ -7,7 +7,6 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 
 import '../models/fortune_sign.dart';
-import '../../core/utils/result_templates.dart';
 
 class SignRepository {
   List<FortuneSign>? _cache;
