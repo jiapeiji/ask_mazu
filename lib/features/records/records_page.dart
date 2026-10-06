@@ -29,6 +29,19 @@ class RecordsPage extends ConsumerStatefulWidget {
 
 class _RecordsPageState extends ConsumerState<RecordsPage> {
   String _filter = 'all'; // 'all' | 'thinking' | 'withMazu' | 'starred'
+  int _streak = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadStreak();
+  }
+
+  Future<void> _loadStreak() async {
+    final repo = ref.read(recordRepositoryProvider);
+    final s = await repo.getStreak();
+    if (mounted) setState(() => _streak = s);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +84,60 @@ class _RecordsPageState extends ConsumerState<RecordsPage> {
                 ],
               ),
             ),
+            // 连续天数 banner(轻量视觉)
+            if (_streak > 0)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 10),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF5ECD9),
+                    border: Border.all(color: const Color(0xFFD4A24C)),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        '$_streak',
+                        style: const TextStyle(
+                          fontFamily: 'ChillJinshuSong',
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.mazuRed,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Text(
+                              '连续记录天数',
+                              style: TextStyle(
+                                fontFamily: 'ChillJinshuSong',
+                                fontSize: 12,
+                                color: AppColors.inkBlack,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            const Text(
+                              '不必每条都长,但保持在场',
+                              style: TextStyle(
+                                fontFamily: 'ChillJinshuSong',
+                                fontSize: 11,
+                                color: AppColors.gray,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
             // 筛选 tab
             _buildFilterTabs(),
             const SizedBox(height: 8),

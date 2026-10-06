@@ -20,24 +20,6 @@
   "homeCatCustom": "自定义",
   "homeThrowBtn": "投 掷 杯 筊",
   "homeCustomPlaceholder": "想问点什么？",
-  "homeStatusTrialActive": "免费体验还剩 {days} 天",
-  "@homeStatusTrialActive": {
-    "placeholders": {
-      "days": {"type": "int"}
-    }
-  },
-  "homeStatusTrialLastDay": "今天是免费体验最后一天",
-  "homeStatusTrialExpired": "解锁全部投掷仅需 $0.99/月",
-  "homeStatusSubscribed": "已订阅 · 续期至 {date}",
-  "@homeStatusSubscribed": {
-    "placeholders": {
-      "date": {"type": "String"}
-    }
-  },
-  "homeStatusSubExpired": "订阅已到期",
-  "homeStatusLinkSubscribe": "立即订阅",
-  "homeStatusLinkManage": "管理",
-  "homeStatusLinkRenew": "立即续订",
   "homeCustomTitle": "自定义问题",
   "homeCustomHint": "请输入您想问的事~",
 
@@ -99,7 +81,6 @@
   "settingsSectionProfile": "报 家 门",
   "settingsSectionLanguage": "语 言",
   "settingsSectionSound": "声 音",
-  "settingsSectionSubscription": "订 阅",
   "settingsSectionView": "查 看",
   "settingsSectionAbout": "关 于",
   "settingsSectionDebug": "调 试",
@@ -121,12 +102,6 @@
   "settingsSoundAmbientLocked": "订阅后可用",
   "settingsSoundHapticTitle": "震动反馈",
   "settingsSoundHapticDesc": "投掷完成时轻微震动",
-  "settingsSoundBadge": "订阅",
-
-  "settingsSubActive": "已订阅",
-  "settingsSubInactive": "升级无限次数",
-  "settingsSubActiveDesc": "感谢支持！",
-  "settingsSubInactiveDesc": "月费 $0.99",
 
   "settingsViewHistory": "问事记录",
   "settingsAboutMazu": "关于妈祖",
@@ -134,19 +109,12 @@
   "settingsTerms": "用户协议",
   "settingsAboutApp": "关于此 App",
 
-  "settingsDebugMockSub": "模拟订阅",
-  "settingsDebugMockSubDesc": "开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间",
-
   "settingsSectionData": "数据",
   "settingsDeleteAllData": "删除全部数据",
   "settingsDeleteConfirmTitle": "删除全部数据？",
   "settingsDeleteConfirmBody": "此操作不可撤销。您的名字、城市、问事记录和设置都会被清除，App 会回到初始状态。",
   "settingsDeleteDone": "数据已清除",
   "commonDelete": "删除",
-
-  "settingsUpgradeTitle": "升 级 订 阅",
-  "settingsUpgradeFeatures": "· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音",
-  "settingsUpgradeNote": "注：订阅功能在 V1 启用（iOS 上架后）。",
 
   "historyTitle": "问 事 记 录",
   "historyEmpty": "暂无问事记录",

@@ -40,6 +40,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   // V1.2 (v5):不再有 _selectedCategory(类目删了),只用 _customQuestion 作思考文本
   final TextEditingController _customController = TextEditingController();
   String _customQuestion = '';
+  Mood? _selectedMood;  // V1.2:必选 1(V1.2 上线后 mood 必填,不允许 null)
   bool _buttonPressed = false;
 
   @override
@@ -49,9 +50,8 @@ class _HomePageState extends ConsumerState<HomePage> {
   }
 
   Future<void> _onThrow() async {
-    // V1.2 (v5) 取消订阅拦截:直接进投掷
-    // 临时仍传 SignCategory.daily 占位(V1 的 sign_repository 仍按类目筛);
-    // 后续 W2 改 sign_repository 为"每日 1 支 + 6 时辰变种"时移除 category 字段
+    // V1.2 (v5):心情必选,无 mood 时按钮禁用
+    if (_selectedMood == null) return;
     final question = _customQuestion.isNotEmpty
         ? _customQuestion
         : '';
@@ -66,6 +66,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             category: SignCategory.daily,
             question: question,
             isCustom: question.isNotEmpty,
+            mood: _selectedMood!,
           ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return SlideTransition(
@@ -244,43 +245,82 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 
-  /// 心情选择器(必选 1,V1.2 UI 占位 — 实际选中态留到下轮接 mood 字段)
+  /// 心情选择器(V1.2 必选 1,选中态用红边高亮)
   Widget _buildMoodRow() {
     final moods = const [
-      ('☺', '平和'),
-      ('☹', '低落'),
-      ('😶', '迷茫'),
-      ('😌', '充实'),
-      ('😠', '烦躁'),
+      ('☺', '平和', Mood.peaceful),
+      ('☹', '低落', Mood.down),
+      ('😶', '迷茫', Mood.confused),
+      ('😌', '充实', Mood.fulfilled),
+      ('😠', '烦躁', Mood.frustrated),
     ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        children: moods.map((m) => Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: AppColors.lightGray),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Text(m.$1, style: const TextStyle(fontSize: 16)),
-              const SizedBox(width: 4),
-              Text(
-                m.$2,
-                style: const TextStyle(
-                  fontSize: 13,
+              const Text(
+                '此刻的心情',
+                style: TextStyle(
+                  fontSize: 14,
                   color: AppColors.inkBlack,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'ChillJinshuSong',
+                ),
+              ),
+              const SizedBox(width: 6),
+              Text(
+                _selectedMood == null ? '· 必选 1 个' : '· 已选',
+                style: TextStyle(
+                  fontSize: 11,
+                  color: _selectedMood == null ? AppColors.mazuRed : AppColors.gray,
                   fontFamily: 'ChillJinshuSong',
                 ),
               ),
             ],
           ),
-        )).toList(),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: moods.map((m) {
+              final selected = _selectedMood == m.$3;
+              return GestureDetector(
+                onTap: () => setState(() => _selectedMood = m.$3),
+                behavior: HitTestBehavior.opaque,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: selected ? const Color(0xFFF3E6E3) : Colors.white,
+                    border: Border.all(
+                      color: selected ? AppColors.mazuRed : AppColors.lightGray,
+                      width: selected ? 1.5 : 1,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(m.$1, style: const TextStyle(fontSize: 16)),
+                      const SizedBox(width: 4),
+                      Text(
+                        m.$2,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: selected ? AppColors.mazuRed : AppColors.inkBlack,
+                          fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                          fontFamily: 'ChillJinshuSong',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ],
       ),
     );
   }
@@ -410,36 +450,40 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 
-  /// 投杯按钮(V1.2 改文案)
+  /// 投杯按钮(V1.2 改文案 + 心情未选时禁用)
   Widget _buildThrowButton(AppLocalizations l) {
-    return GestureDetector(
-      onTap: _onThrow,
-      onTapDown: (_) => setState(() => _buttonPressed = true),
-      onTapUp: (_) => setState(() => _buttonPressed = false),
-      onTapCancel: () => setState(() => _buttonPressed = false),
-      behavior: HitTestBehavior.opaque,
-      child: Container(
-        width: double.infinity,
-        height: 69,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              _buttonPressed
-                  ? 'assets/images/home/按钮bg-pressed@2x.png'
-                  : 'assets/images/home/按钮bg-default@2x.png',
+    final enabled = _selectedMood != null;
+    return Opacity(
+      opacity: enabled ? 1 : 0.5,
+      child: GestureDetector(
+        onTap: _onThrow,
+        onTapDown: enabled ? (_) => setState(() => _buttonPressed = true) : null,
+        onTapUp: enabled ? (_) => setState(() => _buttonPressed = false) : null,
+        onTapCancel: enabled ? () => setState(() => _buttonPressed = false) : null,
+        behavior: HitTestBehavior.opaque,
+        child: Container(
+          width: double.infinity,
+          height: 69,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                _buttonPressed
+                    ? 'assets/images/home/按钮bg-pressed@2x.png'
+                    : 'assets/images/home/按钮bg-default@2x.png',
+              ),
+              fit: BoxFit.fill,
             ),
-            fit: BoxFit.fill,
           ),
-        ),
-        alignment: Alignment.center,
-        child: const Text(
-          '掷杯筊 · 问妈祖',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-            letterSpacing: 4,
-            fontFamily: 'ChillJinshuSong',
+          alignment: Alignment.center,
+          child: Text(
+            enabled ? '掷杯筊 · 问妈祖' : '选心情 · 再继续',
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+              letterSpacing: 4,
+              fontFamily: 'ChillJinshuSong',
+            ),
           ),
         ),
       ),

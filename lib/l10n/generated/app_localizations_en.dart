@@ -60,36 +60,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeCustomPlaceholder => 'Tap to ask a question';
 
   @override
-  String homeStatusTrialActive(int days) {
-    return '$days days left in your free trial';
-  }
-
-  @override
-  String get homeStatusTrialLastDay =>
-      'Today is the last day of your free trial';
-
-  @override
-  String get homeStatusTrialExpired =>
-      'Unlock unlimited throws for just \$0.99/month';
-
-  @override
-  String homeStatusSubscribed(String date) {
-    return 'Subscribed · renews $date';
-  }
-
-  @override
-  String get homeStatusSubExpired => 'Subscription expired';
-
-  @override
-  String get homeStatusLinkSubscribe => 'Subscribe Now';
-
-  @override
-  String get homeStatusLinkManage => 'Manage';
-
-  @override
-  String get homeStatusLinkRenew => 'Renew Now';
-
-  @override
   String get homeCustomTitle => 'Custom Question';
 
   @override
@@ -228,9 +198,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsSectionSound => 'Sound';
 
   @override
-  String get settingsSectionSubscription => 'Subscription';
-
-  @override
   String get settingsSectionView => 'Browse';
 
   @override
@@ -286,21 +253,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'A gentle vibration when the throw completes';
 
   @override
-  String get settingsSoundBadge => 'PRO';
-
-  @override
-  String get settingsSubActive => 'Subscribed';
-
-  @override
-  String get settingsSubInactive => 'Upgrade for Unlimited';
-
-  @override
-  String get settingsSubActiveDesc => 'Thanks for your support!';
-
-  @override
-  String get settingsSubInactiveDesc => '\$0.99 / month';
-
-  @override
   String get settingsViewHistory => 'Question History';
 
   @override
@@ -314,13 +266,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsAboutApp => 'About this App';
-
-  @override
-  String get settingsDebugMockSub => 'Mock Subscription';
-
-  @override
-  String get settingsDebugMockSubDesc =>
-      'When on, simulates an active subscription (for development). When off, resets the trial start time.';
 
   @override
   String get settingsSectionData => 'Data';
@@ -340,17 +285,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get commonDelete => 'Delete';
-
-  @override
-  String get settingsUpgradeTitle => 'Upgrade to Pro';
-
-  @override
-  String get settingsUpgradeFeatures =>
-      '· Unlimited daily throws\n· Full 60-sign library\n· Temple ambience';
-
-  @override
-  String get settingsUpgradeNote =>
-      'Note: Subscription goes live in V1 (after iOS App Store release).';
 
   @override
   String get historyTitle => 'Question History';

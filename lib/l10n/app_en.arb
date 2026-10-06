@@ -20,24 +20,6 @@
   "homeCatCustom": "Custom",
   "homeThrowBtn": "Throw the Blocks",
   "homeCustomPlaceholder": "Tap to ask a question",
-  "homeStatusTrialActive": "{days} days left in your free trial",
-  "@homeStatusTrialActive": {
-    "placeholders": {
-      "days": {"type": "int"}
-    }
-  },
-  "homeStatusTrialLastDay": "Today is the last day of your free trial",
-  "homeStatusTrialExpired": "Unlock unlimited throws for just $0.99/month",
-  "homeStatusSubscribed": "Subscribed · renews {date}",
-  "@homeStatusSubscribed": {
-    "placeholders": {
-      "date": {"type": "String"}
-    }
-  },
-  "homeStatusSubExpired": "Subscription expired",
-  "homeStatusLinkSubscribe": "Subscribe Now",
-  "homeStatusLinkManage": "Manage",
-  "homeStatusLinkRenew": "Renew Now",
   "homeCustomTitle": "Custom Question",
   "homeCustomHint": "What would you like to ask Mazu?",
 
@@ -99,7 +81,6 @@
   "settingsSectionProfile": "Profile",
   "settingsSectionLanguage": "Language",
   "settingsSectionSound": "Sound",
-  "settingsSectionSubscription": "Subscription",
   "settingsSectionView": "Browse",
   "settingsSectionAbout": "About",
   "settingsSectionDebug": "Debug",
@@ -121,33 +102,17 @@
   "settingsSoundAmbientLocked": "Subscribe to unlock",
   "settingsSoundHapticTitle": "Haptic Feedback",
   "settingsSoundHapticDesc": "A gentle vibration when the throw completes",
-  "settingsSoundBadge": "PRO",
-
-  "settingsSubActive": "Subscribed",
-  "settingsSubInactive": "Upgrade for Unlimited",
-  "settingsSubActiveDesc": "Thanks for your support!",
-  "settingsSubInactiveDesc": "$0.99 / month",
-
   "settingsViewHistory": "Question History",
   "settingsAboutMazu": "About Mazu",
   "settingsPrivacy": "Privacy Policy",
   "settingsTerms": "Terms of Service",
   "settingsAboutApp": "About this App",
-
-  "settingsDebugMockSub": "Mock Subscription",
-  "settingsDebugMockSubDesc": "When on, simulates an active subscription (for development). When off, resets the trial start time.",
-
   "settingsSectionData": "Data",
   "settingsDeleteAllData": "Delete All Data",
   "settingsDeleteConfirmTitle": "Delete All Data?",
   "settingsDeleteConfirmBody": "This action cannot be undone. Your name, city, throw history, and settings will be permanently erased. The app will return to its initial state.",
   "settingsDeleteDone": "Data deleted",
   "commonDelete": "Delete",
-
-  "settingsUpgradeTitle": "Upgrade to Pro",
-  "settingsUpgradeFeatures": "· Unlimited daily throws\n· Full 60-sign library\n· Temple ambience",
-  "settingsUpgradeNote": "Note: Subscription goes live in V1 (after iOS App Store release).",
-
   "historyTitle": "Question History",
   "historyEmpty": "No questions yet",
   "historyLoadError": "Failed to load: {error}",

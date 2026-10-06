@@ -41,6 +41,61 @@ class RecordRepository {
       ..sort((a, b) => b.timestamp.compareTo(a.timestamp));
   }
 
+  /// 计算连续记录天数(V1.2 月历/连续 banner 用)
+  /// 从今天往前数:每天只能有 0 或 1 条记录
+  /// - 今天有 → 连续计数从 1 开始
+  /// - 今天没 → 连续计数从 0(最近一次连续断)
+  Future<int> getStreak() async {
+    final records = await getAll();
+    if (records.isEmpty) return 0;
+
+    // 按天聚合(只取日期,忽略时分秒)
+    final dayKeys = <String>{};
+    for (final r in records) {
+      final t = r.timestamp;
+      dayKeys.add('${t.year}-${t.month.toString().padLeft(2, '0')}-${t.day.toString().padLeft(2, '0')}');
+    }
+
+    final today = DateTime.now();
+    var cursor = DateTime(today.year, today.month, today.day);
+    var count = 0;
+
+    // 检查今天
+    final todayKey = '${cursor.year}-${cursor.month.toString().padLeft(2, '0')}-${cursor.day.toString().padLeft(2, '0')}';
+    if (dayKeys.contains(todayKey)) {
+      count = 1;
+      cursor = cursor.subtract(const Duration(days: 1));
+    } else {
+      // 今天没记,但允许"昨天是连续的"
+      cursor = cursor.subtract(const Duration(days: 1));
+    }
+
+    while (true) {
+      final key = '${cursor.year}-${cursor.month.toString().padLeft(2, '0')}-${cursor.day.toString().padLeft(2, '0')}';
+      if (dayKeys.contains(key)) {
+        count += 1;
+        cursor = cursor.subtract(const Duration(days: 1));
+      } else {
+        break;
+      }
+    }
+
+    return count;
+  }
+
+  /// 给定日期的当日记录(0 或 1 条)
+  Future<QuestionRecord?> getByDate(DateTime date) async {
+    final records = await getAll();
+    final d = DateTime(date.year, date.month, date.day);
+    final next = d.add(const Duration(days: 1));
+    for (final r in records) {
+      if (!r.timestamp.isBefore(d) && r.timestamp.isBefore(next)) {
+        return r;
+      }
+    }
+    return null;
+  }
+
   Future<void> delete(String id) async {
     final box = await _ensureBox();
     await box.delete(id);

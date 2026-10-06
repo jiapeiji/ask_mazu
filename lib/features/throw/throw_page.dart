@@ -43,11 +43,13 @@ class ThrowPage extends ConsumerStatefulWidget {
   final SignCategory category;
   final String question;
   final bool isCustom;
+  final Mood mood;
   const ThrowPage({
     super.key,
     required this.category,
     required this.question,
     this.isCustom = false,
+    this.mood = Mood.confused,
   });
 
   @override
@@ -170,7 +172,7 @@ class _ThrowPageState extends ConsumerState<ThrowPage> {
             result: result,
             sign: matchedSign,
             question: widget.question,
-            mood: Mood.confused,  // TODO:从 home_page 真实选择传过来(下轮接心情状态)
+            mood: widget.mood,
           ),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // pop 时:直接显示(瞬切)

@@ -201,54 +201,6 @@ abstract class AppLocalizations {
   /// **'想问点什么？'**
   String get homeCustomPlaceholder;
 
-  /// No description provided for @homeStatusTrialActive.
-  ///
-  /// In zh, this message translates to:
-  /// **'免费体验还剩 {days} 天'**
-  String homeStatusTrialActive(int days);
-
-  /// No description provided for @homeStatusTrialLastDay.
-  ///
-  /// In zh, this message translates to:
-  /// **'今天是免费体验最后一天'**
-  String get homeStatusTrialLastDay;
-
-  /// No description provided for @homeStatusTrialExpired.
-  ///
-  /// In zh, this message translates to:
-  /// **'解锁全部投掷仅需 \$0.99/月'**
-  String get homeStatusTrialExpired;
-
-  /// No description provided for @homeStatusSubscribed.
-  ///
-  /// In zh, this message translates to:
-  /// **'已订阅 · 续期至 {date}'**
-  String homeStatusSubscribed(String date);
-
-  /// No description provided for @homeStatusSubExpired.
-  ///
-  /// In zh, this message translates to:
-  /// **'订阅已到期'**
-  String get homeStatusSubExpired;
-
-  /// No description provided for @homeStatusLinkSubscribe.
-  ///
-  /// In zh, this message translates to:
-  /// **'立即订阅'**
-  String get homeStatusLinkSubscribe;
-
-  /// No description provided for @homeStatusLinkManage.
-  ///
-  /// In zh, this message translates to:
-  /// **'管理'**
-  String get homeStatusLinkManage;
-
-  /// No description provided for @homeStatusLinkRenew.
-  ///
-  /// In zh, this message translates to:
-  /// **'立即续订'**
-  String get homeStatusLinkRenew;
-
   /// No description provided for @homeCustomTitle.
   ///
   /// In zh, this message translates to:
@@ -507,12 +459,6 @@ abstract class AppLocalizations {
   /// **'声 音'**
   String get settingsSectionSound;
 
-  /// No description provided for @settingsSectionSubscription.
-  ///
-  /// In zh, this message translates to:
-  /// **'订 阅'**
-  String get settingsSectionSubscription;
-
   /// No description provided for @settingsSectionView.
   ///
   /// In zh, this message translates to:
@@ -621,36 +567,6 @@ abstract class AppLocalizations {
   /// **'投掷完成时轻微震动'**
   String get settingsSoundHapticDesc;
 
-  /// No description provided for @settingsSoundBadge.
-  ///
-  /// In zh, this message translates to:
-  /// **'订阅'**
-  String get settingsSoundBadge;
-
-  /// No description provided for @settingsSubActive.
-  ///
-  /// In zh, this message translates to:
-  /// **'已订阅'**
-  String get settingsSubActive;
-
-  /// No description provided for @settingsSubInactive.
-  ///
-  /// In zh, this message translates to:
-  /// **'升级无限次数'**
-  String get settingsSubInactive;
-
-  /// No description provided for @settingsSubActiveDesc.
-  ///
-  /// In zh, this message translates to:
-  /// **'感谢支持！'**
-  String get settingsSubActiveDesc;
-
-  /// No description provided for @settingsSubInactiveDesc.
-  ///
-  /// In zh, this message translates to:
-  /// **'月费 \$0.99'**
-  String get settingsSubInactiveDesc;
-
   /// No description provided for @settingsViewHistory.
   ///
   /// In zh, this message translates to:
@@ -680,18 +596,6 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'关于此 App'**
   String get settingsAboutApp;
-
-  /// No description provided for @settingsDebugMockSub.
-  ///
-  /// In zh, this message translates to:
-  /// **'模拟订阅'**
-  String get settingsDebugMockSub;
-
-  /// No description provided for @settingsDebugMockSubDesc.
-  ///
-  /// In zh, this message translates to:
-  /// **'开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间'**
-  String get settingsDebugMockSubDesc;
 
   /// No description provided for @settingsSectionData.
   ///
@@ -728,24 +632,6 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'删除'**
   String get commonDelete;
-
-  /// No description provided for @settingsUpgradeTitle.
-  ///
-  /// In zh, this message translates to:
-  /// **'升 级 订 阅'**
-  String get settingsUpgradeTitle;
-
-  /// No description provided for @settingsUpgradeFeatures.
-  ///
-  /// In zh, this message translates to:
-  /// **'· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音'**
-  String get settingsUpgradeFeatures;
-
-  /// No description provided for @settingsUpgradeNote.
-  ///
-  /// In zh, this message translates to:
-  /// **'注：订阅功能在 V1 启用（iOS 上架后）。'**
-  String get settingsUpgradeNote;
 
   /// No description provided for @historyTitle.
   ///

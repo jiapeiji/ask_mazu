@@ -60,34 +60,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get homeCustomPlaceholder => '想问点什么？';
 
   @override
-  String homeStatusTrialActive(int days) {
-    return '免费体验还剩 $days 天';
-  }
-
-  @override
-  String get homeStatusTrialLastDay => '今天是免费体验最后一天';
-
-  @override
-  String get homeStatusTrialExpired => '解锁全部投掷仅需 \$0.99/月';
-
-  @override
-  String homeStatusSubscribed(String date) {
-    return '已订阅 · 续期至 $date';
-  }
-
-  @override
-  String get homeStatusSubExpired => '订阅已到期';
-
-  @override
-  String get homeStatusLinkSubscribe => '立即订阅';
-
-  @override
-  String get homeStatusLinkManage => '管理';
-
-  @override
-  String get homeStatusLinkRenew => '立即续订';
-
-  @override
   String get homeCustomTitle => '自定义问题';
 
   @override
@@ -223,9 +195,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsSectionSound => '声 音';
 
   @override
-  String get settingsSectionSubscription => '订 阅';
-
-  @override
   String get settingsSectionView => '查 看';
 
   @override
@@ -280,21 +249,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsSoundHapticDesc => '投掷完成时轻微震动';
 
   @override
-  String get settingsSoundBadge => '订阅';
-
-  @override
-  String get settingsSubActive => '已订阅';
-
-  @override
-  String get settingsSubInactive => '升级无限次数';
-
-  @override
-  String get settingsSubActiveDesc => '感谢支持！';
-
-  @override
-  String get settingsSubInactiveDesc => '月费 \$0.99';
-
-  @override
   String get settingsViewHistory => '问事记录';
 
   @override
@@ -308,12 +262,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsAboutApp => '关于此 App';
-
-  @override
-  String get settingsDebugMockSub => '模拟订阅';
-
-  @override
-  String get settingsDebugMockSubDesc => '开启后模拟订阅生效中（开发调试用），关闭则重置试用起算时间';
 
   @override
   String get settingsSectionData => '数据';
@@ -333,15 +281,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get commonDelete => '删除';
-
-  @override
-  String get settingsUpgradeTitle => '升 级 订 阅';
-
-  @override
-  String get settingsUpgradeFeatures => '· 每日无限次投掷\n· 完整 60 支签文\n· 庙宇环境音';
-
-  @override
-  String get settingsUpgradeNote => '注：订阅功能在 V1 启用（iOS 上架后）。';
 
   @override
   String get historyTitle => '问 事 记 录';
@@ -670,34 +609,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get homeCustomPlaceholder => '想問點什麼？';
 
   @override
-  String homeStatusTrialActive(int days) {
-    return '免費體驗還剩 $days 天';
-  }
-
-  @override
-  String get homeStatusTrialLastDay => '今天是免費體驗最後一天';
-
-  @override
-  String get homeStatusTrialExpired => '解鎖全部投擲僅需 \$0.99/月';
-
-  @override
-  String homeStatusSubscribed(String date) {
-    return '已訂閱 · 續期至 $date';
-  }
-
-  @override
-  String get homeStatusSubExpired => '訂閱已到期';
-
-  @override
-  String get homeStatusLinkSubscribe => '立即訂閱';
-
-  @override
-  String get homeStatusLinkManage => '管理';
-
-  @override
-  String get homeStatusLinkRenew => '立即續訂';
-
-  @override
   String get homeCustomTitle => '自訂問題';
 
   @override
@@ -833,9 +744,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get settingsSectionSound => '聲 音';
 
   @override
-  String get settingsSectionSubscription => '訂 閱';
-
-  @override
   String get settingsSectionView => '查 看';
 
   @override
@@ -890,21 +798,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get settingsSoundHapticDesc => '投擲完成時輕微震動';
 
   @override
-  String get settingsSoundBadge => '訂閱';
-
-  @override
-  String get settingsSubActive => '已訂閱';
-
-  @override
-  String get settingsSubInactive => '升級無限次數';
-
-  @override
-  String get settingsSubActiveDesc => '感謝支持！';
-
-  @override
-  String get settingsSubInactiveDesc => '月費 \$0.99';
-
-  @override
   String get settingsViewHistory => '問事記錄';
 
   @override
@@ -918,12 +811,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get settingsAboutApp => '關於此 App';
-
-  @override
-  String get settingsDebugMockSub => '模擬訂閱';
-
-  @override
-  String get settingsDebugMockSubDesc => '開啟後模擬訂閱生效中（開發除錯用），關閉則重設試用起算時間';
 
   @override
   String get settingsSectionData => '資料';
@@ -943,15 +830,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get commonDelete => '刪除';
-
-  @override
-  String get settingsUpgradeTitle => '升 級 訂 閱';
-
-  @override
-  String get settingsUpgradeFeatures => '· 每日無限次投擲\n· 完整 60 支籤文\n· 廟宇環境音';
-
-  @override
-  String get settingsUpgradeNote => '註：訂閱功能於 V1 啟用（iOS 上架後）。';
 
   @override
   String get historyTitle => '問 事 記 錄';
