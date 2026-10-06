@@ -112,7 +112,7 @@ class SettingsPage extends ConsumerWidget {
                 leading: const Icon(Icons.history, color: AppColors.mazuRed),
                 title: Text(l.settingsViewHistory),
                 trailing: const Icon(Icons.chevron_right, color: AppColors.gray),
-                onTap: () => context.push('/history'),
+                onTap: () => context.push('/records'),
               ),
             ],
           ),

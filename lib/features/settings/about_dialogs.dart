@@ -12,7 +12,7 @@ import '../../l10n/generated/app_localizations.dart';
 class AboutDialogs {
   AboutDialogs._();
 
-  /// 关于妈祖
+  /// 关于妈祖(V1.2)
   static void showAboutMazu(BuildContext context) {
     final l = AppLocalizations.of(context);
     showDialog(
@@ -28,12 +28,12 @@ class AboutDialogs {
 
 在台湾、香港、澳门、东南亚及北美华人聚居处，妈祖宫庙香火绵延。每逢农历三月廿三妈祖圣诞，各地宫庙举办祭典、绕境、吃福等活动，已成华人世界最重要的民俗信仰之一。
 
-本 App 旨在为海外华人提供一个日常的仪式——出门办事、远行决策、心有疑难时，掷杯问一问妈祖，得到一点心安。''',
+「问妈祖」App 旨在为海外华人提供一个安静的日常仪式：写下今日的反思，掷杯筊问妈祖，把她的回应当作诗来读，存入日记。仪式是为了让反思更有重量，不是为了算命。''',
       ),
     );
   }
 
-  /// 隐私政策
+  /// 隐私政策(V1.2)
   static void showPrivacyPolicy(BuildContext context) {
     final l = AppLocalizations.of(context);
     showDialog(
@@ -41,25 +41,29 @@ class AboutDialogs {
       builder: (ctx) => _buildScrollableDialog(
         context: ctx,
         title: l.privacyTitle,
-        content: '''最后更新：2026 年 8 月
+        content: '''最后更新：2026 年 10 月（V1.2）
+
+【关于本 App】
+「问妈祖」是一款面向海外华人的文化传承 + 每日反思 App。本 App 完全免费，无内购、无订阅。
 
 【我们收集什么】
-• 您输入的「名字」和「城市」——仅用于在结果中称呼您，本地存储，不上传。
-• 您投掷的记录（问题、结果、签文）——仅存储在您设备本地，不上传。
-• 崩溃日志与基础使用统计——匿名收集，用于改进 App 体验。
+• 您输入的「昵称」——仅用于在结果中称呼您，本地存储，不上传。
+• 您写下的反思文本（可选）+ 心情选择 + 投杯结果 + 妈祖反馈——仅存储在您设备本地，不上传。
+• 崩溃日志与基础使用统计（V1.2 暂未启用）。
 
 【我们不收集什么】
 • 不收集您的真实姓名、身份证号、手机号、邮箱、通讯录、位置轨迹。
 • 不收集您设备的 IMEI、IDFA、MAC 地址等永久标识符。
 • 不向任何第三方出售或共享您的个人数据。
+• 不收集任何账号 / 密码 / Apple ID——App 内无账号系统。
 
 【第三方 SDK】
-本 App 不集成广告 SDK、统计分析 SDK 或社交分享 SDK。V1 版本接入 App Store 内购时，仅 Apple 知晓您购买了订阅，应用本身不获取您的 Apple ID。
+本 App 不集成任何第三方 SDK：无广告、无统计分析、无社交分享、无推送通知、无 AI 服务。
 
 【您的权利】
-• 您的全部数据都存在本机，您可随时在「设置 → 重置全部数据」中清除。
+• 您的全部数据都存在本机，您可随时在「设置 → 删除全部数据」中清除。
 • 卸载 App 等同于删除全部本地数据。
-• 如有疑问，请通过设置页的「反馈」联系我们。
+• 如有疑问，请通过 GitHub Issues 联系我们。
 
 【未成年人】
 本 App 适合全年龄段使用。未成年人在使用前请由监护人代为阅读本政策。''',
@@ -67,7 +71,7 @@ class AboutDialogs {
     );
   }
 
-  /// 用户协议
+  /// 用户协议(V1.2)
   static void showTermsOfService(BuildContext context) {
     final l = AppLocalizations.of(context);
     showDialog(
@@ -75,16 +79,18 @@ class AboutDialogs {
       builder: (ctx) => _buildScrollableDialog(
         context: ctx,
         title: l.tosTitle,
-        content: '''最后更新：2026 年 8 月
+        content: '''最后更新：2026 年 10 月（V1.2）
 
 【服务说明】
 「问妈祖」是一款基于民间信仰的休闲文化类 App，不属于宗教组织运营，亦不收取功德箱、香油钱等任何形式的宗教捐赠。App 中的签文、诗句、解说来源于公开典籍与民俗传说，仅供文化参考与娱乐。
 
+本 App 完全免费，无内购、无订阅。
+
 【使用须知】
 • 本 App 内容不构成医疗、法律、金融、投资等专业建议。如有重大决策，请咨询专业人士。
-• 签文为概率生成，旨在给您一点心理暗示与仪式感，请勿过度依赖。
-• 每日 3 次免费投掷（V0.1 阶段），订阅后无次数限制。
-• 请文明提问，遵守当地法律法规与公序良俗。
+• 签诗为概率生成，旨在给您一点心理暗示与仪式感，请勿过度依赖。
+• 每日 1 次正式反思记录（V1.2 限定，不可重复）。
+• 请文明使用，遵守当地法律法规与公序良俗。
 
 【知识产权】
 • App 中的切图、签文库、文案均为本团队原创或合法授权。
@@ -92,7 +98,7 @@ class AboutDialogs {
 • 未经许可，不得将本 App 内容用于商业用途。
 
 【服务变更与终止】
-• 我们保留随时更新功能、调整计费、暂停服务的权利。
+• 我们保留随时更新功能、暂停服务的权利。
 • 如有重大变更，会提前在 App 内公告。
 • 您可以随时卸载 App 以终止使用。
 
@@ -149,7 +155,7 @@ class AboutDialogs {
               ),
               const SizedBox(height: 24),
               _buildInfoRow(l.aboutAppVersion, 'v${AppConstants.version}'),
-              _buildInfoRow(l.aboutAppBuildTime, '2026-08'),
+              _buildInfoRow(l.aboutAppBuildTime, '2026-10'),
               _buildInfoRow(l.aboutAppPlatform, 'iOS / Android'),
               const SizedBox(height: 20),
               Text(

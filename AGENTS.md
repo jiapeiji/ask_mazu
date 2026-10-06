@@ -225,3 +225,78 @@ flutter test
 - [ ] 音效（`services/audio/` 目录空，sound service 也只占位）
 - [ ] 订阅（`services/subscription/` 目录空，`isSubscribedProvider` 在 debug 默认 true，release 默认 false）
 - [ ] iOS 上架 / App Store 审核（已加 Apple Developer 申请到未来可能问的事）
+
+---
+
+## V1.2 重构（2026-10 · 应对 Apple Guideline 4.3b 被拒）
+
+### 为什么是 V1
+
+V1.0 / V1.1 被 Apple 两次拒:归类为「fortune telling / 占卜」(Guideline 4.3b - Spam 饱和类)。重提类似 build 会触发 Extended Review + 账号风险。
+
+V1.2 重新定位:**妈祖文化传承 + 每日反思 + 仪式**(不再是预测/算命工具)。
+
+### 核心定位变化
+
+| 维度 | V1.0/V1.1(被拒) | V1.2(当前) |
+|---|---|---|
+| 主入口 | 投杯问事 | 反思 tab |
+| 用户行为 | 选类目 → 投杯 → 看签 | 反思 prompt → 选心情 → 写思考(可选) → 掷杯筊 → 妈祖反馈 → 保存 |
+| 签文角色 | 预测 | 回应(poetic reply) |
+| 6 大问事类目 | 事业/感情/财运/健康/学业/家庭 | **删除**(不再问事) |
+| 每日限额 | 3 次 | 1 次正式反思记录 |
+| 订阅 | 有($0.99/月) | **完全免费**(删 in_app_purchase) |
+| 历史页 | 问事记录 | 日记流(反思 + 妈祖反馈) |
+| Onboarding | 姓名 + 城市 | 仅昵称(1 步) |
+| 底部 tab | 无 | 3 tab:反思 / 记录 / 妈祖(占位) |
+
+### 关键决策(不能再改,改了会重新触发 4.3b)
+
+- **不再有"重掷"按钮 + 不能在已记录状态再掷**(result_page 的 _RetryButton → _SaveButton)
+- **心情必选**(否则投掷按钮禁用 + 灰)
+- **签文每日 1 支 + 时辰变种**(避免"算法监控"负面感)
+- **签诗文案不带吉凶判断**(只展示签诗 + 简短解读,用户自行理解)
+- **删所有 fortune / divination / 占卜 / 算命 关键词**(代码 / ARB / 截图 caption)
+
+### 文件变化(2026-10)
+
+```
+删除:
+- lib/features/paywall/             整个目录
+- lib/services/subscription/        整个目录
+- lib/data/models/subscription_state.dart
+- lib/data/repositories/subscription_repository.dart
+- lib/features/history/history_page.dart   (改名 → records/)
+- test/subscription_state_test.dart
+- pubspec.yaml: in_app_purchase 依赖
+- assets/images/home/{事业/感情/财运/健康/家庭/今日运势}@2x.png  (6 个)
+- 3 个 ARB 文件订阅相关字段 × 19 个
+
+新增:
+- lib/features/records/records_page.dart
+- lib/features/main_shell.dart          (底部 3 tab 容器)
+- lib/features/mazu/mazu_placeholder_page.dart
+- lib/core/utils/reflection_prompts.dart  (80 条 prompt, 4 时辰)
+
+重写:
+- lib/features/home/home_page.dart       (删 6 类目,加 prompt + 心情 + 已记录状态)
+- lib/features/onboarding/onboarding_page.dart  (单步)
+- lib/data/models/question_record.dart   (加 Mood 枚举)
+- lib/data/models/user_profile.dart     (删 city)
+- lib/core/router/app_router.dart        (加 ShellRoute,改 /home → /reflect,/history → /records)
+- lib/features/result/result_page.dart   (删重掷,加"保存 · 写入日记")
+- lib/features/settings/settings_page.dart + about_dialogs.dart  (删订阅)
+- lib/data/repositories/record_repository.dart  (加 getStreak/getByDate)
+```
+
+### 路线图
+
+- V1.2(当前):反思 + 记录 + 妈祖占位(占位即可,不出 6 章内容)
+- V2:妈祖 6 章内容(生平 / 海上守护 / 信仰分布 / 经典故事 / 节庆 / 诗词文献)
+- 商业化推后(待 V1.2 上架审核通过 + 用户反馈后决定)
+
+### 文档同步更新
+
+- `docs/privacy.html` / `privacy-en.html`:删订阅段,改 V1.2 文案
+- `app_review_notes.md`:6 段重写,强调 reflection / cultural heritage / ritual
+- `lib/features/settings/about_dialogs.dart`:V1.2 内嵌文案
